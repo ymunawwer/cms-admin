@@ -1,0 +1,100 @@
+<div id="jqueryvalidation" class="section">
+  <div class="row">
+    <div class="col s12 m12 l12">
+      <div class="col s12 m12 l12">
+        <div class="card-panel">
+          <h4 class="header2">Edit a service item
+</h4>
+          <div class="row">
+            <form class="formValidate" name="editServiceForm" id="formValidate" ng-submit="updateUser()">
+              <div class="row">
+                <label for="smake">Make*</label>
+
+                <div class="input-field col s12">
+                  <select id="smake" ng-change="changeSelectMake()" ng-model="serviceData.make" required style="display:block;">
+                    <option ng-repeat="make in makesList | orderBy:'name'" ng-selected="make.name == serviceData.make" ng-value="make">{{make.name}}</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row">
+                <label for="smake">Model*</label>
+
+                <div class="input-field col s12">
+                  <select id="smake" ng-model="serviceData.model" required style="display:block;">
+                    <option  ng-repeat="model in modelsList | orderBy:'name'" value="{{model.name}}">{{model.name}}</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <label for="sname">Name*</label>
+                  <input id="sname" name="sname" type="text" data-error=".errorTxt1" ng-model="serviceData.name" required>
+                  <div class="errorTxt1"></div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <textarea id="message1" name="description" class="materialize-textarea validate" data-error=".errorTxt2" length="120" ng-model="serviceData.description" required></textarea>
+                  <label for="message1" class="">Description</label>
+                  <div class="errorTxt2"></div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <label for="amount">Price*</label>
+                  <input id="amount" name="amount" type="text" data-error=".errorTxt3" ng-model="serviceData.price" required>
+                  <div class="errorTxt3"></div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <a ui-sref="home.serviceview">Cancel </a>
+                  <button class="btn waves-effect waves-light right submit" type="submit" name="action">
+                   Submit
+                   <i class="mdi-content-send right"></i>
+                 </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+  $("#formValidate").validate({
+    rules: {
+      sname: {
+        required: true,
+        minlength: 6
+      },
+      description: {
+        required: true
+      },
+      amount: {
+        required: true,
+        number: true
+      }
+    },
+    //For custom messages
+    messages: {
+      sname: {
+        required: "Enter a service name",
+        minlength: "Enter at least 6 characters"
+      },
+      amount: {
+        number: "Enter valid number"
+      }
+    },
+    errorElement: 'div',
+    errorPlacement: function(error, element) {
+      var placement = $(element).data('error');
+      if (placement) {
+        $(placement).append(error)
+      } else {
+        error.insertAfter(element);
+      }
+    }
+  });
+</script>

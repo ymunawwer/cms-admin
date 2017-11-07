@@ -1,0 +1,229 @@
+<div id="jqueryvalidation" class="section">
+  <div class="row">
+    <div class="col s12 m12 l12">
+      <div class="col s12 m12 l12">
+        <div class="card-panel">
+          <h4 class="header2">Add a recall item
+</h4>
+          <div class="row">
+            <form class="formValidate" name="addServiceForm" id="formValidate" ng-submit="addRecall()">
+
+
+              <div class="m-b-20">
+              <div class="input-field col s8">
+                <label for="vin">Vin*</label>
+                <input id="vin" name="vin" type="text" data-error=".errorTxt15" ng-model="recallData.vin" required>
+                <div class="errorTxt15"></div>
+              </div>
+              <div class="input-field col s4">
+                      <div class="input-field col s12">
+                        <button class="btn cyan waves-effect waves-light" ng-click="checkVins();" type="button" name="action">Fetch</button>
+                      </div>
+                    </div>
+              <div class="input-field col s12">
+                <label for="vid">Vehicle id*</label>
+                <input id="vid" name="vid" type="text" readonly data-error=".errorTxt16" ng-model="recallData.vehicle_id" required>
+                <div class="errorTxt16"></div>
+              </div>
+              </div><!--m-b-20-->
+              <div class="row">
+                <div class="input-field col s12">
+                  <label for="sname1">Recall Id</label>
+                  <input id="sname1" name="sname1" type="text" data-error=".errorTxt1" ng-model="recallData.nhtsa_recall_id" >
+                  <div class="errorTxt1"></div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="input-field col s12">
+                  <label for="sname2">NHTSA Campaign Number</label>
+                  <input id="sname2" name="sname2" type="text" data-error=".errorTxt2" ng-model="recallData.nhtsa_campaign_number" >
+                  <div class="errorTxt1"></div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <label for="sname3">MFR Campaign Number</label>
+                  <input id="sname3" name="sname3" type="text" data-error=".errorTxt3" ng-model="recallData.mfr_campaign_number" >
+                  <div class="errorTxt1"></div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <label for="sname4">Component description</label>
+                  <input id="sname4" name="sname4" type="text" data-error=".errorTxt4" ng-model="recallData.component_description" >
+                  <div class="errorTxt1"></div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <label for="sname5">Report Manufacturer</label>
+                  <input id="sname5" name="sname5" type="text" data-error=".errorTxt5" ng-model="recallData.report_manufacturer" >
+                  <div class="errorTxt1"></div>
+                </div>
+              </div>
+              <div class="row">
+                <label for="sname6">Manufacturer Start Date</label>
+                <div class="input-field col s12">
+                  <input id="sname6" name="sname6" type="date" data-error=".errorTxt6" ng-model="recallData.manufacturing_start_date" >
+                  <div class="errorTxt6"></div>
+                </div>
+              </div>
+              <div class="row">
+                <label for="sname7">Manufacturer End Date</label>
+                <div class="input-field col s12">
+                  <input id="sname7" name="sname7" type="date" data-error=".errorTxt7" ng-model="recallData.manufacturing_end_date" >
+                  <div class="errorTxt7"></div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <label for="sname8">Recall Type Code</label>
+                  <input id="sname8" name="sname8" type="text" data-error=".errorTxt8" ng-model="recallData.recall_type_code" >
+                  <div class="errorTxt8"></div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <label for="sname9">Potential units affected</label>
+                  <input id="sname9" name="sname9" type="text" data-error=".errorTxt9" ng-model="recallData.potential_units_affected" >
+                  <div class="errorTxt9"></div>
+                </div>
+              </div>
+              <div class="row">
+                <label for="sname10">Owner Notification Date</label>
+                <div class="input-field col s12">
+                  <input id="sname10" name="sname10" type="date" data-error=".errorTxt10" ng-model="recallData.owner_notification_date" >
+                  <div class="errorTxt10"></div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <label for="sname11">Recall inititator</label>
+                  <input id="sname11" name="sname11" type="text" data-error=".errorTxt11" ng-model="recallData.recall_initiator" >
+                  <div class="errorTxt11"></div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <label for="sname12">Product Manufacturer</label>
+                  <input id="sname12" name="sname12" type="text" data-error=".errorTxt12" ng-model="recallData.product_manufacturer" >
+                  <div class="errorTxt12"></div>
+                </div>
+              </div>
+              <div class="row">
+                <label for="sname13">Report Received Date</label>
+                <div class="input-field col s12">
+                  <input id="sname13" name="sname13" type="date" data-error=".errorTxt13" ng-model="recallData.report_received_date" >
+                  <div class="errorTxt13"></div>
+                </div>
+              </div>
+              <div class="row">
+                <label for="sname14">Record Creation Date</label>
+                <div class="input-field col s12">
+                  <input id="sname14" name="sname14" type="date" data-error=".errorTxt14" ng-model="recallData.record_creation_date" >
+                  <div class="errorTxt14"></div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <label for="sname15">Regulartion part number</label>
+                  <input id="sname15" name="sname15" type="text" data-error=".errorTxt15" ng-model="recallData.regulation_part_number" >
+                  <div class="errorTxt15"></div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <label for="sname16">FMVVS Number</label>
+                  <input id="sname16" name="sname16" type="text" data-error=".errorTxt16" ng-model="recallData.fmvvs_number" >
+                  <div class="errorTxt16"></div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <label for="sname17">Defect Summary</label>
+                  <input id="sname17" name="sname17" type="text" data-error=".errorTxt17" ng-model="recallData.defect_summary" >
+                  <div class="errorTxt17"></div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <label for="sname18">Consequence Summary</label>
+                  <input id="sname18" name="sname18" type="text" data-error=".errorTxt18" ng-model="recallData.consequence_summary" >
+                  <div class="errorTxt18"></div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <label for="sname19">Corrective action Summary</label>
+                  <input id="sname19" name="sname19" type="text" data-error=".errorTxt19" ng-model="recallData.corrective_action_summary" >
+                  <div class="errorTxt19"></div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <label for="sname20">Notes</label>
+                  <input id="sname20" name="sname20" type="text" data-error=".errorTxt20" ng-model="recallData.notes" >
+                  <div class="errorTxt20"></div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <label for="sname21">Recalled Component Id</label>
+                  <input id="sname21" name="sname21" type="text" data-error=".errorTxt21" ng-model="recallData.recalled_component_id" >
+                  <div class="errorTxt21"></div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="input-field col s12">
+                  <a ui-sref="home.recallview">Cancel </a>
+                  <button class="btn waves-effect waves-light right submit" ng-disabled="loading" type="submit" name="action">
+                   Submit
+                   <i class="mdi-content-send right"></i>
+                 </button>
+
+                </div>
+              </div>
+            </form>
+            <!-- <div class="center">
+              - OR Upload file-
+            </div>
+            <div class="">
+                <div class="file-field input-field">
+                  <div class="btn">
+                    <span>Upload</span>
+                    <input type="file" onchange="angular.element(this).scope().uploadFileRecall(this.files)">
+                  </div>
+                  <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text">
+                  </div>
+
+
+                  <div id="card-alert" class="card red lighten-5" ng-if="already">
+                      <div class="card-content red-text">
+                        <p ng-repeat="all in already">Already exist : {{all.name}}</p>
+                      </div>
+                      <button type="button" ng-click="close()" class="close red-text" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                      </button>
+                    </div>
+                </div> -->
+                <!-- For bulk upload, you can use an excel sheet.
+Please download the sample excel format <a href="http://www.dsaidemo.com/Service_items.xls" targer="_blank">HERE </a> -->
+
+                <!-- <div class="row">
+                  <div class="input-field col s12">
+                    <button class="btn waves-effect waves-light right submit" type="submit" name="action">
+                     UPLOAD
+                     <i class="mdi-content-send right"></i>
+                   </button>
+                  </div>
+                </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

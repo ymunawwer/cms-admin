@@ -1,0 +1,149 @@
+<style>
+.input-field label {
+    left: initial !important;
+}
+.m-b-20{
+  margin-bottom: 2em;
+  display: inline-block;
+  width: 100%;
+}
+</style>
+<div id="jqueryvalidation" class="section">
+  <div class="row">
+    <div class="col s12 m12 l12">
+      <div class="col s12 m12 l12">
+        <div class="card-panel">
+          <h4 class="header2">Add a new maintenance item</h4>
+          <form class="formValidate" name="addServiceForms" id="formValidates" ng-submit="addService()">
+            <div class="row">
+              <div class="col s6">
+                <input name="group1" type="radio" id="test3" value="1" ng-model="fromCatalog"/>
+                <label for="test3">Add from catalog</label>
+              </div>
+              <div class="col s6">
+                <input name="group1" type="radio" id="test4" value="2" ng-model="fromCatalog"/>
+                <label for="test4">Add new maintainance</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12" ng-if="maintenanceData.maintenance_id">
+                <div class="chip">
+                  {{selectedService.name}}
+                  <i class="close material-icons" ng-click="removeThis()">close</i>
+                </div>
+              </div>
+              <div class="m-b-20">
+              <div class="input-field col s12" ng-show="!maintenanceData.maintenance_id">
+                <label for="sid">Maintenance name / Service item name *</label>
+                <input type="text" ng-model="maintenance_search" ng-required="fromCatalog == 2">
+              </div>
+              <div class="collection" ng-if="services.length && !maintenanceData.maintenance_id">
+                <a href="javascript:void(0)" class="collection-item" ng-repeat="service in services" ng-click="selectThis(service)">{{service.name}}</a>
+              </div>
+              <div class="input-field col s12">
+                <label for="maintenance_category">Maintenance category*</label>
+                <input id="maintenance_category" name="maintenance_category" type="text" data-error=".errorTxt13" ng-model="maintenanceData.maintenance_category"
+                  required>
+                <div class="errorTxt13"></div>
+              </div>
+              <div class="input-field col s12">
+                <label for="maintenance_notes">Maintenance notes*</label>
+                <textarea id="maintenance_notes" class="materialize-textarea" name="maintenance_notes" type="text" data-error=".errorTxt14"
+                  ng-model="maintenanceData.maintenance_notes" required></textarea>
+                <div class="errorTxt14"></div>
+              </div>
+            </div><!--m-b-20-->
+              <div class="m-b-20">
+              <div class="input-field col s8">
+                <label for="vin">Vin*</label>
+                <input id="vin" name="vin" type="text" data-error=".errorTxt15" ng-model="maintenanceData.vin" required>
+                <div class="errorTxt15"></div>
+              </div>
+              <div class="input-field col s4">
+                      <div class="input-field col s12">
+                        <button class="btn cyan waves-effect waves-light" ng-click="checkVin();" type="button" name="action">Fetch</button>
+                      </div>
+                    </div>
+              <div class="input-field col s12">
+                <label for="vid">Vehicle id*</label>
+                <input id="vid" name="vid" type="text" readonly data-error=".errorTxt16" ng-model="maintenanceData.vehicle_id" required>
+                <div class="errorTxt16"></div>
+              </div>
+              </div><!--m-b-20-->
+              <div class="input-field col s12">
+                <select data-error=".errorTxt17" ng-model="maintenanceData.interval_type" id="inter" name="inter" >
+                      <option value="">Choose your option</option>
+                      <option value="Every">Every</option>
+                      <option value="At">At</option>
+                    </select>
+                <label>Interval type*</label>
+                <div class="errorTxt17"></div>
+              </div>
+              <div class="input-field col s12">
+                <select data-error=".errorTxt18" ng-model="maintenanceData.unit"  id="unit" name="unit">
+                        <option value="" >Choose your option</option>
+                        <option value="Mile">Mile</option>
+                        <option value="Month">Month</option>
+                      </select>
+                <label>Unit*</label>
+                <div class="errorTxt18"></div>
+              </div>
+              <div class="input-field col s12">
+                <label for="value">Value*</label>
+                <input id="value" name="value" type="number" data-error=".errorTxt19" ng-model="maintenanceData.value" required>
+                <div class="errorTxt19"></div>
+              </div>
+              <div class="input-field col s12">
+                <button type="submit" class="waves-effect waves-light btn">SUBMIT</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<script type="text/javascript">
+  $("#formValidates").validate({
+    rules: {
+      maintenance_category: {
+        required: true
+      },
+      maintenance_notes: {
+        required: true
+      },
+      vin: {
+        required: true
+      },
+      vid: {
+        required: true
+      },
+      inter: {
+        required: true
+      },
+      unit: {
+        required: true
+      },
+      value: {
+        required: true
+      }
+    },
+    //For custom messages
+    messages: {
+      sid: {
+        required: "Enter a service name"
+      }
+    },
+    errorElement: 'div',
+    errorPlacement: function (error, element) {
+      var placement = $(element).data('error');
+      if (placement) {
+        $(placement).append(error)
+      } else {
+        error.insertAfter(element);
+      }
+    }
+  });
+
+</script>

@@ -1,0 +1,12 @@
+.image-wrapper{
+  .image-container{
+    position: relative;
+    .close{
+      position: absolute;
+      cursor: pointer;
+      top:5px;
+      right: 10px;
+      color: #ff0000;
+    }
+  }
+}

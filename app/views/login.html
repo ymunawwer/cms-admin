@@ -1,0 +1,83 @@
+<div class="login-wrapper" id="jqueryvalidation">
+  <div id="login-page" class="login-page" class="row">
+    <div class="col s12 z-depth-4 card-panel">
+      <form class="login-form formValidate" id="formValidate" name="loginForm" autocomplete="off" ng-submit="loginUser()">
+        <div class="row">
+          <div class="input-field col s12 center">
+            <p class="center login-form-text">DMS Admin</p>
+          </div>
+        </div>
+        <div class="row margin">
+          <div class="input-field col s12">
+            <i class="mdi-social-person-outline prefix"></i>
+            <input id="email" name="email" type="text" autocomplete="off" data-error=".errorTxt1" ng-model="userData.email" required>
+            <label for="email">User Email</label>
+            <div class="errorTxt1"></div>
+          </div>
+        </div>
+        <div class="row margin">
+          <div class="input-field col s12">
+            <i class="mdi-action-lock-outline prefix"></i>
+            <input id="password" name="password" type="password" data-error=".errorTxt2" ng-model="userData.password" required minlength="6">
+            <label for="password">Password</label>
+            <div class="errorTxt2"></div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <!-- <a class=""></a> -->
+            <button class="btn waves-effect waves-light col s12" type="submit" name="button">Login</button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s6 m6 l6">
+            <!-- <p class="margin medium-small"><a href="page-register.html">Register Now!</a></p> -->
+          </div>
+          <div class="input-field col s6 m6 l6">
+            <p class="margin right-align medium-small">
+              <a ui-sref="forget-password">Forgot password ?</a></p>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  $("#formValidate").validate({
+    rules: {
+      email: {
+        required: true,
+        email: true
+      },
+      password: {
+        required: true,
+        minlength: 6
+      }
+    },
+    //For custom messages
+    messages: {
+      email: {
+        required: "Enter a username",
+        email: "enter valid email"
+      },
+      email: {
+        required: "Password required",
+        minlength: "Password should be of length more than 6"
+      }
+    },
+    errorElement: 'div',
+    errorPlacement: function(error, element) {
+      var placement = $(element).data('error');
+      if (placement) {
+        $(placement).append(error)
+      } else {
+        error.insertAfter(element);
+      }
+    }
+  });
+
+  $(document).ready(function() {
+    $("select").material_select("update");
+  });
+</script>

@@ -1,0 +1,42 @@
+// html{
+//   height: 100%;
+//
+//   body{
+//     height: 100%;
+//     div{
+//       height: 100%;
+//     }
+//   }
+// }
+
+.image_wrapper {
+  margin: 50px auto;
+  width: 60%;
+  position: relative;
+
+  .clear {
+    position: absolute;
+    right: 0;
+    cursor: pointer;
+
+    i {
+      font-size: 30px;
+      font-weight: bold;
+      color: #ff0000;
+    }
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+ul.side-nav.leftside-navigation{
+  overflow: scroll !important;
+  padding-bottom: 80px;
+}
+
+ul.side-nav.leftside-navigation li a{
+  margin: 0 0 0 15px !important;
+}

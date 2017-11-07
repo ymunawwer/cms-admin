@@ -1,0 +1,72 @@
+<div id="jqueryvalidation" class="section">
+  <div class="row">
+    <div class="col s12 m12 l12">
+      <div class="col s12 m12 l12">
+        <div class="card-panel">
+          <h4 class="header2">
+            Password for developers to reset the Approval Table
+          </h4>
+          <div class="row">
+            <form class="formValidate" name="addServiceForm" id="formValidate" ng-submit="updateSecurity()">
+
+              <div class="row">
+                <div class="input-field col s12">
+                  <label for="sname21">Enter the password here</label>
+                  <input id="sname21" name="sname21" type="text" data-error=".errorTxt21" ng-model="settings.maintenance.key" >
+
+                  <div class="errorTxt21"></div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="input-field col s12">
+                  <a ui-sref="home">Cancel </a>
+                  <button class="btn waves-effect waves-light right submit" type="submit" name="action">
+                   Submit
+                   <i class="mdi-content-send right"></i>
+                 </button>
+
+                </div>
+              </div>
+            </form>
+            <!-- <div class="center">
+              - OR Upload file-
+            </div>
+            <div class="">
+                <div class="file-field input-field">
+                  <div class="btn">
+                    <span>Upload</span>
+                    <input type="file" onchange="angular.element(this).scope().uploadFileRecall(this.files)">
+                  </div>
+                  <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text">
+                  </div>
+
+
+                  <div id="card-alert" class="card red lighten-5" ng-if="already">
+                      <div class="card-content red-text">
+                        <p ng-repeat="all in already">Already exist : {{all.name}}</p>
+                      </div>
+                      <button type="button" ng-click="close()" class="close red-text" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                      </button>
+                    </div>
+                </div> -->
+                <!-- For bulk upload, you can use an excel sheet.
+Please download the sample excel format <a href="http://www.dsaidemo.com/Service_items.xls" targer="_blank">HERE </a> -->
+
+                <!-- <div class="row">
+                  <div class="input-field col s12">
+                    <button class="btn waves-effect waves-light right submit" type="submit" name="action">
+                     UPLOAD
+                     <i class="mdi-content-send right"></i>
+                   </button>
+                  </div>
+                </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,154 @@
+<div id="jqueryvalidation" class="section">
+  <div class="row">
+    <div class="col s12 m12 l12">
+      <div class="col s12 m12 l12">
+        <div class="card-panel">
+          <h4 class="header2">Add a new User</h4>
+          <div class="row">
+            <form name="userAddForm" class="formValidate" id="formValidate" ng-submit="addUser()">
+              <div class="row">
+                <div class="input-field col s12">
+                  <label for="uname">Name*</label>
+                  <input id="uname" name="uname" type="text" required data-error=".errorTxt1" ng-model="userData.name">
+                  <div class="errorTxt1"></div>
+                </div>
+                <div class="input-field col s12">
+                  <label for="cemail">E-Mail *</label>
+                  <input id="cemail" type="email" name="cemail" required data-error=".errorTxt2" ng-model="userData.email">
+                  <div class="errorTxt2"></div>
+                </div>
+                <div class="input-field col s12">
+                  <label for="password">Password *</label>
+                  <input id="password" type="password" name="password" required data-error=".errorTxt3" ng-model="userData.password">
+                  <div class="errorTxt3"></div>
+                </div>
+                <div class="input-field col s12">
+                  <label for="cpassword">Confirm Password *</label>
+                  <input id="cpassword" type="password" name="cpassword" ng-model="userData.cpassword" required data-error=".errorTxt4">
+                  <div class="errorTxt4"></div>
+                </div>
+                <div class="input-field col s12">
+                  <select multiple ng-model="userData.roles" required>
+                    <option value="" disabled selected>Double click here to list the roles</option>
+                    <option value="admin">Admin</option>
+                    <option value="user">User</option>
+                    <option value="marketing_manager">Marketing Manager</option>
+                    <option value="used_car_manager">Used Car Manager</option>
+                    <option value="service_scheduler">Service Scheduler</option>
+                    <option value="service_adviser">Service Adviser</option>
+                  </select>
+                  <label>Choose the role you want to assign to this user ( you can also choose multiple roles )</label>
+                  <div class="input-field">
+                    <div class="errorTxt6"></div>
+                  </div>
+                </div>
+
+                <!-- <div class="col s12">
+                  <label for="crole">Role *</label>
+                  <select class="error browser-default" id="crole" name="crole" data-error=".errorTxt6" ng-model="userData.roles">
+            				<option value="" disabled selected>Choose your profile</option>
+            				<option value="admin">Admin</option>
+                    <option value="user">User</option>
+                    <option value="marketing_manager">Marketing Manager</option>
+                    <option value="used_car_manager">Used Car Manager</option>
+                    <option value="service_scheduler">Service Scheduler</option>
+                    <option value="service_adviser">Service Adviser</option>
+            			</select>
+
+                  <div class="input-field">
+                    <div class="errorTxt6"></div>
+                  </div>
+                </div> -->
+                <!-- <div class="input-field col s12">
+                  <textarea id="ccomment" name="ccomment" class="materialize-textarea validate" data-error=".errorTxt7"></textarea>
+                  <label for="ccomment">Your comment *</label>
+                  <div class="errorTxt7"></div>
+                </div> -->
+                <!-- <div class="col s12">
+                  <label for="genter_select">Gender *</label>
+                  <p>
+                    <input name="cgender" type="radio" required id="gender_male" value="male" data-error=".errorTxt8" ng-model="userData.gender" />
+                    <label for="gender_male">Male</label>
+                  </p>
+                  <p>
+                    <input name="cgender" type="radio" required id="gender_female" value="female" ng-model="userData.gender" />
+                    <label for="gender_female">Female</label>
+                  </p>
+                  <div class="input-field">
+                    <div class="errorTxt8"></div>
+                  </div>
+                </div> -->
+                <div class="input-field col s12">
+                  <a ui-sref="home.userview">Cancel </a>
+                  <button class="btn waves-effect waves-light right submit" type="submit" name="action">
+                    Submit
+                    <i class="mdi-content-send right"></i>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+<script type="text/javascript">
+$(document).ready(function() {
+  $('select').material_select();
+});
+  $("#formValidate").validate({
+    rules: {
+      uname: {
+        required: true,
+        minlength: 5
+      },
+      cemail: {
+        required: true,
+        email: true
+      },
+      password: {
+        required: true,
+        minlength: 5
+      },
+      cpassword: {
+        required: true,
+        minlength: 5,
+        equalTo: "#password"
+      },
+      curl: {
+        required: true,
+        url: true
+      },
+      crole: "required",
+      ccomment: {
+        required: true,
+        minlength: 15
+      },
+      cgender: "required",
+      cagree: "required",
+    },
+    //For custom messages
+    messages: {
+      uname: {
+        required: "Enter a username",
+        minlength: "Enter at least 5 characters"
+      },
+      curl: "Enter your website",
+    },
+    errorElement: 'div',
+    errorPlacement: function(error, element) {
+      var placement = $(element).data('error');
+      if (placement) {
+        $(placement).append(error)
+      } else {
+        error.insertAfter(element);
+      }
+    }
+  });
+
+
+</script>
