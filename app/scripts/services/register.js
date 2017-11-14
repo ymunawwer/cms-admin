@@ -8,16 +8,11 @@
  * Factory in the dmsAdminApp.
  */
 angular.module('dmsAdminApp')
-  .factory('register', function () {
-    // Service logic
-    // ...
-
-    var meaningOfLife = 42;
-
-    // Public API here
-    return {
-      someMethod: function () {
-        return meaningOfLife;
+  .factory('register', function($resource, endpoint) {
+    return $resource('', null, {
+      saveDealar: {
+        url: endpoint + '/admin/register',
+        method: 'POST'
       }
-    };
+    })
   });

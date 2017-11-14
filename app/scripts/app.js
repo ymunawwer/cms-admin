@@ -179,6 +179,11 @@ angular.module('dmsAdminApp', ['ngCookies', 'ui.materialize', 'ui.router', 'ngCo
         templateUrl: 'views/login.html',
         controller: 'LoginCtrl'
       })
+      .state('register', {
+        url: '/register',
+        templateUrl: 'views/register.html',
+        controller: 'RegisterCtrl'
+      })
       .state('forget-password', {
         url: '/forget-password',
         templateUrl: 'views/forget-password.html',
@@ -204,15 +209,11 @@ angular.module('dmsAdminApp', ['ngCookies', 'ui.materialize', 'ui.router', 'ngCo
         templateUrl: 'views/listImages.html',
         controller: 'ListimagesCtrl'
       })
-      .state('register', {
-        url: 'register',
-        templateUrl: 'views/register.html',
-        controller: 'RegisterCtrl'
-      })
+
   }
 ])
 .constant({
-  "endpoint": "http://138.197.189.36:3000/api/v1"
+  "endpoint": "http://165.227.104.212:3000/api/v1"
   // "endpoint": "http://localhost:3000/api/v1"
 })
 .run(

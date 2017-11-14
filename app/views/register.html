@@ -1,7 +1,7 @@
 <div class="login-wrapper" id="jqueryvalidation">
         <div id="login-page" class="login-page" class="row">
           <div class="col s12 z-depth-4 card-panel">
-            <form class="login-form formValidate" id="formValidate" name="loginForm" autocomplete="off" ng-submit="register()">
+            <form class="login-form formValidate1" id="formValidate" name="loginForm" autocomplete="off" ng-submit="saveDealar()">
               <div class="row">
                 <div class="input-field col s12 center">
                   <p class="center login-form-text">DMS Admin Register</p>
@@ -27,7 +27,7 @@
                 <div class="input-field col s12">
                   <i class="mdi-social-person-outline prefix"></i>
                   <input id="name" name="name" type="text" autocomplete="off" data-error=".errorTxt11" ng-model="userData.name" required>
-                  <label for="email">Dealer Name</label>
+                  <label for="name">Dealer Name</label>
                   <div class="errorTxt11"></div>
                 </div>
               </div>
@@ -35,19 +35,22 @@
                 <div class="input-field col s12">
                   <i class="mdi-social-person-outline prefix"></i>
                   <input id="phone" name="phone" type="text" autocomplete="off" data-error=".errorTxt12" ng-model="userData.phone" required>
-                  <label for="email">Phone</label>
+                  <label for="phone">Phone</label>
                   <div class="errorTxt12"></div>
                 </div>
               </div>
               <div class="row margin">
+                <label for="manufactur">Manufactur</label>
+
                 <div class="input-field col s12">
-                  <i class="mdi-social-person-outline prefix"></i>
-                  <input id="manufactur" name="manufactur" type="text" autocomplete="off" data-error=".errorTxt13" ng-model="userData.email" required>
-                  <label for="email">Manufactur</label>
-                  <div class="errorTxt13"></div>
+
+                  <select id="manufactur" name="manufactur" ng-model="userData.manufactur" style="display:block">
+                    <option ng-repeat="make in makesList" value="{{make._id}}">{{make.name}}</option>
+                  </select>
                 </div>
               </div>
-              
+
+
               <div class="row">
                 <div class="input-field col s12">
                   <!-- <a class=""></a> -->
@@ -55,12 +58,12 @@
                 </div>
               </div>
               <div class="row">
-                <div class="input-field col s6 m6 l6">
+                <!-- <div class="input-field col s6 m6 l6"> -->
                   <!-- <p class="margin medium-small"><a ui-sref="register">Register Now!</a></p> -->
-                </div>
-                <div class="input-field col s6 m6 l6">
-                    
-                  <p class="margin right-align medium-small">
+                <!-- </div> -->
+                <div class="input-field col s12 m12 l12">
+
+                  <p class="margin center-align medium-small">
                     <a ui-sref="login">Already have an account? Login</a></p>
                 </div>
               </div>
@@ -68,9 +71,9 @@
           </div>
         </div>
       </div>
-      
+
       <script type="text/javascript">
-        $("#formValidate").validate({
+        $("#formValidate1").validate({
           rules: {
             email: {
               required: true,
@@ -102,9 +105,8 @@
             }
           }
         });
-      
-        $(document).ready(function() {
-          $("select").material_select("update");
-        });
+
+        // $(document).ready(function() {
+        //   $("select").material_select("update");
+        // });
       </script>
-      

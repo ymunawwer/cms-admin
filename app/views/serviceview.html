@@ -12,8 +12,8 @@
                 <th>Service item name</th>
                 <th>Description</th>
                 <th>Amount</th>
-                <th>Make</th>
-                <th>Model</th>
+                <!-- <th>Make</th>
+                <th>Model</th> -->
                 <th>Action</th>
               </tr>
             </thead>
@@ -23,8 +23,8 @@
                 <td>{{ service.name }}</td>
                 <td>{{ service.description }}</td>
                 <td>{{ service.price }}</td>
-                <td>{{ service.make }}</td>
-                <td>{{ service.model }}</td>
+                <!-- <td>{{ service.make }}</td>
+                <td>{{ service.model }}</td> -->
                 <td>
                   <a ui-sref="home.serviceedit({id: service.id})"><i class="material-icons dp48">edit</i></a>
                   <a href="javascript:void(0)" ng-click="servicedelete(service.id, $index)"><i class="material-icons dp48">delete_forever</i></a>
