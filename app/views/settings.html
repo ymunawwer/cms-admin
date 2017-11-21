@@ -1,151 +1,217 @@
+<style>
+  .input-field label {
+    left: 0.75rem !important;
+  }
+
+  h4.header2 {
+    margin: 1em .8em;
+    padding-top: 6em;
+  }
+</style>
+
 <div id="jqueryvalidation" class="section">
   <div class="row">
     <div class="col s12 m12 l12">
       <div class="col s12 m12 l12">
-        <div class="card-panel">
+        <div class="">
           <h4 class="header2">Settings</h4>
-          <div class="row">
-            <form class="formValidate" id="formValidate" ng-submit="updateSetting()">
-              <div class="row">
-                <div class="input-field col s12">
-                  <label for="uname">Site Title*</label>
-                  <input id="uname" name="name" type="text" data-error=".errorTxt1" ng-model="settings.site_title">
-                  <input type="hidden" class="form-control" ng-model="settings._id" name="" value="">
-                  <div class="errorTxt1"></div>
-                </div>
-                <div class="input-field col s12">
-                  <label for="cemail">Contact E-Mail *</label>
-                  <input id="cemail" type="email" name="cemail" data-error=".errorTxt2" ng-model="settings.contact.email">
-                  <div class="errorTxt2"></div>
-                </div>
-                <div class="input-field col s12">
-                  <label for="phone">Phone*</label>
-                  <input id="phone" type="text" name="phone" data-error=".errorTxt3" ng-model="settings.contact.phone">
-                  <div class="errorTxt3"></div>
-                </div>
-                <div class="input-field col s12">
-                  <label for="address">Address*</label>
-                  <input id="address" type="text" name="address" data-error=".errorTxt4" ng-model="settings.contact.address">
-                  <div class="errorTxt4"></div>
-                </div>
-                <div class="input-field col s12">
-                  <label for="currency">Currency*</label>
-                  <input id="currency" type="text" name="currency" data-error=".errorTxt5" ng-model="settings.currency">
-                  <div class="errorTxt5"></div>
-                </div>
-                <div class="input-field col s12">
-                  <label for="symbol">Currency Symbol*</label>
-                  <input id="symbol" type="text" name="symbol" data-error=".errorTxt6" ng-model="settings.pricing_unit">
-                  <div class="errorTxt6"></div>
-                </div>
-                <h4 class="header2">PayPal</h4>
-                <div class="input-field col s6">
-                  <label for="pemail">PayPal Email*</label>
-                  <input id="pemail" type="email" name="pemail" data-error=".errorTxt7" ng-model="settings.paypal_email">
-                  <div class="errorTxt7"></div>
-                </div>
+          <div class="col s12">
+            <div class="row">
+              <div class="">
+                <ul class="tabs tab-demo z-depth-1">
+                  <li class="tab col s3">
+                    <a class="active" href="#test2" class="">Profile</a>
+                  </li>
+                  <li class="tab col s3">
+                    <a href="#test1">Settings</a>
+                  </li>
+                  <li class="tab col s3">
+                    <a href="#test3" class="">Data Upload</a>
+                  </li>
+                  <li class="indicator" style="right: 1px; left: 605px;"></li>
+                </ul>
+              </div>
+              <div class="col s12 card-panel">
+                <div id="test1" class="col s12" style="display: none;">
+                  <div class="row">
+                    <form class="formValidate1" id="formValidate" ng-submit="updateSetting()">
+                      <div class="row">
+                        <div class="input-field col s12">
+                          <label for="uname">Site Title*</label>
+                          <input id="uname" name="name" type="text" data-error=".errorTxt1" ng-model="settings.site_title">
+                          <input type="hidden" class="form-control" ng-model="settings._id" name="" value="">
+                          <div class="errorTxt1"></div>
+                        </div>
+                        <div class="input-field col s12">
+                          <label for="cemail">Contact E-Mail *</label>
+                          <input id="cemail" type="email" name="cemail" data-error=".errorTxt2" ng-model="settings.contact.email">
+                          <div class="errorTxt2"></div>
+                        </div>
+                        <div class="input-field col s12">
+                          <label for="phone">Phone*</label>
+                          <input id="phone" type="text" name="phone" data-error=".errorTxt3" ng-model="settings.contact.phone">
+                          <div class="errorTxt3"></div>
+                        </div>
+                        <div class="input-field col s12">
+                          <label for="address">Address*</label>
+                          <input id="address" type="text" name="address" data-error=".errorTxt4" ng-model="settings.contact.address">
+                          <div class="errorTxt4"></div>
+                        </div>
+                        <div class="input-field col s12">
+                          <label for="currency">Currency*</label>
+                          <input id="currency" type="text" name="currency" data-error=".errorTxt5" ng-model="settings.currency">
+                          <div class="errorTxt5"></div>
+                        </div>
+                        <div class="input-field col s12">
+                          <label for="symbol">Currency Symbol*</label>
+                          <input id="symbol" type="text" name="symbol" data-error=".errorTxt6" ng-model="settings.pricing_unit">
+                          <div class="errorTxt6"></div>
+                        </div>
+                        <h4 class="header2">PayPal</h4>
+                        <div class="input-field col s6">
+                          <label for="pemail">PayPal Email*</label>
+                          <input id="pemail" type="email" name="pemail" data-error=".errorTxt7" ng-model="settings.paypal_email">
+                          <div class="errorTxt7"></div>
+                        </div>
 
-                <div class="input-field col s6">
+                        <div class="input-field col s6">
 
-                  <select data-error=".errorTxt8" name="pmode" id="pmode" ng-model="settings.paypal_mode">
-                    <option value="sandbox">Sandbox</option>
-                    <option value="live">Live</option>
-                  </select>
-                  <label>PayPal Mode</label>
-                  <div class="input-field">
-                    <div class="errorTxt8"></div>
+                          <select data-error=".errorTxt8" name="pmode" id="pmode" ng-model="settings.paypal_mode">
+                            <option value="sandbox">Sandbox</option>
+                            <option value="live">Live</option>
+                          </select>
+                          <label>PayPal Mode</label>
+                          <div class="input-field">
+                            <div class="errorTxt8"></div>
+                          </div>
+                        </div>
+                        <h4 class="header2">Stripe Payment</h4>
+                        <div class="input-field col s12">
+                          <label for="skey">Stripe Api Key*</label>
+                          <input id="skey" type="text" name="skey" data-error=".errorTxt9" ng-model="settings.stripe_key">
+                          <div class="errorTxt9"></div>
+                        </div>
+                        <h4 class="header2">Social Links</h4>
+                        <div class="input-field col s4">
+                          <label for="g_url">Google Url*</label>
+                          <input id="g_url" type="text" name="g_url" data-error=".errorTxt10" ng-model="settings.google_link">
+                          <div class="errorTxt10"></div>
+                        </div>
+                        <div class="input-field col s4">
+                          <label for="f_url">Facebook Url*</label>
+                          <input id="f_url" type="text" name="f_url" data-error=".errorTxt11" ng-model="settings.facebook_link">
+                          <div class="errorTxt11"></div>
+                        </div>
+                        <div class="input-field col s4">
+                          <label for="t_url">Twitter Url*</label>
+                          <input id="t_url" type="text" name="t_url" data-error=".errorTxt12" ng-model="settings.twitter_link">
+                          <div class="errorTxt12"></div>
+                        </div>
+                        <h4 class="header2">Mandril</h4>
+                        <div class="input-field col s4">
+                          <label for="m_email">Mandril Eamil*</label>
+                          <input id="m_email" type="email" name="m_email" data-error=".errorTxt13" ng-model="settings.owner_mail">
+                          <div class="errorTxt13"></div>
+                        </div>
+                        <div class="input-field col s4">
+                          <label for="m_pass">Mantril Email Password*</label>
+                          <input id="m_pass" type="text" name="m_pass" data-error=".errorTxt14" ng-model="settings.owner_mail_password">
+                          <div class="errorTxt14"></div>
+                        </div>
+                        <div class="input-field col s4">
+                          <label for="m_key">Mantril Key*</label>
+                          <input id="m_key" type="text" name="m_key" data-error=".errorTxt15" ng-model="settings.mandril_key">
+                          <div class="errorTxt15"></div>
+                        </div>
+                        <br>
+                        <h4 class="header2">Social Provider</h4>
+                        <div class="input-field col s4">
+                          <label for="fapp_id">Facebook APP ID*</label>
+                          <input id="fapp_id" type="text" name="fapp_id" data-error=".errorTxt16" ng-model="settings.social_providers.fb.app_id">
+                          <div class="errorTxt16"></div>
+                        </div>
+                        <div class="input-field col s4">
+                          <label for="fapp_secret">Facebook APP Secret*</label>
+                          <input id="fapp_secret" type="text" name="fapp_secret" data-error=".errorTxt17" ng-model="settings.social_providers.fb.app_secret">
+                          <div class="errorTxt17"></div>
+                        </div>
+                        <div class="input-field col s4">
+                          <label for="fredirect_url">Facebook Redircet Url*</label>
+                          <input id="fredirect_url" type="text" name="fredirect_url" data-error=".errorTxt18" ng-model="settings.social_providers.fb.redirect_url">
+                          <div class="errorTxt18"></div>
+                        </div>
+                        <div class="input-field col s4">
+                          <label for="gapp_id">Google APP ID*</label>
+                          <input id="gapp_id" type="text" name="gapp_id" data-error=".errorTxt19" ng-model="settings.social_providers.google.app_id">
+                          <div class="errorTxt19"></div>
+                        </div>
+                        <div class="input-field col s4">
+                          <label for="gapp_secret">Google APP Secret*</label>
+                          <input id="gapp_secret" type="text" name="gapp_secret" data-error=".errorTxt20" ng-model="settings.social_providers.google.app_secret">
+                          <div class="errorTxt20"></div>
+                        </div>
+                        <div class="input-field col s4">
+                          <label for="gredirect_url">Google Redirect Url*</label>
+                          <input id="gredirect_url" type="text" name="gredirect_url" data-error=".errorTxt21" ng-model="settings.social_providers.google.redirect_url">
+                          <div class="errorTxt21"></div>
+                        </div>
+                        <div class="file-field input-field col s12">
+                          <div class="btn">
+                            <span>File</span>
+                            <input type="file" onchange="angular.element(this).scope().uploadFile(this.files)">
+                          </div>
+                          <div class="file-path-wrapper">
+                            <input class="file-path validate" disabled type="text">
+                          </div>
+                          <img width="100" height="100" ng-if="settings.site_logo" src="{{settings.site_logo.url}}">
+                          <div class="errorTxt21"></div>
+                        </div>
+
+                        <div class="input-field col s12">
+                          <button class="btn waves-effect waves-light right submit" type="submit" name="action">
+                            Submit
+                            <i class="mdi-content-send right"></i>
+                          </button>
+                        </div>
+                      </div>
+                    </form>
                   </div>
                 </div>
-                <h4 class="header2">Stripe Payment</h4>
-                <div class="input-field col s12">
-                  <label for="skey">Stripe Api Key*</label>
-                  <input id="skey" type="text" name="skey" data-error=".errorTxt9" ng-model="settings.stripe_key">
-                  <div class="errorTxt9"></div>
-                </div>
-                <h4 class="header2">Social Links</h4>
-                <div class="input-field col s4">
-                  <label for="g_url">Google Url*</label>
-                  <input id="g_url" type="text" name="g_url" data-error=".errorTxt10" ng-model="settings.google_link">
-                  <div class="errorTxt10"></div>
-                </div>
-                <div class="input-field col s4">
-                  <label for="f_url">Facebook Url*</label>
-                  <input id="f_url" type="text" name="f_url" data-error=".errorTxt11" ng-model="settings.facebook_link">
-                  <div class="errorTxt11"></div>
-                </div>
-                <div class="input-field col s4">
-                  <label for="t_url">Twitter Url*</label>
-                  <input id="t_url" type="text" name="t_url" data-error=".errorTxt12" ng-model="settings.twitter_link">
-                  <div class="errorTxt12"></div>
-                </div>
-                <h4 class="header2">Mandril</h4>
-                <div class="input-field col s4">
-                  <label for="m_email">Mandril Eamil*</label>
-                  <input id="m_email" type="email" name="m_email" data-error=".errorTxt13" ng-model="settings.owner_mail">
-                  <div class="errorTxt13"></div>
-                </div>
-                <div class="input-field col s4">
-                  <label for="m_pass">Mantril Email Password*</label>
-                  <input id="m_pass" type="text" name="m_pass" data-error=".errorTxt14" ng-model="settings.owner_mail_password">
-                  <div class="errorTxt14"></div>
-                </div>
-                <div class="input-field col s4">
-                  <label for="m_key">Mantril Key*</label>
-                  <input id="m_key" type="text" name="m_key" data-error=".errorTxt15" ng-model="settings.mandril_key">
-                  <div class="errorTxt15"></div>
-                </div>
-                <br>
-                <h4 class="header2">Social Provider</h4>
-                <div class="input-field col s4">
-                  <label for="fapp_id">Facebook APP ID*</label>
-                  <input id="fapp_id" type="text" name="fapp_id" data-error=".errorTxt16" ng-model="settings.social_providers.facebook.app_id">
-                  <div class="errorTxt16"></div>
-                </div>
-                <div class="input-field col s4">
-                  <label for="fapp_secret">Facebook APP Secret*</label>
-                  <input id="fapp_secret" type="text" name="fapp_secret" data-error=".errorTxt17" ng-model="settings.social_providers.facebook.app_secret">
-                  <div class="errorTxt17"></div>
-                </div>
-                <div class="input-field col s4">
-                  <label for="fredirect_url">Facebook Redircet Url*</label>
-                  <input id="fredirect_url" type="text" name="fredirect_url" data-error=".errorTxt18" ng-model="settings.social_providers.facebook.redirect_url">
-                  <div class="errorTxt18"></div>
-                </div>
-                <div class="input-field col s4">
-                  <label for="gapp_id">Google APP ID*</label>
-                  <input id="gapp_id" type="text" name="gapp_id" data-error=".errorTxt19" ng-model="settings.social_providers.google.app_id">
-                  <div class="errorTxt19"></div>
-                </div>
-                <div class="input-field col s4">
-                  <label for="gapp_secret">Google APP Secret*</label>
-                  <input id="gapp_secret" type="text" name="gapp_secret" data-error=".errorTxt20" ng-model="settings.social_providers.google.app_secret">
-                  <div class="errorTxt20"></div>
-                </div>
-                <div class="input-field col s4">
-                  <label for="gredirect_url">Google Redirect Url*</label>
-                  <input id="gredirect_url" type="text" name="gredirect_url" data-error=".errorTxt21" ng-model="settings.social_providers.google.redirect_url">
-                  <div class="errorTxt21"></div>
-                </div>
-                <div class="file-field input-field col s12">
-                  <div class="btn">
-                    <span>File</span>
-                    <input type="file" onchange="angular.element(this).scope().uploadFile(this.files)">
+                <div id="test2" class="col s12">
+                  <div class="row">
+                    <form class="formValidate" id="formValidate" ng-submit="updateProfile()">
+                      <div class="row">
+                        <div class="input-field col s12">
+                          <label for="uname">Username*</label>
+                          <input id="uname" name="uname" type="text" data-error=".errorTxt1" ng-model="profileData.name">
+                          <div class="errorTxt1"></div>
+                        </div>
+                        <div class="input-field col s12">
+                          <label for="cemail">E-Mail *</label>
+                          <input id="cemail" type="email" name="cemail" data-error=".errorTxt2" ng-model="profileData.email">
+                          <div class="errorTxt2"></div>
+                        </div>
+                        <div class="">
+                          <!-- Modal Trigger -->
+                          <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Change Password</a>
+                        </div>
+                        <div class="input-field col s12">
+                          <button class="btn waves-effect waves-light right submit" type="submit" name="action">
+                            Submit
+                            <i class="mdi-content-send right"></i>
+                          </button>
+                        </div>
+                      </div>
+                    </form>
                   </div>
-                  <div class="file-path-wrapper">
-                    <input class="file-path validate" disabled type="text">
-                  </div>
-                  <img width="100" height="100" ng-if="settings.site_logo" src="{{settings.site_logo.url}}">
-                  <div class="errorTxt21"></div>
                 </div>
-
-                <div class="input-field col s12">
-                  <button class="btn waves-effect waves-light right submit" type="submit" name="action">
-                    Submit
-                    <i class="mdi-content-send right"></i>
-                  </button>
+                <div id="test3" class="col s12" style="display: none;">
+                  <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum
+                    tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas
+                    semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
                 </div>
               </div>
-            </form>
+            </div>
           </div>
         </div>
       </div>
@@ -158,10 +224,41 @@
 
 
 
-
+<div id="modal1" class="modal">
+  <div class="modal-content">
+    <form class="" autocomplete="off" ng-submit="changePassword()">
+      <div class="row">
+        <div class="input-field col s12">
+          <label for="password">Current Password *</label>
+          <input id="password" type="password" name="password" data-error=".errorTxt3" ng-model="changepassword.old_password">
+          <div class="errorTxt3"></div>
+        </div>
+        <div class="input-field col s12">
+          <label for="password">New Password *</label>
+          <input id="password" type="password" name="password" data-error=".errorTxt3" ng-model="changepassword.password">
+          <div class="errorTxt3"></div>
+        </div>
+        <div class="input-field col s12">
+          <label for="cpassword">Confirm Password *</label>
+          <input id="cpassword" type="password" name="cpassword" data-error=".errorTxt4" ng-model="changepassword.cpassword">
+          <div class="errorTxt4"></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <!-- <a class=""></a> -->
+          <button class="btn waves-effect waves-light col s12" type="submit" name="button">RESET PASSWORD</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <!-- <div class="modal-footer">
+      <a class=" modal-action modal-close waves-effect waves-green btn-flat">RESET</a>
+    </div> -->
+</div>
 
 <script type="text/javascript">
-  $("#formValidate").validate({
+  $("#formValidate1").validate({
     rules: {
       name: {
         required: true
@@ -218,7 +315,7 @@
       curl: "Enter your website",
     },
     errorElement: 'div',
-    errorPlacement: function(error, element) {
+    errorPlacement: function (error, element) {
 
       var placement = $(element).data('error');
       console.log(placement);
@@ -231,7 +328,58 @@
     }
   });
 
-  $(document).ready(function() {
+  $(document).ready(function () {
     $('select').material_select();
   });
+  $("#formValidate").validate({
+    rules: {
+      uname: {
+        required: true,
+        minlength: 5
+      },
+      cemail: {
+        required: true,
+        email: true
+      },
+      password: {
+        required: true,
+        minlength: 5
+      },
+      cpassword: {
+        required: true,
+        minlength: 5,
+        equalTo: "#password"
+      },
+      curl: {
+        required: true,
+        url: true
+      },
+      crole: "required",
+      ccomment: {
+        required: true,
+        minlength: 15
+      },
+      cgender: "required",
+      cagree: "required",
+    },
+    //For custom messages
+    messages: {
+      uname: {
+        required: "Enter a username",
+        minlength: "Enter at least 5 characters"
+      },
+      curl: "Enter your website",
+    },
+    errorElement: 'div',
+    errorPlacement: function (error, element) {
+      var placement = $(element).data('error');
+      if (placement) {
+        $(placement).append(error)
+      } else {
+        error.insertAfter(element);
+      }
+    }
+  });
+
+  $('.modal-trigger').leanModal();
 </script>

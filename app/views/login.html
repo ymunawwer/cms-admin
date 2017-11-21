@@ -1,7 +1,22 @@
+<style>
+  body {
+    display: table;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+  }
+  .login_outer{
+    display: table-cell;
+    vertical-align: middle;
+  }
+  .input-field .prefix ~ label {
+    margin-left: 3.7rem;
+}
+</style>
 <div class="login-wrapper" id="jqueryvalidation">
   <div id="login-page" class="login-page" class="row">
     <div class="col s12 z-depth-4 card-panel">
-      <form class="login-form formValidate" id="formValidate" name="loginForm" autocomplete="off" ng-submit="loginUser()">
+      <form class="login-form formValidate" id="formValidate" name="loginForm" autocomplete="off" ng-submit="loginUser()" style="width:350px;max-width:350px;">
         <div class="row">
           <div class="input-field col s12 center">
             <p class="center login-form-text">DMS Admin</p>
@@ -31,12 +46,15 @@
         </div>
         <div class="row">
           <div class="input-field col s6 m6 l6">
-            <p class="margin medium-small"><a ui-sref="register">Register Now!</a></p>
+            <p class="margin medium-small">
+              <a ui-sref="register">Register Now!</a>
+            </p>
           </div>
           <div class="input-field col s6 m6 l6">
-              
+
             <p class="margin right-align medium-small">
-              <a ui-sref="forget-password">Forgot password ?</a></p>
+              <a ui-sref="forget-password">Forgot password ?</a>
+            </p>
           </div>
         </div>
       </form>
@@ -68,7 +86,7 @@
       }
     },
     errorElement: 'div',
-    errorPlacement: function(error, element) {
+    errorPlacement: function (error, element) {
       var placement = $(element).data('error');
       if (placement) {
         $(placement).append(error)
@@ -78,7 +96,7 @@
     }
   });
 
-  $(document).ready(function() {
+  $(document).ready(function () {
     $("select").material_select("update");
   });
 </script>
