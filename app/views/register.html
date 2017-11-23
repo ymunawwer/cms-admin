@@ -16,76 +16,85 @@
   }
 </style>
 <div class="login-wrapper" id="jqueryvalidation">
-    <div id="login-page" class="login-page" class="row" ng-if="!pricingTable">
-      <p class="flow-text">Choose Plan</p>
+  <div id="login-page" class="login-page" class="row" ng-if="!pricingTable">
+    <p class="flow-text">Choose Plan</p>
+    <div class="row">
+      <section class="plans-container" id="plans">
+        <article class="col s12 m4 l4" ng-repeat="plan in plans">
+          <div class="card hoverable">
+            <div class="card-image cyan waves-effect">
+              <div class="card-title">{{plan.name}}</div>
+              <div class="price">
+                <sup>$</sup>{{plan.price}}
+                <sub>/mo</sub>
+              </div>
+              <!-- <div class="price-desc">Free 1 month</div> -->
+            </div>
+            <div class="card-content">
+              <ul class="collection">
+                <li class="collection-item truncate" ng-repeat="feature in plan.features">{{feature}}</li>
+              </ul>
+            </div>
+            <div class="card-action center-align">
+              <button class="waves-effect waves-light  btn" ng-click="choosThisPlan(plan._id)">Select Plan</button>
+            </div>
+          </div>
+        </article>
+      </section>
+    </div>
+  </div>
+</div>
+<div id="login-page" class="login-page" class="row" ng-if="pricingTable">
+  <div class="">
+    <form class="login-form formValidate1 col s12 z-depth-4 card-panel" id="formValidate" name="form.theForm" autocomplete="off"
+      ng-submit="saveDealar()" style="    max-width: 400px;
+      margin: auto;width:400px;">
       <div class="row">
-          <section class="plans-container" id="plans">
-              <article class="col s12 m4 l4" ng-repeat="plan in plans">
-                <div class="card hoverable">
-                  <div class="card-image cyan waves-effect">
-                    <div class="card-title">{{plan.name}}</div>
-                    <div class="price">
-                      <sup>$</sup>{{plan.price}}
-                      <sub>/mo</sub>
-                    </div>
-                    <!-- <div class="price-desc">Free 1 month</div> -->
-                  </div>
-                  <div class="card-content">
-                    <ul class="collection">
-                      <li class="collection-item truncate" ng-repeat="feature in plan.features">{{feature}}</li>
-                    </ul>
-                  </div>
-                  <div class="card-action center-align">
-                    <button class="waves-effect waves-light  btn" ng-click="choosThisPlan(plan._id)">Select Plan</button>
-                  </div>
-                </div>
-              </article>
-            </section>
+        <div class="input-field col s12 center">
+          <p class="center login-form-text">DMS Admin Register</p>
         </div>
       </div>
-    </div>
-  <div id="login-page" class="login-page" class="row" ng-if="pricingTable">
-    <div class="">
-      <form class="login-form formValidate1 col s12 z-depth-4 card-panel" id="formValidate" name="form.theForm" autocomplete="off" ng-submit="saveDealar()" style="    max-width: 400px;
-      margin: auto;width:400px;">
-        <div class="row">
-          <div class="input-field col s12 center">
-            <p class="center login-form-text">DMS Admin Register</p>
-          </div>
+      <div class="row margin">
+        <div class="input-field col s12">
+          <i class="mdi-social-person-outline prefix"></i>
+          <input id="email" name="email" type="text" autocomplete="off" data-error=".errorTxt1" ng-model="userData.email" required>
+          <label for="email">User Email</label>
+          <div class="errorTxt1"></div>
         </div>
-        <div class="row margin">
-          <div class="input-field col s12">
-            <i class="mdi-social-person-outline prefix"></i>
-            <input id="email" name="email" type="text" autocomplete="off" data-error=".errorTxt1" ng-model="userData.email" required>
-            <label for="email">User Email</label>
-            <div class="errorTxt1"></div>
-          </div>
+      </div>
+      <div class="row margin">
+        <div class="input-field col s12">
+          <i class="mdi-action-lock-outline prefix"></i>
+          <input id="password" name="password" type="password" data-error=".errorTxt2" ng-model="userData.password" required minlength="6">
+          <label for="password">Password</label>
+          <div class="errorTxt2"></div>
         </div>
-        <div class="row margin">
-          <div class="input-field col s12">
-            <i class="mdi-action-lock-outline prefix"></i>
-            <input id="password" name="password" type="password" data-error=".errorTxt2" ng-model="userData.password" required minlength="6">
-            <label for="password">Password</label>
-            <div class="errorTxt2"></div>
-          </div>
+      </div>
+      <div class="row margin">
+        <div class="input-field col s12">
+          <i class="mdi-action-lock-outline prefix"></i>
+          <input id="cpassword" name="cpassword" type="password" ng-model="userData.cpassword" data-error=".errorTxt2" required minlength="6">
+          <label for="cpassword">Confirm Password</label>
+          <div class="errorTxt2"></div>
         </div>
-        <div class="row margin">
-          <div class="input-field col s12">
-            <i class="mdi-social-person-outline prefix"></i>
-            <input id="name" name="name" type="text" autocomplete="off" data-error=".errorTxt11" ng-model="userData.name" required>
-            <label for="name">Dealer Name</label>
-            <div class="errorTxt11"></div>
-          </div>
+      </div>
+      <div class="row margin">
+        <div class="input-field col s12">
+          <i class="mdi-social-person-outline prefix"></i>
+          <input id="name" name="name" type="text" autocomplete="off" data-error=".errorTxt11" ng-model="userData.name" required>
+          <label for="name">Dealer Name</label>
+          <div class="errorTxt11"></div>
         </div>
-        <div class="row margin">
-          <div class="input-field col s12">
-            <i class="mdi-social-person-outline prefix"></i>
-            <input id="phone" name="phone" type="text" autocomplete="off" data-error=".errorTxt12" ng-model="userData.phone" required>
-            <label for="phone">Phone</label>
-            <div class="errorTxt12"></div>
-          </div>
+      </div>
+      <div class="row margin">
+        <div class="input-field col s12">
+          <i class="mdi-social-person-outline prefix"></i>
+          <input id="phone" name="phone" type="text" autocomplete="off" data-error=".errorTxt12" ng-model="userData.phone" required>
+          <label for="phone">Phone</label>
+          <div class="errorTxt12"></div>
         </div>
-        <!-- <div class="row margin">
+      </div>
+      <!-- <div class="row margin">
           <label for="manufactur">Manufactur</label>
 
           <div class="input-field col s12">
@@ -96,25 +105,25 @@
         </div> -->
 
 
-        <div class="row">
-          <div class="input-field col s12">
-            <!-- <a class=""></a> -->
-            <button class="btn waves-effect waves-light col s12" type="submit" name="button">Register</button>
-          </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <!-- <a class=""></a> -->
+          <button class="btn waves-effect waves-light col s12" type="submit" name="button">Register</button>
         </div>
-        <div class="row">
-          <!-- <div class="input-field col s6 m6 l6"> -->
-          <!-- <p class="margin medium-small"><a ui-sref="register">Register Now!</a></p> -->
-          <!-- </div> -->
-          <div class="input-field col s12 m12 l12">
-            <p class="margin center-align medium-small">
-              <a ui-sref="login">Already have an account? Login</a>
-            </p>
-          </div>
+      </div>
+      <div class="row">
+        <!-- <div class="input-field col s6 m6 l6"> -->
+        <!-- <p class="margin medium-small"><a ui-sref="register">Register Now!</a></p> -->
+        <!-- </div> -->
+        <div class="input-field col s12 m12 l12">
+          <p class="margin center-align medium-small">
+            <a ui-sref="login">Already have an account? Login</a>
+          </p>
         </div>
-      </form>
-    </div>
+      </div>
+    </form>
   </div>
+</div>
 </div>
 
 <script type="text/javascript">
@@ -127,6 +136,9 @@
       password: {
         required: true,
         minlength: 6
+      },
+      cpassword: {
+        equalTo: "#password"
       }
     },
     //For custom messages

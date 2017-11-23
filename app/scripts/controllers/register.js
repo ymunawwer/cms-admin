@@ -33,11 +33,16 @@ angular.module('dmsAdminApp')
     });
     $scope.form = {};
     $scope.saveDealar = function () {
-      console.log('munish');
-      console.log($scope)
+      if($scope.userData.password !== $scope.userData.cpassword) {
+        Materialize.toast('<span>' + "Password should match with confirm password." + '</span>', 3000);
+        return;
+      }
       if ($scope.form.theForm.$valid) {
         register.saveDealar({}, $scope.userData, function (data) {
-          if (data.statusCode === 200) {
+          if(data.statusCode === 200){
+            session.set('accesstoken', data.body.accesstoken);
+            session.set('admin', data.body);
+            $state.go('home.dashboard');
             Materialize.toast('<span>' + "Successfully register dealer information " + '</span>', 3000);
           }
           else {
