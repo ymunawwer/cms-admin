@@ -18,6 +18,9 @@ angular.module('dmsAdminApp')
     $scope.selectTab = function (id) {
       $('ul.tabs').tabs('select_tab', id);
     };
+    $scope.redirectPage = function (page) {
+      $state.go(page);
+    };
 
     $scope.updateSetting = function () {
       settings.updateSetting({}, $scope.settings, function (data) {
