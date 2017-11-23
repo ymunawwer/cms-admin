@@ -8,7 +8,7 @@
  * Controller of the dmsAdminApp
  */
 angular.module('dmsAdminApp')
-  .controller('SettingCtrl', function ($scope, $state, session, settings, $http, endpoint, profileservice) {
+  .controller('SettingCtrl', function ($scope, $state, session, settings, $http, endpoint, profileservice, serviceservice) {
     settings.getSetting({}, {}, function (data) {
       $scope.settings = data.body.setting;
     });
@@ -34,6 +34,11 @@ angular.module('dmsAdminApp')
         }
       });
     }
+    serviceservice.getMakesList({}, {}, function (data) {
+      if (data.statusCode == 200) {
+        $scope.makesList = data.body.makes;
+      }
+    });
     $scope.uploadFile = function (files) {
       var fd = new FormData();
       //Take the first selected file

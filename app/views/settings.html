@@ -57,6 +57,12 @@
                           <input id="address" type="text" name="address" data-error=".errorTxt4" ng-model="settings.contact.address">
                           <div class="errorTxt4"></div>
                         </div>
+                        <div class="row margin">
+                            <label for="manufactur">Manufacturer</label>
+                            <select id="manufactur" class="browser-default" name="manufactur" ng-model="settings.manufactur">
+                              <option ng-repeat="make in makesList" value="{{make._id}}">{{make.name}}</option>
+                            </select>
+                        </div>
                         <div class="input-field col s12">
                           <label for="booking_before_time">Earliest​ ​timeframe​ ​for​ ​online​ ​appointment​ ​setup​(Hours)*</label>
                           <input id="booking_before_time" type="number" name="booking_before_time" data-error=".errorTxt4" ng-model="settings.booking_before_time">
