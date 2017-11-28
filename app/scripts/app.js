@@ -209,12 +209,24 @@ angular.module('dmsAdminApp', ['ngCookies', 'ui.materialize', 'ui.router', 'ngCo
         templateUrl: 'views/listImages.html',
         controller: 'ListimagesCtrl'
       })
+      .state('home.add-offer', {
+        url: 'maintenance/offer/add',
+        templateUrl: 'views/moffer_add.html',
+        controller: 'MofferCtrl',
+        authenticate: true
+      })
+      .state('home.list-offer', {
+        url: 'maintenance/offer/list',
+        templateUrl: 'views/moffer_list.html',
+        controller: 'MofferCtrl',
+        authenticate: true
+      })
 
   }
 ])
 .constant({
-  "endpoint": "http://165.227.104.212:3000/api/v1"
-  // "endpoint": "http://localhost:3000/api/v1"
+  // "endpoint": "http://165.227.104.212:3000/api/v1"
+  "endpoint": "http://localhost:3000/api/v1"
 })
 .run(
   function($rootScope, $http, $state, $location, $templateCache, session) {
