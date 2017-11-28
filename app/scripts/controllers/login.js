@@ -8,7 +8,17 @@
  * Controller of the dmsAdminApp
  */
 angular.module('dmsAdminApp')
-  .controller('LoginCtrl', function ($scope, $state, session, authservice) {
+  .controller('LoginCtrl', function ($scope, $state, session, authservice, $location ) {
+    var verify_token = null;
+    var verification_link = $location.search().verify;
+    if(typeof verification_link != "undefined") {
+      if(verification_link == "true") {
+        $scope.success_notification = "Successfully Verified."
+      }
+      else {
+        $scope.error_notification = "Invalid Token."
+      }
+    }
     $scope.userData = {
       platform: "web"
     };
