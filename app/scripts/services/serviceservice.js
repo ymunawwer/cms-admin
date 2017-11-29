@@ -138,6 +138,14 @@ angular.module('dmsAdminApp')
         params: {
           id: "@id"
         }
-      }
+      },
+      addMOfferLists: {
+        url: endpoint + '/admin/offers/maintenanceitems',
+        method: 'POST',
+      },
+      getMOfferLists: {
+        url: endpoint + '/admin/offers/maintenanceitems',
+        method: 'GET',
+      },
     })
   });

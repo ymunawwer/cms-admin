@@ -217,7 +217,7 @@ angular.module('dmsAdminApp', ['ngCookies', 'ui.materialize', 'ui.router', 'ngCo
       })
       .state('home.list-offer', {
         url: 'maintenance/offer/list',
-        templateUrl: 'views/moffer_list.html',
+        templateUrl: 'views/moffer_view.html',
         controller: 'MofferCtrl',
         authenticate: true
       })
