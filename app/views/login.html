@@ -12,6 +12,17 @@
   .input-field .prefix ~ label {
     margin-left: 3.7rem;
 }
+.red{
+  padding: 10px;
+    border-radius: 3px;
+    font-size: 14px;
+    background: #de4c4c !important;
+}
+.green{
+  padding: 10px;
+    border-radius: 3px;
+    font-size: 14px;
+}
 </style>
 <div class="login-wrapper" id="jqueryvalidation">
   <div id="login-page" class="login-page" class="row">
@@ -23,6 +34,8 @@
           </div>
         </div>
         <div class="row margin">
+          <p class="green white-text" ng-if="success_notification">{{success_notification}}</p>
+          <p class=" red white-text" ng-if="error_notification">{{error_notification}}</p>
           <div class="input-field col s12">
             <i class="mdi-social-person-outline prefix"></i>
             <input id="email" name="email" type="text" autocomplete="off" data-error=".errorTxt1" ng-model="userData.email" required>
