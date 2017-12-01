@@ -43,16 +43,20 @@
 .tabs .tab{
   max-width: 17%;
 }
+#test3 p{
+  display: inline-block;
+  margin: 2px 10px 20px;
+}
 </style>
 
 <div id="jqueryvalidation" class="section">
   <div class="row">
     <div class="col s12 m12 l12">
       <div class="col s12 m12 l12">
-        <div class="">
+        <div class="settings-otr-info">
           <h4 class="header2">Settings</h4>
           <div class="col s12">
-            <div class="row">
+            <div class="row z-depth-1">
               <div class="">
                 <ul class="tabs tab-demo">
                   <li class="tab">
@@ -67,7 +71,7 @@
                   <li class="indicator" style="right: 1px; left: 605px;"></li>
                 </ul>
               </div>
-              <div class="col s12 card-panel">
+              <div class="col s12 card-panel" style="width:100%;max-width: 100%;">
                 <div id="test1" class="col s12" style="display: none;">
                   <div class="row">
                     <form class="formValidate1" id="formValidate" ng-submit="updateSetting()">
@@ -93,7 +97,7 @@
                           <input id="address" type="text" name="address" data-error=".errorTxt4" ng-model="settings.contact.address">
                           <div class="errorTxt4"></div>
                         </div>
-                        <div class="row margin">
+                        <div class="margin col s12">
                           <label for="manufactur">Manufacturer</label>
                           <select id="manufactur" class="browser-default" name="manufactur" ng-model="settings.manufactur">
                             <option ng-repeat="make in makesList" value="{{make._id}}">{{make.name}}</option>
@@ -135,7 +139,7 @@
                           <input id="working_hours" type="number" min="1" max="24" name="working_hours" data-error=".errorTxt4" ng-model="settings.working_hours">
                           <div class="errorTxt4"></div>
                         </div>
-                        <div class="input-field col s12">
+                        <div class="input-field col s12 m_b_25">
                           <label for="days_of_service">Days of service*</label>
                           <br/>
                           <span class="admin-day-slot">
@@ -293,7 +297,7 @@
                         </div>
                         <div class="">
                           <!-- Modal Trigger -->
-                          <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Change Password</a>
+                          <a class="waves-effect waves-light btn modal-trigger grey darken-2" href="#modal1">Change Password</a>
                         </div>
                         <div class="input-field col s12">
                           <button class="btn waves-effect waves-light right submit" type="submit" name="action">
@@ -395,7 +399,7 @@
                   </form>
                 </div>
               </div>
-              <div id="test3" class="col s12" style="display: none;">
+              <div id="test3" class="col s12 white" style="display: none;">
                 <p>
                   <button class="btn" ng-click="redirectPage('home.serviceadd')">
                     Services Upload

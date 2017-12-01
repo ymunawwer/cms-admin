@@ -243,3 +243,11 @@ angular.module('dmsAdminApp', ['ngCookies', 'ui.materialize', 'ui.router', 'ngCo
     }
   });
 })
+
+.filter('ucword', function() {
+   return function(input) {
+     return input ? input.toLowerCase().replace(/\b[a-z]/g, function(letter) {
+       return letter.toUpperCase();
+     }) : '';
+   }
+ })
