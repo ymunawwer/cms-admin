@@ -8,7 +8,7 @@
  * Controller of the dmsAdminApp
  */
 angular.module('dmsAdminApp')
-  .controller('MofferCtrl', function ($scope, serviceservice, $state ) {
+  .controller('MofferCtrl', function ($scope, serviceservice, $state, $stateParams ) {
     $scope.serviceList = [];
     $scope.servicelimit = 10;
     $scope.servicestart = 0;
@@ -32,6 +32,7 @@ angular.module('dmsAdminApp')
     $scope.selected = $scope.selected || [];
     $scope.selectedservices = $scope.selectedservices || [];
     $scope.selectService = function (service) {
+      console.log(service)
       if (service.checked && $scope.selected.indexOf(service._id) === -1) {
         $scope.selected.push(service._id);
         $scope.selectedservices.push(service);
@@ -41,6 +42,7 @@ angular.module('dmsAdminApp')
         $scope.selected.splice(pos, 1);
         $scope.selectedservices.splice(posO, 1)
       }
+      console.log($scope.selectedservices)
     }
 
     $scope.$watch('key', function (newValue, oldValue) {
@@ -66,7 +68,37 @@ angular.module('dmsAdminApp')
         })
       }
     }
-
+    if($stateParams.id){
+      serviceservice.getSingleMOfferLists({id: $stateParams.id},{}, function(data) {
+        if (data.statusCode === 200) {
+          $scope.list = data.body.items;
+          $scope.list.services.map(function (v) {
+            // $scope.selectService(v)
+            v.checked = true;
+            $scope.selected.push(v._id);
+            $scope.selectedservices.push(v);
+            return v;
+          });
+          console.log($scope.selectedservices)
+        } else {
+          Materialize.toast('<span>' + data.message + '</span>', 3000);
+        }
+      })
+    }
+    $scope.updateMOfferList = function(){
+      if ($scope.addServiceForm.$valid) {
+        // $scope.serviceData.make = $scope.serviceData.make.name;
+        $scope.list.services = $scope.selected;
+        serviceservice.updateMOfferLists({id: $stateParams.id}, $scope.list, function(data) {
+          if (data.statusCode === 200) {
+            Materialize.toast('<span>' + data.message + '</span>', 3000);
+            $state.go('home.list-offer');
+          } else {
+            Materialize.toast('<span>' + data.message + '</span>', 3000);
+          }
+        })
+      }
+    }
     serviceservice.getMOfferLists({}, {}, function (data) {
       if (data.statusCode === 200) {
         $scope.moffer = data.body.items;

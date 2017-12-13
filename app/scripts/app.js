@@ -221,12 +221,18 @@ angular.module('dmsAdminApp', ['ngCookies', 'ui.materialize', 'ui.router', 'ngCo
         controller: 'MofferCtrl',
         authenticate: true
       })
+      .state('home.edit-offer', {
+        url: 'maintenance/offer/edit/:id',
+        templateUrl: 'views/moffer_edit.html',
+        controller: 'MofferCtrl',
+        authenticate: true
+      })
 
-  }
+  }  
 ])
 .constant({
   "endpoint": "http://165.227.104.212:3000/api/v1"
-  // "endpoint": "http://localhost:3000/api/v1"
+  // "endpoint": "http://0.0.0.0:3000/api/v1"
 })
 .run(
   function($rootScope, $http, $state, $location, $templateCache, session) {
