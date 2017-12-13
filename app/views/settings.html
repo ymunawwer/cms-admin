@@ -280,7 +280,7 @@
                           <div class="errorTxt2"></div>
                         </div>
                       </div>
-                      <div class="file-field input-field col s12">
+                      <!-- <div class="file-field input-field col s12">
                         <div class="btn">
                           <span>Upload your logo</span>
                           <input type="file" onchange="angular.element(this).scope().uploadFile(this.files)">
@@ -290,7 +290,69 @@
                         </div>
                         <img width="100" height="100" ng-if="settings.site_logo" src="{{settings.site_logo.url}}">
                         <div class="errorTxt21"></div>
-                      </div>
+                      </div> -->
+                      <div class="panel panel-default" id="two">
+                                <div class="panel-heading">
+                                  <div class="panel-title">
+                                    <b class="required">Upload your logo</b>
+                                  </div>
+                                </div>
+                                <div>
+                                  <style>
+                                    .cropArea {
+                                      margin: 30px auto;
+                                      background: #E4E4E4;
+                                      overflow: hidden;
+                                      width: 500px;
+                                      height: 350px;
+                                    }
+                                  </style>
+                                </div>
+                                <span class="add_image" ng-show="image_message">Please Add Images.Image Types Allowed: png, jpeg, jpg, gif</span>
+                                <div class="panel-body" style="padding-top: 0px;">
+                                  <div class="form-group" ng-show="!showCroppedImg">
+                                    <div class="select_img"><b>Select an image file:</b>
+                                      <div class="">
+                                        <div class="file-field input-field">
+                                          <div class="btn">
+                                            <span>File</span>
+                                            <input type="file" id="fileInput" capture="filesystem">
+                                          </div>
+                                          <div class="file-path-wrapper">
+                                            <input class="file-path validate" name="image" data-error=".errorTxt5" type="text">
+                                          </div>
+                                        </div>
+                                        <div class="errorTxt5 error1"></div>
+                                        <div class="image_type_error" id="image_type">
+                                          Invalid image type
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="cropArea">
+                                      <img-crop result-image-size="640" ngf-pattern="'image/*'" ngf-accept="'image/*'" image="myImage" area-type="square" result-image="myCroppedImage">
+                                      </img-crop>
+                                    </div>
+                                    <div class="text-center ">
+                                      <input type="button" id="cropped" class="btn btn-warning image_cropped" value="Crop Image" ng-click="crop()">
+                                      <!-- <div id="cropImage" class="errorImage">Crop offer banner</div> -->
+                                    </div>
+                                  </div>
+                                  <div class="image_wrapper" ng-show="showCroppedImg">
+                                    <div class="clear" ng-click="clearImage()">
+                                      <i class="material-icons dp48">clear</i>
+                                    </div>
+                                    <img ng-src="{{ blobUrl }}" alt="">
+                                  </div>
+                                </div>
+                              </div>
+
+
+
+
+
+
+
+
                       <div class="input-field col s12">
                         <button class="btn waves-effect waves-light right submit" type="button" name="action" ng-click="updateSetting()">
                           Submit
