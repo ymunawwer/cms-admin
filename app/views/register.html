@@ -10,14 +10,18 @@
     display: table-cell;
     vertical-align: middle;
   }
-
-  .input-field .prefix~label {
-    margin-left: 3.7rem;
+  .def-container{
+    max-width: 75% !important;
+    margin: auto;
+  }
+  .card-panel{
+    width: 100%;
+    max-width: 100%;
   }
 </style>
 <div class="login-wrapper" id="jqueryvalidation">
   <div id="login-page" class="login-page" class="row" ng-if="!pricingTable">
-    <div class="container">
+    <div class="container def-container">
     <p class="flow-text">Choose Plan</p>
     <div class="row">
       <section class="plans-container" id="plans">
@@ -53,14 +57,14 @@
       margin: auto;width:400px;">
       <div class="row">
         <div class="input-field col s12 center">
-          <p class="center login-form-text">DMS Admin Register</p>
+          <p class="center login-form-text">Please enter details</p>
         </div>
       </div>
       <div class="row margin">
         <div class="input-field col s12">
           <i class="mdi-social-person-outline prefix"></i>
           <input id="email" name="email" type="text" autocomplete="off" data-error=".errorTxt1" ng-model="userData.email" required>
-          <label for="email">User Email</label>
+          <label for="email">Your Email ID</label>
           <div class="errorTxt1"></div>
         </div>
       </div>
@@ -84,7 +88,7 @@
         <div class="input-field col s12">
           <i class="mdi-social-person-outline prefix"></i>
           <input id="name" name="name" type="text" autocomplete="off" data-error=".errorTxt11" ng-model="userData.name" required>
-          <label for="name">Dealer Name</label>
+          <label for="name">Your Dealership name</label>
           <div class="errorTxt11"></div>
         </div>
       </div>

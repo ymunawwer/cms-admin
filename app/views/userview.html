@@ -1,6 +1,7 @@
 <!--start container-->
 <div class="container">
   <div class="section">
+  <div class="decor-div white z-depth-1">
     <!-- <p class="caption">USER LIST<br></p> -->
     <div id="table-datatables">
       <h4 class="header">List of all {{roles}} in the system</h4>
@@ -23,8 +24,8 @@
                 <td><span ng-repeat="role in user.roles">{{ role }}<span ng-show="!$last">, </span></span>
                 </td>
                 <td>
-                  <a ui-sref="home.useredit({id: user.id})"><i class="material-icons dp48">edit</i></a>
-                  <a href="javascript:void(0)" ng-click="userdelete(user.id, $index)"><i class="material-icons dp48">delete_forever</i></a>
+                  <a ui-sref="home.useredit({id: user.id})"><i class="material-icons dp48 black-text">edit</i></a>
+                  <a href="javascript:void(0)" ng-click="userdelete(user.id, $index)"><i class="material-icons dp48 red-text">delete_forever</i></a>
                 </td>
               </tr>
             </tbody>
@@ -40,9 +41,10 @@
         </div>
       </div>
     </div>
+    </div>
     <br>
-    <div class="divider"></div>
-
+    <!-- <div class="divider"></div>
+ -->
   </div>
   <!-- Floating Action Button -->
   <div class="fixed-action-btn" style="bottom: 50px; right: 19px;">

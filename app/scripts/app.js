@@ -8,8 +8,7 @@
  *
  * Main module of the application.
  */
-angular.module('dmsAdminApp', ['ngCookies', 'ui.materialize', 'ui.router', 'ngCookies',
-'ngResource', 'ngImgCrop'])
+angular.module('dmsAdminApp', ['ngCookies', 'ui.materialize', 'ui.router', 'ngCookies','ngResource', 'ngImgCrop'])
 .config([
   '$stateProvider',
   '$urlRouterProvider',
@@ -249,3 +248,11 @@ angular.module('dmsAdminApp', ['ngCookies', 'ui.materialize', 'ui.router', 'ngCo
     }
   });
 })
+
+.filter('ucword', function() {
+   return function(input) {
+     return input ? input.toLowerCase().replace(/\b[a-z]/g, function(letter) {
+       return letter.toUpperCase();
+     }) : '';
+   }
+ })

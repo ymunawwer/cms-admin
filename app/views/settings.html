@@ -23,43 +23,53 @@
   .admin-day-slot [type="checkbox"]+label {
     margin: 10px;
   }
+
   .tabs .tab a.active {
     background-color: #fff;
     color: #000;
-}
-.tabs .tab a, .tabs .tab a:hover {
+  }
+
+  .tabs .tab a,
+  .tabs .tab a:hover {
     color: #039be5;
     background: #f6f6f6;
-}
-.card-panel
-{
-  margin: 0;
-  padding-top: 20px !important; 
-  box-shadow: none;
-}
-.tabs > .indicator{
-  display: none;
-}
-.tabs .tab{
-  max-width: 17%;
-}
+  }
+
+  .card-panel {
+    margin: 0;
+    padding-top: 20px !important;
+    box-shadow: none;
+  }
+
+  .tabs>.indicator {
+    display: none;
+  }
+
+  .tabs .tab {
+    max-width: 17%;
+  }
+
+  #test3 p {
+    display: inline-block;
+    margin: 2px 10px 20px;
+    width: 100%;
+  }
 </style>
 
 <div id="jqueryvalidation" class="section">
   <div class="row">
     <div class="col s12 m12 l12">
       <div class="col s12 m12 l12">
-        <div class="">
-          <h4 class="header2">Settings</h4>
+        <div class="settings-otr-info">
           <div class="col s12">
-            <div class="row">
+            <div class="row z-depth-1">
               <div class="">
                 <ul class="tabs tab-demo">
                   <li class="tab">
                     <a class="active" href="#test2" class="">Profile</a>
                   </li>
                   <li class="tab">
-                    <a href="#test1">Settings</a>
+                    <a href="#test1">Configuration</a>
                   </li>
                   <li class="tab">
                     <a href="#test3" class="">Data Upload</a>
@@ -67,76 +77,38 @@
                   <li class="indicator" style="right: 1px; left: 605px;"></li>
                 </ul>
               </div>
-              <div class="col s12 card-panel">
+              <div class="col s12 card-panel" style="width:100%;max-width: 100%;">
                 <div id="test1" class="col s12" style="display: none;">
                   <div class="row">
                     <form class="formValidate1" id="formValidate" ng-submit="updateSetting()">
                       <div class="row">
-                        <div class="input-field col s12">
-                          <label for="uname">Site Title*</label>
-                          <input id="uname" name="name" type="text" data-error=".errorTxt1" ng-model="settings.site_title">
-                          <input type="hidden" class="form-control" ng-model="settings._id" name="" value="">
-                          <div class="errorTxt1"></div>
-                        </div>
-                        <div class="input-field col s12">
-                          <label for="cemail">Contact E-Mail *</label>
-                          <input id="cemail" type="email" name="cemail" data-error=".errorTxt2" ng-model="settings.contact.email">
-                          <div class="errorTxt2"></div>
-                        </div>
-                        <div class="input-field col s12">
-                          <label for="phone">Phone*</label>
-                          <input id="phone" type="text" name="phone" data-error=".errorTxt3" ng-model="settings.contact.phone">
-                          <div class="errorTxt3"></div>
-                        </div>
-                        <div class="input-field col s12">
+                        <!-- <div class="input-field col s12">
                           <label for="address">Address*</label>
                           <input id="address" type="text" name="address" data-error=".errorTxt4" ng-model="settings.contact.address">
                           <div class="errorTxt4"></div>
-                        </div>
-                        <div class="row margin">
-                          <label for="manufactur">Manufacturer</label>
+                        </div> -->
+                        <div class="margin col s12">
+                          <label for="manufactur">Dealer​ ​OEM​ ​association</label>
                           <select id="manufactur" class="browser-default" name="manufactur" ng-model="settings.manufactur">
                             <option ng-repeat="make in makesList" value="{{make._id}}">{{make.name}}</option>
                           </select>
                         </div>
-                        <div class="input-field col s12">
-                          <label for="oem_association">OEM Association*</label>
-                          <input id="oem_association" type="text" name="oem_association" data-error=".errorTxt4" ng-model="settings.oem_association">
-                          <div class="errorTxt4"></div>
-                        </div>
-                        <div class="input-field col s12">
-                          <label for="template_color">Template Color*</label>
-                          <input id="template_color" type="text" name="template_color" data-error=".errorTxt4" ng-model="settings.template_color">
-                          <div class="errorTxt4"></div>
-                        </div>
-                        <div class="input-field col s12">
-                          <label for="booking_before_time">Earliest​ ​timeframe​ ​for​ ​online​ ​appointment​ ​setup​(Hours)*</label>
-                          <input id="booking_before_time" type="number" name="booking_before_time" data-error=".errorTxt4" ng-model="settings.booking_before_time">
-                          <div class="errorTxt4"></div>
-                        </div>
-                        <div class="input-field col s12">
-                          <select data-error=".errorTxt8" name="appointment_interval" id="appointment_interval" ng-model="settings.paypal_mode">
-                            <option value="15">15 mins</option>
-                            <option value="30">30 mins</option>
-                            <option value="60">60 mins</option>
+                        <div class="margin col s12">
+                          <label for="work_start_time">Dealership​ ​working​ ​hours​ - Start Time</label>
+                          <select data-error=".errorTxt8" class="browser-default" name="work_start_time" id="appointment_interval" ng-model="settings.working_hours.start_time">
+                            <option ng-repeat="hour in hours" ng-value="hour">{{hour}}</option>
                           </select>
-                          <label for="appointment_interval">Appointments Interval(Minutes)*</label>
-                          <div class="input-field">
-                            <div class="errorTxt8"></div>
-                          </div>
-                        </div>
-                        <div class="input-field col s12">
-                          <label for="auto_cancel_appointment_time">Auto Cancel Service Appointment(Hours)*</label>
-                          <input id="auto_cancel_appointment_time" type="text" name="auto_cancel_appointment_time" data-error=".errorTxt4" ng-model="settings.auto_cancel_appointment_time">
                           <div class="errorTxt4"></div>
                         </div>
-                        <div class="input-field col s12">
-                          <label for="working_hours">Working Hours</label>
-                          <input id="working_hours" type="number" min="1" max="24" name="working_hours" data-error=".errorTxt4" ng-model="settings.working_hours">
+                        <div class="margin col s12">
+                          <label for="working_hours">Dealership​ ​working​ ​hours​ - End Time</label>
+                          <select data-error=".errorTxt8" class="browser-default" name="work_start_time" id="appointment_interval" ng-model="settings.working_hours.end_time">
+                            <option ng-repeat="hour in hours" ng-disabled="settings.working_hours.start_time >= hour" ng-value="hour">{{hour}}</option>
+                          </select>
                           <div class="errorTxt4"></div>
                         </div>
-                        <div class="input-field col s12">
-                          <label for="days_of_service">Days of service*</label>
+                        <div class="input-field col s12 m_b_25">
+                          <label for="days_of_service">Days for service*</label>
                           <br/>
                           <span class="admin-day-slot">
                             <span>
@@ -169,103 +141,31 @@
                             </span>
                           </span>
                         </div>
-                        <div class="input-field col s12">
-                          <label for="currency">Currency*</label>
-                          <input id="currency" type="text" name="currency" data-error=".errorTxt5" ng-model="settings.currency">
-                          <div class="errorTxt5"></div>
+                        <div class="margin col s12">
+                          <label for="template_color">Template Color*</label>
+                          <input id="template_color" type="color" name="template_color" data-error=".errorTxt4" ng-model="settings.template_color">
+                          <div class="errorTxt4"></div>
                         </div>
-                        <div class="input-field col s12">
-                          <label for="symbol">Currency Symbol*</label>
-                          <input id="symbol" type="text" name="symbol" data-error=".errorTxt6" ng-model="settings.pricing_unit">
-                          <div class="errorTxt6"></div>
-                        </div>
-                        <h4 class="header2">PayPal</h4>
-                        <div class="input-field col s6">
-                          <label for="pemail">PayPal Email*</label>
-                          <input id="pemail" type="email" name="pemail" data-error=".errorTxt7" ng-model="settings.paypal_email">
-                          <div class="errorTxt7"></div>
-                        </div>
-
-                        <div class="input-field col s6">
-
-                          <select data-error=".errorTxt8" name="pmode" id="pmode" ng-model="settings.paypal_mode">
-                            <option value="sandbox">Sandbox</option>
-                            <option value="live">Live</option>
-                          </select>
-                          <label>PayPal Mode</label>
-                          <div class="input-field">
-                            <div class="errorTxt8"></div>
+                        <div class="row user-setting">
+                          <p>Other configuration</p>
+                          <div class="margin col s12">
+                            <label for="booking_before_time">Earliest​ ​timeframe​ ​for​ ​online​ ​appointment​ ​setup​(Hours)*</label>
+                            <input id="booking_before_time" type="number" name="booking_before_time" data-error=".errorTxt4" ng-model="settings.booking_before_time">
+                            <div class="errorTxt4"></div>
                           </div>
-                        </div>
-                        <h4 class="header2">Stripe Payment</h4>
-                        <div class="input-field col s12">
-                          <label for="skey">Stripe Api Key*</label>
-                          <input id="skey" type="text" name="skey" data-error=".errorTxt9" ng-model="settings.stripe_key">
-                          <div class="errorTxt9"></div>
-                        </div>
-                        <h4 class="header2">Social Links</h4>
-                        <div class="input-field col s4">
-                          <label for="g_url">Google Url*</label>
-                          <input id="g_url" type="text" name="g_url" data-error=".errorTxt10" ng-model="settings.google_link">
-                          <div class="errorTxt10"></div>
-                        </div>
-                        <div class="input-field col s4">
-                          <label for="f_url">Facebook Url*</label>
-                          <input id="f_url" type="text" name="f_url" data-error=".errorTxt11" ng-model="settings.facebook_link">
-                          <div class="errorTxt11"></div>
-                        </div>
-                        <div class="input-field col s4">
-                          <label for="t_url">Twitter Url*</label>
-                          <input id="t_url" type="text" name="t_url" data-error=".errorTxt12" ng-model="settings.twitter_link">
-                          <div class="errorTxt12"></div>
-                        </div>
-                        <h4 class="header2">Mandril</h4>
-                        <div class="input-field col s4">
-                          <label for="m_email">Mandril Eamil*</label>
-                          <input id="m_email" type="email" name="m_email" data-error=".errorTxt13" ng-model="settings.owner_mail">
-                          <div class="errorTxt13"></div>
-                        </div>
-                        <div class="input-field col s4">
-                          <label for="m_pass">Mantril Email Password*</label>
-                          <input id="m_pass" type="text" name="m_pass" data-error=".errorTxt14" ng-model="settings.owner_mail_password">
-                          <div class="errorTxt14"></div>
-                        </div>
-                        <div class="input-field col s4">
-                          <label for="m_key">Mantril Key*</label>
-                          <input id="m_key" type="text" name="m_key" data-error=".errorTxt15" ng-model="settings.mandril_key">
-                          <div class="errorTxt15"></div>
-                        </div>
-                        <br>
-                        <h4 class="header2">Social Provider</h4>
-                        <div class="input-field col s4">
-                          <label for="fapp_id">Facebook APP ID*</label>
-                          <input id="fapp_id" type="text" name="fapp_id" data-error=".errorTxt16" ng-model="settings.social_providers.fb.app_id">
-                          <div class="errorTxt16"></div>
-                        </div>
-                        <div class="input-field col s4">
-                          <label for="fapp_secret">Facebook APP Secret*</label>
-                          <input id="fapp_secret" type="text" name="fapp_secret" data-error=".errorTxt17" ng-model="settings.social_providers.fb.app_secret">
-                          <div class="errorTxt17"></div>
-                        </div>
-                        <div class="input-field col s4">
-                          <label for="fredirect_url">Facebook Redircet Url*</label>
-                          <input id="fredirect_url" type="text" name="fredirect_url" data-error=".errorTxt18" ng-model="settings.social_providers.fb.redirect_url">
-                          <div class="errorTxt18"></div>
-                        </div>
-                        <div class="input-field col s4">
-                          <label for="gapp_id">Google APP ID*</label>
-                          <input id="gapp_id" type="text" name="gapp_id" data-error=".errorTxt19" ng-model="settings.social_providers.google.app_id">
-                          <div class="errorTxt19"></div>
-                        </div>
-                        <div class="input-field col s4">
-                          <label for="gapp_secret">Google APP Secret*</label>
-                          <input id="gapp_secret" type="text" name="gapp_secret" data-error=".errorTxt20" ng-model="settings.social_providers.google.app_secret">
-                          <div class="errorTxt20"></div>
-                        </div>
-                        <div class="input-field col s4">
-                          <label for="gredirect_url">Google Redirect Url*</label>
-                          <input id="gredirect_url" type="text" name="gredirect_url" data-error=".errorTxt21" ng-model="settings.social_providers.google.redirect_url">
-                          <div class="errorTxt21"></div>
+                          <div class="margin col s12">
+                            <label for="appointment_interval">Service​ ​appointment​ ​interval​ ​for​ ​taking​ ​appointments(Minutes)*</label>
+                            <select data-error=".errorTxt8" class="browser-default" name="appointment_interval" id="appointment_interval" ng-model="settings.appointment_interval">
+                              <option ng-value="15">15 mins</option>
+                              <option ng-value="30">30 mins</option>
+                              <option ng-value="60">60 mins</option>
+                            </select>
+                          </div>
+                          <div class="margin col s12">
+                            <label for="auto_cancel_appointment_time">Auto​ ​cancel​ ​service​ ​appts​ ​for​ ​no​ ​shows​ ​after​ ​x​ ​hours*</label>
+                            <input id="auto_cancel_appointment_time" type="text" name="auto_cancel_appointment_time" data-error=".errorTxt4" ng-model="settings.auto_cancel_appointment_time">
+                            <div class="errorTxt4"></div>
+                          </div>
                         </div>
                         <div class="input-field col s12">
                           <button class="btn waves-effect waves-light right submit" type="submit" name="action">
@@ -280,20 +180,26 @@
                 <div id="test2" class="col s12">
                   <div class="row">
                     <form class="formValidate" id="formValidate" ng-submit="updateProfile()">
-                      <div class="row">
+                      <div class="row user-setting">
+                        <p>Account details</p>
                         <div class="input-field col s12">
-                          <label for="uname">Username*</label>
+                          <label for="uname">Dealer name*</label>
                           <input id="uname" name="uname" type="text" data-error=".errorTxt1" ng-model="profileData.name">
                           <div class="errorTxt1"></div>
                         </div>
                         <div class="input-field col s12">
-                          <label for="cemail">E-Mail *</label>
+                          <label for="cemail">Email*</label>
                           <input id="cemail" type="email" name="cemail" data-error=".errorTxt2" ng-model="profileData.email">
+                          <div class="errorTxt2"></div>
+                        </div>
+                        <div class="input-field col s12">
+                          <label for="cephone">Phone*</label>
+                          <input id="cephone" type="text" name="cephone" data-error=".errorTxt2" ng-model="profileData.phone">
                           <div class="errorTxt2"></div>
                         </div>
                         <div class="">
                           <!-- Modal Trigger -->
-                          <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Change Password</a>
+                          <a class="waves-effect waves-light btn modal-trigger grey darken-2" href="#modal1">Change Password</a>
                         </div>
                         <div class="input-field col s12">
                           <button class="btn waves-effect waves-light right submit" type="submit" name="action">
@@ -309,7 +215,7 @@
                             <div class="errorTxt1"></div>
                           </div>
                           <div class="input-field col s12">
-                            <label for="pcemail">E-Mail *</label>
+                            <label for="pcemail">Email *</label>
                             <input id="pcemail" type="email" name="pcemail" data-error=".errorTxt2" ng-model="settings.primary_contact.email">
                             <div class="errorTxt2"></div>
                           </div>
@@ -328,7 +234,7 @@
                           <div class="errorTxt1"></div>
                         </div>
                         <div class="input-field col s12">
-                          <label for="scemail">E-Mail *</label>
+                          <label for="scemail">Email *</label>
                           <input id="scemail" type="email" name="scemail" data-error=".errorTxt2" ng-model="settings.secondary_contact.email">
                           <div class="errorTxt2"></div>
                         </div>
@@ -346,7 +252,7 @@
                           <div class="errorTxt1"></div>
                         </div>
                         <div class="input-field col s12">
-                          <label for="dnemail">E-Mail *</label>
+                          <label for="dnemail">Email *</label>
                           <input id="dnemail" type="email" name="dnemail" data-error=".errorTxt2" ng-model="settings.invoice_contact.email">
                           <div class="errorTxt2"></div>
                         </div>
@@ -359,12 +265,12 @@
                       <div class="row user-setting">
                         <p>Contact Details to be displayed on to customers</p>
                         <div class="input-field col s12">
-                          <label for="cdcname">Name*</label>
+                          <label for="cdcname">Name *</label>
                           <input id="cdcname" name="cdcname" type="text" data-error=".errorTxt1" ng-model="settings.contact_to_show_customer.name">
                           <div class="errorTxt1"></div>
                         </div>
                         <div class="input-field col s12">
-                          <label for="cdcemail">E-Mail *</label>
+                          <label for="cdcemail">Email *</label>
                           <input id="cdcemail" type="email" name="cdcemail" data-error=".errorTxt2" ng-model="settings.contact_to_show_customer.email">
                           <div class="errorTxt2"></div>
                         </div>
@@ -374,9 +280,9 @@
                           <div class="errorTxt2"></div>
                         </div>
                       </div>
-                      <div class="file-field input-field col s12">
+                      <!-- <div class="file-field input-field col s12">
                         <div class="btn">
-                          <span>SITE LOGO</span>
+                          <span>Upload your logo</span>
                           <input type="file" onchange="angular.element(this).scope().uploadFile(this.files)">
                         </div>
                         <div class="file-path-wrapper">
@@ -384,7 +290,69 @@
                         </div>
                         <img width="100" height="100" ng-if="settings.site_logo" src="{{settings.site_logo.url}}">
                         <div class="errorTxt21"></div>
-                      </div>
+                      </div> -->
+                      <div class="panel panel-default" id="two">
+                                <div class="panel-heading">
+                                  <div class="panel-title">
+                                    <b class="required">Upload your logo</b>
+                                  </div>
+                                </div>
+                                <div>
+                                  <style>
+                                    .cropArea {
+                                      margin: 30px auto;
+                                      background: #E4E4E4;
+                                      overflow: hidden;
+                                      width: 500px;
+                                      height: 350px;
+                                    }
+                                  </style>
+                                </div>
+                                <span class="add_image" ng-show="image_message">Please Add Images.Image Types Allowed: png, jpeg, jpg, gif</span>
+                                <div class="panel-body" style="padding-top: 0px;">
+                                  <div class="form-group" ng-show="!showCroppedImg">
+                                    <div class="select_img"><b>Select an image file:</b>
+                                      <div class="">
+                                        <div class="file-field input-field">
+                                          <div class="btn">
+                                            <span>File</span>
+                                            <input type="file" id="fileInput" capture="filesystem">
+                                          </div>
+                                          <div class="file-path-wrapper">
+                                            <input class="file-path validate" name="image" data-error=".errorTxt5" type="text">
+                                          </div>
+                                        </div>
+                                        <div class="errorTxt5 error1"></div>
+                                        <div class="image_type_error" id="image_type">
+                                          Invalid image type
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="cropArea">
+                                      <img-crop result-image-size="640" ngf-pattern="'image/*'" ngf-accept="'image/*'" image="myImage" area-type="square" result-image="myCroppedImage">
+                                      </img-crop>
+                                    </div>
+                                    <div class="text-center ">
+                                      <input type="button" id="cropped" class="btn btn-warning image_cropped" value="Crop Image" ng-click="crop()">
+                                      <!-- <div id="cropImage" class="errorImage">Crop offer banner</div> -->
+                                    </div>
+                                  </div>
+                                  <div class="image_wrapper" ng-show="showCroppedImg">
+                                    <div class="clear" ng-click="clearImage()">
+                                      <i class="material-icons dp48">clear</i>
+                                    </div>
+                                    <img ng-src="{{ blobUrl }}" alt="">
+                                  </div>
+                                </div>
+                              </div>
+
+
+
+
+
+
+
+
                       <div class="input-field col s12">
                         <button class="btn waves-effect waves-light right submit" type="button" name="action" ng-click="updateSetting()">
                           Submit
@@ -395,25 +363,25 @@
                   </form>
                 </div>
               </div>
-              <div id="test3" class="col s12" style="display: none;">
+              <div id="test3" class="white" style="display: none;">
                 <p>
                   <button class="btn" ng-click="redirectPage('home.serviceadd')">
-                    Services Upload
+                    Manage & Add service items
                   </button>
                 </p>
                 <p>
                   <button class="btn" ng-click="redirectPage('home.useradd')">
-                    Users Upload
+                    Manage & Create Users
                   </button>
                 </p>
                 <p>
                   <button class="btn" ng-click="redirectPage('home.recall')">
-                    Recalls Upload
+                    Upload Recall data
                   </button>
                 </p>
                 <p>
                   <button class="btn" ng-click="redirectPage('home.maintenance_add')">
-                    OEM Upload
+                    Manage and Upload OEM recommended maintainence items
                   </button>
                 </p>
               </div>

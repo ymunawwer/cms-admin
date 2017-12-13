@@ -1,32 +1,42 @@
+<style>
+  #left-sidebar-nav{
+    z-index: 888;
+    display: none;
+  }
+</style>
 <!-- START HEADER -->
 <header id="header" class="page-topbar">
   <!-- start header nav-->
   <div class="navbar-fixed">
-    <nav class="navbar-color">
+    <nav class="navbar-color white">
       <div class="nav-wrapper">
         <ul class="left">
           <li>
             <h1 class="logo-wrapper">
-              <a href="" class="brand-logo darken-1">{{site.site_title}}</a>
+              <a href="" class="brand-logo darken-1">{{site.site_title | ucword}}</a>
               <span class="logo-text"></span>
             </h1>
           </li>
         </ul>
-        <ul class="right hide-on-med-and-down">
-          <li>
+        <ul class="right">
+           <li>
+                <a href="javascript:void(0)" ng-click="logout()">
+                  <i class="material-icons left " style="font-size: 20px;margin: 0;">power_settings_new</i></a>
+            </li>
+          <!-- <li>
           </li>
           <li>
             <a href="#" class="waves-effect waves-block waves-light translation-button dropdown-button" data-activates="dropdown1">
               <i class="material-icons">menu</i>
-            </a>
+            </a> -->
             <!-- Dropdown Structure -->
-            <ul id='dropdown1' class='dropdown-content'>
+            <!-- <ul id='dropdown1' class='dropdown-content'>
 
               <li class="divider"></li>
               <li>
                 <a href="javascript:void(0)" ng-click="logout()">
                   <i class="material-icons left">keyboard_tab</i>&nbsp; Log out</a>
-              </li>
+              </li> -->
               <!-- <li><a ui-sref="home.profile"><i class="mdi-action-face-unlock"></i> Profile</a>
               </li>
               <li><a ui-sref="home.settings"><i class="mdi-action-settings"></i> Settings</a>
@@ -34,8 +44,8 @@
               <li class="divider"></li>
               <li><a href="javascript:void(0)" ng-click="logout()"><i class="mdi-hardware-keyboard-tab"></i> Logout</a>
               </li> -->
-            </ul>
-          </li>
+            <!-- </ul> -->
+          <!-- </li> -->
           <style>
             header .dropdown-content {
               min-width: 150px;
@@ -126,8 +136,194 @@
   </div>
   <!-- end header nav-->
 </header>
+<div class="main-slide-outer">
 <!-- END HEADER -->
+<ul id="slide-out" class="side-nav">
+     <li class="user-details cyan darken-2">
+        <div class="row">
+          <div class="col col s4 m4 l4">
+            <img src="{{admin.icon}}" alt="" class="circle responsive-img valign profile-image" style="height:53px;width:53px;" />
+          </div>
+          <div class="col col s8 m8 l8">
+            <a class='btn-flat dropdown-button waves-effect waves-light white-text profile-btn' href='javascript:void(0);'>
+              {{admin.name}}
+            </a>
+            <p class="user-roal">Adminstrator</p>
+          </div>
+        </div>
+        </li>
+        <li class="bold" ui-sref-active="active">
+          <a ui-sref="home.dashboard" class="waves-effect waves-cyan">
+            <i class="mdi-action-dashboard"></i> Dashboard
+          </a>
+        </li>
+          <ul class="collapsible" data-collapsible="accordion" watch>
+          <li ui-sref-active="active">
+            <div class="collapsible-header">
+              <i class="mdi-action-account"></i>Manage Users
+            </div>
+            <div class="collapsible-body">
+              <ul>
+                <li>
+                  <a ui-sref="home.useradd">Add a new user</a>
+                </li>
+                <li>
+                  <a ui-sref="home.userview">View all users</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+        <ul class="collapsible" data-collapsible="accordion" watch>
+          <li ui-sref-active="active">
+            <div class="collapsible-header">
+              <i class="mdi-action-account"></i>Manage Service items
+            </div>
+            <div class="collapsible-body">
+              <ul>
+                <li>
+                  <a ui-sref="home.serviceadd">Add a new service item</a>
+                </li>
+                <li>
+                  <a ui-sref="home.serviceview">View all service items</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+        <ul class="collapsible" data-collapsible="accordion" watch>
+          <li ui-sref-active="active">
+            <div class="collapsible-header">
+              <i class="mdi-action-account"></i>Offers
+            </div>
+            <div class="collapsible-body">
+              <ul>
+                <li>
+                  <a ui-sref="home.add-image">Add Images</a>
+                </li>
+                <li>
+                  <a ui-sref="home.list-image">List Images</a>
+                </li>
+                <li>
+                  <ul class="collapsible" data-collapsible="accordion" watch>
+                    <li ui-sref-active="active">
+                      <div class="collapsible-header">
+                        <i class="mdi-action-account"></i>Maintenance Schedule Offer
+                      </div>
+                      <div class="collapsible-body">
+                        <ul>
+                          <li >
+                            <a style="color:black !important;" ui-sref="home.add-offer">Add</a>
+                          </li>
+                          <li >
+                            <a style="color:black !important;" ui-sref="home.list-offer">List</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+        <ul class="collapsible" data-collapsible="accordion" watch>
+          <li ui-sref-active="active">
+            <div class="collapsible-header">
+              <i class="mdi-action-account"></i>Manage Recall items
+            </div>
+            <div class="collapsible-body">
+              <ul>
+                <li>
+                  <a ui-sref="home.recall">Add a recall item</a>
+                </li>
+                <li>
+                  <a ui-sref="home.recallview">View a recall item</a>
+                </li>
+                <!-- <li>
+                  <a ui-sref="home.recallookup">Add a recall lookup item</a>
+                </li> -->
+              </ul>
+            </div>
+          </li>
+        </ul>
+        <ul class="collapsible" data-collapsible="accordion" watch>
+          <li ui-sref-active="active">
+            <div class="collapsible-header">
+              <i class="mdi-action-account"></i>OEM
+            </div>
+            <div class="collapsible-body">
+              <ul>
+                <li>
+                  <a ui-sref="home.maintenance">OEM Recommended</a>
+                </li>
+                <li>
+                  <a ui-sref="home.premaintenance">Data Approval</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+        <ul class="collapsible" data-collapsible="accordion" watch>
+          <li ui-sref-active="active">
+            <div class="collapsible-header">
+              <i class="mdi-action-account"></i>OEM Settings
+            </div>
+            <div class="collapsible-body">
+              <ul>
+                <li>
+                  <a ui-sref="home.maintenancepassword">Results Page Password</a>
+                </li>
+                <li>
+                  <a ui-sref="home.maintenancekey">Data Reset Password</a>
+                </li>
+                <li>
+                  <a ui-sref="home.maintenancetoken">Security Token</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+        <ul class="collapsible" data-collapsible="accordion" watch>
+          <li ui-sref-active="active">
+            <div class="collapsible-header">
+              <i class="mdi-action-account"></i>VINs
+            </div>
+            <div class="collapsible-body">
+              <ul>
+                <li>
+                  <a ui-sref="home.vehicle">View Vins</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+        <ul class="collapsible" data-collapsible="accordion" watch>
+          <li ui-sref-active="active">
+            <div class="collapsible-header">
+              <i class="mdi-action-account"></i>Lease Expiry
+            </div>
+            <div class="collapsible-body">
+              <ul>
+                <li>
+                  <a ui-sref="home.leaseadd">Add </a>
+                </li>
+                <li>
+                  <a ui-sref="home.lease">View </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <a href="javascript:void(0)" ui-sref="home.settings" class="slide-last-a">Settings</a>
+          </li>
+        </ul>
 
+  </ul>
+  <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons small">menu</i></a>
+</div>
 
 <!-- START MAIN -->
 <div id="main">
