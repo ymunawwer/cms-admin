@@ -8,12 +8,20 @@
  * Controller of the dmsAdminApp
  */
 angular.module('dmsAdminApp')
-  .controller('MofferCtrl', function ($scope, serviceservice, $state, $stateParams ) {
+  .controller('MofferCtrl', function ($scope, serviceservice, $state, $stateParams, session) {
     $scope.serviceList = [];
     $scope.servicelimit = 10;
     $scope.servicestart = 0;
     $scope.servicepage = 1;
-    
+    $scope.admin = session.get('admin')
+console.log($scope.admin)
+    serviceservice.getMileageList({id: $scope.admin.manufactur}, {}, function (data) {
+      if (data.statusCode === 200) {
+        $scope.mileageList = data.body.items;
+        console.log($scope.mileageList)
+      }
+    });
+
     $scope.getAllService = function (keyvalue) {
       serviceservice.getServiceList({
         key: keyvalue,
@@ -45,6 +53,18 @@ angular.module('dmsAdminApp')
       console.log($scope.selectedservices)
     }
 
+    $scope.selectedmiles = $scope.selectedmiles || [];
+    $scope.selectMileages = function (service) {
+      console.log(service)
+      if ($scope.selectedmiles.indexOf(service) === -1) {
+        $scope.selectedmiles.push(service);
+      } else {
+        var posO = $scope.selectedmiles.indexOf(service);
+        $scope.selectedmiles.splice(posO, 1)
+      }
+      console.log($scope.selectedmiles)
+    }
+
     $scope.$watch('key', function (newValue, oldValue) {
       if (newValue && newValue != "") {
         $scope.skey = newValue
@@ -54,10 +74,13 @@ angular.module('dmsAdminApp')
         $scope.getAllService()
       }
     });
+    $scope.list ={};
     $scope.addMOfferList = function(){
       if ($scope.addServiceForm.$valid) {
         // $scope.serviceData.make = $scope.serviceData.make.name;
         $scope.list.services = $scope.selected;
+        $scope.list.mileage = $scope.selectedmiles;
+       
         serviceservice.addMOfferLists({}, $scope.list, function(data) {
           if (data.statusCode === 200) {
             Materialize.toast('<span>' + data.message + '</span>', 3000);

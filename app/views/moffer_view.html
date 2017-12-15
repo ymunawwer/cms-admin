@@ -29,6 +29,9 @@
                     <!-- <a ><i class="material-icons dp48">delete_forever</i></a> -->
                   </td>
                 </tr>
+                <tr ng-if="moffer.length==0">
+                  <td colspan="3"> No data found</td>
+                </tr>
               </tbody>
             </table>
             <!-- <div ng-if="serviceCount>servicelimit" class="dataTables_info" id="data-table-simple_info" role="status" aria-live="polite">Showing {{servicestart + 1}}-{{servicestart + servicelimit}} of {{serviceCount}} entries</div>

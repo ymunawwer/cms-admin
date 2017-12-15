@@ -161,5 +161,12 @@ angular.module('dmsAdminApp')
           id: "@id"
         }
       },
+      getMileageList: {
+        url: endpoint + '/admin/offers/maintenancemiles/:id',
+        method: 'GET',
+        params: {
+          id: "@id"
+        }
+      },
     })
   });

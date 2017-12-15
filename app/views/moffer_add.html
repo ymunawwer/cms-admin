@@ -8,11 +8,14 @@
             </h4>
             <div class="row">
               <form class="formValidate" name="addServiceForm" id="formValidate" ng-submit="addMOfferList()">
-  
+                  <label for="sname21">Select the mileage</label>                    
+                  
                 <div class="row">
-                  <div class="input-field col s12">
-                    <label for="sname21">Enter the mileage here</label>
-                    <input id="sname21" name="sname21" type="number" data-error=".errorTxt21" ng-model="list.mileage" >
+                  <div class="input-field col s3" ng-repeat="mile in mileageList.mileage">
+                    <p >
+                      <input name="group1" type="checkbox" ng-model="mileage" id="test{{mile}}" ng-change="selectMileages(mile)"  />
+                      <label for="test{{mile}}">{{mile}}</label>
+                      </p>
                     <div class="errorTxt21"></div>
                   </div>
                 </div>
