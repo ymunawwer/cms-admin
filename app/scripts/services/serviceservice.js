@@ -142,10 +142,31 @@ angular.module('dmsAdminApp')
       addMOfferLists: {
         url: endpoint + '/admin/offers/maintenanceitems',
         method: 'POST',
-      },
+      }, 
       getMOfferLists: {
         url: endpoint + '/admin/offers/maintenanceitems',
         method: 'GET',
+      },
+      getSingleMOfferLists: {
+        url: endpoint + '/admin/offers/maintenanceitems/:id',
+        method: 'GET',
+        params: {
+          id: "@id"
+        }
+      },
+      updateMOfferLists: {
+        url: endpoint + '/admin/offers/maintenanceitems/:id',
+        method: 'PUT',
+        params: {
+          id: "@id"
+        }
+      },
+      getMileageList: {
+        url: endpoint + '/admin/offers/maintenancemiles/:id',
+        method: 'GET',
+        params: {
+          id: "@id"
+        }
       },
     })
   });

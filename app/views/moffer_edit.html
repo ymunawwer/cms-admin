@@ -7,15 +7,12 @@
                 Maintenance Schedule Offer Items
             </h4>
             <div class="row">
-              <form class="formValidate" name="addServiceForm" id="formValidate" ng-submit="addMOfferList()">
-                  <label for="sname21">Select the mileage</label>                    
-                  
+              <form class="formValidate" name="addServiceForm" id="formValidate" ng-submit="updateMOfferList()">
+  
                 <div class="row">
-                  <div class="input-field col s3" ng-repeat="mile in mileageList.mileage">
-                    <p >
-                      <input name="group1" type="checkbox" ng-model="mileage" id="test{{mile}}" ng-change="selectMileages(mile)"  />
-                      <label for="test{{mile}}">{{mile}}</label>
-                      </p>
+                  <div class="input-field col s12">
+                    <label for="sname21">Enter the mileage here</label>
+                    <input id="sname21"  readonly name="sname21" type="number" data-error=".errorTxt21" ng-model="list.mileage" >
                     <div class="errorTxt21"></div>
                   </div>
                 </div>
@@ -37,7 +34,7 @@
                     </p>
                 <div class="row">
                   <div class="input-field col s12">
-                    <a ui-sref="home" class="btn grey darken-1">Cancel </a>
+                    <a ui-sref="home">Cancel </a>
                     <button class="btn waves-effect waves-light right submit" type="submit" name="action">
                      Submit
                      <i class="mdi-content-send right"></i>
