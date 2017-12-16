@@ -24,17 +24,47 @@ angular.module('dmsAdminApp')
     $scope.settingsTimpicker = {
       dropdownToggleState: false,
       time: {
-          fromHour: '05',
-          fromMinute: '30',
-          toHour: '10',
-          toMinute: '10'
+        fromHour: '05',
+        fromMinute: '30',
+        toHour: '10',
+        toMinute: '10'
       },
       theme: 'dark',
       noRange: false,
       format: 24,
       noValidation: false
-  };
-  $scope.hours = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24];
+    };
+    var handleFileSelect = function (evt) {
+      var valu = evt.currentTarget.files[0].type;
+      var patt = new RegExp("image/");
+      if (patt.test(valu)) {
+        angular.element('#img_cropper').children('canvas').css('display', 'block');
+        $('#upload_block').css('display', 'none');
+        $('.cropArea').css('display', 'block');
+        $('.image_cropped').css('display', 'inline-block');
+        angular.element('#image_type').css('display', 'none');
+
+        var file = evt.currentTarget.files[0];
+        var reader = new FileReader();
+
+        var output = document.getElementById("result");
+
+        reader.onload = function (evt) {
+          $scope.$apply(function ($scope) {
+            $scope.myImage = evt.target.result;
+            $scope.validImage = true;
+          });
+          angular.element('#image_type').css('display', 'none');
+        };
+        reader.readAsDataURL(file);
+        $("#fileInput").val = '';
+      } else {
+        $scope.validImage = false;
+        angular.element('#image_type').css('display', 'block');
+      }
+    };
+    angular.element(document.querySelector('#fileInput')).on('change', handleFileSelect);
+    $scope.hours = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24];
     $scope.updateSetting = function () {
       settings.updateSetting({}, $scope.settings, function (data) {
         if (data.statusText == 'success') {

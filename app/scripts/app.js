@@ -155,6 +155,12 @@ angular.module('dmsAdminApp', ['ngCookies', 'ui.materialize', 'ui.router', 'ngCo
         controller: 'SettingCtrl',
         authenticate: true
       })
+      .state('home.configuration', {
+        url: 'configuration',
+        templateUrl: 'views/configuration.html',
+        controller: 'SettingCtrl',
+        authenticate: true
+      })
       .state('home.vehicle', {
         url: 'vehicles',
         templateUrl: 'views/vehicle.html',
