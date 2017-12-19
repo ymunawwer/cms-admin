@@ -1,1 +1,144 @@
-<p>HTML</p>
+<style>
+	.dealer-wizard{
+		margin: 3em;
+		padding:1em;
+		display: inline-block;
+	}
+	.dealer-wizard p.flow-text{
+		color: #f27717;
+		margin: 0;
+	}
+	.dealer-wizard p.black-text{
+    	font-size: 20px;
+    	margin: 10px 0 2em;
+	}
+	.dealer-wizard .wizard-content p{
+		margin: 0 0 10px 0;
+    	font-size: 14px;
+	}
+	ul.stepper.horizontal .step-title{
+		/*min-width: 250px;*/
+		    line-height: 78px;
+	}
+	.card.white{
+		margin: 3em;
+	}
+	@media only screen and (min-width: 993px)
+	{
+		ul.stepper.horizontal .step-title:after {
+		    top: 19px;
+		}
+		ul.stepper.horizontal .step.active .step-title:before, ul.stepper.horizontal .step.done .step-title:before {
+    			background-color: #f27618;
+		}
+	}
+</style>
+<div class="dealer-wizard z-depth-1 white">
+	<p class="flow-text center-align">Dealer SetUp Wizard</p>
+	<p class="center-align black-text">Welcome to dealer account setup wizard. Follow these steps and we can have you setup and ready in no time.</p>
+	<div class="row">
+		<div class="col m5 s12">
+			<div class="wizard-img">
+				<img src="https://media.istockphoto.com/photos/auto-mechanic-with-customer-picture-id172421050?k=6&m=172421050&s=612x612&w=0&h=DqkhSe2UlMZF91QrH5yHznHygzmVTR_2Q_37pRafNrI=" alt="image" style="width: 100%;" />
+			</div>
+		</div>
+		<div class="col m7 s12">
+			<div class="wizard-content">
+				<p>Step 1: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
+			Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+			Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis</p>
+			<p>Step 2: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
+			Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+			Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis</p>
+			<p>Step 3: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
+			Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+			Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis</p>
+			<p>Step 4: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
+			Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+			Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis</p>
+			<p>
+			Step 5: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
+			Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+			Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis.
+			</p>
+			<p class="right-align">
+				<button type="button" class="btn waves-effect waves-light">
+					Start
+				</button>
+			</p>
+			</div>
+		</div>
+	</div>
+</div>
+ <div class="col s12">
+    <div class="card white">
+      <div class="card-content">
+        <ul class="stepper horizontal" id="horizontal">
+          <li class="step active">
+            <div data-step-label="Dealer Info" class="step-title waves-effect waves-dark">
+              Step 1
+            </div>
+            <div class="step-content">
+            	<h1>Hello</h1>
+              <div class="step-actions">
+                <button class="waves-effect waves-dark btn blue next-step">CONTINUE</button>
+              </div>
+            </div>
+          </li>
+          <li class="step">
+            <div data-step-label="Configuration" class="step-title waves-effect waves-dark">
+              Step 2
+            </div>
+            <div class="step-content">
+            	<h1>Hello</h1>
+              <div class="step-actions">
+                <button class="waves-effect waves-dark btn blue next-step">CONTINUE</button>
+              </div>
+            </div>
+          </li>
+          <li class="step">
+            <div data-step-label="Service Data Upload" class="step-title waves-effect waves-dark">
+              Step 3
+            </div>
+            <div class="step-content">
+            	<h1>Hello</h1>
+              <div class="step-actions">
+                <button class="waves-effect waves-dark btn blue next-step">CONTINUE</button>
+              </div>
+            </div>
+          </li>
+          <li class="step">
+            <div data-step-label="User Setup" class="step-title waves-effect waves-dark">
+              Step 4
+            </div>
+            <div class="step-content">
+            	<h1>Hello</h1>
+              
+              <div class="step-actions">
+                <button class="waves-effect waves-dark btn blue next-step">CONTINUE</button>
+              </div>
+            </div>
+          </li>
+          <li class="step">
+            <div data-step-label="Customer Data Upload" class="step-title waves-effect waves-dark">Step 5</div>
+            <div class="step-content">
+              Finish!
+              <div class="step-actions">
+                <button class="waves-effect waves-dark btn blue" type="submit">SUBMIT</button>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+</div>   
+<script type="text/javascript">
+	 function anyThing() {
+          setTimeout(function(){ $('.stepper').nextStep(); }, 1500);
+        }
+
+	$(function(){
+		 $('.stepper').activateStepper();
+	})
+</script>
+ 
