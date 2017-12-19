@@ -54,6 +54,25 @@
     margin: 2px 10px 20px;
     width: 100%;
   }
+  .if-label .input-field label{
+    position: relative;
+    margin: 10px;
+    display: inline-block;
+    left: 0 !important;
+  }
+  .if-label .input-field select{
+    border-radius: 0;
+  }
+  .temp_color_p{
+        color: #000;
+    font-size: 1rem;
+    margin: 0 0 10px;
+    font-weight: 600;
+    letter-spacing: .6px;
+  }
+  .temp_color input{
+    margin: 10px 0;
+  }
 </style>
 
 <div id="jqueryvalidation" class="section">
@@ -81,34 +100,34 @@
                 <div id="test1" class="col s12" style="display: none;">
                   <div class="row">
                     <form class="formValidate1" id="formValidate" ng-submit="updateSetting()">
-                      <div class="row">
+                      <div class="row if-label">
                         <!-- <div class="input-field col s12">
                           <label for="address">Address*</label>
                           <input id="address" type="text" name="address" data-error=".errorTxt4" ng-model="settings.contact.address">
                           <div class="errorTxt4"></div>
                         </div> -->
-                        <div class="margin col s12">
+                        <div class="margin input-field col s12">
                           <label for="manufactur">Dealer​ ​OEM​ ​association</label>
                           <select id="manufactur" class="browser-default" name="manufactur" ng-model="settings.manufactur">
                             <option ng-repeat="make in makesList" value="{{make._id}}">{{make.name}}</option>
                           </select>
                         </div>
-                        <div class="margin col s12">
+                        <div class="margin input-field col s12">
                           <label for="work_start_time">Dealership​ ​working​ ​hours​ - Start Time</label>
                           <select data-error=".errorTxt8" class="browser-default" name="work_start_time" id="work_start_time" ng-model="settings.working_hours.start_time">
                             <option ng-repeat="hour in hours" ng-value="hour">{{hour}}</option>
                           </select>
                           <div class="errorTxt4"></div>
                         </div>
-                        <div class="margin col s12">
+                        <div class="margin input-field col s12">
                           <label for="work_end_time">Dealership​ ​working​ ​hours​ - End Time</label>
                           <select data-error=".errorTxt8" class="browser-default" name="work_end_time" id="work_end_time" ng-model="settings.working_hours.end_time">
                             <option ng-repeat="hour in hours" ng-disabled="settings.working_hours.start_time >= hour" ng-value="hour">{{hour}}</option>
                           </select>
                           <div class="errorTxt4"></div>
                         </div>
-                        <div class="input-field col s12 m_b_25">
-                          <label for="days_of_service">Days for service*</label>
+                        <div class="input-field m_b_25">
+                          <label for="days_of_service"><b class="black-text">Days for service*</b></label>
                           <br/>
                           <span class="admin-day-slot">
                             <span>
@@ -141,8 +160,9 @@
                             </span>
                           </span>
                         </div>
-                        <div class="margin col s12">
-                          <label for="template_color">Template Color*</label>
+                        <div class="margin col s12 temp_color">
+                          <label for="template_color">
+                          <p class="temp_color_p">Template Color*</p></label>
                           <input id="template_color" type="color" name="template_color" data-error=".errorTxt4" ng-model="settings.template_color">
                           <div class="errorTxt4"></div>
                         </div>
