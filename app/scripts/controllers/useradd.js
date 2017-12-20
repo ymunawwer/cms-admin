@@ -24,4 +24,29 @@ angular.module('dmsAdminApp')
         })
       }
     }
+    $scope.uploadUserFile = function(files) {
+      var fd = new FormData();
+      //Take the first selected file
+      fd.append("file", files[0]);
+  
+      userservice.uploadUserFile({}, fd, function(data) {
+        if (data.statusText == 'success') {
+          if (data.body.already.length != 0) {
+            var string ='';
+            for(var i=0;i<data.body.already.length; i++){
+              string = data.body.already[i].name  + ',' + string;
+            }
+            $scope.already = data.body.already;
+  
+          }
+          var add = 0;
+          for(var i=0;i<data.body.result.length; i++){
+            if(data.body.result[i]!=null) add++;
+          }
+          Materialize.toast('<span>' + add   + " service added Successfully" + '</span>', 3000);
+        } else {
+          Materialize.toast('<span>' + 'Services adding has been failed' + '</span>', 3000);
+        }
+      })
+    };
   });

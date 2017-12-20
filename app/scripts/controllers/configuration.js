@@ -10,4 +10,5 @@
 angular.module('dmsAdminApp')
   .controller('ConfigurationCtrl', function ($scope, $state, session, settings) {
       $scope.isStarted = false;
+      
   })
