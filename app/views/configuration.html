@@ -451,8 +451,80 @@
                     </div>
                 </li>
                 <li class="step">
-                    <div data-step-label="User Setup" class="step-title waves-effect waves-dark">
+                    <div data-step-label="Service Data Upload" class="step-title waves-effect waves-dark">
                         Step 4
+                    </div>
+                    <div class="step-content">
+                        <div class="file-field input-field col s12">
+                            <div class="btn" style="background:#000 !important;">
+                                <span>Upload Service</span>
+                                <input type="file" onchange="angular.element(this).scope().uploadServiceData(this.files)">
+                            </div>
+                            <div class="file-path-wrapper">
+                                <input class="file-path validate" disabled type="text">
+                            </div>
+                            <div class="errorTxt21"></div>
+
+                        </div>
+                        <div class="step-actions sa">
+                            <div class="center-align" ng-show="isServiceDataUploading">
+                                <img src="https://loading.io/spinners/microsoft/lg.rotating-balls-spinner.gif" width="70" height="70" />
+                            </div>
+                            <button class="waves-effect waves-dark btn blue next-step" ng-show="!isServiceDataUploading">CONTINUE</button>
+                        </div>
+                    </div>
+                </li>
+                <li class="step">
+                    <div data-step-label="Service Data Upload" class="step-title waves-effect waves-dark">
+                        Step 5
+                    </div>
+                    <div class="step-content">
+                        <div class="file-field input-field col s12">
+                            <div class="btn" style="background:#000 !important;">
+                                <span>Upload Service</span>
+                                <input type="file" onchange="angular.element(this).scope().uploadServiceData(this.files)">
+                            </div>
+                            <div class="file-path-wrapper">
+                                <input class="file-path validate" disabled type="text">
+                            </div>
+                            <div class="errorTxt21"></div>
+
+                        </div>
+                        <div class="step-actions sa">
+                            <div class="center-align" ng-show="isServiceDataUploading">
+                                <img src="https://loading.io/spinners/microsoft/lg.rotating-balls-spinner.gif" width="70" height="70" />
+                            </div>
+                            <button class="waves-effect waves-dark btn blue next-step" ng-show="!isServiceDataUploading">CONTINUE</button>
+                        </div>
+                    </div>
+                </li>
+                <li class="step">
+                    <div data-step-label="Service Data Upload" class="step-title waves-effect waves-dark">
+                        Step 6
+                    </div>
+                    <div class="step-content">
+                        <div class="file-field input-field col s12">
+                            <div class="btn" style="background:#000 !important;">
+                                <span>Upload Service</span>
+                                <input type="file" onchange="angular.element(this).scope().uploadServiceData(this.files)">
+                            </div>
+                            <div class="file-path-wrapper">
+                                <input class="file-path validate" disabled type="text">
+                            </div>
+                            <div class="errorTxt21"></div>
+
+                        </div>
+                        <div class="step-actions sa">
+                            <div class="center-align" ng-show="isServiceDataUploading">
+                                <img src="https://loading.io/spinners/microsoft/lg.rotating-balls-spinner.gif" width="70" height="70" />
+                            </div>
+                            <button class="waves-effect waves-dark btn blue next-step" ng-show="!isServiceDataUploading">CONTINUE</button>
+                        </div>
+                    </div>
+                </li>
+                <li class="step">
+                    <div data-step-label="User Setup" class="step-title waves-effect waves-dark">
+                        Step 7
                     </div>
                     <div class="step-content">
                         <div class="file-field input-field col s12">
@@ -474,7 +546,7 @@
                     </div>
                 </li>
                 <li class="step">
-                    <div data-step-label="Customer Data Upload" class="step-title waves-effect waves-dark">Step 5</div>
+                    <div data-step-label="Customer Data Upload" class="step-title waves-effect waves-dark">Step 8</div>
                     <div class="step-content">
                         <div class="file-field input-field col s12">
                             <div class="btn" style="background:#000 !important;">
