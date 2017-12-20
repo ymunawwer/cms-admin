@@ -17,26 +17,22 @@ angular.module('dmsAdminApp')
     serviceservice.getServiceList({
       limit: $scope.servicelimit,
       skip: $scope.servicestart
-    },{}, function(data){
-      if(data.statusCode == 200){
+    }, {}, function (data) {
+      if (data.statusCode == 200) {
         $scope.serviceList = data.body.services;
         $scope.serviceCount = data.body.count;
         $scope.servicetotalPages = Math.ceil($scope.serviceCount / $scope.servicelimit);
       }
     })
 
-    $scope.servicedelete = function(id, index){
-      serviceservice.deleteService({id: id},{}, function(data){
-        if(data.statusCode == 200){
-          $scope.serviceList.splice(index,1);
-        }
-      })
+    $scope.servicedelete = function (id, index) {
+      serviceservice.deleteService({ id: id }, {}, function (data) { if (data.statusCode == 200) { $scope.serviceList.splice(index, 1); } })
     }
-    $scope.servicepaginate = function(page) {
+    $scope.servicepaginate = function (page) {
       console.log(page);
       console.log($scope.servicetotalPages);
-      if(page==0 || $scope.servicetotalPages<page)
-      return false;
+      if (page == 0 || $scope.servicetotalPages < page)
+        return false;
 
       $scope.servicestart = page * $scope.servicelimit - $scope.servicelimit;
       $scope.servicelimit = 10;
@@ -44,7 +40,7 @@ angular.module('dmsAdminApp')
       serviceservice.getServiceList({
         limit: $scope.servicelimit,
         skip: $scope.servicestart
-      }, {}, function(data) {
+      }, {}, function (data) {
         if (data.statusCode == 200) {
           $scope.serviceList = data.body.services;
           $scope.serviceCount = data.body.count;
@@ -52,7 +48,7 @@ angular.module('dmsAdminApp')
         }
       })
     }
-    $scope.servicerange = function() {
+    $scope.servicerange = function () {
       var rangeSize = 5;
       var ret = [];
       var start;

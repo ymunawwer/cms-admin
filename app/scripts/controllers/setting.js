@@ -9,6 +9,7 @@
  */
 angular.module('dmsAdminApp')
   .controller('SettingCtrl', function ($scope, $state, session, settings, $http, endpoint, profileservice, serviceservice) {
+    $scope.isStarted = false;
     settings.getSetting({}, {}, function (data) {
       $scope.settings = data.body.setting;
     });
@@ -131,31 +132,20 @@ angular.module('dmsAdminApp')
         $('.cropArea').css('display', 'block');
         $('.image_cropped').css('display', 'inline-block');
         angular.element('#image_type').css('display', 'none');
-
         var file = evt.currentTarget.files[0];
         var reader = new FileReader();
-
         var output = document.getElementById("result");
-
         reader.onload = function (evt) {
-          $scope.$apply(function ($scope) {
-            $scope.myImage = evt.target.result;
-            $scope.validImage = true;
-          });
+          $scope.$apply(function ($scope) { $scope.myImage = evt.target.result; $scope.validImage = true; });
           angular.element('#image_type').css('display', 'none');
         };
-        reader.readAsDataURL(file);
-        $("#fileInput").val = '';
+        reader.readAsDataURL(file); $("#fileInput").val = '';
       } else {
-        $scope.validImage = false;
-        angular.element('#image_type').css('display', 'block');
+        $scope.validImage = false; angular.element('#image_type').css('display', 'block');
       }
     };
     angular.element(document.querySelector('#fileInput')).on('change', handleFileSelect);
-
     var mimeType = "image/jpeg"
-
-
     function urltoFile(url, filename, mimeType) {
       return (fetch(url).then(function (res) {
         return res.arrayBuffer();
@@ -188,13 +178,9 @@ angular.module('dmsAdminApp')
         $scope.showCroppedImg = true;
 
       } else {
-        Materialize.toast('<span>' +
-          "Upload valid image" +
-          '</span>',
-          3000);
+        Materialize.toast('<span>' + "Upload valid image" + '</span>', 3000);
       }
     }
-
     //function to clear uploaded image
     $scope.clearImage = function () {
       $scope.showCroppedImg = false;
@@ -202,18 +188,4 @@ angular.module('dmsAdminApp')
       $scope.validImage = false;
       $("#fileInput").val = '';
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   })
