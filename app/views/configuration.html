@@ -568,7 +568,296 @@
         </div>
     </div>
 </div>
+<div>
+<div class="dealer-wizard-profile">
+    <div class="ul-outer z-depth-1 white center-align">
+        <ul>
+            <li class="li-1 done-li">Step 1
+            <p>profile</p>
+            </li>
+            <li class="li-2">Step 2
+            <p class="truncate">scheduling</p>
+            </li>
+            <li class="li-3">Step 3
+            <p class="truncate">service data</p>
+            </li>
+            <li class="li-4">Step 4
+            <p class="truncate">user setup</p>
+            </li>
+            <li class="li-5">Step 5
+            <p class="truncate">customer dashboard</p>
+            </li>
+            <li class="li-6">Step 6
+            <p class="truncate">scheduling</p>
+            </li>
+            <li class="li-7">Step 7
+            <p class="truncate">scheduling</p>
+            </li>
+            <li class="li-8">Step 8
+            <p class="truncate">scheduling</p>
+            </li>
+            <li class="li-9">Step 9
+            <p class="truncate">scheduling</p>
+            </li>
+            <li class="li-10">Step 10
+            <p class="truncate">scheduling</p>
+            </li>
+            <li class="li-11">Step 11
+            <p class="truncate">scheduling</p>
+            </li>
+            <li class="li-12">Step 12
+            <p class="truncate">scheduling</p>
+            </li>
+            <li class="li-13">Step 13
+            <p class="truncate">scheduling</p>
+            </li>
+        </ul>
+    </div><!--ul-outer-->
+    <div class="ul-main-content white z-depth-1">
+        <div class="ul-main-one ulmc">
+            <form class="formValidate1" id="formValidate" ng-submit="updateSetting()">
+                <p style="padding-left: 0;">Account details</p>
+                <div class="col s12">
+                    <label for="uname">Dealer name*</label>
+                    <input id="uname" name="uname" type="text" data-error=".errorTxt1" ng-model="profileData.name">
+                    <div class="errorTxt1"></div>
+                </div>
+                <div class="col s12">
+                    <label for="cemail">Email*</label>
+                    <input id="cemail" type="email" name="cemail" data-error=".errorTxt2" ng-model="profileData.email">
+                    <div class="errorTxt2"></div>
+                </div>
+                <div class="col s12">
+                    <label for="cephone">Phone*</label>
+                    <input id="cephone" type="text" name="cephone" data-error=".errorTxt2" ng-model="profileData.phone">
+                    <div class="errorTxt2"></div>
+                </div>
+                <div class="margin col s12">
+                    <label for="manufactur">Dealer​ ​OEM​ ​association</label>
+                    <select id="manufactur" class="browser-default" name="manufactur" ng-model="settings.manufactur">
+                        <option ng-repeat="make in makesList" value="{{make._id}}">{{make.name}}</option>
+                    </select>
+                </div>
+                <div class=" margin">
+                    <!-- Modal Trigger -->
+                    <a class="waves-effect waves-light btn modal-trigger grey darken-2 modal-anchor" href="#modal1">Change Password</a>
+                </div>
+                <div class="input-field col s12">
+                    <button class="btn waves-effect waves-light right submit" type="submit" name="action">
+                        Submit
+                        <i class="mdi-content-send right"></i>
+                    </button>
+                </div>
+            </form>
+            <div class="row user-setting">
+                                    <p>Primary Contact</p>
+                                    <div class="input-field col s12">
+                                        <label for="pcname">Name*</label>
+                                        <input id="pcname" name="pcname" type="text" data-error=".errorTxt1" ng-model="settings.primary_contact.name">
+                                        <div class="errorTxt1"></div>
+                                    </div>
+                                    <div class="input-field col s12">
+                                        <label for="pcemail">Email *</label>
+                                        <input id="pcemail" type="email" name="pcemail" data-error=".errorTxt2" ng-model="settings.primary_contact.email">
+                                        <div class="errorTxt2"></div>
+                                    </div>
+                                    <div class="input-field col s12">
+                                        <label for="pcphone">Phone *</label>
+                                        <input id="pcphone" type="text" name="pcphone" data-error=".errorTxt2" ng-model="settings.primary_contact.phone">
+                                        <div class="errorTxt2"></div>
+                                    </div>
+            </div>
+            <div class="row user-setting">
+                                <p>Secondary contact</p>
+                                <div class="input-field col s12">
+                                    <label for="scname">Name*</label>
+                                    <input id="scname" name="scname" type="text" data-error=".errorTxt1" ng-model="settings.secondary_contact.name">
+                                    <div class="errorTxt1"></div>
+                                </div>
+                                <div class="input-field col s12">
+                                    <label for="scemail">Email *</label>
+                                    <input id="scemail" type="email" name="scemail" data-error=".errorTxt2" ng-model="settings.secondary_contact.email">
+                                    <div class="errorTxt2"></div>
+                                </div>
+                                <div class="input-field col s12">
+                                    <label for="scphone">Phone *</label>
+                                    <input id="scphone" type="text" name="scphone" data-error=".errorTxt2" ng-model="settings.secondary_contact.phone">
+                                    <div class="errorTxt2"></div>
+                                </div>
+            </div>
+            <div class="row user-setting">
+                <p>Details to be displayed on invoice</p>
+                <div class="input-field col s12">
+                    <label for="dnname">Name*</label>
+                    <input id="dnname" name="dnname" type="text" data-error=".errorTxt1" ng-model="settings.invoice_contact.name">
+                    <div class="errorTxt1"></div>
+                </div>
+                <div class="input-field col s12">
+                    <label for="dnemail">Email *</label>
+                    <input id="dnemail" type="email" name="dnemail" data-error=".errorTxt2" ng-model="settings.invoice_contact.email">
+                    <div class="errorTxt2"></div>
+                </div>
+                <div class="input-field col s12">
+                    <label for="dnphone">Phone *</label>
+                    <input id="dnphone" type="text" name="dnphone" data-error=".errorTxt2" ng-model="settings.invoice_contact.phone">
+                    <div class="errorTxt2"></div>
+                </div>
+            </div>
+            <div class="row user-setting">
+                <p>Contact Details to be displayed on to customers</p>
+                <div class="input-field col s12">
+                    <label for="cdcname">Name *</label>
+                    <input id="cdcname" name="cdcname" type="text" data-error=".errorTxt1" ng-model="settings.contact_to_show_customer.name">
+                    <div class="errorTxt1"></div>
+                </div>
+                <div class="input-field col s12">
+                    <label for="cdcemail">Email *</label>
+                    <input id="cdcemail" type="email" name="cdcemail" data-error=".errorTxt2" ng-model="settings.contact_to_show_customer.email">
+                    <div class="errorTxt2"></div>
+                </div>
+                <div class="input-field col s12">
+                    <label for="cdcphone">Phone *</label>
+                    <input id="cdcphone" type="text" name="cdcphone" data-error=".errorTxt2" ng-model="settings.contact_to_show_customer.phone">
+                    <div class="errorTxt2"></div>
+                </div>
+            </div>
+            <div class="right-align">
+            <button type="button" class="btn waves-effect waves-light ul-1-btn">Continue</button>
+            </div>
+        </div>
+        <div class="ul-main-two ulmc" style="display: none;">
+            <div class="row s2">
+                <div class="row if-label">
+                    <div class="margin col s12">
+                        <label for="work_start_time" class="label-2">Dealership​ ​working​ ​hours​ - Start Time</label>
+                        <select data-error=".errorTxt8" class="browser-default" name="work_start_time" id="work_start_time" ng-model="settings.working_hours.start_time">
+                            <option ng-repeat="hour in hours" ng-value="hour">{{hour}}</option>
+                        </select>
+                        <div class="errorTxt4"></div>
+                    </div>
+                    <div class="margin col s12">
+                        <label for="work_end_time" class="label-2">Dealership​ ​working​ ​hours​ - End Time</label>
+                        <select data-error=".errorTxt8" class="browser-default" name="work_end_time" id="work_end_time" ng-model="settings.working_hours.end_time">
+                            <option ng-repeat="hour in hours" ng-disabled="settings.working_hours.start_time >= hour" ng-value="hour">{{hour}}</option>
+                        </select>
+                        <div class="errorTxt4"></div>
+                    </div>
+                    <div class="margin m_b_25">
+                        <label for="days_of_service">
+                            <p>
+                                <b class="black-text" style="font-weight:500">Days for service*</b>
+                            </p>
+                        </label>
+                        <span class="admin-day-slot">
+                            <span>
+                                <input type="checkbox" id="sundaycheck" ng-model="settings.days_of_service.sunday" />
+                                <label for="sundaycheck">Sunday</label>
+                            </span>
+                            <span>
+                                <input type="checkbox" id="mondaycheck" ng-model="settings.days_of_service.monday" />
+                                <label for="mondaycheck">Monday</label>
+                            </span>
+                            <span>
+                                <input type="checkbox" id="tuesdaycheck" ng-model="settings.days_of_service.tuesday" />
+                                <label for="tuesdaycheck">Tuesday</label>
+                            </span>
+                            <span>
+                                <input type="checkbox" id="wednesdaycheck" ng-model="settings.days_of_service.wednesday" />
+                                <label for="wednesdaycheck">Wednesday</label>
+                            </span>
+                            <span>
+                                <input type="checkbox" id="thursdaycheck" ng-model="settings.days_of_service.thursday" />
+                                <label for="thursdaycheck">Thursday</label>
+                            </span>
+                            <span>
+                                <input type="checkbox" id="fridaycheck" ng-model="settings.days_of_service.friday" />
+                                <label for="fridaycheck">Friday</label>
+                            </span>
+                            <span>
+                                <input type="checkbox" id="saturdaycheck" ng-model="settings.days_of_service.saturday" />
+                                <label for="saturdaycheck">Saturday</label>
+                            </span>
+                        </span>
+                    </div>
+                    <div class="margin col s12 temp_color">
+                        <label for="template_color">
+                            <p class="black-text" style="padding:0 5px 0 1px ;">Template Color*</p>
+                        </label>
+                        <input id="template_color" type="color" name="template_color" data-error=".errorTxt4" ng-model="settings.template_color">
+                        <div class="errorTxt4"></div>
+                    </div>
+                    <div class="row user-setting">
+                        <p>Other configuration</p>
+                        <div class="margin col s12">
+                            <label for="booking_before_time" class="label-2">Earliest​ ​timeframe​ ​for​ ​online​ ​appointment​ ​setup​(Hours)*</label>
+                            <input id="booking_before_time" type="number" name="booking_before_time" data-error=".errorTxt4" ng-model="settings.booking_before_time">
+                            <div class="errorTxt4"></div>
+                        </div>
+                        <div class="margin col s12">
+                            <label for="appointment_interval" class="label-2">Service​ ​appointment​ ​interval​ ​for​ ​taking​ ​appointments(Minutes)*</label>
+                            <select data-error=".errorTxt8" class="browser-default" name="appointment_interval" id="appointment_interval" ng-model="settings.appointment_interval">
+                                <option ng-value="15">15 mins</option>
+                                <option ng-value="30">30 mins</option>
+                                <option ng-value="60">60 mins</option>
+                            </select>
+                        </div>
+                        <div class="margin col s12">
+                            <label for="auto_cancel_appointment_time" class="label-2">Auto​ ​cancel​ ​service​ ​appts​ ​for​ ​no​ ​shows​ ​after​ ​x​ ​hours*</label>
+                            <input id="auto_cancel_appointment_time" type="text" name="auto_cancel_appointment_time" data-error=".errorTxt4" ng-model="settings.auto_cancel_appointment_time">
+                            <div class="errorTxt4"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="right-align">
+            <button type="button" class="btn waves-effect waves-light ul-2-btn">Continue</button>
+            </div>
+        </div>
+        <div class="ul-main-three ulmc" style="display: none;">
+            <div class="file-field input-field col s12">
+                            <div class="btn" style="background:#000 !important;">
+                                <span>Upload Service</span>
+                                <input type="file" onchange="angular.element(this).scope().uploadServiceData(this.files)">
+                            </div>
+                            <div class="file-path-wrapper">
+                                <input class="file-path validate" disabled type="text">
+                            </div>
+                            <div class="errorTxt21"></div>
+
+            </div>
+            <div class="right-align">
+            <button type="button" class="btn waves-effect waves-light ul-2-btn">Continue</button>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
 <script type="text/javascript">
     function anyThing() { setTimeout(function () { $('.stepper').nextStep(); }, 1500); }
     $(function () { $('.stepper').activateStepper(); })
+</script>
+<script>
+    $(document).ready(function(){
+        $('.ul-1-btn').click(function(){
+            $('.ul-main-one').hide();
+            $('.ul-main-two').show();
+        })
+        $('.ul-2-btn').click(function(){
+            $('.ul-main-two').hide();
+            $('.ul-main-three').show();
+        })
+        $('.li-1').click(function(){
+            $('.ulmc').hide();
+            $('.ul-main-one').show();
+        })
+        $('.li-2').click(function(){
+            $('.ulmc').hide();
+            $('.ul-main-two').show();
+        })
+        $('.li-3').click(function(){
+            $('.ulmc').hide();
+            $('.ul-main-three').show();
+        })
+
+    });
 </script>
