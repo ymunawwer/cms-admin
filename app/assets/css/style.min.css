@@ -2432,7 +2432,7 @@ body::-webkit-scrollbar,
 .side-nav::-webkit-scollbar,
 ul.side-nav.leftside-navigation::-webkit-scrollbar,
 #slide-out::-webkit-scrollbar,
-#table-datatables::-webkit-scrollbar {
+#table-datatables::-webkit-scrollbar,.ul-outer::-webkit-scrollbar {
     width: 8px;
 }
 
@@ -2440,7 +2440,7 @@ body::-webkit-scrollbar-thumb,
 .side-nav::-webkit-scrollbar-thumb,
 ul.side-nav.leftside-navigation::-webkit-scrollbar-thumb,
 #slide-out::-webkit-scrollbar-thumb,
-#table-datatables::-webkit-scrollbar-thumb {
+#table-datatables::-webkit-scrollbar-thumb,.ul-outer::-webkit-scrollbar-thumb {
     background: #666;
     -webkit-border-radius: 0px;
     -moz-border-radius: 0px;
@@ -2452,7 +2452,8 @@ body::-webkit-scrollbar-track,
 .side-nav::-webkit-scollbar-track,
 ul.side-nav.leftside-navigation::-webkit-scrollbar-track,
 #slide-out::-webkit-scrollbar-track,
-#table-datatables::-webkit-scrollbar-track {
+#table-datatables::-webkit-scrollbar-track,
+.ul-outer::-webkit-scrollbar {
     background: #ddd;
     -webkit-border-radius: 0px;
     -moz-border-radius: 0px;
@@ -2663,4 +2664,80 @@ table.responsive-table th {
 }
 body{
     overflow-x: hidden;
+}
+.dealer-wizard-profile{
+    margin: 1em 3em;
+} 
+.dealer-wizard-profile .ul-outer
+{
+    counter-reset:section;
+    overflow-x: auto;
+    white-space: nowrap; 
+}
+.dealer-wizard-profile .ul-outer li{
+    display: inline-block;
+    padding: 10px 50px;
+    position: relative;
+    height: 55px;
+    cursor: pointer;
+}
+.dealer-wizard-profile .ul-outer li::before{
+    position: absolute;
+    top: 8px;
+    left: 15px;
+    counter-increment: section;
+    content: counter(section);
+    height: 28px;
+    width: 28px;
+    color: #fff;
+    background-color: #f27618;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 28px;
+    font-weight: 400;
+}
+.dealer-wizard-profile .ul-outer li::after{
+    content: '';
+    display: inline-block;
+    width: 100%;
+    height: 1px;
+    background-color: rgba(0,0,0,.1);
+    position: relative;
+    top: -2px;
+    left: 13.5px;
+}
+.dealer-wizard-profile .ul-outer li:last-child:after{
+    display: none;
+}
+.dealer-wizard-profile .ul-outer li p{
+    margin: 0;
+    display: block;
+    position: absolute;
+    font-size: .8rem;
+    color: #424242;
+    font-weight: 400;
+    max-width: 124px;
+    transition: all ease 0.5s;
+}
+.dealer-wizard-profile .ul-outer li:hover{
+    background-color: rgba(0,0,0,.06);
+}
+.dealer-wizard-profile .ul-main-content{
+    padding: 2em;
+}
+.dealer-wizard-profile .ul-main-content  p {
+    padding-left: 11px;
+    font-size: 15px;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 1em;
+}
+.dealer-wizard-profile .ul-outer li.done-li::before{
+    font-family: 'Material Icons';
+    content: "check";
+    background: #18a118;
+}
+.dealer-wizard-profile .ul-outer li.done-li,
+.dealer-wizard-profile .ul-outer li.done-li p{
+    color:#18a118
 }
