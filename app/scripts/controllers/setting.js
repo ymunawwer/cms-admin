@@ -49,9 +49,21 @@ angular.module('dmsAdminApp')
     $scope.hours = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24];
     $scope.updateSetting = function () {
 
-      console.log($scope.settings);
-      //  fd.append("site_logo", $scope.blob, $scope.fileName);
-      $scope.settings.site_logo = $scope.settings.blob;
+      // console.log($scope.settings);
+      // //  fd.append("site_logo", $scope.blob, $scope.fileName);
+      // $scope.settings.site_logo = $scope.settings.blob;
+
+
+      if(!$scope.profileData.name)
+      Materialize.toast('<span> Please add dealer name </span>', 3000);
+      if(!$scope.profileData.email)
+      Materialize.toast('<span> Please add dealer email </span>', 3000);
+      if(!$scope.profileData.phone)
+      Materialize.toast('<span> Please add dealer phone </span>', 3000);
+      if(!$scope.profileData.manufactur)
+      Materialize.toast('<span> Please add dealer manufactur </span>', 3000);
+      if(!$scope.settings.primary_contact.name)
+      Materialize.toast('<span> Please add primay contact name </span>', 3000);
 
       settings.updateSetting({}, $scope.settings, function (data) {
         if (data.statusText == 'success') {
@@ -243,4 +255,9 @@ angular.module('dmsAdminApp')
         }
       })
     };
+    $scope.nextStep = function(stage){
+      $scope.isStarted = true;
+      $scope.step = stage;
+      $scope.apply();
+    }
   })
