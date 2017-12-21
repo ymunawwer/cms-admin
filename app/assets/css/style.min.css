@@ -2741,3 +2741,23 @@ body{
 .dealer-wizard-profile .ul-outer li.done-li p{
     color:#18a118
 }
+.ul-outer::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+}
+.ul-outer::-webkit-scrollbar-thumb {
+    background: #666;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    -ms-border-radius: 0px;
+    border-radius: 0px;
+}   
+
+.ul-outer::-webkit-scrollbar-track {
+    background: #ddd;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    -ms-border-radius: 0px;
+    border-radius: 0px;
+    background-clip: content-box;
+}
