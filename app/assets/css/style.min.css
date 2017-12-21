@@ -2690,7 +2690,7 @@ body{
     height: 28px;
     width: 28px;
     color: #fff;
-    background-color: #f27618;
+    background-color: #9e9e9e;
     border-radius: 50%;
     text-align: center;
     line-height: 28px;
@@ -2740,4 +2740,20 @@ body{
 .dealer-wizard-profile .ul-outer li.done-li,
 .dealer-wizard-profile .ul-outer li.done-li p{
     color:#18a118
+}
+.dealer-wizard-profile .ul-outer li.active::before{
+    background: #f27618;
+}
+.dealer-wizard-profile .ul-outer li.active,
+.dealer-wizard-profile .ul-outer li.active p{
+    color:#f27618
+}
+.dealer-wizard-profile .ulmc {
+    display: none;
+}
+.ulmc.active{
+    display: block !important;
+}
+.error {
+    color: rgb(196, 42, 42);
 }

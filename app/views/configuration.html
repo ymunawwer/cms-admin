@@ -91,6 +91,18 @@
             background-color: #f27618;
         }
     }
+
+    .image-container {
+        position: relative;
+    }
+
+    .close {
+        position: absolute;
+        cursor: pointer;
+        top: 5px;
+        right: 10px;
+        color: #ff0000;
+    }
 </style>
 <div class="container"></div>
 <div class="dealer-wizard z-depth-1 white" ng-show="!isStarted">
@@ -123,7 +135,7 @@
                     nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis.
                 </p>
                 <p class="right-align">
-                    <button type="button" class="btn waves-effect waves-light" ng-click="isStarted = true">
+                    <button type="button" class="btn waves-effect waves-light" ng-click="nextStep(1)">
                         Start
                     </button>
                 </p>
@@ -132,471 +144,39 @@
     </div>
 </div>
 </div>
-<div class="col s12" ng-show="isStarted">
-    <div class="dealer-wizard dw_sh">
-        <p class="flow-text center-align">Dealer SetUp Wizard</p>
-        <p class="center-align black-text">Welcome to dealer account setup wizard. Follow these steps and we can have you setup and ready in no time.</p>
-    </div>
-    <div class="card white">
-        <div class="card-content">
-
-            <ul class="stepper horizontal" id="horizontal">
-                <li class="step active">
-                    <div data-step-label="Profile" class="step-title waves-effect waves-dark">
-                        Step 1
-                    </div>
-                    <div class="step-content">
-                        <div class="row">
-                            <div class="row user-setting">
-                         <form class="formValidate1" id="formValidate" ng-submit="updateSetting()">
-                                <p>Account details</p>
-                                <div class="input-field col s12">
-                                    <label for="uname">Dealer name*</label>
-                                    <input id="uname" name="uname" type="text" data-error=".errorTxt1" ng-model="profileData.name">
-                                    <div class="errorTxt1"></div>
-                                </div>
-                                <div class="input-field col s12">
-                                    <label for="cemail">Email*</label>
-                                    <input id="cemail" type="email" name="cemail" data-error=".errorTxt2" ng-model="profileData.email">
-                                    <div class="errorTxt2"></div>
-                                </div>
-                                <div class="input-field col s12">
-                                    <label for="cephone">Phone*</label>
-                                    <input id="cephone" type="text" name="cephone" data-error=".errorTxt2" ng-model="profileData.phone">
-                                    <div class="errorTxt2"></div>
-                                </div>
-                                <div class="margin col s12">
-                                    <label for="manufactur">Dealer​ ​OEM​ ​association</label>
-                                    <select id="manufactur" class="browser-default" name="manufactur" ng-model="settings.manufactur">
-                                        <option ng-repeat="make in makesList" value="{{make._id}}">{{make.name}}</option>
-                                    </select>
-                                </div>
-                                <div class=" margin">
-                                    <!-- Modal Trigger -->
-                                    <a class="waves-effect waves-light btn modal-trigger grey darken-2 modal-anchor" href="#modal1">Change Password</a>
-                                </div>
-                                <div class="input-field col s12">
-                                    <button class="btn waves-effect waves-light right submit" type="submit" name="action">
-                                        Submit
-                                        <i class="mdi-content-send right"></i>
-                                    </button>
-                                </div>
-                            </form>
-                                <div class="row user-setting">
-                                    <p>Primary Contact</p>
-                                    <div class="input-field col s12">
-                                        <label for="pcname">Name*</label>
-                                        <input id="pcname" name="pcname" type="text" data-error=".errorTxt1" ng-model="settings.primary_contact.name">
-                                        <div class="errorTxt1"></div>
-                                    </div>
-                                    <div class="input-field col s12">
-                                        <label for="pcemail">Email *</label>
-                                        <input id="pcemail" type="email" name="pcemail" data-error=".errorTxt2" ng-model="settings.primary_contact.email">
-                                        <div class="errorTxt2"></div>
-                                    </div>
-                                    <div class="input-field col s12">
-                                        <label for="pcphone">Phone *</label>
-                                        <input id="pcphone" type="text" name="pcphone" data-error=".errorTxt2" ng-model="settings.primary_contact.phone">
-                                        <div class="errorTxt2"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row user-setting">
-                                <p>Secondary contact</p>
-                                <div class="input-field col s12">
-                                    <label for="scname">Name*</label>
-                                    <input id="scname" name="scname" type="text" data-error=".errorTxt1" ng-model="settings.secondary_contact.name">
-                                    <div class="errorTxt1"></div>
-                                </div>
-                                <div class="input-field col s12">
-                                    <label for="scemail">Email *</label>
-                                    <input id="scemail" type="email" name="scemail" data-error=".errorTxt2" ng-model="settings.secondary_contact.email">
-                                    <div class="errorTxt2"></div>
-                                </div>
-                                <div class="input-field col s12">
-                                    <label for="scphone">Phone *</label>
-                                    <input id="scphone" type="text" name="scphone" data-error=".errorTxt2" ng-model="settings.secondary_contact.phone">
-                                    <div class="errorTxt2"></div>
-                                </div>
-                            </div>
-                            <div class="row user-setting">
-                                <p>Details to be displayed on invoice</p>
-                                <div class="input-field col s12">
-                                    <label for="dnname">Name*</label>
-                                    <input id="dnname" name="dnname" type="text" data-error=".errorTxt1" ng-model="settings.invoice_contact.name">
-                                    <div class="errorTxt1"></div>
-                                </div>
-                                <div class="input-field col s12">
-                                    <label for="dnemail">Email *</label>
-                                    <input id="dnemail" type="email" name="dnemail" data-error=".errorTxt2" ng-model="settings.invoice_contact.email">
-                                    <div class="errorTxt2"></div>
-                                </div>
-                                <div class="input-field col s12">
-                                    <label for="dnphone">Phone *</label>
-                                    <input id="dnphone" type="text" name="dnphone" data-error=".errorTxt2" ng-model="settings.invoice_contact.phone">
-                                    <div class="errorTxt2"></div>
-                                </div>
-                            </div>
-                            <div class="row user-setting">
-                                <p>Contact Details to be displayed on to customers</p>
-                                <div class="input-field col s12">
-                                    <label for="cdcname">Name *</label>
-                                    <input id="cdcname" name="cdcname" type="text" data-error=".errorTxt1" ng-model="settings.contact_to_show_customer.name">
-                                    <div class="errorTxt1"></div>
-                                </div>
-                                <div class="input-field col s12">
-                                    <label for="cdcemail">Email *</label>
-                                    <input id="cdcemail" type="email" name="cdcemail" data-error=".errorTxt2" ng-model="settings.contact_to_show_customer.email">
-                                    <div class="errorTxt2"></div>
-                                </div>
-                                <div class="input-field col s12">
-                                    <label for="cdcphone">Phone *</label>
-                                    <input id="cdcphone" type="text" name="cdcphone" data-error=".errorTxt2" ng-model="settings.contact_to_show_customer.phone">
-                                    <div class="errorTxt2"></div>
-                                </div>
-                            </div>
-                            <!-- <div class="file-field input-field col s12">
-                                        <div class="btn">
-                                          <span>Upload your logo</span>
-                                          <input type="file" onchange="angular.element(this).scope().uploadFile(this.files)">
-                                        </div>
-                                        <div class="file-path-wrapper">
-                                          <input class="file-path validate" disabled type="text">
-                                        </div>
-                                        <img width="100" height="100" ng-if="settings.site_logo" src="{{settings.site_logo.url}}">
-                                        <div class="errorTxt21"></div>
-                                      </div> -->
-                            <!-- <div class="panel panel-default" id="two">
-                                    <div class="panel-heading">
-                                        <div class="panel-title">
-                                            <b class="required">Upload your logo</b>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <style>
-                                            .cropArea {
-                                                margin: 30px auto;
-                                                background: #E4E4E4;
-                                                overflow: hidden;
-                                                width: 500px;
-                                                height: 350px;
-                                            }
-                                        </style>
-                                    </div>
-                                    <span class="add_image" ng-show="image_message">Please Add Images.Image Types Allowed: png, jpeg, jpg, gif</span>
-                                    <div class="panel-body" style="padding-top: 0px;">
-                                        <div class="form-group" ng-show="!showCroppedImg">
-                                            <div class="select_img">
-                                                <b>Select an image file:</b>
-                                                <div class="">
-                                                    <div class="file-field input-field">
-                                                        <div class="btn">
-                                                            <span>File</span>
-                                                            <input type="file" id="fileInput" capture="filesystem">
-                                                        </div>
-                                                        <div class="file-path-wrapper">
-                                                            <input class="file-path validate" name="image" data-error=".errorTxt5" type="text">
-                                                        </div>
-                                                    </div>
-                                                    <div class="errorTxt5 error1"></div>
-                                                    <div class="image_type_error" id="image_type">
-                                                        Invalid image type
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="cropArea">
-                                                <img-crop result-image-size="640" ngf-pattern="'image/*'" ngf-accept="'image/*'" image="myImage" area-type="square" result-image="myCroppedImage">
-                                                </img-crop>
-                                            </div>
-                                            <div class="text-center ">
-                                                <input type="button" id="cropped" class="btn btn-warning image_cropped" value="Crop Image" ng-click="crop()">
-                                                <!-- <div id="cropImage" class="errorImage">Crop offer banner</div> 
-                                            </div>
-                                        </div>
-                                        <div class="image_wrapper" ng-show="showCroppedImg">
-                                            <div class="clear" ng-click="clearImage()">
-                                                <i class="material-icons dp48">clear</i>
-                                            </div>
-                                            <img ng-src="{{ blobUrl }}" alt="">
-                                        </div>
-                                    </div>
-                                </div> 
-                                <div class="input-field col s12">
-                                    <button class="btn waves-effect waves-light right submit" type="button" name="action" ng-click="updateSetting()">
-                                        Submit
-                                        <i class="mdi-content-send right"></i>
-                                    </button>
-                                </div>-->
-                        </div>
-                        <div class="step-actions">
-                            <button class="waves-effect waves-dark btn blue next-step">CONTINUE</button>
-                        </div>
-                    </div>
-                </li>
-                <li class="step">
-                    <div data-step-label="Scheduling" class="step-title waves-effect waves-dark">
-                        Step 2
-                    </div>
-                    <div class="step-content">
-                        <div class="row s2">
-                            <div class="row if-label">
-                                <div class="margin col s12">
-                                    <label for="work_start_time" class="label-2">Dealership​ ​working​ ​hours​ - Start Time</label>
-                                    <select data-error=".errorTxt8" class="browser-default" name="work_start_time" id="work_start_time" ng-model="settings.working_hours.start_time">
-                                        <option ng-repeat="hour in hours" ng-value="hour">{{hour}}</option>
-                                    </select>
-                                    <div class="errorTxt4"></div>
-                                </div>
-                                <div class="margin col s12">
-                                    <label for="work_end_time" class="label-2">Dealership​ ​working​ ​hours​ - End Time</label>
-                                    <select data-error=".errorTxt8" class="browser-default" name="work_end_time" id="work_end_time" ng-model="settings.working_hours.end_time">
-                                        <option ng-repeat="hour in hours" ng-disabled="settings.working_hours.start_time >= hour" ng-value="hour">{{hour}}</option>
-                                    </select>
-                                    <div class="errorTxt4"></div>
-                                </div>
-                                <div class="margin m_b_25">
-                                    <label for="days_of_service">
-                                        <p>
-                                            <b class="black-text" style="font-weight:500">Days for service*</b>
-                                        </p>
-                                    </label>
-                                    <span class="admin-day-slot">
-                                        <span>
-                                            <input type="checkbox" id="sundaycheck" ng-model="settings.days_of_service.sunday" />
-                                            <label for="sundaycheck">Sunday</label>
-                                        </span>
-                                        <span>
-                                            <input type="checkbox" id="mondaycheck" ng-model="settings.days_of_service.monday" />
-                                            <label for="mondaycheck">Monday</label>
-                                        </span>
-                                        <span>
-                                            <input type="checkbox" id="tuesdaycheck" ng-model="settings.days_of_service.tuesday" />
-                                            <label for="tuesdaycheck">Tuesday</label>
-                                        </span>
-                                        <span>
-                                            <input type="checkbox" id="wednesdaycheck" ng-model="settings.days_of_service.wednesday" />
-                                            <label for="wednesdaycheck">Wednesday</label>
-                                        </span>
-                                        <span>
-                                            <input type="checkbox" id="thursdaycheck" ng-model="settings.days_of_service.thursday" />
-                                            <label for="thursdaycheck">Thursday</label>
-                                        </span>
-                                        <span>
-                                            <input type="checkbox" id="fridaycheck" ng-model="settings.days_of_service.friday" />
-                                            <label for="fridaycheck">Friday</label>
-                                        </span>
-                                        <span>
-                                            <input type="checkbox" id="saturdaycheck" ng-model="settings.days_of_service.saturday" />
-                                            <label for="saturdaycheck">Saturday</label>
-                                        </span>
-                                    </span>
-                                </div>
-                                <div class="margin col s12 temp_color">
-                                    <label for="template_color">
-                                        <p class="black-text" style="padding:0 5px 0 1px ;">Template Color*</p>
-                                    </label>
-                                    <input id="template_color" type="color" name="template_color" data-error=".errorTxt4" ng-model="settings.template_color">
-                                    <div class="errorTxt4"></div>
-                                </div>
-                                <div class="row user-setting">
-                                    <p>Other configuration</p>
-                                    <div class="margin col s12">
-                                        <label for="booking_before_time" class="label-2">Earliest​ ​timeframe​ ​for​ ​online​ ​appointment​ ​setup​(Hours)*</label>
-                                        <input id="booking_before_time" type="number" name="booking_before_time" data-error=".errorTxt4" ng-model="settings.booking_before_time">
-                                        <div class="errorTxt4"></div>
-                                    </div>
-                                    <div class="margin col s12">
-                                        <label for="appointment_interval" class="label-2">Service​ ​appointment​ ​interval​ ​for​ ​taking​ ​appointments(Minutes)*</label>
-                                        <select data-error=".errorTxt8" class="browser-default" name="appointment_interval" id="appointment_interval" ng-model="settings.appointment_interval">
-                                            <option ng-value="15">15 mins</option>
-                                            <option ng-value="30">30 mins</option>
-                                            <option ng-value="60">60 mins</option>
-                                        </select>
-                                    </div>
-                                    <div class="margin col s12">
-                                        <label for="auto_cancel_appointment_time" class="label-2">Auto​ ​cancel​ ​service​ ​appts​ ​for​ ​no​ ​shows​ ​after​ ​x​ ​hours*</label>
-                                        <input id="auto_cancel_appointment_time" type="text" name="auto_cancel_appointment_time" data-error=".errorTxt4" ng-model="settings.auto_cancel_appointment_time">
-                                        <div class="errorTxt4"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="step-actions">
-                            <button class="waves-effect waves-dark btn blue next-step">CONTINUE</button>
-                        </div>
-                    </div>
-                </li>
-                <li class="step">
-                    <div data-step-label="Service Data Upload" class="step-title waves-effect waves-dark">
-                        Step 3
-                    </div>
-                    <div class="step-content">
-                        <div class="file-field input-field col s12">
-                            <div class="btn" style="background:#000 !important;">
-                                <span>Upload Service</span>
-                                <input type="file" onchange="angular.element(this).scope().uploadServiceData(this.files)">
-                            </div>
-                            <div class="file-path-wrapper">
-                                <input class="file-path validate" disabled type="text">
-                            </div>
-                            <div class="errorTxt21"></div>
-
-                        </div>
-                        <div class="step-actions sa">
-                            <div class="center-align" ng-show="isServiceDataUploading">
-                                <img src="https://loading.io/spinners/microsoft/lg.rotating-balls-spinner.gif" width="70" height="70" />
-                            </div>
-                            <button class="waves-effect waves-dark btn blue next-step" ng-show="!isServiceDataUploading">CONTINUE</button>
-                        </div>
-                    </div>
-                </li>
-                <li class="step">
-                    <div data-step-label="Service Data Upload" class="step-title waves-effect waves-dark">
-                        Step 4
-                    </div>
-                    <div class="step-content">
-                        <div class="file-field input-field col s12">
-                            <div class="btn" style="background:#000 !important;">
-                                <span>Upload Service</span>
-                                <input type="file" onchange="angular.element(this).scope().uploadServiceData(this.files)">
-                            </div>
-                            <div class="file-path-wrapper">
-                                <input class="file-path validate" disabled type="text">
-                            </div>
-                            <div class="errorTxt21"></div>
-
-                        </div>
-                        <div class="step-actions sa">
-                            <div class="center-align" ng-show="isServiceDataUploading">
-                                <img src="https://loading.io/spinners/microsoft/lg.rotating-balls-spinner.gif" width="70" height="70" />
-                            </div>
-                            <button class="waves-effect waves-dark btn blue next-step" ng-show="!isServiceDataUploading">CONTINUE</button>
-                        </div>
-                    </div>
-                </li>
-                <li class="step">
-                    <div data-step-label="Service Data Upload" class="step-title waves-effect waves-dark">
-                        Step 5
-                    </div>
-                    <div class="step-content">
-                        <div class="file-field input-field col s12">
-                            <div class="btn" style="background:#000 !important;">
-                                <span>Upload Service</span>
-                                <input type="file" onchange="angular.element(this).scope().uploadServiceData(this.files)">
-                            </div>
-                            <div class="file-path-wrapper">
-                                <input class="file-path validate" disabled type="text">
-                            </div>
-                            <div class="errorTxt21"></div>
-
-                        </div>
-                        <div class="step-actions sa">
-                            <div class="center-align" ng-show="isServiceDataUploading">
-                                <img src="https://loading.io/spinners/microsoft/lg.rotating-balls-spinner.gif" width="70" height="70" />
-                            </div>
-                            <button class="waves-effect waves-dark btn blue next-step" ng-show="!isServiceDataUploading">CONTINUE</button>
-                        </div>
-                    </div>
-                </li>
-                <li class="step">
-                    <div data-step-label="Service Data Upload" class="step-title waves-effect waves-dark">
-                        Step 6
-                    </div>
-                    <div class="step-content">
-                        <div class="file-field input-field col s12">
-                            <div class="btn" style="background:#000 !important;">
-                                <span>Upload Service</span>
-                                <input type="file" onchange="angular.element(this).scope().uploadServiceData(this.files)">
-                            </div>
-                            <div class="file-path-wrapper">
-                                <input class="file-path validate" disabled type="text">
-                            </div>
-                            <div class="errorTxt21"></div>
-
-                        </div>
-                        <div class="step-actions sa">
-                            <div class="center-align" ng-show="isServiceDataUploading">
-                                <img src="https://loading.io/spinners/microsoft/lg.rotating-balls-spinner.gif" width="70" height="70" />
-                            </div>
-                            <button class="waves-effect waves-dark btn blue next-step" ng-show="!isServiceDataUploading">CONTINUE</button>
-                        </div>
-                    </div>
-                </li>
-                <li class="step">
-                    <div data-step-label="User Setup" class="step-title waves-effect waves-dark">
-                        Step 7
-                    </div>
-                    <div class="step-content">
-                        <div class="file-field input-field col s12">
-                            <div class="btn" style="background:#000 !important;">
-                                <span>Upload Users</span>
-                                <input type="file" onchange="angular.element(this).scope().uploadUserData(this.files)">
-                            </div>
-                            <div class="file-path-wrapper">
-                                <input class="file-path validate" disabled type="text">
-                            </div>
-                            <div class="errorTxt21"></div>
-                        </div>
-                        <div class="step-actions sa">
-                                <div class="center-align" ng-show="isUserDataUploading">
-                                        <img src="https://loading.io/spinners/microsoft/lg.rotating-balls-spinner.gif" width="70" height="70" />
-                                    </div>
-                                    <button class="waves-effect waves-dark btn blue next-step" ng-show="!isUserDataUploading">CONTINUE</button>
-                        </div>
-                    </div>
-                </li>
-                <li class="step">
-                    <div data-step-label="Customer Data Upload" class="step-title waves-effect waves-dark">Step 8</div>
-                    <div class="step-content">
-                        <div class="file-field input-field col s12">
-                            <div class="btn" style="background:#000 !important;">
-                                <span>Upload Customers</span>
-                                <input type="file" onchange="angular.element(this).scope().uploadConsumers(this.files)">
-                            </div>
-                            <div class="file-path-wrapper">
-                                <input class="file-path validate" disabled type="text">
-                            </div>
-                            <div class="errorTxt21"></div>
-                        </div>
-                        <div class="center-align" ng-show="isConsumerDataUploading">
-                                <img src="https://loading.io/spinners/microsoft/lg.rotating-balls-spinner.gif" width="70" height="70" />
-                            </div>
-                            <button class="waves-effect waves-dark btn blue next-step" ng-click="updateSetting()" ng-show="!isConsumerDataUploading">FINISH</button>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </div>
-</div>
 <div>
-<div class="dealer-wizard-profile">
-    <div class="ul-outer z-depth-1 white center-align">
-        <ul>
-            <li class="li-1 done-li">Step 1
-            <p>profile</p>
-            </li>
-            <li class="li-2">Step 2
-            <p class="truncate">scheduling</p>
-            </li>
-            <li class="li-3">Step 3
-            <p class="truncate">service data</p>
-            </li>
-            <li class="li-4">Step 4
-            <p class="truncate">user setup</p>
-            </li>
-            <li class="li-5">Step 5
-            <p class="truncate">customer dashboard</p>
-            </li>
-            <li class="li-6">Step 6
-            <p class="truncate">scheduling</p>
-            </li>
-            <li class="li-7">Step 7
-            <p class="truncate">scheduling</p>
-            </li>
-            <li class="li-8">Step 8
-            <p class="truncate">scheduling</p>
-            </li>
-            <li class="li-9">Step 9
+    <div class="dealer-wizard-profile" ng-show="isStarted">
+        <div class="dealer-wizard dw_sh">
+            <p class="flow-text center-align">Dealer SetUp Wizard {{complete}}</p>
+            <p class="center-align black-text">Welcome to dealer account setup wizard. Follow these steps and we can have you setup and ready in no time.</p>
+        </div>
+        <div class="ul-outer z-depth-1 white center-align">
+            <ul>
+                <li class="li-1" ng-class="{'active': (step==1 ), 'done-li': (complete==1 || complete==2 || complete==3 || complete==4  || complete==5 || complete==6 || complete==7 || complete==8)}">Step 1
+                    <p>profile</p>
+                </li>
+                <li class="li-2" ng-class="{'active': step==2 , 'done-li': (complete==2 || complete==3  || complete==4  || complete==5 || complete==6 || complete==7 || complete==8)}">Step 2
+                    <p class="truncate">scheduling</p>
+                </li>
+                <li class="li-3" ng-class="{'active': step==3, 'done-li': (complete==3 || complete==4  || complete==5 || complete==6 || complete==7 || complete==8)}">Step 3
+                    <p class="truncate">Marketing Manager</p>
+                </li>
+                <li class="li-4" ng-class="{'active': step==4 , 'done-li': (  complete==4  || complete==5 || complete==6 || complete==7 || complete==8)}">Step 4
+                    <p class="truncate">Used Car</p>
+                </li>
+                <li class="li-5" ng-class="{'active': step==5 , 'done-li': (complete==5 || complete==6 || complete==7 || complete==8)}">Step 5
+                    <p class="truncate">Service Adviser</p>
+                </li>
+                <li class="li-6" ng-class="{'active': step==6 , 'done-li': (complete==6 || complete==7 || complete==8)}">Step 6
+                    <p class="truncate">Service Data</p>
+                </li>
+                <li class="li-7" ng-class="{'active': step==7 , 'done-li': (complete==7 || complete==8)}">Step 7
+                    <p class="truncate">User setup</p>
+                </li>
+                <li class="li-8" ng-class="{'active': step==8 , 'done-li': (complete==8)}">Step 8
+                    <p class="truncate">Customer Dashborad</p>
+                </li>
+                <!-- <li class="li-9">Step 9
             <p class="truncate">scheduling</p>
             </li>
             <li class="li-10">Step 10
@@ -610,254 +190,455 @@
             </li>
             <li class="li-13">Step 13
             <p class="truncate">scheduling</p>
-            </li>
-        </ul>
-    </div><!--ul-outer-->
-    <div class="ul-main-content white z-depth-1">
-        <div class="ul-main-one ulmc">
-            <form class="formValidate1" id="formValidate" ng-submit="updateSetting()">
-                <p style="padding-left: 0;">Account details</p>
-                <div class="col s12">
-                    <label for="uname">Dealer name*</label>
-                    <input id="uname" name="uname" type="text" data-error=".errorTxt1" ng-model="profileData.name">
-                    <div class="errorTxt1"></div>
-                </div>
-                <div class="col s12">
-                    <label for="cemail">Email*</label>
-                    <input id="cemail" type="email" name="cemail" data-error=".errorTxt2" ng-model="profileData.email">
-                    <div class="errorTxt2"></div>
-                </div>
-                <div class="col s12">
-                    <label for="cephone">Phone*</label>
-                    <input id="cephone" type="text" name="cephone" data-error=".errorTxt2" ng-model="profileData.phone">
-                    <div class="errorTxt2"></div>
-                </div>
-                <div class="margin col s12">
-                    <label for="manufactur">Dealer​ ​OEM​ ​association</label>
-                    <select id="manufactur" class="browser-default" name="manufactur" ng-model="settings.manufactur">
-                        <option ng-repeat="make in makesList" value="{{make._id}}">{{make.name}}</option>
-                    </select>
-                </div>
-                <div class=" margin">
-                    <!-- Modal Trigger -->
-                    <a class="waves-effect waves-light btn modal-trigger grey darken-2 modal-anchor" href="#modal1">Change Password</a>
-                </div>
-                <div class="input-field col s12">
+            </li> -->
+            </ul>
+        </div>
+        <!--ul-outer-->
+        <div class="ul-main-content white z-depth-1">
+            <div class="ul-main-one ulmc" ng-class="{'active': step==1}">
+                <form class="formValidate" name="formValidate" id="formValidate" ng-submit="updateSetting()">
+                    <p style="padding-left: 0;">Account details</p>
+                    <div class="col s12">
+                        <label for="cname">Dealer name*</label>
+                        <input id="cname" name="cname" type="text" required data-error=".errorTxt1" ng-model="profileData.name">
+                        <div class="errorTxt1"></div>
+                    </div>
+                    <div class="col s12">
+                        <label for="cemail">Email*</label>
+                        <input id="cemail" type="email" name="cemail" required data-error=".errorTxt2" ng-model="profileData.email">
+                        <div class="errorTxt2"></div>
+                    </div>
+                    <div class="col s12">
+                        <label for="cphone">Phone*</label>
+                        <input id="cphone" type="text" name="cephone" required data-error=".errorTxt3" ng-model="profileData.phone">
+                        <div class="errorTxt3"></div>
+                    </div>
+                    <div class="margin col s12">
+                        <label for="manufactur">Dealer​ ​OEM​ ​association</label>
+                        <select id="manufactur" class="browser-default" name="manufactur" ng-model="settings.manufactur">
+                            <option ng-repeat="make in makesList" value="{{make._id}}">{{make.name}}</option>
+                        </select>
+                    </div>
+                    <div class=" margin">
+                        <!-- Modal Trigger -->
+                        <a class="waves-effect waves-light btn modal-trigger grey darken-2 modal-anchor" href="#modal1">Change Password</a>
+                    </div>
+                    <!-- <div class="input-field col s12">
                     <button class="btn waves-effect waves-light right submit" type="submit" name="action">
                         Submit
                         <i class="mdi-content-send right"></i>
                     </button>
-                </div>
-            </form>
-            <div class="row user-setting">
-                                    <p>Primary Contact</p>
-                                    <div class="input-field col s12">
-                                        <label for="pcname">Name*</label>
-                                        <input id="pcname" name="pcname" type="text" data-error=".errorTxt1" ng-model="settings.primary_contact.name">
-                                        <div class="errorTxt1"></div>
-                                    </div>
-                                    <div class="input-field col s12">
-                                        <label for="pcemail">Email *</label>
-                                        <input id="pcemail" type="email" name="pcemail" data-error=".errorTxt2" ng-model="settings.primary_contact.email">
-                                        <div class="errorTxt2"></div>
-                                    </div>
-                                    <div class="input-field col s12">
-                                        <label for="pcphone">Phone *</label>
-                                        <input id="pcphone" type="text" name="pcphone" data-error=".errorTxt2" ng-model="settings.primary_contact.phone">
-                                        <div class="errorTxt2"></div>
-                                    </div>
-            </div>
-            <div class="row user-setting">
-                                <p>Secondary contact</p>
-                                <div class="input-field col s12">
-                                    <label for="scname">Name*</label>
-                                    <input id="scname" name="scname" type="text" data-error=".errorTxt1" ng-model="settings.secondary_contact.name">
-                                    <div class="errorTxt1"></div>
-                                </div>
-                                <div class="input-field col s12">
-                                    <label for="scemail">Email *</label>
-                                    <input id="scemail" type="email" name="scemail" data-error=".errorTxt2" ng-model="settings.secondary_contact.email">
-                                    <div class="errorTxt2"></div>
-                                </div>
-                                <div class="input-field col s12">
-                                    <label for="scphone">Phone *</label>
-                                    <input id="scphone" type="text" name="scphone" data-error=".errorTxt2" ng-model="settings.secondary_contact.phone">
-                                    <div class="errorTxt2"></div>
-                                </div>
-            </div>
-            <div class="row user-setting">
-                <p>Details to be displayed on invoice</p>
-                <div class="input-field col s12">
-                    <label for="dnname">Name*</label>
-                    <input id="dnname" name="dnname" type="text" data-error=".errorTxt1" ng-model="settings.invoice_contact.name">
-                    <div class="errorTxt1"></div>
-                </div>
-                <div class="input-field col s12">
-                    <label for="dnemail">Email *</label>
-                    <input id="dnemail" type="email" name="dnemail" data-error=".errorTxt2" ng-model="settings.invoice_contact.email">
-                    <div class="errorTxt2"></div>
-                </div>
-                <div class="input-field col s12">
-                    <label for="dnphone">Phone *</label>
-                    <input id="dnphone" type="text" name="dnphone" data-error=".errorTxt2" ng-model="settings.invoice_contact.phone">
-                    <div class="errorTxt2"></div>
-                </div>
-            </div>
-            <div class="row user-setting">
-                <p>Contact Details to be displayed on to customers</p>
-                <div class="input-field col s12">
-                    <label for="cdcname">Name *</label>
-                    <input id="cdcname" name="cdcname" type="text" data-error=".errorTxt1" ng-model="settings.contact_to_show_customer.name">
-                    <div class="errorTxt1"></div>
-                </div>
-                <div class="input-field col s12">
-                    <label for="cdcemail">Email *</label>
-                    <input id="cdcemail" type="email" name="cdcemail" data-error=".errorTxt2" ng-model="settings.contact_to_show_customer.email">
-                    <div class="errorTxt2"></div>
-                </div>
-                <div class="input-field col s12">
-                    <label for="cdcphone">Phone *</label>
-                    <input id="cdcphone" type="text" name="cdcphone" data-error=".errorTxt2" ng-model="settings.contact_to_show_customer.phone">
-                    <div class="errorTxt2"></div>
-                </div>
-            </div>
-            <div class="right-align">
-            <button type="button" class="btn waves-effect waves-light ul-1-btn">Continue</button>
-            </div>
-        </div>
-        <div class="ul-main-two ulmc" style="display: none;">
-            <div class="row s2">
-                <div class="row if-label">
-                    <div class="margin col s12">
-                        <label for="work_start_time" class="label-2">Dealership​ ​working​ ​hours​ - Start Time</label>
-                        <select data-error=".errorTxt8" class="browser-default" name="work_start_time" id="work_start_time" ng-model="settings.working_hours.start_time">
-                            <option ng-repeat="hour in hours" ng-value="hour">{{hour}}</option>
-                        </select>
-                        <div class="errorTxt4"></div>
-                    </div>
-                    <div class="margin col s12">
-                        <label for="work_end_time" class="label-2">Dealership​ ​working​ ​hours​ - End Time</label>
-                        <select data-error=".errorTxt8" class="browser-default" name="work_end_time" id="work_end_time" ng-model="settings.working_hours.end_time">
-                            <option ng-repeat="hour in hours" ng-disabled="settings.working_hours.start_time >= hour" ng-value="hour">{{hour}}</option>
-                        </select>
-                        <div class="errorTxt4"></div>
-                    </div>
-                    <div class="margin m_b_25">
-                        <label for="days_of_service">
-                            <p>
-                                <b class="black-text" style="font-weight:500">Days for service*</b>
-                            </p>
-                        </label>
-                        <span class="admin-day-slot">
-                            <span>
-                                <input type="checkbox" id="sundaycheck" ng-model="settings.days_of_service.sunday" />
-                                <label for="sundaycheck">Sunday</label>
-                            </span>
-                            <span>
-                                <input type="checkbox" id="mondaycheck" ng-model="settings.days_of_service.monday" />
-                                <label for="mondaycheck">Monday</label>
-                            </span>
-                            <span>
-                                <input type="checkbox" id="tuesdaycheck" ng-model="settings.days_of_service.tuesday" />
-                                <label for="tuesdaycheck">Tuesday</label>
-                            </span>
-                            <span>
-                                <input type="checkbox" id="wednesdaycheck" ng-model="settings.days_of_service.wednesday" />
-                                <label for="wednesdaycheck">Wednesday</label>
-                            </span>
-                            <span>
-                                <input type="checkbox" id="thursdaycheck" ng-model="settings.days_of_service.thursday" />
-                                <label for="thursdaycheck">Thursday</label>
-                            </span>
-                            <span>
-                                <input type="checkbox" id="fridaycheck" ng-model="settings.days_of_service.friday" />
-                                <label for="fridaycheck">Friday</label>
-                            </span>
-                            <span>
-                                <input type="checkbox" id="saturdaycheck" ng-model="settings.days_of_service.saturday" />
-                                <label for="saturdaycheck">Saturday</label>
-                            </span>
-                        </span>
-                    </div>
-                    <div class="margin col s12 temp_color">
-                        <label for="template_color">
-                            <p class="black-text" style="padding:0 5px 0 1px ;">Template Color*</p>
-                        </label>
-                        <input id="template_color" type="color" name="template_color" data-error=".errorTxt4" ng-model="settings.template_color">
-                        <div class="errorTxt4"></div>
+                </div> -->
+                    <div class="row user-setting">
+                        <p>Primary Contact</p>
+                        <div class="input-field col s12">
+                            <label for="pcname">Name*</label>
+                            <input id="pcname" name="pcname" required type="text" data-error=".errorTxt4" ng-model="settings.primary_contact.name">
+                            <div class="errorTxt4"></div>
+                        </div>
+                        <div class="input-field col s12">
+                            <label for="pcemail">Email *</label>
+                            <input id="pcemail" type="email" required name="pcemail" data-error=".errorTxt5" ng-model="settings.primary_contact.email">
+                            <div class="errorTxt5"></div>
+                        </div>
+                        <div class="input-field col s12">
+                            <label for="pcphone">Phone *</label>
+                            <input id="pcphone" type="text" required name="pcphone" data-error=".errorTxt6" ng-model="settings.primary_contact.phone">
+                            <div class="errorTxt6"></div>
+                        </div>
                     </div>
                     <div class="row user-setting">
-                        <p>Other configuration</p>
-                        <div class="margin col s12">
-                            <label for="booking_before_time" class="label-2">Earliest​ ​timeframe​ ​for​ ​online​ ​appointment​ ​setup​(Hours)*</label>
-                            <input id="booking_before_time" type="number" name="booking_before_time" data-error=".errorTxt4" ng-model="settings.booking_before_time">
-                            <div class="errorTxt4"></div>
+                        <p>Secondary contact</p>
+                        <div class="input-field col s12">
+                            <label for="scname">Name*</label>
+                            <input id="scname" name="scname" required type="text" data-error=".errorTxt7" ng-model="settings.secondary_contact.name">
+                            <div class="errorTxt7"></div>
                         </div>
-                        <div class="margin col s12">
-                            <label for="appointment_interval" class="label-2">Service​ ​appointment​ ​interval​ ​for​ ​taking​ ​appointments(Minutes)*</label>
-                            <select data-error=".errorTxt8" class="browser-default" name="appointment_interval" id="appointment_interval" ng-model="settings.appointment_interval">
-                                <option ng-value="15">15 mins</option>
-                                <option ng-value="30">30 mins</option>
-                                <option ng-value="60">60 mins</option>
-                            </select>
+                        <div class="input-field col s12">
+                            <label for="scemail">Email *</label>
+                            <input id="scemail" type="email" required name="scemail" data-error=".errorTxt8" ng-model="settings.secondary_contact.email">
+                            <div class="errorTxt8"></div>
                         </div>
-                        <div class="margin col s12">
-                            <label for="auto_cancel_appointment_time" class="label-2">Auto​ ​cancel​ ​service​ ​appts​ ​for​ ​no​ ​shows​ ​after​ ​x​ ​hours*</label>
-                            <input id="auto_cancel_appointment_time" type="text" name="auto_cancel_appointment_time" data-error=".errorTxt4" ng-model="settings.auto_cancel_appointment_time">
-                            <div class="errorTxt4"></div>
+                        <div class="input-field col s12">
+                            <label for="scphone">Phone *</label>
+                            <input id="scphone" type="text" required name="scphone" data-error=".errorTxt9" ng-model="settings.secondary_contact.phone">
+                            <div class="errorTxt9"></div>
                         </div>
                     </div>
+                    <div class="row user-setting">
+                        <p>Details to be displayed on invoice</p>
+                        <div class="input-field col s12">
+                            <label for="dnname">Name*</label>
+                            <input id="dnname" name="dnname" type="text" required data-error=".errorTxt10" ng-model="settings.invoice_contact.name">
+                            <div class="errorTxt10"></div>
+                        </div>
+                        <div class="input-field col s12">
+                            <label for="dnemail">Email *</label>
+                            <input id="dnemail" type="email" name="dnemail" required data-error=".errorTxt11" ng-model="settings.invoice_contact.email">
+                            <div class="errorTxt11"></div>
+                        </div>
+                        <div class="input-field col s12">
+                            <label for="dnphone">Phone *</label>
+                            <input id="dnphone" type="text" name="dnphone" required data-error=".errorTxt12" ng-model="settings.invoice_contact.phone">
+                            <div class="errorTxt12"></div>
+                        </div>
+                    </div>
+                    <div class="row user-setting">
+                        <p>Contact Details to be displayed on to customers</p>
+                        <div class="input-field col s12">
+                            <label for="cdcname">Name *</label>
+                            <input id="cdcname" name="cdcname" type="text" required data-error=".errorTxt13" ng-model="settings.contact_to_show_customer.name">
+                            <div class="errorTxt13"></div>
+                        </div>
+                        <div class="input-field col s12">
+                            <label for="cdcemail">Email *</label>
+                            <input id="cdcemail" type="email" name="cdcemail" required data-error=".errorTxt14" ng-model="settings.contact_to_show_customer.email">
+                            <div class="errorTxt14"></div>
+                        </div>
+                        <div class="input-field col s12">
+                            <label for="cdcphone">Phone *</label>
+                            <input id="cdcphone" type="text" name="cdcphone" required data-error=".errorTxt15" ng-model="settings.contact_to_show_customer.phone">
+                            <div class="errorTxt15"></div>
+                        </div>
+                    </div>
+                    <div class="right-align">
+                        <button type="submit" class="btn waves-effect waves-light ul-1-btn">Continue</button>
+                    </div>
+                </form>
+            </div>
+            <div class="ul-main-two ulmc" ng-class="{'active': step==2}">
+                <form class="formValidate1" name="formValidate1" id="formValidate1" ng-submit="updateSetting1()">
+                    <div class="row s2">
+                        <div class="row if-label">
+                            <div class="margin col s12">
+                                <label for="work_start_time" class="label-2">Dealership​ ​working​ ​hours​ - Start Time</label>
+                                <select data-error=".errorTxt16" class="browser-default" name="work_start_time" id="work_start_time" ng-model="settings.working_hours.start_time">
+                                    <option ng-repeat="hour in hours" ng-value="hour">{{hour}}</option>
+                                </select>
+                                <div class="errorTxt16"></div>
+                            </div>
+                            <div class="margin col s12">
+                                <label for="work_end_time" class="label-2">Dealership​ ​working​ ​hours​ - End Time</label>
+                                <select data-error=".errorTxt17" class="browser-default" name="work_end_time" id="work_end_time" ng-model="settings.working_hours.end_time">
+                                    <option ng-repeat="hour in hours" ng-disabled="settings.working_hours.start_time >= hour" ng-value="hour">{{hour}}</option>
+                                </select>
+                                <div class="errorTxt17"></div>
+                            </div>
+                            <div class="margin m_b_25">
+                                <label for="days_of_service">
+                                    <p>
+                                        <b class="black-text" style="font-weight:500">Days for service*</b>
+                                    </p>
+                                </label>
+                                <span class="admin-day-slot">
+                                    <span>
+                                        <input type="checkbox" id="sundaycheck" ng-model="settings.days_of_service.sunday" />
+                                        <label for="sundaycheck">Sunday</label>
+                                    </span>
+                                    <span>
+                                        <input type="checkbox" id="mondaycheck" ng-model="settings.days_of_service.monday" />
+                                        <label for="mondaycheck">Monday</label>
+                                    </span>
+                                    <span>
+                                        <input type="checkbox" id="tuesdaycheck" ng-model="settings.days_of_service.tuesday" />
+                                        <label for="tuesdaycheck">Tuesday</label>
+                                    </span>
+                                    <span>
+                                        <input type="checkbox" id="wednesdaycheck" ng-model="settings.days_of_service.wednesday" />
+                                        <label for="wednesdaycheck">Wednesday</label>
+                                    </span>
+                                    <span>
+                                        <input type="checkbox" id="thursdaycheck" ng-model="settings.days_of_service.thursday" />
+                                        <label for="thursdaycheck">Thursday</label>
+                                    </span>
+                                    <span>
+                                        <input type="checkbox" id="fridaycheck" ng-model="settings.days_of_service.friday" />
+                                        <label for="fridaycheck">Friday</label>
+                                    </span>
+                                    <span>
+                                        <input type="checkbox" id="saturdaycheck" ng-model="settings.days_of_service.saturday" />
+                                        <label for="saturdaycheck">Saturday</label>
+                                    </span>
+                                </span>
+                            </div>
+                            <div class="margin col s12 temp_color">
+                                <label for="template_color">
+                                    <p class="black-text" style="padding:0 5px 0 1px ;">Template Color*</p>
+                                </label>
+                                <input id="template_color" type="color" name="template_color" data-error=".errorTxt18" ng-model="settings.template_color">
+                                <div class="errorTxt18"></div>
+                            </div>
+                            <div class="row user-setting">
+                                <p>Other configuration</p>
+                                <div class="margin col s12">
+                                    <label for="booking_before_time" class="label-2">Earliest​ ​timeframe​ ​for​ ​online​ ​appointment​ ​setup​(Hours)*</label>
+                                    <input id="booking_before_time" type="number" name="booking_before_time" data-error=".errorTxt19" ng-model="settings.booking_before_time">
+                                    <div class="errorTxt19"></div>
+                                </div>
+                                <div class="margin col s12">
+                                    <label for="appointment_interval" class="label-2">Service​ ​appointment​ ​interval​ ​for​ ​taking​ ​appointments(Minutes)*</label>
+                                    <select data-error=".errorTxt20" class="browser-default" name="appointment_interval" id="appointment_interval" ng-model="settings.appointment_interval">
+                                        <option ng-value="15">15 mins</option>
+                                        <option ng-value="30">30 mins</option>
+                                        <option ng-value="60">60 mins</option>
+                                    </select>
+                                    <div class="errorTxt20"></div>
+                                </div>
+                                <div class="margin col s12">
+                                    <label for="auto_cancel_appointment_time" class="label-2">Auto​ ​cancel​ ​service​ ​appts​ ​for​ ​no​ ​shows​ ​after​ ​x​ ​hours*</label>
+                                    <input id="auto_cancel_appointment_time" type="text" name="auto_cancel_appointment_time" data-error=".errorTxt21" ng-model="settings.auto_cancel_appointment_time">
+                                    <div class="errorTxt21"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="right-align">
+                        <button type="submit" class="btn waves-effect waves-light ul-2-btn">Continue</button>
+                    </div>
+                </form>
+            </div>
+            <div class="ul-main-three ulmc" ng-class="{'active': step==3}">
+                <div class="right-align" style="margin-bottom: 2em;" ng-show="addImg">
+                    <button type="button" ng-click="viewImage()" class="btn waves-effect waves-light ul-2-btn">View Image</button>
+                </div>
+                <div class="right-align" style="margin-bottom: 2em;" ng-show="viewImg">
+                    <button type="button" ng-click="addImage()" class="btn waves-effect waves-light ul-2-btn">Add Image</button>
+                </div>
+                <div ng-show="viewImg">
+                    <div class="row">
+                        <div class="col s6 m3 image-container" ng-repeat="image in imageList">
+                            <img class="responsive-img z-depth-1 oml_img" src="{{ image.picture.url }}" alt="">
+                            <div class="close" ng-click="deleteRemove(image.id, $index)">
+                                <i class="material-icons dp48 oml_icon">close</i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="" ng-show="imageList.length == 0">
+                        <h4>No Images</h4>
+                    </div>
+                    <br>
+                    <div class="right-align">
+                        <button type="button" ng-click="nextStep(4)" class="btn waves-effect waves-light ul-2-btn">Continue</button>
+                    </div>
+                </div>
+                <div ng-show="addImg">
+                    <form class="" ng-submit="addImages()" >
+                        <div class="offer-section-otr white z-depth-1">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <div class="panel-title m_b_25">
+                                        <b class="required flow-text ">Images</b>
+                                    </div>
+                                </div>
+                                <div>
+                                    <style>
+                                        .cropArea {
+                                            margin: 30px auto;
+                                            background: #E4E4E4;
+                                            overflow: hidden;
+                                            width: 500px;
+                                            height: 350px;
+                                        }
+                                    </style>
+                                </div>
+                                <span class="add_image" ng-show="image_message">Please Add Images.Image Types Allowed: png, jpeg, jpg, gif</span>
+                                <div class="panel-body" style="padding-top: 0px;">
+                                    <div class="form-group" ng-show="!showCroppedImg">
+                                        <div class="select_img">
+                                            <b>Select an image file:</b>
+                                            <div class="">
+                                                <!-- <input type="file" id="fileInput" name="image" data-error=".errorTxt5" required/> -->
+                                                <div class="file-field input-field">
+                                                    <div class="btn waves-effect waves-light">
+                                                        <span>File</span>
+                                                        <input type="file" id="fileInput" capture="filesystem">
+                                                    </div>
+                                                    <div class="file-path-wrapper">
+                                                        <input class="file-path validate" name="image" data-error=".errorTxt5" type="text">
+                                                    </div>
+                                                </div>
+                                                <div class="errorTxt5"></div>
+                                                <!-- <div class="image_type_error" id="image_type">
+                Invalid image type
+              </div> -->
+                                            </div>
+                                        </div>
+                                        <div class="cropArea">
+                                            <img-crop result-image-size="640" ngf-pattern="'image/*'" ngf-accept="'image/*'" image="myImage" area-type="square" result-image="myCroppedImage">
+                                            </img-crop>
+                                        </div>
+                                        <div class="center-align ">
+                                            <input type="button" id="cropped" class="btn btn-warning image_cropped" value="Crop Image" ng-click="crop()">
+                                            <!-- <div id="cropImage" class="errorImage">Crop offer banner</div> -->
+                                        </div>
+                                    </div>
+                                    <div class="image_wrapper" ng-show="showCroppedImg">
+                                        <div class="clear" ng-click="clearImage()">
+                                            <i class="material-icons dp48">clear</i>
+                                        </div>
+                                        <img ng-src="{{ blobUrl }}" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="right-align">
+                            <button type="submit" class="btn waves-effect waves-light ul-2-btn">Continue</button>
+                        </div>
+                    </form>
                 </div>
             </div>
-            <div class="right-align">
-            <button type="button" class="btn waves-effect waves-light ul-2-btn">Continue</button>
+            <div class="ul-main-four ulmc" ng-class="{'active': step==4}">
+                <div class="file-field input-field col s12">
+                </div>
+                <div class="right-align">
+                    <button type="button" ng-click="nextStep(5)" class="btn waves-effect waves-light ul-2-btn">Continue</button>
+                </div>
             </div>
-        </div>
-        <div class="ul-main-three ulmc" style="display: none;">
-            <div class="file-field input-field col s12">
-                            <div class="btn" style="background:#000 !important;">
-                                <span>Upload Service</span>
-                                <input type="file" onchange="angular.element(this).scope().uploadServiceData(this.files)">
-                            </div>
-                            <div class="file-path-wrapper">
-                                <input class="file-path validate" disabled type="text">
-                            </div>
-                            <div class="errorTxt21"></div>
+            <div class="ul-main-five ulmc" ng-class="{'active': step==5}">
+                <div class="file-field input-field col s12">
+                </div>
+                <div class="right-align">
+                    <button type="button" ng-click="nextStep(6)" class="btn waves-effect waves-light ul-2-btn">Continue</button>
+                </div>
+            </div>
+            <div class="ul-main-six ulmc" ng-class="{'active': step==6}">
+                <div class="file-field input-field col s12">
+                    <div class="btn" style="background:#000 !important;">
+                        <span>Upload Service</span>
+                        <input type="file" onchange="angular.element(this).scope().uploadServiceData(this.files)">
+                    </div>
+                    <div class="file-path-wrapper">
+                        <input class="file-path validate" disabled type="text">
+                    </div>
+                    <div class="errorTxt21"></div>
 
+                </div>
+                <div class="right-align">
+                    <button type="button" ng-click="nextStep(7)" class="btn waves-effect waves-light ul-2-btn">Continue</button>
+                </div>
             </div>
-            <div class="right-align">
-            <button type="button" class="btn waves-effect waves-light ul-2-btn">Continue</button>
+            <div class="ul-main-seven ulmc" ng-class="{'active': step==7}">
+                <div class="file-field input-field col s12">
+                    <div class="btn" style="background:#000 !important;">
+                        <span>Upload User</span>
+                        <input type="file" onchange="angular.element(this).scope().uploadUserData(this.files)">
+                    </div>
+                    <div class="file-path-wrapper">
+                        <input class="file-path validate" disabled type="text">
+                    </div>
+                    <div class="errorTxt21"></div>
+
+                </div>
+                <div class="right-align">
+                    <button type="button" ng-click="nextStep(8)" class="btn waves-effect waves-light ul-2-btn">Continue</button>
+                </div>
+            </div>
+            <div class="ul-main-eight ulmc" ng-class="{'active': step==8}">
+                <div class="file-field input-field col s12">
+                    <div class="btn" style="background:#000 !important;">
+                        <span>Upload Customer</span>
+                        <input type="file" onchange="angular.element(this).scope().uploadUserData(this.files)">
+                    </div>
+                    <div class="file-path-wrapper">
+                        <input class="file-path validate" disabled type="text">
+                    </div>
+                    <div class="errorTxt21"></div>
+
+                </div>
+                <div class="right-align">
+                    <button type="button" ng-click="nextStep(8)" class="btn waves-effect waves-light ul-2-btn">Finsh</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
 </div>
 <script type="text/javascript">
     function anyThing() { setTimeout(function () { $('.stepper').nextStep(); }, 1500); }
     $(function () { $('.stepper').activateStepper(); })
 </script>
 <script>
-    $(document).ready(function(){
-        $('.ul-1-btn').click(function(){
-            $('.ul-main-one').hide();
-            $('.ul-main-two').show();
-        })
-        $('.ul-2-btn').click(function(){
-            $('.ul-main-two').hide();
-            $('.ul-main-three').show();
-        })
-        $('.li-1').click(function(){
-            $('.ulmc').hide();
-            $('.ul-main-one').show();
-        })
-        $('.li-2').click(function(){
-            $('.ulmc').hide();
-            $('.ul-main-two').show();
-        })
-        $('.li-3').click(function(){
-            $('.ulmc').hide();
-            $('.ul-main-three').show();
-        })
+    // $(document).ready(function(){
+    //     $('.ul-1-btn').click(function(){
+    //         $('.ul-main-one').hide();
+    //         $('.ul-main-two').show();
+    //     })
+    //     $('.ul-2-btn').click(function(){
+    //         $('.ul-main-two').hide();
+    //         $('.ul-main-three').show();
+    //     })
+    //     $('.li-1').click(function(){
+    //         $('.ulmc').hide();
+    //         $('.ul-main-one').show();
+    //     })
+    //     $('.li-2').click(function(){
+    //         $('.ulmc').hide();
+    //         $('.ul-main-two').show();
+    //     })
+    //     $('.li-3').click(function(){
+    //         $('.ulmc').hide();
+    //         $('.ul-main-three').show();
+    //     })
 
+    // });
+
+
+    $("#formValidate").validate({
+        rules: {
+            cname: {
+                required: true,
+                minlength: 5
+            },
+            cemail: {
+                required: true,
+                email: true
+            },
+            cphone: {
+                required: true,
+            },
+            pcname: "required",
+            pcemail: "required",
+            pcphone: "required",
+            cdcphone: "required",
+            cdcemail: "required",
+            cdcname: "required",
+            scname: "required",
+            scemail: "required",
+            scphone: "required",
+            dnname: "required",
+            dnemail: "required",
+            dnphone: "required",
+        },
+        errorElement: 'div',
+        errorPlacement: function (error, element) {
+            var placement = $(element).data('error');
+            if (placement) {
+                $(placement).append(error)
+            } else {
+                error.insertAfter(element);
+            }
+        }
     });
+
+    $("#formValidate1").validate({
+        rules: {
+            auto_cancel_appointment_time: "required",
+            appointment_interval: "required",
+            booking_before_time: "required",
+            template_color: "required",
+            work_end_time: "required",
+            work_start_time: "required",
+        },
+
+        errorElement: 'div',
+        errorPlacement: function (error, element) {
+            var placement = $(element).data('error');
+            if (placement) {
+                $(placement).append(error)
+            } else {
+                error.insertAfter(element);
+            }
+        }
+    });
+
 </script>
