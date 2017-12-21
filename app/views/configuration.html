@@ -546,6 +546,39 @@
         </div>
     </div>
 </div>
+
+<div id="modal1" class="modal">
+        <div class="modal-content">
+          <form class="" autocomplete="off" ng-submit="changePassword()">
+            <div class="row">
+              <div class="input-field col s12">
+                <label for="password">Current Password *</label>
+                <input id="password" type="password" name="password" data-error=".errorTxt3" ng-model="changepassword.old_password">
+                <div class="errorTxt3"></div>
+              </div>
+              <div class="input-field col s12">
+                <label for="password1">New Password *</label>
+                <input id="password1" type="password" name="password" data-error=".errorTxt3" ng-model="changepassword.password">
+                <div class="errorTxt3"></div>
+              </div>
+              <div class="input-field col s12">
+                <label for="cpassword">Confirm Password *</label>
+                <input id="cpassword" type="password" name="cpassword" data-error=".errorTxt4" ng-model="changepassword.cpassword">
+                <div class="errorTxt4"></div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <!-- <a class=""></a> -->
+                <button class="btn waves-effect waves-light col s12" type="submit" name="button">RESET PASSWORD</button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <!-- <div class="modal-footer">
+            <a class=" modal-action modal-close waves-effect waves-green btn-flat">RESET</a>
+          </div> -->
+      </div>
 <script type="text/javascript">
     function anyThing() { setTimeout(function () { $('.stepper').nextStep(); }, 1500); }
     $(function () { $('.stepper').activateStepper(); })
@@ -633,5 +666,6 @@
             }
         }
     });
+    $('.modal-trigger').leanModal();
 
 </script>
