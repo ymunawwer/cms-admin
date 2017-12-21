@@ -2757,3 +2757,23 @@ body{
 .error {
     color: rgb(196, 42, 42);
 }
+.ul-outer::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+}
+.ul-outer::-webkit-scrollbar-thumb {
+    background: #666;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    -ms-border-radius: 0px;
+    border-radius: 0px;
+}   
+
+.ul-outer::-webkit-scrollbar-track {
+    background: #ddd;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    -ms-border-radius: 0px;
+    border-radius: 0px;
+    background-clip: content-box;
+}
