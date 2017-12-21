@@ -4,13 +4,22 @@
         <div class="col s12 m12 l12">
           <div class="card-panel">
             <h4 class="header2">
-                Maintenance Schedule Offer Items
+                Maintenance Schedule Offer Items {{manufacturs}}
             </h4>
             <div class="row">
               <form class="formValidate" name="addServiceForm" id="formValidate" ng-submit="addMOfferList()">
-                  <label for="sname21">Select the mileage</label>                    
-                  
-                <div class="row">
+                  <div class="row" ng-show="!manufacturs">
+
+                    <label for="smake" class="lbl_sa">Make*</label>
+                    <div class="input-field col s12">
+                      <select id="smake" ng-change="changeSelectMake()" ng-model="make" required style="display:block;">
+                        <option ng-repeat="make in makesList | orderBy:'name'" value="{{make._id}}">{{make.name}}</option>
+                      </select>
+                    </div>
+                  </div>
+               <label for="sname21" ng-show="mileageList">Select the mileage</label>                    
+
+                <div class="row" ng-show="mileageList">
                   <div class="input-field col s3" ng-repeat="mile in mileageList.mileage">
                     <p >
                       <input name="group1" type="checkbox" ng-model="mileage" id="test{{mile}}" ng-change="selectMileages(mile)"  />

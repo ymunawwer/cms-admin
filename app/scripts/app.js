@@ -237,7 +237,7 @@ angular.module('dmsAdminApp', ['ngCookies', 'ui.materialize', 'ui.router', 'ngCo
 ])
 .constant({
   "endpoint": "http://165.227.104.212:3000/api/v1"
-  // "endpoint": "http://0.0.0.0:3000/api/v1"
+  // "endpoint": "http://localhost:3000/api/v1"
 })
 .run(
   function($rootScope, $http, $state, $location, $templateCache, session) {

@@ -42,6 +42,13 @@ angular.module('dmsAdminApp').service('userservice', function($resource, session
       params: {
         id: "@id"
       }
-    }
+    },
+    uploadUserFile: {
+      url: endpoint + '/admin/users/upload',
+      method: 'POST',
+      headers: {
+        "Content-Type": undefined
+      }
+    },
   })
 });
