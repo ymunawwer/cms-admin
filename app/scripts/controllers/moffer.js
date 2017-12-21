@@ -13,8 +13,30 @@ angular.module('dmsAdminApp')
     $scope.servicelimit = 10;
     $scope.servicestart = 0;
     $scope.servicepage = 1;
-    $scope.admin = session.get('admin')
-console.log($scope.admin)
+    // $scope.mileageList ={};
+    // $scope.mileageList.mileage =[];
+    $scope.admin = session.get('admin');
+    $scope.manufacturs = $scope.admin.manufactur;
+    
+    if(!$scope.manufacturs){
+      serviceservice.getMakesList({},{}, function(data){
+        if(data.statusCode == 200){
+          $scope.makesList = data.body.makes;
+        }
+      })
+    
+    }
+
+    $scope.changeSelectMake = function(){
+      console.log($scope.make)
+     serviceservice.getMileageList({id: $scope.make}, {}, function (data) {
+      if (data.statusCode === 200) {
+        $scope.mileageList = data.body.items;
+        console.log($scope.mileageList)
+      }
+    });
+
+    }
     serviceservice.getMileageList({id: $scope.admin.manufactur}, {}, function (data) {
       if (data.statusCode === 200) {
         $scope.mileageList = data.body.items;
@@ -77,6 +99,14 @@ console.log($scope.admin)
     $scope.list ={};
     $scope.addMOfferList = function(){
       if ($scope.addServiceForm.$valid) {
+        if($scope.selectedmiles.length==0){
+        Materialize.toast('<span>Please select mileage</span>', 3000);
+        return false;
+        }
+        if($scope.selected.length==0){
+        Materialize.toast('<span>Please select services</span>', 3000);
+        return false;
+        }
         // $scope.serviceData.make = $scope.serviceData.make.name;
         $scope.list.services = $scope.selected;
         $scope.list.mileage = $scope.selectedmiles;
