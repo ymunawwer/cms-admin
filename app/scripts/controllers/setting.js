@@ -56,6 +56,7 @@ angular.module('dmsAdminApp')
       if ($scope.formValidate.$valid) {
         profileservice.updateProfile({}, $scope.profileData, function (data) {
           $scope.profileData = data.body.user;
+          $scope.settings.site_title = $scope.profileData.name;
           settings.updateSetting({}, $scope.settings, function (data) {
             if (data.statusText == 'success') {
               $scope.site.site_title = $scope.settings.site_title;

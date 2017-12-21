@@ -147,7 +147,7 @@
 <div>
     <div class="dealer-wizard-profile" ng-show="isStarted">
         <div class="dealer-wizard dw_sh">
-            <p class="flow-text center-align">Dealer SetUp Wizard {{complete}}</p>
+            <p class="flow-text center-align">Dealer SetUp Wizard </p>
             <p class="center-align black-text">Welcome to dealer account setup wizard. Follow these steps and we can have you setup and ready in no time.</p>
         </div>
         <div class="ul-outer z-depth-1 white center-align">
@@ -378,7 +378,7 @@
                         </div>
                     </div>
                     <div class="right-align">
-                        <button type="submit" class="btn waves-effect waves-light" style="background: #000 !important;">Prev</button>
+                        <button type="button" ng-click="nextStep(1)" class="btn waves-effect waves-light" >Prev</button>
                         <button type="submit" class="btn waves-effect waves-light ul-2-btn">Continue</button>
                     </div>
                 </form>
@@ -404,7 +404,7 @@
                     </div>
                     <br>
                     <div class="right-align">
-                        <button type="submit" class="btn waves-effect waves-light" style="background: #000 !important;">Prev</button>
+                        <button type="button" ng-click="nextStep(2)" class="btn waves-effect waves-light" >Prev</button>
                         <button type="button" ng-click="nextStep(4)" class="btn waves-effect waves-light ul-2-btn">Continue</button>
                     </div>
                 </div>
@@ -470,7 +470,7 @@
                         </div>
                         <br>
                         <div class="right-align">
-                            <button type="submit" class="btn waves-effect waves-light" style="background: #000 !important;">Prev</button>
+                            <button type="button" ng-click="nextStep(2)" class="btn waves-effect waves-light" >Prev</button>
                             <button type="submit" class="btn waves-effect waves-light ul-2-btn">Continue</button>
                         </div>
                     </form>
@@ -480,7 +480,7 @@
                 <div class="file-field input-field col s12">
                 </div>
                 <div class="right-align">
-                    <button type="submit" class="btn waves-effect waves-light" style="background: #000 !important;">Prev</button>
+                    <button type="button" class="btn waves-effect waves-light" ng-click="nextStep(3)">Prev</button>
                     <button type="button" ng-click="nextStep(5)" class="btn waves-effect waves-light ul-2-btn">Continue</button>
                 </div>
             </div>
@@ -488,7 +488,7 @@
                 <div class="file-field input-field col s12">
                 </div>
                 <div class="right-align">
-                    <button type="submit" class="btn waves-effect waves-light" style="background: #000 !important;">Prev</button>
+                    <button type="button"  class="btn waves-effect waves-light" ng-click="nextStep(4)">Prev</button>
                     <button type="button" ng-click="nextStep(6)" class="btn waves-effect waves-light ul-2-btn">Continue</button>
                 </div>
             </div>
@@ -505,7 +505,7 @@
 
                 </div>
                 <div class="right-align">
-                    <button type="submit" class="btn waves-effect waves-light" style="background: #000 !important;">Back</button>
+                    <button type="button" class="btn waves-effect waves-light" ng-click="nextStep(5)">Back</button>
                     <button type="button" ng-click="nextStep(7)" class="btn waves-effect waves-light ul-2-btn">Continue</button>
                 </div>
             </div>
@@ -522,7 +522,7 @@
 
                 </div>
                 <div class="right-align">
-                    <button type="submit" class="btn waves-effect waves-light" style="background: #000 !important;">Prev</button>
+                    <button type="button" class="btn waves-effect waves-light" ng-click="nextStep(6)">Prev</button>
                     <button type="button" ng-click="nextStep(8)" class="btn waves-effect waves-light ul-2-btn">Continue</button>
                 </div>
             </div>
@@ -539,7 +539,7 @@
 
                 </div>
                 <div class="right-align">
-                    <button type="submit" class="btn waves-effect waves-light" style="background: #000 !important;">Prev</button>
+                    <button type="button" class="btn waves-effect waves-light" ng-click="nextStep(7)">Prev</button>
                     <button type="button" ng-click="nextStep(8)" class="btn waves-effect waves-light ul-2-btn">Finsh</button>
                 </div>
             </div>
