@@ -7,7 +7,7 @@
 </h4>
           <div class="row">
             <form class="formValidate" name="addServiceForm" id="formValidate" ng-submit="addService()">
-              <div class="row" ng-if="!serviceData.make">
+              <div class="row" ng-hide="isHavingMakeAlready">
                 <label for="smake" class="lbl_sa">Make*</label>
                 <div class="input-field col s12">
                   <select id="smake" ng-change="changeSelectMake()" ng-model="serviceData.make" required style="display:block;">
@@ -15,14 +15,6 @@
                   </select>
                 </div>
               </div>
-              <div class="row" style="display:none;">
-                <label for="smake"  class="lbl_sa">Model*</label>
-                <div class="input-field col s12">
-                  <select id="smake" ng-model="serviceData.model" required >
-                    <option ng-repeat="model in modelsList | orderBy:'name'" value="{{model.name}}">{{model.name}}</option>
-                  </select>
-                </div>
-              </div> -->
               <div class="row">
                 <div class="input-field col s12">
                   <label for="sname">Service name*</label>
