@@ -439,7 +439,8 @@ angular.module('dmsAdminApp')
     }
     $scope.addService = function () {
       if ($scope.addServiceForm.$valid) {
-        $scope.serviceData.make = $scope.serviceData.make.name;
+        $scope.serviceData.make = $scope.serviceData.make && $scope.serviceData.make.name != 'INDEPENDENT' ? $scope.serviceData.make.name : null;
+
         serviceservice.addService({}, $scope.serviceData, function (data) {
           if (data.statusCode === 200) {
             Materialize.toast('<span>' + data.message + '</span>', 3000);
