@@ -10,8 +10,6 @@
 angular.module('dmsAdminApp').controller('ServiceaddCtrl', function ($scope, serviceservice, session) {
   $scope.serviceData = {};
   $scope.serviceData.make = session.get('admin').manufactur;
-  console.log($scope.serviceData.make)
-  $scope.isHavingMakeAlready = $scope.serviceData.make ? true : false;
   serviceservice.getMakesList({}, {}, function (data) {
     if (data.statusCode == 200) {
       $scope.makesList = data.body.makes;
@@ -29,7 +27,7 @@ angular.module('dmsAdminApp').controller('ServiceaddCtrl', function ($scope, ser
 
   $scope.addService = function () {
     if ($scope.addServiceForm.$valid) {
-      $scope.serviceData.make = $scope.serviceData.make.name;
+      $scope.serviceData.make = $scope.serviceData.make ? $scope.serviceData.make.name : null;
       serviceservice.addService({}, $scope.serviceData, function (data) {
         if (data.statusCode === 200) {
           Materialize.toast('<span>' + data.message + '</span>', 3000);
