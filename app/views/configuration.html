@@ -152,28 +152,28 @@
         </div>
         <div class="ul-outer z-depth-1 white center-align">
             <ul>
-                <li class="li-1" ng-class="{'active': (step==1 ), 'done-li': (complete==1 || complete==2 || complete==3 || complete==4  || complete==5 || complete==6 || complete==7 || complete==8)}">Step 1
+                <li ng-click="nextStep(1)" class="li-1" ng-class="{'active': (step==1 ), 'done-li': (complete==1 || complete==2 || complete==3 || complete==4  || complete==5 || complete==6 || complete==7 || complete==8)}">Step 1
                     <p>profile</p>
                 </li>
-                <li class="li-2" ng-class="{'active': step==2 , 'done-li': (complete==2 || complete==3  || complete==4  || complete==5 || complete==6 || complete==7 || complete==8)}">Step 2
+                <li ng-click="nextStep(2)" class="li-2" ng-class="{'active': step==2 , 'done-li': (complete==2 || complete==3  || complete==4  || complete==5 || complete==6 || complete==7 || complete==8)}">Step 2
                     <p class="truncate">scheduling</p>
                 </li>
-                <li class="li-3" ng-class="{'active': step==3, 'done-li': (complete==3 || complete==4  || complete==5 || complete==6 || complete==7 || complete==8)}">Step 3
+                <li ng-click="nextStep(3)" class="li-3" ng-class="{'active': step==3, 'done-li': (complete==3 || complete==4  || complete==5 || complete==6 || complete==7 || complete==8)}">Step 3
                     <p class="truncate">Marketing Manager</p>
                 </li>
-                <li class="li-4" ng-class="{'active': step==4 , 'done-li': (  complete==4  || complete==5 || complete==6 || complete==7 || complete==8)}">Step 4
+                <li ng-click="nextStep(4)" class="li-4" ng-class="{'active': step==4 , 'done-li': (  complete==4  || complete==5 || complete==6 || complete==7 || complete==8)}">Step 4
                     <p class="truncate">Used Car</p>
                 </li>
-                <li class="li-5" ng-class="{'active': step==5 , 'done-li': (complete==5 || complete==6 || complete==7 || complete==8)}">Step 5
+                <li  ng-click="nextStep(5)"class="li-5" ng-class="{'active': step==5 , 'done-li': (complete==5 || complete==6 || complete==7 || complete==8)}">Step 5
                     <p class="truncate">Service Adviser</p>
                 </li>
-                <li class="li-6" ng-class="{'active': step==6 , 'done-li': (complete==6 || complete==7 || complete==8)}">Step 6
+                <li class="li-6" ng-click="nextStep(6)" ng-class="{'active': step==6 , 'done-li': (complete==6 || complete==7 || complete==8)}">Step 6
                     <p class="truncate">Service Data</p>
                 </li>
-                <li class="li-7" ng-class="{'active': step==7 , 'done-li': (complete==7 || complete==8)}">Step 7
+                <li class="li-7" ng-click="nextStep(7)" ng-class="{'active': step==7 , 'done-li': (complete==7 || complete==8)}">Step 7
                     <p class="truncate">User setup</p>
                 </li>
-                <li class="li-8" ng-class="{'active': step==8 , 'done-li': (complete==8)}">Step 8
+                <li class="li-8" ng-click="nextStep(8)"ng-class="{'active': step==8 , 'done-li': (complete==8)}">Step 8
                     <p class="truncate">Customer Dashborad</p>
                 </li>
             </ul>
@@ -200,10 +200,16 @@
                     </div>
                     <div class="margin col s12">
                         <label for="manufactur">Dealer​ ​OEM​ ​association</label>
-                        <select id="manufactur" class="browser-default" name="manufactur" ng-model="settings.manufactur">
-                            <option ng-repeat="make in makesList" value="{{make._id}}">{{make.name}}</option>
+                        <select id="manufactur" ng-change="changeManufacture()" class="browser-default" name="manufactur" ng-model="settings.manufactur">
+                            <option ng-repeat="man in manufactureList" value="{{man._id}}">{{man.name}}</option>
                         </select>
                     </div>
+                    <div class="margin col s12">
+                            <label for="manufactur">Makes</label>
+                            <select id="manufactur"  multiple class="browser-default" name="manufactur" ng-model="settings.make">
+                                <option ng-repeat="make in makesList" value="{{make._id}}">{{make.name}}</option>
+                            </select>
+                        </div>
                     <div class=" margin">
                         <!-- Modal Trigger -->
                         <a class="waves-effect waves-light btn modal-trigger grey darken-2 modal-anchor" href="#modal1">Change Password</a>
@@ -346,13 +352,13 @@
                                     </span>
                                 </span>
                             </div>
-                            <div class="margin col s12 temp_color">
+                            <!-- <div class="margin col s12 temp_color">
                                 <label for="template_color">
                                     <p class="black-text" style="padding:0 5px 0 1px ;">Template Color*</p>
                                 </label>
                                 <input id="template_color" type="color" name="template_color" data-error=".errorTxt18" ng-model="settings.template_color">
                                 <div class="errorTxt18"></div>
-                            </div>
+                            </div> -->
                             <div class="row user-setting">
                                 <p>Other configuration</p>
                                 <div class="margin col s12">
