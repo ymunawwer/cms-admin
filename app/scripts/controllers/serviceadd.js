@@ -10,11 +10,20 @@
 angular.module('dmsAdminApp').controller('ServiceaddCtrl', function ($scope, serviceservice, session) {
   $scope.serviceData = {};
   $scope.serviceData.make = session.get('admin').manufactur;
-  serviceservice.getMakesList({}, {}, function (data) {
+  if(session.get('admin').manufactur!=undefined){
+  serviceservice.getMakesList({id:$scope.serviceData.make}, {}, function (data) {
     if (data.statusCode == 200) {
       $scope.makesList = data.body.makes;
     }
   });
+}
+else{
+  serviceservice.getMakesLists({}, {}, function (data) {
+    if (data.statusCode == 200) {
+      $scope.makesList = data.body.makes;
+    }
+  });
+}
   $scope.changeSelectMake = function () {
     serviceservice.getModelsList({
       id: $scope.serviceData.make._id

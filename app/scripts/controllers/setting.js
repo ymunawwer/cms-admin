@@ -432,5 +432,22 @@ angular.module('dmsAdminApp')
       $scope.viewImg = false;
       $scope.addImg = true;
     }
+    $scope.finalStep = function(){
+      $scope.step = 1;
+      $scope.complete = 1 - 1;
+      Materialize.toast('<span>Congrats! your dealership is setup.  </span>', 3000);
+    }
+    $scope.addService = function () {
+      if ($scope.addServiceForm.$valid) {
+        $scope.serviceData.make = $scope.serviceData.make.name;
+        serviceservice.addService({}, $scope.serviceData, function (data) {
+          if (data.statusCode === 200) {
+            Materialize.toast('<span>' + data.message + '</span>', 3000);
+          } else {
+            Materialize.toast('<span>' + data.message + '</span>', 3000);
+          }
+        })
+      }
+    }
   });
 

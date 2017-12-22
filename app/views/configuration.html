@@ -153,10 +153,10 @@
         <div class="ul-outer z-depth-1 white center-align">
             <ul>
                 <li ng-click="nextStep(1)" class="li-1" ng-class="{'active': (step==1 ), 'done-li': (complete==1 || complete==2 || complete==3 || complete==4  || complete==5 || complete==6 || complete==7 || complete==8)}">Step 1
-                    <p>profile</p>
+                    <p>Profile</p>
                 </li>
                 <li ng-click="nextStep(2)" class="li-2" ng-class="{'active': step==2 , 'done-li': (complete==2 || complete==3  || complete==4  || complete==5 || complete==6 || complete==7 || complete==8)}">Step 2
-                    <p class="truncate">scheduling</p>
+                    <p class="truncate">Scheduling</p>
                 </li>
                 <li ng-click="nextStep(3)" class="li-3" ng-class="{'active': step==3, 'done-li': (complete==3 || complete==4  || complete==5 || complete==6 || complete==7 || complete==8)}">Step 3
                     <p class="truncate">Marketing Manager</p>
@@ -171,10 +171,10 @@
                     <p class="truncate">Service Data</p>
                 </li>
                 <li class="li-7" ng-click="nextStep(7)" ng-class="{'active': step==7 , 'done-li': (complete==7 || complete==8)}">Step 7
-                    <p class="truncate">User setup</p>
+                    <p class="truncate">User Setup</p>
                 </li>
                 <li class="li-8" ng-click="nextStep(8)"ng-class="{'active': step==8 , 'done-li': (complete==8)}">Step 8
-                    <p class="truncate">Customer Dashborad</p>
+                    <p class="truncate">Customer Setup</p>
                 </li>
             </ul>
         </div>
@@ -242,17 +242,17 @@
                         <p>Secondary contact</p>
                         <div class="input-field col s12">
                             <label for="scname">Name*</label>
-                            <input id="scname" name="scname" required type="text" data-error=".errorTxt7" ng-model="settings.secondary_contact.name">
+                            <input id="scname" name="scname"  type="text" data-error=".errorTxt7" ng-model="settings.secondary_contact.name">
                             <div class="errorTxt7"></div>
                         </div>
                         <div class="input-field col s12">
                             <label for="scemail">Email *</label>
-                            <input id="scemail" type="email" required name="scemail" data-error=".errorTxt8" ng-model="settings.secondary_contact.email">
+                            <input id="scemail" type="email"  name="scemail" data-error=".errorTxt8" ng-model="settings.secondary_contact.email">
                             <div class="errorTxt8"></div>
                         </div>
                         <div class="input-field col s12">
                             <label for="scphone">Phone *</label>
-                            <input id="scphone" type="text" required name="scphone" data-error=".errorTxt9" ng-model="settings.secondary_contact.phone">
+                            <input id="scphone" type="text"  name="scphone" data-error=".errorTxt9" ng-model="settings.secondary_contact.phone">
                             <div class="errorTxt9"></div>
                         </div>
                     </div>
@@ -260,17 +260,17 @@
                         <p>Details to be displayed on invoice</p>
                         <div class="input-field col s12">
                             <label for="dnname">Name*</label>
-                            <input id="dnname" name="dnname" type="text" required data-error=".errorTxt10" ng-model="settings.invoice_contact.name">
+                            <input id="dnname" name="dnname" type="text"  data-error=".errorTxt10" ng-model="settings.invoice_contact.name">
                             <div class="errorTxt10"></div>
                         </div>
                         <div class="input-field col s12">
                             <label for="dnemail">Email *</label>
-                            <input id="dnemail" type="email" name="dnemail" required data-error=".errorTxt11" ng-model="settings.invoice_contact.email">
+                            <input id="dnemail" type="email" name="dnemail"  data-error=".errorTxt11" ng-model="settings.invoice_contact.email">
                             <div class="errorTxt11"></div>
                         </div>
                         <div class="input-field col s12">
                             <label for="dnphone">Phone *</label>
-                            <input id="dnphone" type="text" name="dnphone" required data-error=".errorTxt12" ng-model="settings.invoice_contact.phone">
+                            <input id="dnphone" type="text" name="dnphone"  data-error=".errorTxt12" ng-model="settings.invoice_contact.phone">
                             <div class="errorTxt12"></div>
                         </div>
                     </div>
@@ -278,17 +278,17 @@
                         <p>Contact Details to be displayed on to customers</p>
                         <div class="input-field col s12">
                             <label for="cdcname">Name *</label>
-                            <input id="cdcname" name="cdcname" type="text" required data-error=".errorTxt13" ng-model="settings.contact_to_show_customer.name">
+                            <input id="cdcname" name="cdcname" type="text"  data-error=".errorTxt13" ng-model="settings.contact_to_show_customer.name">
                             <div class="errorTxt13"></div>
                         </div>
                         <div class="input-field col s12">
                             <label for="cdcemail">Email *</label>
-                            <input id="cdcemail" type="email" name="cdcemail" required data-error=".errorTxt14" ng-model="settings.contact_to_show_customer.email">
+                            <input id="cdcemail" type="email" name="cdcemail"  data-error=".errorTxt14" ng-model="settings.contact_to_show_customer.email">
                             <div class="errorTxt14"></div>
                         </div>
                         <div class="input-field col s12">
                             <label for="cdcphone">Phone *</label>
-                            <input id="cdcphone" type="text" name="cdcphone" required data-error=".errorTxt15" ng-model="settings.contact_to_show_customer.phone">
+                            <input id="cdcphone" type="text" name="cdcphone"  data-error=".errorTxt15" ng-model="settings.contact_to_show_customer.phone">
                             <div class="errorTxt15"></div>
                         </div>
                     </div>
@@ -484,6 +484,8 @@
             </div>
             <div class="ul-main-four ulmc" ng-class="{'active': step==4}">
                 <div class="file-field input-field col s12">
+                        Currently no configuration available for this profile.<br>
+                        We will be adding soon.
                 </div>
                 <div class="right-align">
                     <button type="button" class="btn waves-effect waves-light" ng-click="nextStep(3)">Prev</button>
@@ -492,6 +494,8 @@
             </div>
             <div class="ul-main-five ulmc" ng-class="{'active': step==5}">
                 <div class="file-field input-field col s12">
+                        Currently no configuration available for this profile.<br>
+                        We will be adding soon.
                 </div>
                 <div class="right-align">
                     <button type="button"  class="btn waves-effect waves-light" ng-click="nextStep(4)">Prev</button>
@@ -500,14 +504,77 @@
             </div>
             <div class="ul-main-six ulmc" ng-class="{'active': step==6}">
                 <div class="file-field input-field col s12">
-                    <div class="btn" style="background:#000 !important;">
-                        <span>Upload Service</span>
-                        <input type="file" onchange="angular.element(this).scope().uploadServiceData(this.files)">
-                    </div>
-                    <div class="file-path-wrapper">
-                        <input class="file-path validate" disabled type="text">
-                    </div>
-                    <div class="errorTxt21"></div>
+                        <form class="formValidates" name="addServiceForm" id="formValidates" ng-submit="addService()">
+              
+                                <div class="row">
+                                  <div class="input-field col s12">
+                                    <label for="sname">Service name*</label>
+                                    <input id="sname" name="sname" type="text" data-error=".errorTxt1" ng-model="serviceData.name" required>
+                                    <div class="errorTxt1"></div>
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="input-field col s12">
+                                    <textarea id="description" name="description" class="materialize-textarea validate" data-error=".errorTxt2" length="120" ng-model="serviceData.description" required></textarea>
+                                    <label for="description" class="">Description</label>
+                                    <div class="errorTxt2"></div>
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="input-field col s12">
+                                    <label for="amount">Price*</label>
+                                    <input id="amount" name="amount" type="text" data-error=".errorTxt3" ng-model="serviceData.amount" required>
+                                    <div class="errorTxt3"></div>
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="input-field col s12">
+                                    <!-- <a ui-sref="home.serviceview" class="btn grey darken-1">Cancel </a> -->
+                                    <button class="btn waves-effect waves-light right submit" type="submit" name="action">
+                                     Submit
+                                     <i class="mdi-content-send right"></i>
+                                   </button>
+                  
+                                  </div>
+                                </div>
+                              </form>
+                              <div class="center">
+                                - OR Upload file-
+                              </div>
+                              <div class="">
+                                <form ng-submit="uploadServiceFile()">
+                                  <div class="file-field input-field">
+                                    <div class="btn">
+                                      <span>Upload</span>
+                                      <input type="file" onchange="angular.element(this).scope().uploadServiceData(this.files)">
+                                    </div>
+                                    <div class="file-path-wrapper">
+                                      <input class="file-path validate" type="text">
+                                    </div>
+                  
+                  
+                                    <div id="card-alert" class="card red lighten-5" ng-if="already">
+                                        <div class="card-content red-text">
+                                          <p ng-repeat="all in already">Already exist : {{all.name}}</p>
+                                        </div>
+                                        <button type="button" ng-click="close()" class="close red-text" data-dismiss="alert" aria-label="Close">
+                                          <span aria-hidden="true">×</span>
+                                        </button>
+                                      </div>
+                                  </div>
+                                  For bulk upload, you can use an excel sheet.
+                  Please download the sample excel format <a href="http://www.dsaidemo.com/Service_items.xls" targer="_blank">HERE </a>
+                  
+                                  <!-- <div class="row">
+                                    <div class="input-field col s12">
+                                      <button class="btn waves-effect waves-light right submit" type="submit" name="action">
+                                       UPLOAD
+                                       <i class="mdi-content-send right"></i>
+                                     </button>
+                                    </div>
+                                  </div> -->
+                                </form>
+                              </div>
 
                 </div>
                 <div class="right-align">
@@ -546,7 +613,7 @@
                 </div>
                 <div class="right-align">
                     <button type="button" class="btn waves-effect waves-light" ng-click="nextStep(7)">Prev</button>
-                    <button type="button" ng-click="nextStep(8)" class="btn waves-effect waves-light ul-2-btn">Finsh</button>
+                    <button type="button" ng-click="finalStep()" class="btn waves-effect waves-light ul-2-btn">Finsh</button>
                 </div>
             </div>
         </div>
@@ -627,19 +694,7 @@
             },
             cphone: {
                 required: true,
-            },
-            pcname: "required",
-            pcemail: "required",
-            pcphone: "required",
-            cdcphone: "required",
-            cdcemail: "required",
-            cdcname: "required",
-            scname: "required",
-            scemail: "required",
-            scphone: "required",
-            dnname: "required",
-            dnemail: "required",
-            dnphone: "required",
+            }
         },
         errorElement: 'div',
         errorPlacement: function (error, element) {
@@ -673,5 +728,38 @@
         }
     });
     $('.modal-trigger').leanModal();
-
+    $("#formValidates").validate({
+    rules: {
+      sname: {
+        required: true,
+        minlength: 6
+      },
+      description: {
+        required: true
+      },
+      amount: {
+        required: true,
+        number: true
+      }
+    },
+    //For custom messages
+    messages: {
+      sname: {
+        required: "Enter a service name",
+        minlength: "Enter at least 6 characters"
+      },
+      amount: {
+        number: "Enter valid number"
+      }
+    },
+    errorElement: 'div',
+    errorPlacement: function(error, element) {
+      var placement = $(element).data('error');
+      if (placement) {
+        $(placement).append(error)
+      } else {
+        error.insertAfter(element);
+      }
+    }
+  });
 </script>

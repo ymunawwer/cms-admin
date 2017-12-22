@@ -170,9 +170,13 @@ angular.module('dmsAdminApp')
         params: {
           id: "@id"
         }
-      },
+      }, 
       getManufactureList: {
         url: endpoint + '/admin/manufacturers',
+        method: 'GET'
+      },
+      getMakesLists: {
+        url: endpoint + '/admin/makes',
         method: 'GET'
       }
     })
