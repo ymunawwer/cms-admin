@@ -17,6 +17,13 @@ angular.module('dmsAdminApp')
     $scope.settings.contact_to_show_customer = {};
     settings.getSetting({}, {}, function (data) {
       $scope.settings = data.body.setting;
+      if ($scope.settings.manufactur) {
+        serviceservice.getMakesList({ id: $scope.settings.manufactur }, {}, function (data) {
+          if (data.statusCode == 200) {
+            $scope.makesList = data.body.makes;
+          }
+        });
+      }
     });
     $scope.$on('$viewContentLoaded', function () { $('ul.tabs').tabs(); });
     $scope.selectTab = function (id) { $('ul.tabs').tabs('select_tab', id); };
@@ -54,6 +61,8 @@ angular.module('dmsAdminApp')
     $scope.hours = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24];
     $scope.updateSetting = function () {
       if ($scope.formValidate.$valid) {
+        $scope.profileData.manufactur = $scope.settings.manufactur;
+        $scope.profileData.make = $scope.settings.make;
         profileservice.updateProfile({}, $scope.profileData, function (data) {
           $scope.profileData = data.body.user;
           $scope.settings.site_title = $scope.profileData.name;
@@ -91,11 +100,19 @@ angular.module('dmsAdminApp')
         });
       }
     }
-    serviceservice.getMakesList({}, {}, function (data) {
+    serviceservice.getManufactureList({}, {}, function (data) {
       if (data.statusCode == 200) {
-        $scope.makesList = data.body.makes;
+        $scope.manufactureList = data.body.manufacture;
       }
     });
+    $scope.changeManufacture = function () {
+      console.log($scope.settings.manufactur)
+      serviceservice.getMakesList({ id: $scope.settings.manufactur }, {}, function (data) {
+        if (data.statusCode == 200) {
+          $scope.makesList = data.body.makes;
+        }
+      });
+    }
     $scope.uploadFile = function (files) {
       var fd = new FormData();
       //Take the first selected file
@@ -273,27 +290,27 @@ angular.module('dmsAdminApp')
     $scope.nextStep = function (stage) {
       $scope.isStarted = true;
       $scope.step = stage;
-      $scope.complete = stage-1;
+      $scope.complete = stage - 1;
     }
 
-    imageService.getImage({}, {}, function(data){
+    imageService.getImage({}, {}, function (data) {
       console.log(data);
-      if(data.statusCode == 200){
+      if (data.statusCode == 200) {
         $scope.imageList = data.body.images;
-        if($scope.imageList.length==0)
-        $scope.addImg = true;
+        if ($scope.imageList.length == 0)
+          $scope.addImg = true;
         else
-        $scope.viewImg = true;
+          $scope.viewImg = true;
       }
     })
 
-    $scope.deleteRemove = function(id, index){
+    $scope.deleteRemove = function (id, index) {
       console.log(id, index);
-      imageService.deleteImage({id:id}, {}, function(data){
-        if(data.statusCode === 200){
+      imageService.deleteImage({ id: id }, {}, function (data) {
+        if (data.statusCode === 200) {
           $scope.imageList.splice(index, 1);
         }
-        else{
+        else {
           Materialize.toast('<span>' + data.message + '</span>', 3000);
         }
       })
@@ -305,7 +322,7 @@ angular.module('dmsAdminApp')
     $scope.validImage = false;
     $scope.showCroppedImg = false;
 
-    var handleFileSelect = function(evt) {
+    var handleFileSelect = function (evt) {
       var valu = evt.currentTarget.files[0].type;
       var patt = new RegExp("image/");
       if (patt.test(valu)) {
@@ -320,8 +337,8 @@ angular.module('dmsAdminApp')
 
         var output = document.getElementById("result");
 
-        reader.onload = function(evt) {
-          $scope.$apply(function($scope) {
+        reader.onload = function (evt) {
+          $scope.$apply(function ($scope) {
             $scope.myImage = evt.target.result;
             $scope.validImage = true;
           });
@@ -339,14 +356,14 @@ angular.module('dmsAdminApp')
     var mimeType = "image/jpeg"
 
     function urltoFile(url, filename, mimeType) {
-      return (fetch(url).then(function(res) {
+      return (fetch(url).then(function (res) {
         return res.arrayBuffer();
-      }).then(function(buf) {
-        return new File([buf], filename, {type: mimeType});
+      }).then(function (buf) {
+        return new File([buf], filename, { type: mimeType });
       }));
     }
 
-    $scope.crop = function() {
+    $scope.crop = function () {
       if ($scope.validImage) {
         $scope.image_temp = $scope.myCroppedImage;
 
@@ -356,7 +373,7 @@ angular.module('dmsAdminApp')
         for (var i = 0; i < byteString.length; i++) {
           ia[i] = byteString.charCodeAt(i);
         }
-        var blob = new Blob([ia], {type: 'image/png'});
+        var blob = new Blob([ia], { type: 'image/png' });
 
         blob.lastModifiedDate = new Date();
         blob.lastModifiedDate = new Date();
@@ -371,49 +388,49 @@ angular.module('dmsAdminApp')
         Materialize.toast('<span>' +
           "Upload valid image" +
           '</span>',
-        3000);
+          3000);
       }
     }
 
-    $scope.clearImage = function() {
+    $scope.clearImage = function () {
       $scope.showCroppedImg = false;
       $scope.myImage = null;
       $scope.validImage = false;
       $("#fileInput").val = '';
     }
 
-    $scope.addImages = function(){
-      if($scope.validImage){
-        if($scope.showCroppedImg){
+    $scope.addImages = function () {
+      if ($scope.validImage) {
+        if ($scope.showCroppedImg) {
           var fd = new FormData();
           fd.append("picture", $scope.blob, $scope.fileName);
           fd.append("for", 'offer');
 
-          imageService.uploadImage({},fd, function(data){
-            if(data.statusCode === 200){
+          imageService.uploadImage({}, fd, function (data) {
+            if (data.statusCode === 200) {
               Materialize.toast('<span>' + data.message + '</span>', 3000);
               $state.go('home.list-image');
             }
-            else{
+            else {
               Materialize.toast('<span>' + data.message + '</span>', 3000);
             }
           })
         }
-        else{
+        else {
           Materialize.toast('<span>' + "Crop image" + '</span>', 3000);
         }
       }
-      else{
+      else {
         Materialize.toast('<span>' + "Add a valid image" + '</span>', 3000);
       }
     }
-    $scope.viewImage = function(){
+    $scope.viewImage = function () {
       $scope.viewImg = true;
-      $scope.addImg= false;
+      $scope.addImg = false;
     }
-    $scope.addImage = function(){
+    $scope.addImage = function () {
       $scope.viewImg = false;
-      $scope.addImg= true;
+      $scope.addImg = true;
     }
   });
 

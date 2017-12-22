@@ -118,8 +118,11 @@ angular.module('dmsAdminApp')
         method: 'GET'
       },
       getMakesList: {
-        url: endpoint + '/admin/makes',
-        method: 'GET'
+        url: endpoint + '/admin/makes/manufacture/:id',
+        method: 'GET',
+        params: {
+          id: "@id"
+        }
       },
       getModelsLists: {
         url: endpoint + '/admin/models',
@@ -160,7 +163,7 @@ angular.module('dmsAdminApp')
         params: {
           id: "@id"
         }
-      },
+      }, 
       getMileageList: {
         url: endpoint + '/admin/offers/maintenancemiles/:id',
         method: 'GET',
@@ -168,5 +171,9 @@ angular.module('dmsAdminApp')
           id: "@id"
         }
       },
+      getManufactureList: {
+        url: endpoint + '/admin/manufacturers',
+        method: 'GET'
+      }
     })
   });
