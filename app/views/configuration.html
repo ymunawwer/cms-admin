@@ -62,7 +62,9 @@
         display: inline-block;
         text-transform: capitalize;
     }
-
+textarea{
+    height: 40px !important;
+}
     .s2 select {
         border: 1px solid #9e9e9e;
         margin: 1em 0;
@@ -80,6 +82,9 @@
 
     .step-actions.sa {
         position: absolute !important;
+    }
+    .hiddendiv{
+        display: none !important;
     }
 
     @media only screen and (min-width: 993px) {
@@ -195,12 +200,12 @@
                     </div>
                     <div class="col s12">
                         <label for="cphone">Phone*</label>
-                        <input id="cphone" type="text" name="cephone" required data-error=".errorTxt3" ng-model="profileData.phone">
+                        <input id="cphone" type="text" name="cephone" max-length="10" min-length="10" required data-error=".errorTxt3" ng-model="profileData.phone">
                         <div class="errorTxt3"></div>
                     </div>
                     <div class="margin col s12">
-                        <label for="manufactur">Dealer​ ​OEM​ ​association</label>
-                        <select id="manufactur" ng-change="changeManufacture()" class="browser-default" name="manufactur" ng-model="settings.manufactur">
+                        <label for="manufacturs">Dealer​ ​OEM​ ​association</label>
+                        <select id="manufacturs" ng-change="changeManufacture()" class="browser-default" name="manufacturs" ng-model="settings.manufactur">
                             <option ng-repeat="man in manufactureList" value="{{man._id}}">{{man.name}}</option>
                         </select>
                     </div>
@@ -210,10 +215,9 @@
                                 <option ng-repeat="make in makesList" value="{{make._id}}">{{make.name}}</option>
                             </select>
                         </div>
-                    <div class=" margin">
-                        <!-- Modal Trigger -->
+                    <!-- <div class=" margin">
                         <a class="waves-effect waves-light btn modal-trigger grey darken-2 modal-anchor" href="#modal1">Change Password</a>
-                    </div>
+                    </div> -->
                     <!-- <div class="input-field col s12">
                     <button class="btn waves-effect waves-light right submit" type="submit" name="action">
                         Submit
@@ -239,19 +243,24 @@
                         </div>
                     </div>
                     <div class="row user-setting">
-                        <p>Secondary contact</p>
+                        <p>Secondary contact 
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span>
+                                        <input type="checkbox" id="secondCheck" ng-change="primeToSecondary()" ng-model="secondCheck" />
+                                        <label for="secondCheck">My all contact is the same as my primary contact</label>
+                                    </span>
+                        </p>
                         <div class="input-field col s12">
-                            <label for="scname">Name*</label>
+                            <label for="scname">Name</label>
                             <input id="scname" name="scname"  type="text" data-error=".errorTxt7" ng-model="settings.secondary_contact.name">
                             <div class="errorTxt7"></div>
                         </div>
                         <div class="input-field col s12">
-                            <label for="scemail">Email *</label>
+                            <label for="scemail">Email </label>
                             <input id="scemail" type="email"  name="scemail" data-error=".errorTxt8" ng-model="settings.secondary_contact.email">
                             <div class="errorTxt8"></div>
                         </div>
                         <div class="input-field col s12">
-                            <label for="scphone">Phone *</label>
+                            <label for="scphone">Phone </label>
                             <input id="scphone" type="text"  name="scphone" data-error=".errorTxt9" ng-model="settings.secondary_contact.phone">
                             <div class="errorTxt9"></div>
                         </div>
@@ -259,17 +268,17 @@
                     <div class="row user-setting">
                         <p>Details to be displayed on invoice</p>
                         <div class="input-field col s12">
-                            <label for="dnname">Name*</label>
+                            <label for="dnname">Name</label>
                             <input id="dnname" name="dnname" type="text"  data-error=".errorTxt10" ng-model="settings.invoice_contact.name">
                             <div class="errorTxt10"></div>
                         </div>
                         <div class="input-field col s12">
-                            <label for="dnemail">Email *</label>
+                            <label for="dnemail">Email </label>
                             <input id="dnemail" type="email" name="dnemail"  data-error=".errorTxt11" ng-model="settings.invoice_contact.email">
                             <div class="errorTxt11"></div>
                         </div>
                         <div class="input-field col s12">
-                            <label for="dnphone">Phone *</label>
+                            <label for="dnphone">Phone </label>
                             <input id="dnphone" type="text" name="dnphone"  data-error=".errorTxt12" ng-model="settings.invoice_contact.phone">
                             <div class="errorTxt12"></div>
                         </div>
@@ -277,17 +286,17 @@
                     <div class="row user-setting">
                         <p>Contact Details to be displayed on to customers</p>
                         <div class="input-field col s12">
-                            <label for="cdcname">Name *</label>
+                            <label for="cdcname">Name </label>
                             <input id="cdcname" name="cdcname" type="text"  data-error=".errorTxt13" ng-model="settings.contact_to_show_customer.name">
                             <div class="errorTxt13"></div>
                         </div>
                         <div class="input-field col s12">
-                            <label for="cdcemail">Email *</label>
+                            <label for="cdcemail">Email </label>
                             <input id="cdcemail" type="email" name="cdcemail"  data-error=".errorTxt14" ng-model="settings.contact_to_show_customer.email">
                             <div class="errorTxt14"></div>
                         </div>
                         <div class="input-field col s12">
-                            <label for="cdcphone">Phone *</label>
+                            <label for="cdcphone">Phone </label>
                             <input id="cdcphone" type="text" name="cdcphone"  data-error=".errorTxt15" ng-model="settings.contact_to_show_customer.phone">
                             <div class="errorTxt15"></div>
                         </div>
@@ -301,7 +310,7 @@
                 <form class="formValidate1" name="formValidate1" id="formValidate1" ng-submit="updateSetting1()">
                     <div class="row s2">
                         <div class="row if-label">
-                            <div class="margin col s12">
+                            <!-- <div class="margin col s12">
                                 <label for="work_start_time" class="label-2">Dealership​ ​working​ ​hours​ - Start Time</label>
                                 <select data-error=".errorTxt16" class="browser-default" name="work_start_time" id="work_start_time" ng-model="settings.working_hours.start_time">
                                     <option ng-repeat="hour in hours" ng-value="hour">{{hour}}</option>
@@ -314,42 +323,154 @@
                                     <option ng-repeat="hour in hours" ng-disabled="settings.working_hours.start_time >= hour" ng-value="hour">{{hour}}</option>
                                 </select>
                                 <div class="errorTxt17"></div>
-                            </div>
+                            </div> -->
                             <div class="margin m_b_25">
                                 <label for="days_of_service">
                                     <p>
                                         <b class="black-text" style="font-weight:500">Days for service*</b>
                                     </p>
                                 </label>
-                                <span class="admin-day-slot">
-                                    <span>
-                                        <input type="checkbox" id="sundaycheck" ng-model="settings.days_of_service.sunday" />
+                                <span class="admin-day-slot row">
+                                    <div class="row">
+                                            <div class="margin col s2">
+                                        <input type="checkbox" id="sundaycheck" ng-model="settings.days_of_service.sunday.status" />
                                         <label for="sundaycheck">Sunday</label>
-                                    </span>
-                                    <span>
-                                        <input type="checkbox" id="mondaycheck" ng-model="settings.days_of_service.monday" />
+                                        </div>
+                                        <div class="margin col s5" ng-show="settings.days_of_service.sunday.status">
+                                                <label for="work_start_time1" class="label-2">Dealership​ ​working​ ​hours​ - Start Time</label>
+                                                <select data-error=".errorTxt16" class="browser-default" name="work_start_time1" id="work_start_time1" ng-model="settings.days_of_service.sunday.start_time">
+                                                    <option ng-repeat="hour in hours" ng-value="hour">{{hour}}</option>
+                                                </select>
+                                                <div class="errorTxt16"></div>
+                                            </div>
+                                            <div class="margin col s5" ng-show="settings.days_of_service.sunday.status">
+                                                <label for="work_end_time1" class="label-2">Dealership​ ​working​ ​hours​ - End Time</label>
+                                                <select data-error=".errorTxt17" class="browser-default" name="work_end_time1" id="work_end_time1" ng-model="settings.days_of_service.sunday.end_time">
+                                                    <option ng-repeat="hour in hours" ng-disabled="settings.days_of_service.sunday.start_time >= hour" ng-value="hour">{{hour}}</option>
+                                                </select>
+                                                <div class="errorTxt17"></div>
+                                            </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="margin col s2">
+                                        <input type="checkbox" id="mondaycheck" ng-model="settings.days_of_service.monday.status" />
                                         <label for="mondaycheck">Monday</label>
-                                    </span>
-                                    <span>
-                                        <input type="checkbox" id="tuesdaycheck" ng-model="settings.days_of_service.tuesday" />
+                                        </div>
+                                        <div class="margin col s5" ng-show="settings.days_of_service.monday.status">
+                                                <label for="work_start_time2" class="label-2">Dealership​ ​working​ ​hours​ - Start Time</label>
+                                                <select data-error=".errorTxt16" class="browser-default" name="work_start_time2" id="work_start_time2" ng-model="settings.days_of_service.monday.start_time">
+                                                    <option ng-repeat="hour in hours" ng-value="hour">{{hour}}</option>
+                                                </select>
+                                                <div class="errorTxt16"></div>
+                                            </div>
+                                            <div class="margin col s5" ng-show="settings.days_of_service.monday.status">
+                                                <label for="work_end_time2" class="label-2">Dealership​ ​working​ ​hours​ - End Time</label>
+                                                <select data-error=".errorTxt17" class="browser-default" name="work_end_time2" id="work_end_time2" ng-model="settings.days_of_service.monday.end_time">
+                                                    <option ng-repeat="hour in hours" ng-disabled="settings.days_of_service.monday.start_time >= hour" ng-value="hour">{{hour}}</option>
+                                                </select>
+                                                <div class="errorTxt17"></div>
+                                            </div>
+                                        </div>
+                                    <div class="row">
+                                            <div class="margin col s2">
+                                        <input type="checkbox" id="tuesdaycheck" ng-model="settings.days_of_service.tuesday.status" />
                                         <label for="tuesdaycheck">Tuesday</label>
-                                    </span>
-                                    <span>
-                                        <input type="checkbox" id="wednesdaycheck" ng-model="settings.days_of_service.wednesday" />
+                                        </div>
+                                        <div class="margin col s5" ng-show="settings.days_of_service.tuesday.status">
+                                                <label for="work_start_time3" class="label-2">Dealership​ ​working​ ​hours​ - Start Time</label>
+                                                <select data-error=".errorTxt16" class="browser-default" name="work_start_time3" id="work_start_time3" ng-model="settings.days_of_service.tuesday.start_time">
+                                                    <option ng-repeat="hour in hours" ng-value="hour">{{hour}}</option>
+                                                </select>
+                                                <div class="errorTxt16"></div>
+                                            </div>
+                                            <div class="margin col s5" ng-show="settings.days_of_service.tuesday.status">
+                                                <label for="work_end_time3" class="label-2">Dealership​ ​working​ ​hours​ - End Time</label>
+                                                <select data-error=".errorTxt17" class="browser-default" name="work_end_time3" id="work_end_time3" ng-model="settings.days_of_service.tuesday.end_time">
+                                                    <option ng-repeat="hour in hours" ng-disabled="settings.days_of_service.tuesday.start_time >= hour" ng-value="hour">{{hour}}</option>
+                                                </select>
+                                                <div class="errorTxt17"></div>
+                                            </div>
+                                        </div>
+                                    <div class="row">
+                                            <div class="margin col s2">
+                                        <input type="checkbox" id="wednesdaycheck" ng-model="settings.days_of_service.wednesday.status" />
                                         <label for="wednesdaycheck">Wednesday</label>
-                                    </span>
-                                    <span>
-                                        <input type="checkbox" id="thursdaycheck" ng-model="settings.days_of_service.thursday" />
+                                        </div>
+                                        <div class="margin col s5" ng-show="settings.days_of_service.wednesday.status">
+                                                <label for="work_start_time4" class="label-2">Dealership​ ​working​ ​hours​ - Start Time</label>
+                                                <select data-error=".errorTxt16" class="browser-default" name="work_start_time4" id="work_start_time4" ng-model="settings.days_of_service.wednesday.start_time">
+                                                    <option ng-repeat="hour in hours" ng-value="hour">{{hour}}</option>
+                                                </select>
+                                                <div class="errorTxt16"></div>
+                                            </div>
+                                            <div class="margin col s5" ng-show="settings.days_of_service.wednesday.status">
+                                                <label for="work_end_time4" class="label-2">Dealership​ ​working​ ​hours​ - End Time</label>
+                                                <select data-error=".errorTxt17" class="browser-default" name="work_end_time4" id="work_end_time4" ng-model="settings.days_of_service.wednesday.end_time">
+                                                    <option ng-repeat="hour in hours" ng-disabled="settings.days_of_service.wednesday.start_time >= hour" ng-value="hour">{{hour}}</option>
+                                                </select>
+                                                <div class="errorTxt17"></div>
+                                            </div>
+                                        </div>
+                                    <div class="row">
+                                            <div class="margin col s2">
+                                        <input type="checkbox" id="thursdaycheck" ng-model="settings.days_of_service.thursday.status" />
                                         <label for="thursdaycheck">Thursday</label>
-                                    </span>
-                                    <span>
-                                        <input type="checkbox" id="fridaycheck" ng-model="settings.days_of_service.friday" />
+                                        </div>
+                                        <div class="margin col s5" ng-show="settings.days_of_service.thursday.status">
+                                                <label for="work_start_time5" class="label-2">Dealership​ ​working​ ​hours​ - Start Time</label>
+                                                <select data-error=".errorTxt16" class="browser-default" name="work_start_time5" id="work_start_time5" ng-model="settings.days_of_service.thursday.start_time">
+                                                    <option ng-repeat="hour in hours" ng-value="hour">{{hour}}</option>
+                                                </select>
+                                                <div class="errorTxt16"></div>
+                                            </div>
+                                            <div class="margin col s5" ng-show="settings.days_of_service.thursday.status">
+                                                <label for="work_end_time5" class="label-2">Dealership​ ​working​ ​hours​ - End Time</label>
+                                                <select data-error=".errorTxt17" class="browser-default" name="work_end_time5" id="work_end_time5" ng-model="settings.days_of_service.thursday.end_time">
+                                                    <option ng-repeat="hour in hours" ng-disabled="settings.days_of_service.thursday.start_time >= hour" ng-value="hour">{{hour}}</option>
+                                                </select>
+                                                <div class="errorTxt17"></div>
+                                            </div>
+                                        </div>
+                                    <div class="row">
+                                            <div class="margin col s2">
+                                        <input type="checkbox" id="fridaycheck" ng-model="settings.days_of_service.friday.status" />
                                         <label for="fridaycheck">Friday</label>
-                                    </span>
-                                    <span>
-                                        <input type="checkbox" id="saturdaycheck" ng-model="settings.days_of_service.saturday" />
+                                        </div>
+                                        <div class="margin col s5" ng-show="settings.days_of_service.friday.status">
+                                                <label for="work_start_time6" class="label-2">Dealership​ ​working​ ​hours​ - Start Time</label>
+                                                <select data-error=".errorTxt16" class="browser-default" name="work_start_time6" id="work_start_time6" ng-model="settings.days_of_service.friday.start_time">
+                                                    <option ng-repeat="hour in hours" ng-value="hour">{{hour}}</option>
+                                                </select>
+                                                <div class="errorTxt16"></div>
+                                            </div>
+                                            <div class="margin col s5" ng-show="settings.days_of_service.friday.status">
+                                                <label for="work_end_time6" class="label-2">Dealership​ ​working​ ​hours​ - End Time</label>
+                                                <select data-error=".errorTxt17" class="browser-default" name="work_end_time6" id="work_end_time6" ng-model="settings.days_of_service.friday.end_time">
+                                                    <option ng-repeat="hour in hours" ng-disabled="settings.days_of_service.friday.start_time >= hour" ng-value="hour">{{hour}}</option>
+                                                </select>
+                                                <div class="errorTxt17"></div>
+                                            </div>
+                                        </div>
+                                    <div>
+                                            <div class="margin col s2">
+                                        <input type="checkbox" id="saturdaycheck" ng-model="settings.days_of_service.saturday.status" />
                                         <label for="saturdaycheck">Saturday</label>
-                                    </span>
+                                        </div>
+                                        <div class="margin col s5" ng-show="settings.days_of_service.saturday.status">
+                                                <label for="work_start_time7" class="label-2">Dealership​ ​working​ ​hours​ - Start Time</label>
+                                                <select data-error=".errorTxt16" class="browser-default" name="work_start_time7" id="work_start_time7" ng-model="settings.days_of_service.saturday.start_time">
+                                                    <option ng-repeat="hour in hours" ng-value="hour">{{hour}}</option>
+                                                </select>
+                                                <div class="errorTxt16"></div>
+                                            </div>
+                                            <div class="margin col s5" ng-show="settings.days_of_service.saturday.status">
+                                                <label for="work_end_time7" class="label-2">Dealership​ ​working​ ​hours​ - End Time</label>
+                                                <select data-error=".errorTxt17" class="browser-default" name="work_end_time7" id="work_end_time7" ng-model="settings.days_of_service.saturday.end_time">
+                                                    <option ng-repeat="hour in hours" ng-disabled="settings.days_of_service.saturday.start_time >= hour" ng-value="hour">{{hour}}</option>
+                                                </select>
+                                                <div class="errorTxt17"></div>
+                                            </div>
+                                        </div>
                                 </span>
                             </div>
                             <!-- <div class="margin col s12 temp_color">
@@ -384,7 +505,7 @@
                         </div>
                     </div>
                     <div class="right-align">
-                        <button type="button" ng-click="nextStep(1)" class="btn waves-effect waves-light" >Prev</button>
+                        <button type="button" style="background-color: #9e9e9e !important;" ng-click="nextStep(1)" class="btn waves-effect waves-light" >Prev</button>
                         <button type="submit" class="btn waves-effect waves-light ul-2-btn">Continue</button>
                     </div>
                 </form>
@@ -410,7 +531,7 @@
                     </div>
                     <br>
                     <div class="right-align">
-                        <button type="button" ng-click="nextStep(2)" class="btn waves-effect waves-light" >Prev</button>
+                        <button type="button" style="background-color: #9e9e9e !important;" ng-click="nextStep(2)" class="btn waves-effect waves-light" >Prev</button>
                         <button type="button" ng-click="nextStep(4)" class="btn waves-effect waves-light ul-2-btn">Continue</button>
                     </div>
                 </div>
@@ -476,7 +597,7 @@
                         </div>
                         <br>
                         <div class="right-align">
-                            <button type="button" ng-click="nextStep(2)" class="btn waves-effect waves-light" >Prev</button>
+                            <button type="button" style="background-color: #9e9e9e !important;" ng-click="nextStep(2)" class="btn waves-effect waves-light" >Prev</button>
                             <button type="submit" class="btn waves-effect waves-light ul-2-btn">Continue</button>
                         </div>
                     </form>
@@ -488,7 +609,7 @@
                         We will be adding soon.
                 </div>
                 <div class="right-align">
-                    <button type="button" class="btn waves-effect waves-light" ng-click="nextStep(3)">Prev</button>
+                    <button type="button" style="background-color: #9e9e9e !important;" class="btn waves-effect waves-light" ng-click="nextStep(3)">Prev</button>
                     <button type="button" ng-click="nextStep(5)" class="btn waves-effect waves-light ul-2-btn">Continue</button>
                 </div>
             </div>
@@ -498,7 +619,7 @@
                         We will be adding soon.
                 </div>
                 <div class="right-align">
-                    <button type="button"  class="btn waves-effect waves-light" ng-click="nextStep(4)">Prev</button>
+                    <button type="button" style="background-color: #9e9e9e !important;"  class="btn waves-effect waves-light" ng-click="nextStep(4)">Prev</button>
                     <button type="button" ng-click="nextStep(6)" class="btn waves-effect waves-light ul-2-btn">Continue</button>
                 </div>
             </div>
@@ -513,9 +634,10 @@
                                     <div class="errorTxt1"></div>
                                   </div>
                                 </div>
+
                                 <div class="row">
                                   <div class="input-field col s12">
-                                    <textarea id="description" name="description" class="materialize-textarea validate" data-error=".errorTxt2" length="120" ng-model="serviceData.description" required></textarea>
+                                    <textarea id="description" name="description" class="materialize-textarea validate" data-error=".errorTxt2" length="120" style="" ng-model="serviceData.description" required></textarea>
                                     <label for="description" class="">Description</label>
                                     <div class="errorTxt2"></div>
                                   </div>
@@ -578,7 +700,7 @@
 
                 </div>
                 <div class="right-align">
-                    <button type="button" class="btn waves-effect waves-light" ng-click="nextStep(5)">Back</button>
+                    <button type="button" style="background-color: #9e9e9e !important;" class="btn waves-effect waves-light" ng-click="nextStep(5)">Back</button>
                     <button type="button" ng-click="nextStep(7)" class="btn waves-effect waves-light ul-2-btn">Continue</button>
                 </div>
             </div>
@@ -595,7 +717,7 @@
 
                 </div>
                 <div class="right-align">
-                    <button type="button" class="btn waves-effect waves-light" ng-click="nextStep(6)">Prev</button>
+                    <button type="button" style="background-color: #9e9e9e !important;" class="btn waves-effect waves-light" ng-click="nextStep(6)">Prev</button>
                     <button type="button" ng-click="nextStep(8)" class="btn waves-effect waves-light ul-2-btn">Continue</button>
                 </div>
             </div>
@@ -612,7 +734,7 @@
 
                 </div>
                 <div class="right-align">
-                    <button type="button" class="btn waves-effect waves-light" ng-click="nextStep(7)">Prev</button>
+                    <button type="button" style="background-color: #9e9e9e !important;" class="btn waves-effect waves-light" ng-click="nextStep(7)">Prev</button>
                     <button type="button" ng-click="finalStep()" class="btn waves-effect waves-light ul-2-btn">Finsh</button>
                 </div>
             </div>
@@ -694,7 +816,18 @@
             },
             cphone: {
                 required: true,
+                minlength:10,
+                maxlength:10,
+                // number:true
             }
+        },
+        messages: {
+            cphone: {
+            required: "Enter a Phonenumber",
+            minlength: "Enter valid phone number",
+            maxlength: "Enter valid phone number",
+            number: "Enter valid phone number"
+        },
         },
         errorElement: 'div',
         errorPlacement: function (error, element) {

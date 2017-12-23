@@ -61,6 +61,14 @@ angular.module('dmsAdminApp')
     $scope.hours = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24];
     $scope.updateSetting = function () {
       if ($scope.formValidate.$valid) {
+        var tempPhone = $scope.profileData.phone;
+        tempPhone = tempPhone.split("-").join("");
+        if (isNaN(tempPhone) ||
+          tempPhone.length !== 10) {
+          Materialize.toast('<span> Please enter a valid phone no.</span>', 3000);
+          return;
+        }
+        $scope.profileData.phone= tempPhone;
         $scope.profileData.manufactur = $scope.settings.manufactur;
         $scope.profileData.make = $scope.settings.make;
         profileservice.updateProfile({}, $scope.profileData, function (data) {
@@ -449,6 +457,36 @@ angular.module('dmsAdminApp')
           }
         })
       }
+    }
+
+    $scope.primeToSecondary = function(){
+      $scope.settings.secondary_contact ={};
+      $scope.settings.invoice_contact ={};
+      $scope.settings.contact_to_show_customer ={};
+      if($scope.secondCheck)
+      {
+        $scope.settings.secondary_contact.name = $scope.settings.primary_contact.name
+        $scope.settings.secondary_contact.email = $scope.settings.primary_contact.email
+        $scope.settings.secondary_contact.phone = $scope.settings.primary_contact.phone
+        $scope.settings.invoice_contact.name = $scope.settings.primary_contact.name
+        $scope.settings.invoice_contact.email = $scope.settings.primary_contact.email
+        $scope.settings.invoice_contact.phone = $scope.settings.primary_contact.phone
+        $scope.settings.contact_to_show_customer.name = $scope.settings.primary_contact.name
+        $scope.settings.contact_to_show_customer.email = $scope.settings.primary_contact.email
+        $scope.settings.contact_to_show_customer.phone = $scope.settings.primary_contact.phone
+      }
+      else {
+        $scope.settings.secondary_contact.name = $scope.settings.secondary_contact.name
+        $scope.settings.secondary_contact.email = $scope.settings.secondary_contact.email
+        $scope.settings.secondary_contact.phone = $scope.settings.secondary_contact.phone
+        $scope.settings.invoice_contact.name = $scope.settings.invoice_contact.name
+        $scope.settings.invoice_contact.email = $scope.settings.invoice_contact.email
+        $scope.settings.invoice_contact.phone = $scope.settings.invoice_contact.phone
+        $scope.settings.contact_to_show_customer.name = $scope.settings.contact_to_show_customer.name
+        $scope.settings.contact_to_show_customer.email = $scope.settings.contact_to_show_customer.email
+        $scope.settings.contact_to_show_customer.phone = $scope.settings.contact_to_show_customer.phone
+      }
+      
     }
   });
 

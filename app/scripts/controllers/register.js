@@ -37,6 +37,14 @@ angular.module('dmsAdminApp')
         Materialize.toast('<span>' + "Password should match with confirm password." + '</span>', 3000);
         return;
       }
+      var tempPhone = $scope.userData.phone;
+      tempPhone = tempPhone.split("-").join("");
+      if (isNaN(tempPhone) ||
+        tempPhone.length !== 10) {
+        Materialize.toast('<span> Please enter a valid phone no.</span>', 3000);
+        return;
+      }
+      $scope.userData.phone = tempPhone
       if ($scope.form.theForm.$valid) {
         register.saveDealar({}, $scope.userData, function (data) {
           if(data.statusCode === 200){
