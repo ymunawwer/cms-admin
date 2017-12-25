@@ -465,24 +465,30 @@ angular.module('dmsAdminApp')
       $scope.settings.contact_to_show_customer ={};
       if($scope.secondCheck)
       {
-        $scope.settings.secondary_contact.name = $scope.settings.primary_contact.name
+        $scope.settings.secondary_contact.name = $scope.settings.primary_contact.name;
+        $scope.settings.secondary_contact.title = $scope.settings.primary_contact.title
         $scope.settings.secondary_contact.email = $scope.settings.primary_contact.email
         $scope.settings.secondary_contact.phone = $scope.settings.primary_contact.phone
-        $scope.settings.invoice_contact.name = $scope.settings.primary_contact.name
+        $scope.settings.invoice_contact.name = $scope.settings.primary_contact.name;
+        $scope.settings.invoice_contact.title = $scope.settings.primary_contact.title
         $scope.settings.invoice_contact.email = $scope.settings.primary_contact.email
         $scope.settings.invoice_contact.phone = $scope.settings.primary_contact.phone
-        $scope.settings.contact_to_show_customer.name = $scope.settings.primary_contact.name
+        $scope.settings.contact_to_show_customer.name = $scope.settings.primary_contact.name;
+        $scope.settings.contact_to_show_customer.title = $scope.settings.primary_contact.title
         $scope.settings.contact_to_show_customer.email = $scope.settings.primary_contact.email
         $scope.settings.contact_to_show_customer.phone = $scope.settings.primary_contact.phone
       }
       else {
         $scope.settings.secondary_contact.name = $scope.settings.secondary_contact.name
+        $scope.settings.secondary_contact.title = $scope.settings.secondary_contact.title
         $scope.settings.secondary_contact.email = $scope.settings.secondary_contact.email
         $scope.settings.secondary_contact.phone = $scope.settings.secondary_contact.phone
         $scope.settings.invoice_contact.name = $scope.settings.invoice_contact.name
+        $scope.settings.invoice_contact.title = $scope.settings.invoice_contact.title
         $scope.settings.invoice_contact.email = $scope.settings.invoice_contact.email
         $scope.settings.invoice_contact.phone = $scope.settings.invoice_contact.phone
         $scope.settings.contact_to_show_customer.name = $scope.settings.contact_to_show_customer.name
+        $scope.settings.contact_to_show_customer.title = $scope.settings.contact_to_show_customer.title
         $scope.settings.contact_to_show_customer.email = $scope.settings.contact_to_show_customer.email
         $scope.settings.contact_to_show_customer.phone = $scope.settings.contact_to_show_customer.phone
       }

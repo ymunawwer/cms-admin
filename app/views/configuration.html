@@ -227,6 +227,11 @@ textarea{
                     <div class="row user-setting">
                         <p>Primary Contact</p>
                         <div class="input-field col s12">
+                                <label for="pctitle">Title*</label>
+                                <input id="pctitle" name="pctitle" required type="text" data-error=".errorTxt41" ng-model="settings.primary_contact.title">
+                                <div class="errorTxt41"></div>
+                            </div>
+                        <div class="input-field col s12">
                             <label for="pcname">Name*</label>
                             <input id="pcname" name="pcname" required type="text" data-error=".errorTxt4" ng-model="settings.primary_contact.name">
                             <div class="errorTxt4"></div>
@@ -250,6 +255,11 @@ textarea{
                                     </span>
                         </p>
                         <div class="input-field col s12">
+                                <label for="sctitle">Title*</label>
+                                <input id="sctitle" name="sctitle"  type="text" data-error=".errorTxt42" ng-model="settings.secondary_contact.title">
+                                <div class="errorTxt42"></div>
+                            </div>
+                        <div class="input-field col s12">
                             <label for="scname">Name</label>
                             <input id="scname" name="scname"  type="text" data-error=".errorTxt7" ng-model="settings.secondary_contact.name">
                             <div class="errorTxt7"></div>
@@ -268,6 +278,11 @@ textarea{
                     <div class="row user-setting">
                         <p>Details to be displayed on invoice</p>
                         <div class="input-field col s12">
+                                <label for="dntitle">Title*</label>
+                                <input id="dntitle" name="dntitle"  type="text" data-error=".errorTxt43" ng-model="settings.invoice_contact.title">
+                                <div class="errorTxt43"></div>
+                            </div>
+                        <div class="input-field col s12">
                             <label for="dnname">Name</label>
                             <input id="dnname" name="dnname" type="text"  data-error=".errorTxt10" ng-model="settings.invoice_contact.name">
                             <div class="errorTxt10"></div>
@@ -285,6 +300,11 @@ textarea{
                     </div>
                     <div class="row user-setting">
                         <p>Contact Details to be displayed on to customers</p>
+                        <div class="input-field col s12">
+                                <label for="cdctitle">Title*</label>
+                                <input id="cdctitle" name="cdctitle"  type="text" data-error=".errorTxt44" ng-model="settings.contact_to_show_customer.title">
+                                <div class="errorTxt44"></div>
+                            </div>
                         <div class="input-field col s12">
                             <label for="cdcname">Name </label>
                             <input id="cdcname" name="cdcname" type="text"  data-error=".errorTxt13" ng-model="settings.contact_to_show_customer.name">
@@ -706,13 +726,15 @@ textarea{
             </div>
             <div class="ul-main-seven ulmc" ng-class="{'active': step==7}">
                 <div class="file-field input-field col s12">
-                    <div class="btn" style="background:#000 !important;">
-                        <span>Upload User</span>
+                    <div class="btn">
+                        <span>Upload Users  </span>
                         <input type="file" onchange="angular.element(this).scope().uploadUserData(this.files)">
                     </div>
                     <div class="file-path-wrapper">
                         <input class="file-path validate" disabled type="text">
                     </div>
+                    For bulk upload, you can use an csv.
+                    Please download the sample csv format <a href="http://cleanup.tech/dsm-index/users.csv" targer="_blank">HERE </a>
                     <div class="errorTxt21"></div>
 
                 </div>
@@ -723,13 +745,15 @@ textarea{
             </div>
             <div class="ul-main-eight ulmc" ng-class="{'active': step==8}">
                 <div class="file-field input-field col s12">
-                    <div class="btn" style="background:#000 !important;">
-                        <span>Upload Customer</span>
+                    <div class="btn" >
+                        <span>Upload Customers</span>
                         <input type="file" onchange="angular.element(this).scope().uploadUserData(this.files)">
                     </div>
                     <div class="file-path-wrapper">
                         <input class="file-path validate" disabled type="text">
                     </div>
+                    For bulk upload, you can use an csv.
+                    Please download the sample csv format <a href="http://cleanup.tech/dsm-index/customer.csv" targer="_blank">HERE </a>
                     <div class="errorTxt21"></div>
 
                 </div>
