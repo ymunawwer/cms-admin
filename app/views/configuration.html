@@ -495,7 +495,7 @@ textarea{
                         </div>
                     </div>
                     <div class="row user-setting">
-                        <p>Secondary contact <i class="material-icons tiny blue-text tooltipped" data-position="right" data-delay="50" data-tooltip="Fill up the details">help_outline</i>&nbsp;&nbsp; &nbsp;  
+                        <p>Contact for Invoicing <i class="material-icons tiny blue-text tooltipped" data-position="right" data-delay="50" data-tooltip="Contact for Invoicing">help_outline</i>&nbsp;&nbsp; &nbsp;  
                            <span>
                                 <input type="checkbox" id="secondCheck" ng-change="primeToSecondary()" ng-model="secondCheck" />
                                 <label for="secondCheck">My all contact is the same as my primary contact</label>
@@ -528,17 +528,9 @@ textarea{
                         </div>
                     </div>
                     <div class="row user-setting">
-                        <p>Details to be displayed on invoice <i class="material-icons tiny blue-text tooltipped" data-position="right" data-delay="50" data-tooltip="Fill up the details">help_outline</i></p>
-                        <div>
-                                <!-- <label for="dntitle">Title</label> -->
-                                <select id="dntitle"  class="browser-default selection-corrector" name="dntitle" ng-model="settings.invoice_contact.title">
-                                        <option value="">--Title--</option>
-                                        <option  value="Mr">Mr</option>
-                                        <option  value="Ms">Ms</option>
-                                        <option  value="Mrs">Mrs</option>
-                                    </select>
-                                <div class="errorTxt43"></div>
-                            </div>
+                        <p>Details to be displayed on invoice <i class="material-icons tiny blue-text tooltipped" data-position="right" data-delay="50" data-tooltip="Fill up the details">help_outline</i>
+                        </p>
+                       
                         <div class="input-field col s12">
                             <label for="dnname">Name</label>
                             <input id="dnname" name="dnname" type="text"  data-error=".errorTxt10" ng-model="settings.invoice_contact.name">
@@ -546,8 +538,8 @@ textarea{
                         </div>
                         <div class="input-field col s12">
                             <label for="dnaddress">Address*</label>
-                            <input id="dnaddress" name="dnaddress" type="text" >
-                            <div class="errorTxt10"></div>
+                            <input id="dnaddress" name="dnaddress" type="text" ng-model="settings.invoice_contact.address">
+                            <div class="errorTxt100"></div>
                         </div>
                         <div class="input-field col s12">
                             <label for="dnphone">Phone*</label>
@@ -557,7 +549,7 @@ textarea{
                         
                          <div class="input-field col s12">
                             <label for="dnurl">Website </label>
-                            <input id="dnurl" type="url" name="dnurl">
+                            <input id="dnurl" type="url" name="dnurl" ng-model="settings.invoice_contact.website">
                             <div class="errorTxt11"></div>
                         </div>
 
@@ -568,16 +560,14 @@ textarea{
                         </div>
                     </div>
                     <div class="row user-setting">
-                        <p>Contact details for customers <i class="material-icons tiny blue-text tooltipped" data-position="right" data-delay="50" data-tooltip="Fill up the details">help_outline</i></p>
-                        <div>
-                                <!-- <label for="cdctitle">Title</label> -->
-                                <select id="cdctitle"  class="browser-default selection-corrector" name="cdctitle" ng-model="settings.contact_to_show_customer.title">
-                                        <option  value="Mr">Mr</option>
-                                        <option  value="Ms">Ms</option>
-                                        <option  value="Mrs">Mrs</option>
-                                    </select>
-                                <div class="errorTxt44"></div>
-                            </div>
+                        <p>Contact details for customers <i class="material-icons tiny blue-text tooltipped" data-position="right" data-delay="50" data-tooltip="Fill up the details">help_outline</i>
+                            &nbsp;&nbsp; &nbsp;  
+                            <span>
+                                 <input type="checkbox" id="secondCheck1" ng-change="primeToSecondary1()" ng-model="secondCheck1" />
+                                 <label for="secondCheck1">My all details is the same as my details to be displayed on invoice</label>
+                             </span>
+                        </p>
+                      
                         <div class="input-field col s12">
                             <label for="cdcname">Name </label>
                             <input id="cdcname" name="cdcname" type="text"  data-error=".errorTxt13" ng-model="settings.contact_to_show_customer.name">
@@ -585,8 +575,8 @@ textarea{
                         </div>
                          <div class="input-field col s12">
                             <label for="cdcaddress">Address*</label>
-                            <input id="cdcaddress" name="cdcaddress" type="text" >
-                            <div class="errorTxt10"></div>
+                            <input id="cdcaddress" name="cdcaddress" type="text" ng-model="settings.contact_to_show_customer.address" >
+                            <div class="errorTxt1012"></div>
                         </div>
                         <div class="input-field col s12">
                             <label for="cdcphone">Phone* </label>
@@ -595,8 +585,8 @@ textarea{
                         </div>
                         <div class="input-field col s12">
                             <label for="cdcphone">Website</label>
-                            <input id="cdcphone" type="url" name="cdcphone"  data-error=".errorTxt15" ng-model="settings.contact_to_show_customer.phone">
-                            <div class="errorTxt15"></div>
+                            <input id="cdcphone" type="url" name="cdcphone"  data-error=".errorTxt1523" ng-model="settings.contact_to_show_customer.website" >
+                            <div class="errorTxt1523"></div>
                         </div>
                         <div class="input-field col s12">
                             <label for="cdcemail">Email* </label>
@@ -645,14 +635,14 @@ textarea{
                                             </div>
                                              <div class="margin col s12 m5" ng-show="settings.days_of_service.sunday.status">
                                             <div class="input-field">
-                                            <input type="text" class="datepicker">
+                                            <input type="text" class="timepicker" ng-model="settings.days_of_service.sunday.start_time" >
                                             <label style="left: 0 !important;">Start Time</label>
                                             </div>
                                             <div class="errorTxt16"></div>
                                         </div>
                                         <div class="margin col s12 m5" ng-show="settings.days_of_service.sunday.status">
                                             <div class="input-field">
-                                            <input type="text" class="datepicker">
+                                            <input type="text" class="datepicker" ng-model="settings.days_of_service.sunday.end_time" >
                                             <label style="left: 0 !important;">End Time</label>
                                             </div>
                                             <div class="errorTxt17"></div>
@@ -671,14 +661,14 @@ textarea{
                                             <div class="margin col s12 m5" ng-show="settings.days_of_service.monday.status">
   
                                             <div class="input-field">
-                                            <input type="text" class="datepicker">
+                                            <input type="text" class="datepicker" ng-model="settings.days_of_service.monday.start_time">
                                             <label style="left: 0 !important;">Start Time</label>
                                             </div>
                                             <div class="errorTxt16"></div>
                                         </div>
                                         <div class="margin col s12 m5" ng-show="settings.days_of_service.monday.status">
                                              <div class="input-field">
-                                            <input type="text" class="datepicker">
+                                            <input type="text" class="datepicker" ng-model="settings.days_of_service.monday.end_time">
                                             <label style="left: 0 !important;">End Time</label>
                                             </div>
                                             <div class="errorTxt17"></div>
@@ -696,14 +686,14 @@ textarea{
                                             </div>
                                              <div class="margin col s12 m5" ng-show="settings.days_of_service.tuesday.status">
                                             <div class="input-field">
-                                            <input type="text" class="datepicker">
+                                            <input type="text" class="datepicker" ng-model="settings.days_of_service.tuesday.start_time">
                                             <label style="left: 0 !important;">Start Time</label>
                                             </div>
                                             <div class="errorTxt16"></div>
                                         </div>
                                         <div class="margin col s12 m5" ng-show="settings.days_of_service.tuesday.status">
                                              <div class="input-field">
-                                            <input type="text" class="datepicker">
+                                            <input type="text" class="datepicker" ng-model="settings.days_of_service.tuesday.end_time">
                                             <label style="left: 0 !important;">End Time</label>
                                             </div>
                                             <div class="errorTxt17"></div>
@@ -724,14 +714,14 @@ textarea{
                                         </div>
                                         <div class="margin col m5 s12" ng-show="settings.days_of_service.wednesday.status">
                                             <div class="input-field">
-                                            <input type="text" class="datepicker">
+                                            <input type="text" class="datepicker" ng-model="settings.days_of_service.wednesday.start_time">
                                             <label style="left: 0 !important;">Start Time</label>
                                             </div>
                                             <div class="errorTxt16"></div>
                                         </div>
                                         <div class="margin col m5 s12" ng-show="settings.days_of_service.wednesday.status">
                                              <div class="input-field">
-                                            <input type="text" class="datepicker">
+                                            <input type="text" class="datepicker" ng-model="settings.days_of_service.wednesday.end_time">
                                             <label style="left: 0 !important;">End Time</label>
                                             </div>
                                             <div class="errorTxt17"></div>
@@ -749,14 +739,14 @@ textarea{
                                             </div>
                                             <div class="margin col m5 s12" ng-show="settings.days_of_service.thursday.status">
                                             <div class="input-field">
-                                            <input type="text" class="datepicker">
+                                            <input type="text" class="datepicker" ng-model="settings.days_of_service.thursday.start_time">
                                             <label style="left: 0 !important;">Start Time</label>
                                             </div>
                                             <div class="errorTxt16"></div>
                                             </div>
                                             <div class="margin col m5 s12" ng-show="settings.days_of_service.thursday.status">
                                              <div class="input-field">
-                                            <input type="text" class="datepicker">
+                                            <input type="text" class="datepicker" ng-model="settings.days_of_service.thursday.end_time">
                                             <label style="left: 0 !important;">End Time</label>
                                             </div>
                                             <div class="errorTxt17"></div>
@@ -774,14 +764,14 @@ textarea{
                                             </div>
                                             <div class="margin col m5 s12" ng-show="settings.days_of_service.friday.status">
                                             <div class="input-field">
-                                            <input type="text" class="datepicker">
+                                            <input type="text" class="datepicker" ng-model="settings.days_of_service.friday.start_time">
                                             <label style="left: 0 !important;">Start Time</label>
                                             </div>
                                             <div class="errorTxt16"></div>
                                             </div>
                                             <div class="margin col m5 s12" ng-show="settings.days_of_service.friday.status">
                                              <div class="input-field">
-                                            <input type="text" class="datepicker">
+                                            <input type="text" class="datepicker" ng-model="settings.days_of_service.friday.end_time">
                                             <label style="left: 0 !important;">End Time</label>
                                             </div>
                                             <div class="errorTxt17"></div>
@@ -795,373 +785,28 @@ textarea{
                                           <div class="row">
                                             <div class="col m2 s12 input-field">
                                              <input type="checkbox" id="saturdaycheck" ng-model="settings.days_of_service.saturday.status" />
-                                            <label for="saturdaycheck">Saturday</label
+                                            <label for="saturdaycheck">Saturday</label>
                                             </div>
-                                          </div>
                                           <div class="margin col m5 s12" ng-show="settings.days_of_service.saturday.status">
                                             <div class="input-field">
-                                            <input type="text" class="datepicker">
+                                            <input type="text" class="datepicker" ng-model="settings.days_of_service.saturday.start_time">
                                             <label style="left: 0 !important;">Start Time</label>
                                             </div>
                                             <div class="errorTxt16"></div>
                                             </div>
                                             <div class="margin col m5 s12" ng-show="settings.days_of_service.saturday.status">
                                              <div class="input-field">
-                                            <input type="text" class="datepicker">
+                                            <input type="text" class="datepicker" ng-model="settings.days_of_service.saturday.end_time">
                                             <label style="left: 0 !important;">End Time</label>
                                             </div>
                                             <div class="errorTxt17"></div>
                                             </div>
+                                            </div>
                                       </div>
                                       </li>
                                       </ul>
-                                 <div class="row">
-                                    <div class="col m2 s12">
-                                        <ul class="tabs">
-                                        <li class="tab"><a href="#test1" class="active">
-                                             <input type="checkbox" id="sundaycheck" ng-model="settings.days_of_service.sunday.status" />
-                                        <label for="sundaycheck">Sunday</label>
-                                        </a></li>
-                                        <li class="tab"><a  href="#test2">
-                                             <input type="checkbox" id="mondaycheck" ng-model="settings.days_of_service.monday.status" />
-                                        <label for="mondaycheck">Monday</label>
-                                        </a></li>
-                                        <li class="tab"><a href="#test3">
-                                            <input type="checkbox" id="tuesdaycheck" ng-model="settings.days_of_service.tuesday.status" />
-                                        <label for="tuesdaycheck">Tuesday</label>
-                                        </a></li>
-                                        <li class="tab"><a href="#test4">
-                                              <input type="checkbox" id="wednesdaycheck" ng-model="settings.days_of_service.wednesday.status" />
-                                            <label for="wednesdaycheck">Wednesday</label>
-                                        </a></li>
-                                        <li class="tab"><a href="#test5">
-                                            <input type="checkbox" id="thursdaycheck" ng-model="settings.days_of_service.thursday.status" />
-                                            <label for="thursdaycheck">Thursday</label>
-                                        </a></li>
-                                        <li class="tab"><a href="#test6">
-                                            <input type="checkbox" id="fridaycheck" ng-model="settings.days_of_service.friday.status" />
-                                            <label for="fridaycheck">Friday</label>
-                                        </a></li>
-                                        <li class="tab"><a href="#test7">
-                                            <input type="checkbox" id="saturdaycheck" ng-model="settings.days_of_service.saturday.status" />
-                                            <label for="saturdaycheck">Saturday</label>
-                                        </a></li>
-                                        </ul>      
-                                    </div>
-                                    <div class="col m10 s12">
-                                         <div id="test1" class="col s12">
-                                               <div class="margin col m6 s12" ng-show="settings.days_of_service.sunday.status">
-                                                <div class="input-field">
-                                                <input type="text" class="datepicker">
-                                                <label style="left: 0 !important;">Start Time</label>
-                                                </div>
-                                                <div class="errorTxt16"></div>
-                                            </div>
-                                            <div class="margin col m6 s12" ng-show="settings.days_of_service.sunday.status">
-                                                <div class="input-field">
-                                                <input type="text" class="datepicker">
-                                                <label style="left: 0 !important;">End Time</label>
-                                                </div>
-                                                <div class="errorTxt17"></div>
-                                            </div>
-                                         </div>
-                                    <div id="test2" class="col s12">
-                                        <div class="margin col m6 s12" ng-show="settings.days_of_service.monday.status">
-                                                <div class="input-field">
-                                                <input type="text" class="datepicker">
-                                                <label style="left: 0 !important;">Start Time</label>
-                                                </div>
-                                                <div class="errorTxt16"></div>
-                                            </div>
-                                            <div class="margin col m6 s12" ng-show="settings.days_of_service.monday.status">
-                                                 <div class="input-field">
-                                                <input type="text" class="datepicker">
-                                                <label style="left: 0 !important;">End Time</label>
-                                                </div>
-                                                <div class="errorTxt17"></div>
-                                            </div>
-                                    </div>
-                                    <div id="test3" class="col s12">
-                                        <div class="margin col m6 s12" ng-show="settings.days_of_service.tuesday.status">
-                                                <div class="input-field">
-                                                <input type="text" class="datepicker">
-                                                <label style="left: 0 !important;">Start Time</label>
-                                                </div>
-                                                <div class="errorTxt16"></div>
-                                            </div>
-                                            <div class="margin col m6 s12" ng-show="settings.days_of_service.tuesday.status">
-                                                 <div class="input-field">
-                                                <input type="text" class="datepicker">
-                                                <label style="left: 0 !important;">End Time</label>
-                                                </div>
-                                                <div class="errorTxt17"></div>
-                                            </div>
-                                    </div>
-                                    <div id="test4" class="col s12">
-                                        <div class="margin col m6 s12" ng-show="settings.days_of_service.wednesday.status">
-                                        <div class="input-field">
-                                        <input type="text" class="datepicker">
-                                        <label style="left: 0 !important;">Start Time</label>
-                                        </div>
-                                        <div class="errorTxt16"></div>
-                                    </div>
-                                    <div class="margin col m6 s12" ng-show="settings.days_of_service.wednesday.status">
-                                         <div class="input-field">
-                                        <input type="text" class="datepicker">
-                                        <label style="left: 0 !important;">End Time</label>
-                                        </div>
-                                        <div class="errorTxt17"></div>
-                                    </div>
-                                    </div>
-                                    <div id="test5" class="col s12">
-                                        <div class="margin col m6 s12" ng-show="settings.days_of_service.thursday.status">
-                                        <div class="input-field">
-                                        <input type="text" class="datepicker">
-                                        <label style="left: 0 !important;">Start Time</label>
-                                        </div>
-                                        <div class="errorTxt16"></div>
-                                        </div>
-                                        <div class="margin col m6 s12" ng-show="settings.days_of_service.thursday.status">
-                                         <div class="input-field">
-                                        <input type="text" class="datepicker">
-                                        <label style="left: 0 !important;">End Time</label>
-                                        </div>
-                                        <div class="errorTxt17"></div>
-                                        </div>
-                                    </div>
-                                    <div id="test6" class="col s12">
-                                        <div class="margin col m6 s12" ng-show="settings.days_of_service.friday.status">
-                                        <div class="input-field">
-                                        <input type="text" class="datepicker">
-                                        <label style="left: 0 !important;">Start Time</label>
-                                        </div>
-                                        <div class="errorTxt16"></div>
-                                        </div>
-                                        <div class="margin col m6 s12" ng-show="settings.days_of_service.friday.status">
-                                         <div class="input-field">
-                                        <input type="text" class="datepicker">
-                                        <label style="left: 0 !important;">End Time</label>
-                                        </div>
-                                        <div class="errorTxt17"></div>
-                                        </div>
-                                    </div>
-                                    <div id="test7" class="col s12">
-                                        <div class="margin col m6 s12" ng-show="settings.days_of_service.saturday.status">
-                                        <div class="input-field">
-                                        <input type="text" class="datepicker">
-                                        <label style="left: 0 !important;">Start Time</label>
-                                        </div>
-                                        <div class="errorTxt16"></div>
-                                        </div>
-                                        <div class="margin col m6 s12" ng-show="settings.days_of_service.saturday.status">
-                                         <div class="input-field">
-                                        <input type="text" class="datepicker">
-                                        <label style="left: 0 !important;">End Time</label>
-                                        </div>
-                                        <div class="errorTxt17"></div>
-                                        </div>
-                                    </div>
-                                    </div>
-                                   
-                                    </div>
-                                <span class="admin-day-slot row">
-                                    <div class="row">
-                                            <div class="margin col s2">
-                                        <input type="checkbox" id="sundaycheck" ng-model="settings.days_of_service.sunday.status" />
-                                        <label for="sundaycheck">Sunday</label>
-                                        </div>
-                                        <div class="margin col s5" ng-show="settings.days_of_service.sunday.status">
-                                               <!--  <label for="work_start_time1" class="label-2">Start Time</label> -->
-                                               <!--  <select data-error=".errorTxt16" class="browser-default" name="work_start_time1" id="work_start_time1" ng-model="settings.days_of_service.sunday.start_time">
-                                                    <option ng-repeat="hour in hours" ng-value="hour">{{hour}}</option>
-                                                </select> -->
-                                                <div class="input-field">
-                                                <input type="text" class="datepicker">
-                                                <label style="left: 0 !important;">Start Time</label>
-                                                </div>
-                                                <div class="errorTxt16"></div>
-                                            </div>
-                                            <div class="margin col s5" ng-show="settings.days_of_service.sunday.status">
-                                                <!-- <label for="work_end_time1" class="label-2">End Time</label>
-                                                <select data-error=".errorTxt17" class="browser-default" name="work_end_time1" id="work_end_time1" ng-model="settings.days_of_service.sunday.end_time">
-                                                    <option ng-repeat="hour in hours" ng-disabled="settings.days_of_service.sunday.start_time >= hour" ng-value="hour">{{hour}}</option>
-                                                </select> -->
-                                                <div class="input-field">
-                                                <input type="text" class="datepicker">
-                                                <label style="left: 0 !important;">End Time</label>
-                                                </div>
-                                                <div class="errorTxt17"></div>
-                                            </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="margin col s2">
-                                        <input type="checkbox" id="mondaycheck" ng-model="settings.days_of_service.monday.status" />
-                                        <label for="mondaycheck">Monday</label>
-                                        </div>
-                                        <div class="margin col s5" ng-show="settings.days_of_service.monday.status">
-                                               <!--  <label for="work_start_time2" class="label-2">Start Time</label>
-                                                <select data-error=".errorTxt16" class="browser-default" name="work_start_time2" id="work_start_time2" ng-model="settings.days_of_service.monday.start_time">
-                                                    <option ng-repeat="hour in hours" ng-value="hour">{{hour}}</option>
-                                                </select> -->
-                                                <div class="input-field">
-                                                <input type="text" class="datepicker">
-                                                <label style="left: 0 !important;">Start Time</label>
-                                                </div>
-                                                <div class="errorTxt16"></div>
-                                            </div>
-                                            <div class="margin col s5" ng-show="settings.days_of_service.monday.status">
-                                               <!--  <label for="work_end_time2" class="label-2">End Time</label>
-                                                <select data-error=".errorTxt17" class="browser-default" name="work_end_time2" id="work_end_time2" ng-model="settings.days_of_service.monday.end_time">
-                                                    <option ng-repeat="hour in hours" ng-disabled="settings.days_of_service.monday.start_time >= hour" ng-value="hour">{{hour}}</option>
-                                                </select> -->
-                                                 <div class="input-field">
-                                                <input type="text" class="datepicker">
-                                                <label style="left: 0 !important;">End Time</label>
-                                                </div>
-                                                <div class="errorTxt17"></div>
-                                            </div>
-                                        </div>
-                                    <div class="row">
-                                            <div class="margin col s2">
-                                        <input type="checkbox" id="tuesdaycheck" ng-model="settings.days_of_service.tuesday.status" />
-                                        <label for="tuesdaycheck">Tuesday</label>
-                                        </div>
-                                        <div class="margin col s5" ng-show="settings.days_of_service.tuesday.status">
-                                                <!-- <label for="work_start_time3" class="label-2">Start Time</label>
-                                                <select data-error=".errorTxt16" class="browser-default" name="work_start_time3" id="work_start_time3" ng-model="settings.days_of_service.tuesday.start_time">
-                                                    <option ng-repeat="hour in hours" ng-value="hour">{{hour}}</option>
-                                                </select> -->
-                                                <div class="input-field">
-                                                <input type="text" class="datepicker">
-                                                <label style="left: 0 !important;">Start Time</label>
-                                                </div>
-                                                <div class="errorTxt16"></div>
-                                            </div>
-                                            <div class="margin col s5" ng-show="settings.days_of_service.tuesday.status">
-                                                <!-- <label for="work_end_time3" class="label-2">End Time</label>
-                                                <select data-error=".errorTxt17" class="browser-default" name="work_end_time3" id="work_end_time3" ng-model="settings.days_of_service.tuesday.end_time">
-                                                    <option ng-repeat="hour in hours" ng-disabled="settings.days_of_service.tuesday.start_time >= hour" ng-value="hour">{{hour}}</option>
-                                                </select> -->
-                                                 <div class="input-field">
-                                                <input type="text" class="datepicker">
-                                                <label style="left: 0 !important;">End Time</label>
-                                                </div>
-                                                <div class="errorTxt17"></div>
-                                            </div>
-                                        </div>
-                                    <div class="row">
-                                            <div class="margin col s2">
-                                        <input type="checkbox" id="wednesdaycheck" ng-model="settings.days_of_service.wednesday.status" />
-                                        <label for="wednesdaycheck">Wednesday</label>
-                                        </div>
-                                        <div class="margin col s5" ng-show="settings.days_of_service.wednesday.status">
-                                               <!--  <label for="work_start_time4" class="label-2">Start Time</label>
-                                                <select data-error=".errorTxt16" class="browser-default" name="work_start_time4" id="work_start_time4" ng-model="settings.days_of_service.wednesday.start_time">
-                                                    <option ng-repeat="hour in hours" ng-value="hour">{{hour}}</option>
-                                                </select> -->
-                                                <div class="input-field">
-                                                <input type="text" class="datepicker">
-                                                <label style="left: 0 !important;">Start Time</label>
-                                                </div>
-                                                <div class="errorTxt16"></div>
-                                            </div>
-                                            <div class="margin col s5" ng-show="settings.days_of_service.wednesday.status">
-                                               <!--  <label for="work_end_time4" class="label-2">End Time</label>
-                                                <select data-error=".errorTxt17" class="browser-default" name="work_end_time4" id="work_end_time4" ng-model="settings.days_of_service.wednesday.end_time">
-                                                    <option ng-repeat="hour in hours" ng-disabled="settings.days_of_service.wednesday.start_time >= hour" ng-value="hour">{{hour}}</option>
-                                                </select> -->
-                                                 <div class="input-field">
-                                                <input type="text" class="datepicker">
-                                                <label style="left: 0 !important;">End Time</label>
-                                                </div>
-                                                <div class="errorTxt17"></div>
-                                            </div>
-                                        </div>
-                                    <div class="row">
-                                            <div class="margin col s2">
-                                        <input type="checkbox" id="thursdaycheck" ng-model="settings.days_of_service.thursday.status" />
-                                        <label for="thursdaycheck">Thursday</label>
-                                        </div>
-                                        <div class="margin col s5" ng-show="settings.days_of_service.thursday.status">
-                                               <!--  <label for="work_start_time5" class="label-2">Start Time</label>
-                                                <select data-error=".errorTxt16" class="browser-default" name="work_start_time5" id="work_start_time5" ng-model="settings.days_of_service.thursday.start_time">
-                                                    <option ng-repeat="hour in hours" ng-value="hour">{{hour}}</option>
-                                                </select> -->
-                                                <div class="input-field">
-                                                <input type="text" class="datepicker">
-                                                <label style="left: 0 !important;">Start Time</label>
-                                                </div>
-                                                <div class="errorTxt16"></div>
-                                            </div>
-                                            <div class="margin col s5" ng-show="settings.days_of_service.thursday.status">
-                                                <!-- <label for="work_end_time5" class="label-2">End Time</label>
-                                                <select data-error=".errorTxt17" class="browser-default" name="work_end_time5" id="work_end_time5" ng-model="settings.days_of_service.thursday.end_time">
-                                                    <option ng-repeat="hour in hours" ng-disabled="settings.days_of_service.thursday.start_time >= hour" ng-value="hour">{{hour}}</option>
-                                                </select> -->
-                                                 <div class="input-field">
-                                                <input type="text" class="datepicker">
-                                                <label style="left: 0 !important;">End Time</label>
-                                                </div>
-                                                <div class="errorTxt17"></div>
-                                            </div>
-                                        </div>
-                                    <div class="row">
-                                            <div class="margin col s2">
-                                        <input type="checkbox" id="fridaycheck" ng-model="settings.days_of_service.friday.status" />
-                                        <label for="fridaycheck">Friday</label>
-                                        </div>
-                                        <div class="margin col s5" ng-show="settings.days_of_service.friday.status">
-                                                <!-- <label for="work_start_time6" class="label-2">Start Time</label>
-                                                <select data-error=".errorTxt16" class="browser-default" name="work_start_time6" id="work_start_time6" ng-model="settings.days_of_service.friday.start_time">
-                                                    <option ng-repeat="hour in hours" ng-value="hour">{{hour}}</option>
-                                                </select> -->
-                                                <div class="input-field">
-                                                <input type="text" class="datepicker">
-                                                <label style="left: 0 !important;">Start Time</label>
-                                                </div>
-                                                <div class="errorTxt16"></div>
-                                            </div>
-                                            <div class="margin col s5" ng-show="settings.days_of_service.friday.status">
-                                               <!--  <label for="work_end_time6" class="label-2">End Time</label>
-                                                <select data-error=".errorTxt17" class="browser-default" name="work_end_time6" id="work_end_time6" ng-model="settings.days_of_service.friday.end_time">
-                                                    <option ng-repeat="hour in hours" ng-disabled="settings.days_of_service.friday.start_time >= hour" ng-value="hour">{{hour}}</option>
-                                                </select> -->
-                                                 <div class="input-field">
-                                                <input type="text" class="datepicker">
-                                                <label style="left: 0 !important;">End Time</label>
-                                                </div>
-                                                <div class="errorTxt17"></div>
-                                            </div>
-                                        </div>
-                                    <div>
-                                            <div class="margin col s2">
-                                        <input type="checkbox" id="saturdaycheck" ng-model="settings.days_of_service.saturday.status" />
-                                        <label for="saturdaycheck">Saturday</label>
-                                        </div>
-                                        <div class="margin col s5" ng-show="settings.days_of_service.saturday.status">
-                                                <!-- <label for="work_start_time7" class="label-2">Start Time</label>
-                                                <select data-error=".errorTxt16" class="browser-default" name="work_start_time7" id="work_start_time7" ng-model="settings.days_of_service.saturday.start_time">
-                                                    <option ng-repeat="hour in hours" ng-value="hour">{{hour}}</option>
-                                                </select> -->
-                                                <div class="input-field">
-                                                <input type="text" class="datepicker">
-                                                <label style="left: 0 !important;">Start Time</label>
-                                                </div>
-                                                <div class="errorTxt16"></div>
-                                            </div>
-                                            <div class="margin col s5" ng-show="settings.days_of_service.saturday.status">
-                                               <!--  <label for="work_end_time7" class="label-2">End Time</label>
-                                                <select data-error=".errorTxt17" class="browser-default" name="work_end_time7" id="work_end_time7" ng-model="settings.days_of_service.saturday.end_time">
-                                                    <option ng-repeat="hour in hours" ng-disabled="settings.days_of_service.saturday.start_time >= hour" ng-value="hour">{{hour}}</option>
-                                                </select> -->
-                                                 <div class="input-field">
-                                                <input type="text" class="datepicker">
-                                                <label style="left: 0 !important;">End Time</label>
-                                                </div>
-                                                <div class="errorTxt17"></div>
-                                            </div>
-                                        </div>
-                                </span>
+                                
+                             
                             </div>
                             <!-- <div class="margin col s12 temp_color">
                                 <label for="template_color">
@@ -1469,8 +1114,13 @@ textarea{
             <a class=" modal-action modal-close waves-effect waves-green btn-flat">RESET</a>
           </div> -->
       </div>
-<script type="text/javascript">
-    function anyThing() { setTimeout(function () { $('.stepper').nextStep(); }, 1500); }
+<script type="text/javascript"> 
+//   $('.timepicker').pickatime({
+    // $('.timepicker').pickatime({});
+//   });
+    function anyThing() {
+      
+        setTimeout(function () { $('.stepper').nextStep(); }, 1500); }
     $(function () { $('.stepper').activateStepper(); })
 </script>
 <script>
@@ -1594,7 +1244,8 @@ textarea{
 <script>
 $(document).ready(function(){
     $('.tooltipped').tooltip({delay: 50});
-     $('.datepicker').pickadate({ });
+
+    
      $(".button-collapse").sideNav();
   });
 </script>

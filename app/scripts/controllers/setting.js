@@ -76,7 +76,7 @@ angular.module('dmsAdminApp')
           $scope.settings.site_title = $scope.profileData.name;
           settings.updateSetting({}, $scope.settings, function (data) {
             if (data.statusText == 'success') {
-              $scope.site.site_title = $scope.settings.site_title;
+              // $scope.site.site_title = $scope.settings.site_title;
               var message = data.message;
               $scope.isStarted = true;
               $scope.complete = 1;
@@ -371,41 +371,8 @@ angular.module('dmsAdminApp')
       }));
     }
 
-    $scope.crop = function () {
-      if ($scope.validImage) {
-        $scope.image_temp = $scope.myCroppedImage;
+   
 
-        var byteString = atob($scope.myCroppedImage.split(',')[1]);
-        var ab = new ArrayBuffer(byteString.length);
-        var ia = new Uint8Array(ab);
-        for (var i = 0; i < byteString.length; i++) {
-          ia[i] = byteString.charCodeAt(i);
-        }
-        var blob = new Blob([ia], { type: 'image/png' });
-
-        blob.lastModifiedDate = new Date();
-        blob.lastModifiedDate = new Date();
-        $scope.blob = blob;
-        $scope.fileName = "a.png";
-
-        $scope.blobUrl = URL.createObjectURL(blob);
-
-        $scope.showCroppedImg = true;
-
-      } else {
-        Materialize.toast('<span>' +
-          "Upload valid image" +
-          '</span>',
-          3000);
-      }
-    }
-
-    $scope.clearImage = function () {
-      $scope.showCroppedImg = false;
-      $scope.myImage = null;
-      $scope.validImage = false;
-      $("#fileInput").val = '';
-    }
 
     $scope.addImages = function () {
       if ($scope.validImage) {
@@ -433,10 +400,12 @@ angular.module('dmsAdminApp')
       }
     }
     $scope.viewImage = function () {
+      $scope.clearImage()
       $scope.viewImg = true;
       $scope.addImg = false;
     }
     $scope.addImage = function () {
+      $scope.clearImage();
       $scope.viewImg = false;
       $scope.addImg = true;
     }
@@ -461,36 +430,37 @@ angular.module('dmsAdminApp')
 
     $scope.primeToSecondary = function(){
       $scope.settings.secondary_contact ={};
-      $scope.settings.invoice_contact ={};
-      $scope.settings.contact_to_show_customer ={};
       if($scope.secondCheck)
       {
         $scope.settings.secondary_contact.name = $scope.settings.primary_contact.name;
         $scope.settings.secondary_contact.title = $scope.settings.primary_contact.title
         $scope.settings.secondary_contact.email = $scope.settings.primary_contact.email
         $scope.settings.secondary_contact.phone = $scope.settings.primary_contact.phone
-        $scope.settings.invoice_contact.name = $scope.settings.primary_contact.name;
-        $scope.settings.invoice_contact.title = $scope.settings.primary_contact.title
-        $scope.settings.invoice_contact.email = $scope.settings.primary_contact.email
-        $scope.settings.invoice_contact.phone = $scope.settings.primary_contact.phone
-        $scope.settings.contact_to_show_customer.name = $scope.settings.primary_contact.name;
-        $scope.settings.contact_to_show_customer.title = $scope.settings.primary_contact.title
-        $scope.settings.contact_to_show_customer.email = $scope.settings.primary_contact.email
-        $scope.settings.contact_to_show_customer.phone = $scope.settings.primary_contact.phone
       }
       else {
         $scope.settings.secondary_contact.name = $scope.settings.secondary_contact.name
         $scope.settings.secondary_contact.title = $scope.settings.secondary_contact.title
         $scope.settings.secondary_contact.email = $scope.settings.secondary_contact.email
         $scope.settings.secondary_contact.phone = $scope.settings.secondary_contact.phone
-        $scope.settings.invoice_contact.name = $scope.settings.invoice_contact.name
-        $scope.settings.invoice_contact.title = $scope.settings.invoice_contact.title
-        $scope.settings.invoice_contact.email = $scope.settings.invoice_contact.email
-        $scope.settings.invoice_contact.phone = $scope.settings.invoice_contact.phone
+      }
+      
+    }
+    $scope.primeToSecondary1 = function(){
+      $scope.settings.contact_to_show_customer ={};
+      if($scope.secondCheck1)
+      {
+        $scope.settings.contact_to_show_customer.name = $scope.settings.invoice_contact.name;
+        $scope.settings.contact_to_show_customer.address = $scope.settings.invoice_contact.address
+        $scope.settings.contact_to_show_customer.email = $scope.settings.invoice_contact.email
+        $scope.settings.contact_to_show_customer.phone = $scope.settings.invoice_contact.phone
+        $scope.settings.contact_to_show_customer.website = $scope.settings.invoice_contact.website
+      }
+      else {
         $scope.settings.contact_to_show_customer.name = $scope.settings.contact_to_show_customer.name
-        $scope.settings.contact_to_show_customer.title = $scope.settings.contact_to_show_customer.title
+        $scope.settings.contact_to_show_customer.address = $scope.settings.contact_to_show_customer.address
         $scope.settings.contact_to_show_customer.email = $scope.settings.contact_to_show_customer.email
-        $scope.settings.contact_to_show_customer.phone = $scope.settings.contact_to_show_customer.phone
+        $scope.settings.contact_to_show_customer.phone = $scope.settings.contact_to_show_customer.phone;
+        $scope.settings.contact_to_show_customer.website = $scope.settings.contact_to_show_customer.website
       }
       
     }
