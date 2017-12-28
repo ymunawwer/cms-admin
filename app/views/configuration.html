@@ -1,3 +1,194 @@
+
+<div class="main-slide-outer">
+        <!-- END HEADER -->
+        <ul id="slide-out" class="side-nav">
+             <li class="user-details cyan darken-2">
+                <div class="row">
+                  <div class="col col s4 m4 l4">
+                    <img src="{{admin.icon}}" alt="" class="circle responsive-img valign profile-image" style="height:53px;width:53px;" />
+                  </div>
+                  <div class="col col s8 m8 l8">
+                    <a class='btn-flat dropdown-button waves-effect waves-light white-text profile-btn' href='javascript:void(0);'>
+                      {{admin.name}}
+                    </a>
+                    <p class="user-roal">Adminstrator</p>
+                  </div>
+                </div>
+                </li>
+                <li class="bold" ui-sref-active="active">
+                  <a ui-sref="home.dashboard" class="waves-effect waves-cyan">
+                    <i class="mdi-action-dashboard"></i> Dashboard
+                  </a>
+                </li>
+                  <ul class="collapsible" data-collapsible="accordion" watch>
+                  <li ui-sref-active="active">
+                    <div class="collapsible-header">
+                      <i class="mdi-social-people"></i>Manage Users
+                    </div>
+                    <div class="collapsible-body">
+                      <ul>
+                        <li>
+                          <a ui-sref="home.useradd">Add a new user</a>
+                        </li>
+                        <li>
+                          <a ui-sref="home.userview">View all users</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                </ul>
+                <ul class="collapsible" data-collapsible="accordion" watch>
+                  <li ui-sref-active="active">
+                    <div class="collapsible-header">
+                      <i class="mdi-action-account-box"></i>Manage Service items
+                    </div>
+                    <div class="collapsible-body">
+                      <ul>
+                        <li>
+                          <a ui-sref="home.serviceadd">Add a new service item</a>
+                        </li>
+                        <li>
+                          <a ui-sref="home.serviceview">View all service items</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                </ul>
+                <ul class="collapsible" data-collapsible="accordion" watch>
+                  <li ui-sref-active="active">
+                    <div class="collapsible-header">
+                      <i class="mdi-action-loyalty"></i>Offers
+                    </div>
+                    <div class="collapsible-body">
+                      <ul>
+                        <li>
+                          <a ui-sref="home.add-image">Add Images</a>
+                        </li>
+                        <li>
+                          <a ui-sref="home.list-image">List Images</a>
+                        </li>
+                        <li>
+                          <ul class="collapsible" data-collapsible="accordion" watch>
+                            <li ui-sref-active="active">
+                              <div class="collapsible-header">
+                                <i class="mdi-action-account"></i>Maintenance Schedule Offer
+                              </div>
+                              <div class="collapsible-body">
+                                <ul>
+                                  <li >
+                                    <a style="color:black !important;" ui-sref="home.add-offer">Add</a>
+                                  </li>
+                                  <li >
+                                    <a style="color:black !important;" ui-sref="home.list-offer">List</a>
+                                  </li>
+                                </ul>
+                              </div>
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                </ul>
+                <ul class="collapsible" data-collapsible="accordion" watch>
+                  <li ui-sref-active="active">
+                    <div class="collapsible-header">
+                      <i class="mdi-av-loop"></i>Manage Recall items
+                    </div>
+                    <div class="collapsible-body">
+                      <ul>
+                        <li>
+                          <a ui-sref="home.recall">Add a recall item</a>
+                        </li>
+                        <li>
+                          <a ui-sref="home.recallview">View a recall item</a>
+                        </li>
+                        <!-- <li>
+                          <a ui-sref="home.recallookup">Add a recall lookup item</a>
+                        </li> -->
+                      </ul>
+                    </div>
+                  </li>
+                </ul>
+                <ul class="collapsible" data-collapsible="accordion" watch>
+                  <li ui-sref-active="active">
+                    <div class="collapsible-header">
+                      <i class="mdi-maps-local-car-wash"></i>OEM
+                    </div>
+                    <div class="collapsible-body">
+                      <ul>
+                        <li>
+                          <a ui-sref="home.maintenance">OEM Recommended</a>
+                        </li>
+                        <li>
+                          <a ui-sref="home.premaintenance">Data Approval</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                </ul>
+                <ul class="collapsible" data-collapsible="accordion" watch>
+                  <li ui-sref-active="active">
+                    <div class="collapsible-header">
+                      <i class="mdi-action-settings"></i>OEM Settings
+                    </div>
+                    <div class="collapsible-body">
+                      <ul>
+                        <li>
+                          <a ui-sref="home.maintenancepassword">Results Page Password</a>
+                        </li>
+                        <li>
+                          <a ui-sref="home.maintenancekey">Data Reset Password</a>
+                        </li>
+                        <li>
+                          <a ui-sref="home.maintenancetoken">Security Token</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                </ul>
+                <ul class="collapsible" data-collapsible="accordion" watch>
+                  <li ui-sref-active="active">
+                    <div class="collapsible-header">
+                      <i class="mdi-editor-format-list-numbered"></i>VINs
+                    </div>
+                    <div class="collapsible-body">
+                      <ul>
+                        <li>
+                          <a ui-sref="home.vehicle">View Vins</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                </ul>
+                <ul class="collapsible" data-collapsible="accordion" watch>
+                  <li ui-sref-active="active">
+                    <div class="collapsible-header">
+                      <i class="mdi-image-timer-off"></i>Lease Expiry
+                    </div>
+                    <div class="collapsible-body">
+                      <ul>
+                        <li>
+                          <a ui-sref="home.leaseadd">Add </a>
+                        </li>
+                        <li>
+                          <a ui-sref="home.lease">View </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                </ul>
+                <ul>
+                  <li>
+                    <a href="javascript:void(0)" ui-sref="configuration" class="slide-last-a">
+                    <i class="mdi-action-settings-applications"></i> Settings
+                    </a>
+                  </li>
+                </ul>
+        
+          </ul>
+          <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons small">menu</i></a>
+        </div>
 <style>
     .dealer-wizard {
         margin: 3em;
@@ -227,8 +418,13 @@ textarea{
                     <div class="row user-setting">
                         <p>Primary Contact</p>
                         <div class="input-field col s12">
-                                <label for="pctitle">Title*</label>
-                                <input id="pctitle" name="pctitle" required type="text" data-error=".errorTxt41" ng-model="settings.primary_contact.title">
+                                <!-- <label for="pctitle">Title*</label> -->
+                                <select id="pctitle"  class="browser-default" name="pctitle" ng-model="settings.primary_contact.title">
+                                    <option value="">--Title--</option>
+                                        <option  value="Mr">Mr</option>
+                                        <option  value="Ms">Ms</option>
+                                        <option  value="Mrs">Mrs</option>
+                                    </select>
                                 <div class="errorTxt41"></div>
                             </div>
                         <div class="input-field col s12">
@@ -255,13 +451,18 @@ textarea{
                                     </span>
                         </p>
                         <div class="input-field col s12">
-                                <label for="sctitle">Title*</label>
-                                <input id="sctitle" name="sctitle"  type="text" data-error=".errorTxt42" ng-model="settings.secondary_contact.title">
+                                <!-- <label for="sctitle">Title*</label> -->
+                                <select id="sctitle"  class="browser-default" name="sctitle" ng-model="settings.secondary_contact.title">
+                                        <option value="">--Title--</option>
+                                        <option  value="Mr">Mr</option>
+                                        <option  value="Ms">Ms</option>
+                                        <option  value="Mrs">Mrs</option>
+                                    </select>
                                 <div class="errorTxt42"></div>
                             </div>
                         <div class="input-field col s12">
                             <label for="scname">Name</label>
-                            <input id="scname" name="scname"  type="text" data-error=".errorTxt7" ng-model="settings.secondary_contact.name">
+                            <input id="scname" type="text"  name="scname" data-error=".errorTxt8" ng-model="settings.secondary_contact.name">
                             <div class="errorTxt7"></div>
                         </div>
                         <div class="input-field col s12">
@@ -278,8 +479,13 @@ textarea{
                     <div class="row user-setting">
                         <p>Details to be displayed on invoice</p>
                         <div class="input-field col s12">
-                                <label for="dntitle">Title*</label>
-                                <input id="dntitle" name="dntitle"  type="text" data-error=".errorTxt43" ng-model="settings.invoice_contact.title">
+                                <!-- <label for="dntitle">Title</label> -->
+                                <select id="dntitle"  class="browser-default" name="dntitle" ng-model="settings.invoice_contact.title">
+                                        <option value="">--Title--</option>
+                                        <option  value="Mr">Mr</option>
+                                        <option  value="Ms">Ms</option>
+                                        <option  value="Mrs">Mrs</option>
+                                    </select>
                                 <div class="errorTxt43"></div>
                             </div>
                         <div class="input-field col s12">
@@ -298,11 +504,15 @@ textarea{
                             <div class="errorTxt12"></div>
                         </div>
                     </div>
-                    <div class="row user-setting">
+                    <di v class="row user-setting">
                         <p>Contact Details to be displayed on to customers</p>
                         <div class="input-field col s12">
-                                <label for="cdctitle">Title*</label>
-                                <input id="cdctitle" name="cdctitle"  type="text" data-error=".errorTxt44" ng-model="settings.contact_to_show_customer.title">
+                                <!-- <label for="cdctitle">Title</label> -->
+                                <select id="cdctitle"  class="browser-default" name="cdctitle" ng-model="settings.contact_to_show_customer.title">
+                                        <option  value="Mr">Mr</option>
+                                        <option  value="Ms">Ms</option>
+                                        <option  value="Mrs">Mrs</option>
+                                    </select>
                                 <div class="errorTxt44"></div>
                             </div>
                         <div class="input-field col s12">

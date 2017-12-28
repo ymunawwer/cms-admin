@@ -24,6 +24,10 @@ angular.module('dmsAdminApp')
         headers: {
           "Content-Type": undefined
         }
-      }
+      },
+      getAutoCheck: {
+        url: endpoint + '/autocheck',
+        method: 'GET'
+      },
     })
   });

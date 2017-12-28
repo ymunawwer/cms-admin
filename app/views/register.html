@@ -63,7 +63,7 @@
       <div class="row margin">
         <div class="input-field col s12">
           <i class="mdi-social-person-outline prefix"></i>
-          <input id="email" name="email" type="text" autocomplete="off" data-error=".errorTxt1" ng-model="userData.email" required>
+          <input id="email" name="email" type="email" autocomplete="off" data-error=".errorTxt1" ng-model="userData.email" required>
           <label for="email">Your Email ID</label>
           <div class="errorTxt1"></div>
         </div>
@@ -95,7 +95,7 @@
       <div class="row margin">
         <div class="input-field col s12">
           <i class="mdi-social-person-outline prefix"></i>
-          <input id="phone" name="phone" type="text" autocomplete="off" data-error=".errorTxt12" ng-model="userData.phone" required>
+          <input id="phone" name="phone" type="text"  pattern="[0-9]{10}" autocomplete="off" data-error=".errorTxt12" ng-model="userData.phone" required>
           <label for="phone">Phone</label>
           <div class="errorTxt12"></div>
         </div>

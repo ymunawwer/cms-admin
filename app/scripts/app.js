@@ -155,8 +155,8 @@ angular.module('dmsAdminApp', ['ngCookies', 'ui.materialize', 'ui.router', 'ngCo
         controller: 'SettingCtrl',
         authenticate: true
       })
-      .state('home.configuration', {
-        url: 'configuration',
+      .state('configuration', {
+        url: '/configuration',
         templateUrl: 'views/configuration.html',
         controller: 'SettingCtrl',
         authenticate: true
@@ -230,6 +230,12 @@ angular.module('dmsAdminApp', ['ngCookies', 'ui.materialize', 'ui.router', 'ngCo
         url: 'maintenance/offer/edit/:id',
         templateUrl: 'views/moffer_edit.html',
         controller: 'MofferCtrl',
+        authenticate: true
+      })
+      .state('home.autocheck', {
+        url: 'autocheck',
+        templateUrl: 'views/autocheck.html',
+        controller: 'HomeCtrl',
         authenticate: true
       })
 

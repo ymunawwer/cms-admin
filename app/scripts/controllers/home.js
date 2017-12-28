@@ -8,8 +8,16 @@
  * Controller of the dmsAdminApp
  */
 angular.module('dmsAdminApp')
-  .controller('HomeCtrl', function ($scope, $state, session, settings) {
+  .controller('HomeCtrl', function ($scope, $state, session, settings, $sce) {
     $scope.admin =session.get('admin');
+
+  
+
+    settings.getAutoCheck({},{}, function(data) {
+      $scope.autocheck = $sce.trustAsHtml(data.body);
+      console.log($scope.autocheck)
+    });
+
     settings.getSetting({}, {}, function(data) {
       $scope.site = data.body.setting;
     });
