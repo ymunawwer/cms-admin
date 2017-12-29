@@ -695,7 +695,8 @@
                                                     <div class="input-field">
                                                         <!-- <input type="text" class="timepicker" ng-model="settings.days_of_service.sunday.start_time"> -->
                                                         <select style="display:block" ng-model="settings.days_of_service.sunday.start_time" >
-                                                            <option  ng-selected="settings.days_of_service.sunday.start_time==h" value="{{h}}" ng-repeat="h in hours" >{{h}}</option>
+                                                            <option  ng-if="h<=12" ng-disabled="settings.days_of_service.sunday.end_time<=h"  ng-selected="settings.days_of_service.sunday.start_time==h" value="{{h}}" ng-repeat="h in hours" >{{h}}:00 AM </option>
+                                                            <option  ng-if="h>12"ng-disabled="settings.days_of_service.sunday.end_time<=h"  ng-selected="settings.days_of_service.sunday.start_time==h" value="{{h}}" ng-repeat="h in hours" >{{h}}:00 PM </option>
                                                         </select>
                                                         <!--  -->
                                                     </div>
@@ -706,7 +707,8 @@
                                                     <div class="input-field">
                                                         <!-- <input type="text" class="datepicker" ng-model="settings.days_of_service.sunday.end_time"> -->
                                                         <select style="display:block" ng-model="settings.days_of_service.sunday.end_time" >
-                                                                <option ng-selected="settings.days_of_service.sunday.end_time==h" value="{{h}}" ng-repeat="h in hours" >{{h}}</option>
+                                                                <option ng-if="h<=12" ng-disabled="settings.days_of_service.sunday.start_time>=h" ng-selected="settings.days_of_service.sunday.end_time==h" value="{{h}}" ng-repeat="h in hours" >{{h}}:00 AM</option>
+                                                                <option ng-if="h>12" ng-disabled="settings.days_of_service.sunday.start_time>=h" ng-selected="settings.days_of_service.sunday.end_time==h" value="{{h}}" ng-repeat="h in hours" >{{h}}:00 PM</option>
                                                             </select>
                                                         
                                                     </div>
@@ -728,7 +730,8 @@
                                                     <div class="input-field">
                                                         <!-- <input type="text" class="datepicker" ng-model="settings.days_of_service.monday.start_time"> -->
                                                         <select style="display:block" ng-model="settings.days_of_service.monday.start_time" >
-                                                                <option ng-selected="settings.days_of_service.monday.start_time==h" value="{{h}}" ng-repeat="h in hours" >{{h}}</option>
+                                                                <option ng-if="h<=12" ng-disabled="settings.days_of_service.monday.end_time<=h"  ng-selected="settings.days_of_service.monday.start_time==h" value="{{h}}" ng-repeat="h in hours" >{{h}}:00 AM</option>
+                                                                <option ng-if="h>12" ng-disabled="settings.days_of_service.monday.end_time<=h"  ng-selected="settings.days_of_service.monday.start_time==h" value="{{h}}" ng-repeat="h in hours" >{{h}}:00 PM</option>
                                                             </select>
                                                         
                                                     </div>
@@ -739,7 +742,8 @@
                                                     <div class="input-field">
                                                         <!-- <input type="text" class="datepicker" ng-model="settings.days_of_service.monday.end_time"> -->
                                                         <select style="display:block" ng-model="settings.days_of_service.monday.end_time" >
-                                                                <option  ng-selected="settings.days_of_service.monday.end_time==h" value="{{h}}" ng-repeat="h in hours" >{{h}}</option>
+                                                                <option  ng-if="h<=12" ng-disabled="settings.days_of_service.monday.start_time>=h" ng-selected="settings.days_of_service.monday.end_time==h" value="{{h}}" ng-repeat="h in hours" >{{h}}:00 AM</option>
+                                                                <option  ng-if="h>12" ng-disabled="settings.days_of_service.monday.start_time>=h" ng-selected="settings.days_of_service.monday.end_time==h" value="{{h}}" ng-repeat="h in hours" >{{h}}:00 PM</option>
                                                             </select>
                                                         
                                                     </div>
@@ -761,7 +765,8 @@
                                                     <div class="input-field">
                                                         <!-- <input type="text" class="datepicker" ng-model="settings.days_of_service.tuesday.start_time"> -->
                                                         <select style="display:block" ng-model="settings.days_of_service.tuesday.start_time" >
-                                                                <option ng-selected="settings.days_of_service.tuesday.start_time==h" value="{{h}}" ng-repeat="h in hours" >{{h}}</option>
+                                                                <option ng-if="h<=12" ng-disabled="settings.days_of_service.tuesday.end_time<=h"  ng-selected="settings.days_of_service.tuesday.start_time==h" value="{{h}}" ng-repeat="h in hours" >{{h}}:00 AM</option>
+                                                                <option ng-if="h>12" ng-disabled="settings.days_of_service.tuesday.end_time<=h"  ng-selected="settings.days_of_service.tuesday.start_time==h" value="{{h}}" ng-repeat="h in hours" >{{h}}:00 PM</option>
                                                             </select>
                                                        
                                                     </div>
@@ -772,7 +777,8 @@
                                                     <div class="input-field">
                                                         <!-- <input type="text" class="datepicker" ng-model="settings.days_of_service.tuesday.end_time"> -->
                                                         <select style="display:block" ng-model="settings.days_of_service.tuesday.end_time" >
-                                                                <option ng-selected="settings.days_of_service.tuesday.end_time==h" value="{{h}}" ng-repeat="h in hours" >{{h}}</option>
+                                                                <option ng-if="h<=12" ng-disabled="settings.days_of_service.tuesday.start_time>=h" ng-selected="settings.days_of_service.tuesday.end_time==h" value="{{h}}" ng-repeat="h in hours" >{{h}}:00 AM</option>
+                                                                <option ng-if="h>12" ng-disabled="settings.days_of_service.tuesday.start_time>=h" ng-selected="settings.days_of_service.tuesday.end_time==h" value="{{h}}" ng-repeat="h in hours" >{{h}}:00 PM</option>
                                                             </select>
                                                         
                                                     </div>
@@ -797,7 +803,8 @@
                                                     <div class="input-field">
                                                         <!-- <input type="text" class="datepicker" ng-model="settings.days_of_service.wednesday.start_time"> -->
                                                         <select style="display:block" ng-model="settings.days_of_service.wednesday.start_time" >
-                                                                <option ng-selected="settings.days_of_service.wednesday.start_time==h" value="{{h}}" ng-repeat="h in hours" >{{h}}</option>
+                                                                <option ng-if="h<=12" ng-disabled="settings.days_of_service.wednesday.end_time<=h"  ng-selected="settings.days_of_service.wednesday.start_time==h" value="{{h}}" ng-repeat="h in hours" >{{h}}:00 AM</option>
+                                                                <option ng-if="h>12" ng-disabled="settings.days_of_service.wednesday.end_time<=h"  ng-selected="settings.days_of_service.wednesday.start_time==h" value="{{h}}" ng-repeat="h in hours" >{{h}}:00 PM</option>
                                                             </select>
                                                         
                                                     </div>
@@ -808,7 +815,8 @@
                                                     <div class="input-field">
                                                         <!-- <input type="text" class="datepicker" ng-model="settings.days_of_service.wednesday.end_time"> -->
                                                         <select style="display:block" ng-model="settings.days_of_service.wednesday.end_time" >
-                                                                <option  ng-selected="settings.days_of_service.wednesday.end_time==h" value="{{h}}" ng-repeat="h in hours" >{{h}}</option>
+                                                                <option  ng-if="h<=12" ng-disabled="settings.days_of_service.wednesday.start_time>=h" ng-selected="settings.days_of_service.wednesday.end_time==h" value="{{h}}" ng-repeat="h in hours" >{{h}}:00 AM</option>
+                                                                <option  ng-if="h>12" ng-disabled="settings.days_of_service.wednesday.start_time>=h" ng-selected="settings.days_of_service.wednesday.end_time==h" value="{{h}}" ng-repeat="h in hours" >{{h}}:00 PM</option>
                                                             </select>
                                                         
                                                     </div>
@@ -830,7 +838,8 @@
                                                     <div class="input-field">
                                                         <!-- <input type="text" class="datepicker" ng-model="settings.days_of_service.thursday.start_time"> -->
                                                         <select style="display:block" ng-model="settings.days_of_service.thursday.start_time" >
-                                                                <option ng-selected="settings.days_of_service.thursday.start_time==h" value="{{h}}" ng-repeat="h in hours" >{{h}}</option>
+                                                                <option  ng-if="h<=12" ng-disabled="settings.days_of_service.thursday.end_time<=h"  ng-selected="settings.days_of_service.thursday.start_time==h" value="{{h}}" ng-repeat="h in hours" >{{h}}:00 AM</option>
+                                                                <option  ng-if="h>12" ng-disabled="settings.days_of_service.thursday.end_time<=h"  ng-selected="settings.days_of_service.thursday.start_time==h" value="{{h}}" ng-repeat="h in hours" >{{h}}:00 PM</option>
                                                             </select>
                                                        
                                                     </div>
@@ -841,7 +850,8 @@
                                                     <div class="input-field">
                                                         <!-- <input type="text" class="datepicker" ng-model="settings.days_of_service.thursday.end_time"> -->
                                                         <select style="display:block" ng-model="settings.days_of_service.thursday.end_time" >
-                                                                <option ng-selected="settings.days_of_service.thursday.end_time==h" value="{{h}}" ng-repeat="h in hours" >{{h}}</option>
+                                                                <option  ng-if="h<=12" ng-disabled="settings.days_of_service.thursday.start_time>=h" ng-selected="settings.days_of_service.thursday.end_time==h" value="{{h}}" ng-repeat="h in hours" >{{h}}:00 AM</option>
+                                                                <option  ng-if="h>12" ng-disabled="settings.days_of_service.thursday.start_time>=h" ng-selected="settings.days_of_service.thursday.end_time==h" value="{{h}}" ng-repeat="h in hours" >{{h}}:00 PM</option>
                                                             </select>
                                                        
                                                     </div>
@@ -863,7 +873,8 @@
                                                     <div class="input-field">
                                                         <!-- <input type="text" class="datepicker" ng-model="settings.days_of_service.friday.start_time"> -->
                                                         <select style="display:block" ng-model="settings.days_of_service.friday.start_time" >
-                                                                <option ng-selected="settings.days_of_service.friday.start_time==h" value="{{h}}" ng-repeat="h in hours" >{{h}}</option>
+                                                                <option ng-if="h<=12" ng-disabled="settings.days_of_service.friday.end_time<=h"  ng-selected="settings.days_of_service.friday.start_time==h" value="{{h}}" ng-repeat="h in hours" >{{h}}:00 AM</option>
+                                                                <option ng-if="h>12" ng-disabled="settings.days_of_service.friday.end_time<=h"  ng-selected="settings.days_of_service.friday.start_time==h" value="{{h}}" ng-repeat="h in hours" >{{h}}:00 PM</option>
                                                             </select>
                                                        
                                                     </div>
@@ -874,7 +885,8 @@
                                                     <div class="input-field">
                                                         <!-- <input type="text" class="datepicker" ng-model="settings.days_of_service.friday.end_time"> -->
                                                         <select style="display:block" ng-model="settings.days_of_service.friday.end_time" >
-                                                                <option  ng-selected="settings.days_of_service.friday.end_time==h" value="{{h}}" ng-repeat="h in hours" >{{h}}</option>
+                                                                <option  ng-if="h<=12" ng-disabled="settings.days_of_service.friday.start_time>=h" ng-selected="settings.days_of_service.friday.end_time==h" value="{{h}}" ng-repeat="h in hours" >{{h}}:00 AM</option>
+                                                                <option  ng-if="h>12" ng-disabled="settings.days_of_service.friday.start_time>=h" ng-selected="settings.days_of_service.friday.end_time==h" value="{{h}}" ng-repeat="h in hours" >{{h}}:00 PM</option>
                                                             </select>
                                                        
                                                     </div>
@@ -896,7 +908,8 @@
                                                     <div class="input-field">
                                                         <!-- <input type="text" class="datepicker" ng-model="settings.days_of_service.saturday.start_time"> -->
                                                         <select style="display:block" ng-model="settings.days_of_service.saturday.start_time" >
-                                                                <option ng-selected="settings.days_of_service.saturday.start_time==h" value="{{h}}" ng-repeat="h in hours" >{{h}}</option>
+                                                                <option ng-if="h<=12" ng-disabled="settings.days_of_service.saturday.end_time<=h"  ng-selected="settings.days_of_service.saturday.start_time==h" value="{{h}}" ng-repeat="h in hours" >{{h}}:00 AM</option> 
+                                                                <option ng-if="h>12" ng-disabled="settings.days_of_service.saturday.end_time<=h"  ng-selected="settings.days_of_service.saturday.start_time==h" value="{{h}}" ng-repeat="h in hours" >{{h}}:00 PM</option> 
                                                             </select>
                                                        
                                                     </div>
@@ -907,7 +920,8 @@
                                                     <div class="input-field">
                                                         <!-- <input type="text" class="datepicker" ng-model="settings.days_of_service.saturday.end_time"> -->
                                                         <select style="display:block" ng-model="settings.days_of_service.saturday.end_time" >
-                                                                <option ng-selected="settings.days_of_service.saturday.end_time==h" value="{{h}}" ng-repeat="h in hours" >{{h}}</option>
+                                                                <option ng-if="h<=12" ng-disabled="settings.days_of_service.saturday.start_time>=h" ng-selected="settings.days_of_service.saturday.end_time==h" value="{{h}}" ng-repeat="h in hours" >{{h}}:00 AM</option>
+                                                                <option ng-if="h>12" ng-disabled="settings.days_of_service.saturday.start_time>=h" ng-selected="settings.days_of_service.saturday.end_time==h" value="{{h}}" ng-repeat="h in hours" >{{h}}:00 PM</option>
                                                             </select>
                                                        
                                                     </div>
