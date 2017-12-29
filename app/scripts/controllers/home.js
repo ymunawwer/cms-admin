@@ -13,10 +13,10 @@ angular.module('dmsAdminApp')
 
   
 
-    settings.getAutoCheck({},{}, function(data) {
-      $scope.autocheck = $sce.trustAsHtml(data.body);
-      console.log($scope.autocheck)
-    });
+    // settings.getAutoCheck({},{}, function(data) {
+    //   $scope.autocheck = $sce.trustAsHtml(data.body);
+    //   console.log($scope.autocheck)
+    // });
 
     settings.getSetting({}, {}, function(data) {
       $scope.site = data.body.setting;

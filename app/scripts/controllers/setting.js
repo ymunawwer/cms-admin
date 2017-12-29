@@ -233,11 +233,12 @@ angular.module('dmsAdminApp')
         Materialize.toast('<span>' + "Upload valid image" + '</span>', 3000);
       }
     }
-    //function to clear uploaded image
+    //function to clear uploaded image 
     $scope.clearImage = function () {
       $scope.showCroppedImg = false;
       $scope.myImage = null;
       $scope.validImage = false;
+      angular.element(document.querySelector('#imageForm'))[0].reset();
       $("#fileInput").val = '';
     }
 
@@ -263,38 +264,14 @@ angular.module('dmsAdminApp')
           for (var i = 0; i < data.body.result.length; i++) {
             if (data.body.result[i] != null) add++;
           }
-          Materialize.toast('<span>' + add + " service added Successfully" + '</span>', 3000);
+          Materialize.toast('<span>' + add + " Service items have been uploaded successfully!" + '</span>', 3000);
         } else {
           Materialize.toast('<span>' + 'Services adding has been failed' + '</span>', 3000);
         }
       })
     };
 
-    $scope.uploadUserData = function (files) {
-      var fd = new FormData();
-      //Take the first selected file
-      fd.append("file", files[0]);
-
-      userservice.uploadUserFile({}, fd, function (data) {
-        if (data.statusText == 'success') {
-          if (data.body.already.length != 0) {
-            var string = '';
-            for (var i = 0; i < data.body.already.length; i++) {
-              string = data.body.already[i].name + ',' + string;
-            }
-            $scope.already = data.body.already;
-
-          }
-          // var add = 0;
-          // for(var i=0;i<data.body.result.length; i++){
-          //   if(data.body.result[i]!=null) add++;
-          // }
-          Materialize.toast('<span> User added Successfully" </span>', 3000);
-        } else {
-          Materialize.toast('<span>' + 'User adding has been failed' + '</span>', 3000);
-        }
-      })
-    };
+   
     $scope.nextStep = function (stage) {
       $scope.isStarted = true;
       $scope.step = stage;
@@ -414,19 +391,7 @@ angular.module('dmsAdminApp')
       $scope.complete = 1 - 1;
       Materialize.toast('<span>Congrats! your dealership is setup.  </span>', 3000);
     }
-    $scope.addService = function () {
-      if ($scope.addServiceForm.$valid) {
-        $scope.serviceData.make = $scope.serviceData.make && $scope.serviceData.make.name != 'INDEPENDENT' ? $scope.serviceData.make.name : null;
-
-        serviceservice.addService({}, $scope.serviceData, function (data) {
-          if (data.statusCode === 200) {
-            Materialize.toast('<span>' + data.message + '</span>', 3000);
-          } else {
-            Materialize.toast('<span>' + data.message + '</span>', 3000);
-          }
-        })
-      }
-    }
+    
 
     $scope.primeToSecondary = function(){
       $scope.settings.secondary_contact ={};
@@ -464,5 +429,169 @@ angular.module('dmsAdminApp')
       }
       
     }
+    $scope.totalserve = 1;
+    $scope.addservicediv = function(){
+      $scope.totalserve = $scope.totalserve+1;
+    }
+    $scope.removeservicediv = function(){
+      $scope.totalserve = $scope.totalserve-1;
+    }
+    $scope.serviceData = [];
+    $scope.addService = function () {
+      if($scope.addServiceForm.$valid) {
+        $scope.serviceData.make = $scope.serviceData.make && $scope.serviceData.make.name != 'INDEPENDENT' ? $scope.serviceData.make.name : null;
+
+        serviceservice.addBulkService({}, $scope.serviceData, function (data) {
+          if (data.statusCode === 200) {
+            if (data.body.already.length != 0) {
+              var string = '';
+              for (var i = 0; i < data.body.already.length; i++) {
+                string = data.body.already[i].name + ',' + string;
+              }
+              $scope.already = data.body.already;
+  
+            }
+            var add = 0;
+            for (var i = 0; i < data.body.result.length; i++) {
+              if (data.body.result[i] != null) add++;
+            }
+            Materialize.toast('<span>' + add + " Service items have been uploaded successfully!" + '</span>', 3000);
+          } else {
+            Materialize.toast('<span>' + data.message + '</span>', 3000);
+          }
+        })
+      }
+    }
+
+    $scope.uploadUserData = function (files) {
+      var fd = new FormData();
+      //Take the first selected file
+      fd.append("file", files[0]);
+
+      userservice.uploadUserFile({}, fd, function (data) {
+        if (data.statusText == 'success') {
+          if (data.body.already.length != 0) {
+            var string = '';
+            for (var i = 0; i < data.body.already.length; i++) {
+              string = data.body.already[i].name + ',' + string;
+            }
+            $scope.alreadyu = data.body.already;
+
+          }
+          var add = 0;
+          for(var i=0;i<data.body.result.length; i++){
+            if(data.body.result[i]!=null) add++;
+          }
+          Materialize.toast('<span>' + add + " Users have been uploaded successfully!" + '</span>', 3000);
+        } else {
+          Materialize.toast('<span>' + 'User adding has been failed' + '</span>', 3000);
+        }
+      })
+    };
+    $scope.totalusr = 1;
+    $scope.adduserdiv = function(){
+      $scope.totalusr = $scope.totalusr+1;
+    }
+    $scope.removuserdiv = function(){
+      $scope.totalusr = $scope.totalusr-1;
+    }
+    $scope.userData = [];
+    $scope.addUser = function(){
+      
+      if($scope.addUsersForm.$valid){
+        userservice.addBulkUser({}, $scope.userData, function(data){
+          if(data.statusCode === 200){
+            if (data.body.already.length != 0) {
+              var string = '';
+              for (var i = 0; i < data.body.already.length; i++) {
+                string = data.body.already[i].name + ',' + string;
+              }
+              $scope.alreadyu = data.body.already;
+  
+            }
+            var add = 0;
+            for(var i=0;i<data.body.result.length; i++){
+              if(data.body.result[i]!=null) add++;
+            }
+            Materialize.toast('<span>' + add + " Users have been uploaded successfully!" + '</span>', 3000);
+          }
+          else{
+            Materialize.toast('<span>'+data.message+'</span>', 3000);
+          }
+        })
+      }else{
+        Materialize.toast('<span> Add all fields</span>', 3000);
+      }
+    }
+
+    $scope.roles = [ 
+      {name:"admin", role:"admin"},
+    {name:"marketing_manager", role:"MM"},
+    {name:"used_car_manager",role:"UCM"},
+    {name:"service_scheduler",role:"SS"},
+    {name:"service_adviser", role:"SA"},
+    {name:"vehicle​_inspection​", role:"VI"}
+  ];
+
+  $scope.uploadCustomerData = function (files) {
+    var fd = new FormData();
+    //Take the first selected file
+    fd.append("file", files[0]);
+
+    userservice.uploadUserFile({}, fd, function (data) {
+      if (data.statusText == 'success') {
+        if (data.body.already.length != 0) {
+          var string = '';
+          for (var i = 0; i < data.body.already.length; i++) {
+            string = data.body.already[i].name + ',' + string;
+          }
+          $scope.alreadyc = data.body.already;
+
+        }
+        var add = 0;
+        for(var i=0;i<data.body.result.length; i++){
+          if(data.body.result[i]!=null) add++;
+        }
+        Materialize.toast('<span>' + add + " Customers have been uploaded successfully!" + '</span>', 3000);
+      } else {
+        Materialize.toast('<span>' + 'Customer adding has been failed' + '</span>', 3000);
+      }
+    })
+  };
+  $scope.totalcus = 1;
+  $scope.addcustomerdiv = function(){
+    $scope.totalcus = $scope.totalcus+1;
+  }
+  $scope.removcustomerdiv = function(){
+    $scope.totalcus = $scope.totalcus-1;
+  }
+  $scope.customerData = [];
+  $scope.addCustomer = function(){
+      
+    if($scope.addCustomerForm.$valid){
+      userservice.addBulkUser({}, $scope.customerData, function(data){
+        if(data.statusCode === 200){
+          if (data.body.already.length != 0) {
+            var string = '';
+            for (var i = 0; i < data.body.already.length; i++) {
+              string = data.body.already[i].name + ',' + string;
+            }
+            $scope.alreadyc = data.body.already;
+
+          }
+          var add = 0;
+          for(var i=0;i<data.body.result.length; i++){
+            if(data.body.result[i]!=null) add++;
+          }
+          Materialize.toast('<span>' + add + " Customers have been uploaded successfully!" + '</span>', 3000);
+        }
+        else{
+          Materialize.toast('<span>'+data.message+'</span>', 3000);
+        }
+      })
+    }else{
+      Materialize.toast('<span> Add all fields</span>', 3000);
+    }
+  }
   });
 

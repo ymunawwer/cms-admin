@@ -20,7 +20,10 @@ angular.module('dmsAdminApp').service('userservice', function($resource, session
     addUser: {
       url: endpoint + '/admin/users',
       method: 'POST',
-
+    },
+    addBulkUser: {
+      url: endpoint + '/admin/users/bulk',
+      method: 'POST',
     },
     deleteUser: {
       url: endpoint + '/admin/users/:id',

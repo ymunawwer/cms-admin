@@ -1,223 +1,234 @@
 <style>
-.main-slide-outer{
-    position: static;
-    background: transparent;
-    margin: 0 1.55em;
-}
-.bulk-upload-otr p{
+    .main-slide-outer {
+        position: static;
+        background: transparent;
+        margin: 0 1.55em;
+    }
+
+    .bulk-upload-otr p {
         text-transform: none !important;
-    font-weight: 400 !important;
-    margin: 8px 0 !important;
-}
-[type="checkbox"].filled-in:checked+label:after{
+        font-weight: 400 !important;
+        margin: 8px 0 !important;
+    }
+    .wizard-content.bulk-upload-otr p{
+        font-size: 18px;
+        line-height: 28px;
+        margin: 15px 0;
+    }
+    [type="checkbox"].filled-in:checked+label:after {
         border: 2px solid #000;
-background-color: #000;
-}
-.ul-main-seven p span{
-    display: inline-block;
-    padding: 25px 5px;
-}
+        background-color: #000;
+    }
+
+    .ul-main-seven p span {
+        display: inline-block;
+        padding: 14px 5px;
+    }
 </style>
 
 <div class="main-slide-outer">
-        <!-- END HnEADER -->
-        <ul id="slide-out" class="side-nav">
-             <li class="user-details cyan darken-2">
-                <div class="row">
-                  <div class="col col s4 m4 l4">
+    <!-- END HnEADER -->
+    <ul id="slide-out" class="side-nav">
+        <li class="user-details cyan darken-2">
+            <div class="row">
+                <div class="col col s4 m4 l4">
                     <img src="{{admin.icon}}" alt="" class="circle responsive-img valign profile-image" style="height:53px;width:53px;" />
-                  </div>
-                  <div class="col col s8 m8 l8">
+                </div>
+                <div class="col col s8 m8 l8">
                     <a class='btn-flat dropdown-button waves-effect waves-light white-text profile-btn' href='javascript:void(0);'>
-                      {{admin.name}}
+                        {{admin.name}}
                     </a>
                     <p class="user-roal">Adminstrator</p>
-                  </div>
                 </div>
-                </li>
-                <li class="bold" ui-sref-active="active">
-                  <a ui-sref="home.dashboard" class="waves-effect waves-cyan">
-                    <i class="mdi-action-dashboard"></i> Dashboard
-                  </a>
-                </li>
-                  <ul class="collapsible" data-collapsible="accordion" watch>
-                  <li ui-sref-active="active">
-                    <div class="collapsible-header">
-                      <i class="mdi-social-people"></i>Manage Users
-                    </div>
-                    <div class="collapsible-body">
-                      <ul>
+            </div>
+        </li>
+        <li class="bold" ui-sref-active="active">
+            <a ui-sref="home.dashboard" class="waves-effect waves-cyan">
+                <i class="mdi-action-dashboard"></i> Dashboard
+            </a>
+        </li>
+        <ul class="collapsible" data-collapsible="accordion" watch>
+            <li ui-sref-active="active">
+                <div class="collapsible-header">
+                    <i class="mdi-social-people"></i>Manage Users
+                </div>
+                <div class="collapsible-body">
+                    <ul>
                         <li>
-                          <a ui-sref="home.useradd">Add a new user</a>
+                            <a ui-sref="home.useradd">Add a new user</a>
                         </li>
                         <li>
-                          <a ui-sref="home.userview">View all users</a>
+                            <a ui-sref="home.userview">View all users</a>
                         </li>
-                      </ul>
-                    </div>
-                  </li>
-                </ul>
-                <ul class="collapsible" data-collapsible="accordion" watch>
-                  <li ui-sref-active="active">
-                    <div class="collapsible-header">
-                      <i class="mdi-action-account-box"></i>Manage Service items
-                    </div>
-                    <div class="collapsible-body">
-                      <ul>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+        <ul class="collapsible" data-collapsible="accordion" watch>
+            <li ui-sref-active="active">
+                <div class="collapsible-header">
+                    <i class="mdi-action-account-box"></i>Manage Service items
+                </div>
+                <div class="collapsible-body">
+                    <ul>
                         <li>
-                          <a ui-sref="home.serviceadd">Add a new service item</a>
-                        </li>
-                        <li>
-                          <a ui-sref="home.serviceview">View all service items</a>
-                        </li>
-                      </ul>
-                    </div>
-                  </li>
-                </ul>
-                <ul class="collapsible" data-collapsible="accordion" watch>
-                  <li ui-sref-active="active">
-                    <div class="collapsible-header">
-                      <i class="mdi-action-loyalty"></i>Offers
-                    </div>
-                    <div class="collapsible-body">
-                      <ul>
-                        <li>
-                          <a ui-sref="home.add-image">Add Images</a>
+                            <a ui-sref="home.serviceadd">Add a new service item</a>
                         </li>
                         <li>
-                          <a ui-sref="home.list-image">List Images</a>
+                            <a ui-sref="home.serviceview">View all service items</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+        <ul class="collapsible" data-collapsible="accordion" watch>
+            <li ui-sref-active="active">
+                <div class="collapsible-header">
+                    <i class="mdi-action-loyalty"></i>Offers
+                </div>
+                <div class="collapsible-body">
+                    <ul>
+                        <li>
+                            <a ui-sref="home.add-image">Add Images</a>
                         </li>
                         <li>
-                          <ul class="collapsible" data-collapsible="accordion" watch>
-                            <li ui-sref-active="active">
-                              <div class="collapsible-header">
-                                <i class="mdi-action-account"></i>Maintenance Schedule Offer
-                              </div>
-                              <div class="collapsible-body">
-                                <ul>
-                                  <li >
-                                    <a style="color:black !important;" ui-sref="home.add-offer">Add</a>
-                                  </li>
-                                  <li >
-                                    <a style="color:black !important;" ui-sref="home.list-offer">List</a>
-                                  </li>
-                                </ul>
-                              </div>
-                            </li>
-                          </ul>
-                        </li>
-                      </ul>
-                    </div>
-                  </li>
-                </ul>
-                <ul class="collapsible" data-collapsible="accordion" watch>
-                  <li ui-sref-active="active">
-                    <div class="collapsible-header">
-                      <i class="mdi-av-loop"></i>Manage Recall items
-                    </div>
-                    <div class="collapsible-body">
-                      <ul>
-                        <li>
-                          <a ui-sref="home.recall">Add a recall item</a>
+                            <a ui-sref="home.list-image">List Images</a>
                         </li>
                         <li>
-                          <a ui-sref="home.recallview">View a recall item</a>
+                            <ul class="collapsible" data-collapsible="accordion" watch>
+                                <li ui-sref-active="active">
+                                    <div class="collapsible-header">
+                                        <i class="mdi-action-account"></i>Maintenance Schedule Offer
+                                    </div>
+                                    <div class="collapsible-body">
+                                        <ul>
+                                            <li>
+                                                <a style="color:black !important;" ui-sref="home.add-offer">Add</a>
+                                            </li>
+                                            <li>
+                                                <a style="color:black !important;" ui-sref="home.list-offer">List</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+        <ul class="collapsible" data-collapsible="accordion" watch>
+            <li ui-sref-active="active">
+                <div class="collapsible-header">
+                    <i class="mdi-av-loop"></i>Manage Recall items
+                </div>
+                <div class="collapsible-body">
+                    <ul>
+                        <li>
+                            <a ui-sref="home.recall">Add a recall item</a>
+                        </li>
+                        <li>
+                            <a ui-sref="home.recallview">View a recall item</a>
                         </li>
                         <!-- <li>
                           <a ui-sref="home.recallookup">Add a recall lookup item</a>
                         </li> -->
-                      </ul>
-                    </div>
-                  </li>
-                </ul>
-                <ul class="collapsible" data-collapsible="accordion" watch>
-                  <li ui-sref-active="active">
-                    <div class="collapsible-header">
-                      <i class="mdi-maps-local-car-wash"></i>OEM
-                    </div>
-                    <div class="collapsible-body">
-                      <ul>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+        <ul class="collapsible" data-collapsible="accordion" watch>
+            <li ui-sref-active="active">
+                <div class="collapsible-header">
+                    <i class="mdi-maps-local-car-wash"></i>OEM
+                </div>
+                <div class="collapsible-body">
+                    <ul>
                         <li>
-                          <a ui-sref="home.maintenance">OEM Recommended</a>
+                            <a ui-sref="home.maintenance">OEM Recommended</a>
                         </li>
                         <li>
-                          <a ui-sref="home.premaintenance">Data Approval</a>
+                            <a ui-sref="home.premaintenance">Data Approval</a>
                         </li>
-                      </ul>
-                    </div>
-                  </li>
-                </ul>
-                <ul class="collapsible" data-collapsible="accordion" watch>
-                  <li ui-sref-active="active">
-                    <div class="collapsible-header">
-                      <i class="mdi-action-settings"></i>OEM Settings
-                    </div>
-                    <div class="collapsible-body">
-                      <ul>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+        <ul class="collapsible" data-collapsible="accordion" watch>
+            <li ui-sref-active="active">
+                <div class="collapsible-header">
+                    <i class="mdi-action-settings"></i>OEM Settings
+                </div>
+                <div class="collapsible-body">
+                    <ul>
                         <li>
-                          <a ui-sref="home.maintenancepassword">Results Page Password</a>
-                        </li>
-                        <li>
-                          <a ui-sref="home.maintenancekey">Data Reset Password</a>
+                            <a ui-sref="home.maintenancepassword">Results Page Password</a>
                         </li>
                         <li>
-                          <a ui-sref="home.maintenancetoken">Security Token</a>
-                        </li>
-                      </ul>
-                    </div>
-                  </li>
-                </ul>
-                <ul class="collapsible" data-collapsible="accordion" watch>
-                  <li ui-sref-active="active">
-                    <div class="collapsible-header">
-                      <i class="mdi-editor-format-list-numbered"></i>VINs
-                    </div>
-                    <div class="collapsible-body">
-                      <ul>
-                        <li>
-                          <a ui-sref="home.vehicle">View Vins</a>
-                        </li>
-                      </ul>
-                    </div>
-                  </li>
-                </ul>
-                <ul class="collapsible" data-collapsible="accordion" watch>
-                  <li ui-sref-active="active">
-                    <div class="collapsible-header">
-                      <i class="mdi-image-timer-off"></i>Lease Expiry
-                    </div>
-                    <div class="collapsible-body">
-                      <ul>
-                        <li>
-                          <a ui-sref="home.leaseadd">Add </a>
+                            <a ui-sref="home.maintenancekey">Data Reset Password</a>
                         </li>
                         <li>
-                          <a ui-sref="home.lease">View </a>
+                            <a ui-sref="home.maintenancetoken">Security Token</a>
                         </li>
-                      </ul>
-                    </div>
-                  </li>
-                </ul>
-                <ul>
-                  <li>
-                    <a href="javascript:void(0)" ui-sref="configuration" class="slide-last-a">
+                    </ul>
+                </div>
+            </li>
+        </ul>
+        <ul class="collapsible" data-collapsible="accordion" watch>
+            <li ui-sref-active="active">
+                <div class="collapsible-header">
+                    <i class="mdi-editor-format-list-numbered"></i>VINs
+                </div>
+                <div class="collapsible-body">
+                    <ul>
+                        <li>
+                            <a ui-sref="home.vehicle">View Vins</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+        <ul class="collapsible" data-collapsible="accordion" watch>
+            <li ui-sref-active="active">
+                <div class="collapsible-header">
+                    <i class="mdi-image-timer-off"></i>Lease Expiry
+                </div>
+                <div class="collapsible-body">
+                    <ul>
+                        <li>
+                            <a ui-sref="home.leaseadd">Add </a>
+                        </li>
+                        <li>
+                            <a ui-sref="home.lease">View </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <a href="javascript:void(0)" ui-sref="configuration" class="slide-last-a">
                     <i class="mdi-action-settings-applications"></i> Settings
-                    </a>
-                  </li>
-                </ul>
-        
-          </ul>
-          <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons small">menu</i></a>
-        </div>
+                </a>
+            </li>
+        </ul>
+
+    </ul>
+    <a href="#" data-activates="slide-out" class="button-collapse">
+        <i class="material-icons small">menu</i>
+    </a>
+</div>
 <style>
     .dealer-wizard {
-        margin:1em 3em 3em;
+        margin: 1em 3em 3em;
         padding: 1em;
         display: inline-block;
     }
-    .camel-case{
+
+    .camel-case {
         text-transform: capitalize;
     }
+
     .dealer-wizard p.flow-text {
         color: #f27717;
         margin: 0;
@@ -275,9 +286,11 @@ background-color: #000;
         display: inline-block;
         text-transform: capitalize;
     }
-textarea{
-    height: 40px !important;
-}
+
+    textarea {
+        height: 40px !important;
+    }
+
     .s2 select {
         border: 1px solid #9e9e9e;
         margin: 1em 0;
@@ -296,7 +309,8 @@ textarea{
     .step-actions.sa {
         position: absolute !important;
     }
-    .hiddendiv{
+
+    .hiddendiv {
         display: none !important;
     }
 
@@ -321,45 +335,59 @@ textarea{
         right: 10px;
         color: #ff0000;
     }
-    .tiny.blue-text{
+
+    .tiny.blue-text {
         cursor: pointer;
     }
-    .selection-corrector{
-            margin: 10px 0 20px 10px;
+
+    .selection-corrector {
+        margin: 10px 0 20px 10px;
         border-radius: 0;
         padding-left: 0;
     }
-    .pl11{
+
+    .pl11 {
         padding-left: 11px;
     }
-    .picker__weekday-display{
+
+    .picker__weekday-display {
         background-color: #d05e09;
         font-weight: 400;
     }
+
     .picker__date-display,
-    .picker__day--selected, .picker__day--selected:hover, .picker--focused .picker__day--selected{
+    .picker__day--selected,
+    .picker__day--selected:hover,
+    .picker--focused .picker__day--selected {
         background-color: #f27518;
     }
+
     .picker__day.picker__day--today,
-    .picker__close, .picker__today{
+    .picker__close,
+    .picker__today {
         color: #f27518;
     }
-    .ul-main-two .tabs{
-            display: inline-block;
+
+    .ul-main-two .tabs {
+        display: inline-block;
         text-align: left;
         white-space: nowrap !important;
     }
-    .ul-main-two .tabs .tab{
+
+    .ul-main-two .tabs .tab {
         width: 100% !important;
         text-align: left;
     }
-    .ul-main-two .tabs .indicator{
+
+    .ul-main-two .tabs .indicator {
         display: none;
     }
-    .ul-main-two .tabs .tab a{
+
+    .ul-main-two .tabs .tab a {
         color: #000;
     }
-    .ul-main-two .tabs .tab a.active label{
+
+    .ul-main-two .tabs .tab a.active label {
         color: #f27518;
     }
 </style>
@@ -423,7 +451,7 @@ textarea{
                 <li ng-click="nextStep(4)" class="li-4" ng-class="{'active': step==4 , 'done-li': (  complete==4  || complete==5 || complete==6 || complete==7 || complete==8)}">Step 4
                     <p class="truncate">Used Car</p>
                 </li>
-                <li  ng-click="nextStep(5)"class="li-5" ng-class="{'active': step==5 , 'done-li': (complete==5 || complete==6 || complete==7 || complete==8)}">Step 5
+                <li ng-click="nextStep(5)" class="li-5" ng-class="{'active': step==5 , 'done-li': (complete==5 || complete==6 || complete==7 || complete==8)}">Step 5
                     <p class="truncate">Service Adviser</p>
                 </li>
                 <li class="li-6" ng-click="nextStep(6)" ng-class="{'active': step==6 , 'done-li': (complete==6 || complete==7 || complete==8)}">Step 6
@@ -432,9 +460,12 @@ textarea{
                 <li class="li-7" ng-click="nextStep(7)" ng-class="{'active': step==7 , 'done-li': (complete==7 || complete==8)}">Step 7
                     <p class="truncate">User Setup</p>
                 </li>
-                <li class="li-8" ng-click="nextStep(8)"ng-class="{'active': step==8 , 'done-li': (complete==8)}">Step 8
+                <li class="li-8" ng-click="nextStep(8)" ng-class="{'active': step==8 , 'done-li': (complete==8)}">Step 8
                     <p class="truncate">Customer Setup</p>
                 </li>
+                <li class="li-9" ng-click="nextStep(9)" ng-class="{'active': step==9 , 'done-li': (complete==9)}">Step 9
+                        <p class="truncate">Final</p>
+                    </li>
             </ul>
         </div>
         <!--ul-outer-->
@@ -442,7 +473,7 @@ textarea{
             <div class="ul-main-one ulmc" ng-class="{'active': step==1}">
                 <form class="formValidate" name="formValidate" id="formValidate" ng-submit="updateSetting()">
                     <p>Account details
-                    <i class="material-icons tiny blue-text tooltipped" data-position="right" data-delay="50" data-tooltip="Fill up the details">help_outline</i>
+                        <i class="material-icons tiny blue-text tooltipped" data-position="right" data-delay="50" data-tooltip="Fill up the details">help_outline</i>
                     </p>
                     <div class="col s12 pl11">
                         <label for="cname">Dealer name*</label>
@@ -461,16 +492,17 @@ textarea{
                     </div>
                     <div class="margin col s12 pl11">
                         <label for="manufacturs">Dealer​ ​OEM​ ​association</label>
-                        <select id="manufacturs" ng-change="changeManufacture()" class="browser-default selection-corrector" name="manufacturs" ng-model="settings.manufactur" style="margin: 0 0 20px;">
+                        <select id="manufacturs" ng-change="changeManufacture()" class="browser-default selection-corrector" name="manufacturs" ng-model="settings.manufactur"
+                            style="margin: 0 0 20px;">
                             <option ng-repeat="man in manufactureList" value="{{man._id}}">{{man.name}}</option>
                         </select>
                     </div>
                     <div class="margin col s12 pl11">
-                            <label for="manufactur">Makes</label>
-                            <select id="manufactur"  multiple class="browser-default selection-corrector" name="manufactur" ng-model="settings.make"  style="margin: 0 0 20px;">
-                                <option ng-repeat="make in makesList" value="{{make._id}}">{{make.name}}</option>
-                            </select>
-                        </div>
+                        <label for="manufactur">Makes</label>
+                        <select id="manufactur" multiple class="browser-default selection-corrector" name="manufactur" ng-model="settings.make" style="margin: 0 0 20px;">
+                            <option ng-repeat="make in makesList" value="{{make._id}}">{{make.name}}</option>
+                        </select>
+                    </div>
                     <!-- <div class=" margin">
                         <a class="waves-effect waves-light btn modal-trigger grey darken-2 modal-anchor" href="#modal1">Change Password</a>
                     </div> -->
@@ -481,17 +513,20 @@ textarea{
                     </button>
                 </div> -->
                     <div class="row user-setting">
-                        <p>Primary Contact <i class="material-icons tiny blue-text tooltipped" data-position="right" data-delay="50" data-tooltip="Fill up the details">help_outline</i></p>
+                        <p>Primary Contact
+                            <i class="material-icons tiny blue-text tooltipped" data-position="right" data-delay="50"
+                                data-tooltip="Fill up the details">help_outline</i>
+                        </p>
                         <div>
-                                <!-- <label for="pctitle">Title*</label> -->
-                                <select id="pctitle"  class="browser-default selection-corrector" name="pctitle" ng-model="settings.primary_contact.title">
-                                    <option value="">--Title--</option>
-                                        <option  value="Mr">Mr</option>
-                                        <option  value="Ms">Ms</option>
-                                        <option  value="Mrs">Mrs</option>
-                                    </select>
-                                <div class="errorTxt41"></div>
-                            </div>
+                            <!-- <label for="pctitle">Title*</label> -->
+                            <select id="pctitle" class="browser-default selection-corrector" name="pctitle" ng-model="settings.primary_contact.title">
+                                <option value="">--Title--</option>
+                                <option value="Mr">Mr</option>
+                                <option value="Ms">Ms</option>
+                                <option value="Mrs">Mrs</option>
+                            </select>
+                            <div class="errorTxt41"></div>
+                        </div>
                         <div class="input-field col s12">
                             <label for="pcname">Name*</label>
                             <input id="pcname" name="pcname" required type="text" data-error=".errorTxt4" ng-model="settings.primary_contact.name">
@@ -509,45 +544,49 @@ textarea{
                         </div>
                     </div>
                     <div class="row user-setting">
-                        <p>Contact for Invoicing <i class="material-icons tiny blue-text tooltipped" data-position="right" data-delay="50" data-tooltip="Contact for Invoicing">help_outline</i>&nbsp;&nbsp; &nbsp;  
-                           <span>
+                        <p>Contact for Invoicing
+                            <i class="material-icons tiny blue-text tooltipped" data-position="right" data-delay="50"
+                                data-tooltip="Contact for Invoicing">help_outline</i>&nbsp;&nbsp; &nbsp;
+                            <span>
                                 <input type="checkbox" id="secondCheck" ng-change="primeToSecondary()" ng-model="secondCheck" />
                                 <label for="secondCheck">My all contact is the same as my primary contact</label>
                             </span>
                         </p>
                         <div>
-                                <!-- <label for="sctitle">Title*</label> -->
-                                <select id="sctitle"  class="browser-default selection-corrector" name="sctitle" ng-model="settings.secondary_contact.title" >
-                                        <option value="">--Title--</option>
-                                        <option  value="Mr">Mr</option>
-                                        <option  value="Ms">Ms</option>
-                                        <option  value="Mrs">Mrs</option>
-                                    </select>
-                                <div class="errorTxt42"></div>
-                            </div>
+                            <!-- <label for="sctitle">Title*</label> -->
+                            <select id="sctitle" class="browser-default selection-corrector" name="sctitle" ng-model="settings.secondary_contact.title">
+                                <option value="">--Title--</option>
+                                <option value="Mr">Mr</option>
+                                <option value="Ms">Ms</option>
+                                <option value="Mrs">Mrs</option>
+                            </select>
+                            <div class="errorTxt42"></div>
+                        </div>
                         <div class="input-field col s12">
                             <label for="scname">Name</label>
-                            <input id="scname" type="text"  name="scname" data-error=".errorTxt8" ng-model="settings.secondary_contact.name">
+                            <input id="scname" type="text" name="scname" data-error=".errorTxt8" ng-model="settings.secondary_contact.name">
                             <div class="errorTxt7"></div>
                         </div>
                         <div class="input-field col s12">
                             <label for="scemail">Email </label>
-                            <input id="scemail" type="email"  name="scemail" data-error=".errorTxt8" ng-model="settings.secondary_contact.email">
+                            <input id="scemail" type="email" name="scemail" data-error=".errorTxt8" ng-model="settings.secondary_contact.email">
                             <div class="errorTxt8"></div>
                         </div>
                         <div class="input-field col s12">
                             <label for="scphone">Phone </label>
-                            <input id="scphone" type="text"  name="scphone" data-error=".errorTxt9" ng-model="settings.secondary_contact.phone">
+                            <input id="scphone" type="text" name="scphone" data-error=".errorTxt9" ng-model="settings.secondary_contact.phone">
                             <div class="errorTxt9"></div>
                         </div>
                     </div>
                     <div class="row user-setting">
-                        <p>Details to be displayed on invoice <i class="material-icons tiny blue-text tooltipped" data-position="right" data-delay="50" data-tooltip="Fill up the details">help_outline</i>
+                        <p>Details to be displayed on invoice
+                            <i class="material-icons tiny blue-text tooltipped" data-position="right"
+                                data-delay="50" data-tooltip="Fill up the details">help_outline</i>
                         </p>
-                       
+
                         <div class="input-field col s12">
                             <label for="dnname">Name</label>
-                            <input id="dnname" name="dnname" type="text"  data-error=".errorTxt10" ng-model="settings.invoice_contact.name">
+                            <input id="dnname" name="dnname" type="text" data-error=".errorTxt10" ng-model="settings.invoice_contact.name">
                             <div class="errorTxt10"></div>
                         </div>
                         <div class="input-field col s12">
@@ -557,57 +596,59 @@ textarea{
                         </div>
                         <div class="input-field col s12">
                             <label for="dnphone">Phone*</label>
-                            <input id="dnphone" type="text" name="dnphone"  data-error=".errorTxt12" ng-model="settings.invoice_contact.phone">
+                            <input id="dnphone" type="text" name="dnphone" data-error=".errorTxt12" ng-model="settings.invoice_contact.phone">
                             <div class="errorTxt12"></div>
                         </div>
-                        
-                         <div class="input-field col s12">
+
+                        <div class="input-field col s12">
                             <label for="dnurl">Website </label>
                             <input id="dnurl" type="url" name="dnurl" ng-model="settings.invoice_contact.website">
                             <div class="errorTxt11"></div>
                         </div>
 
-                         <div class="input-field col s12">
+                        <div class="input-field col s12">
                             <label for="dnemail">Email* </label>
-                            <input id="dnemail" type="email" name="dnemail"  data-error=".errorTxt11" ng-model="settings.invoice_contact.email">
+                            <input id="dnemail" type="email" name="dnemail" data-error=".errorTxt11" ng-model="settings.invoice_contact.email">
                             <div class="errorTxt11"></div>
                         </div>
                     </div>
                     <div class="row user-setting">
-                        <p>Contact details for customers <i class="material-icons tiny blue-text tooltipped" data-position="right" data-delay="50" data-tooltip="Fill up the details">help_outline</i>
-                            &nbsp;&nbsp; &nbsp;  
+                        <p>Contact details for customers
+                            <i class="material-icons tiny blue-text tooltipped" data-position="right"
+                                data-delay="50" data-tooltip="Fill up the details">help_outline</i>
+                            &nbsp;&nbsp; &nbsp;
                             <span>
-                                 <input type="checkbox" id="secondCheck1" ng-change="primeToSecondary1()" ng-model="secondCheck1" />
-                                 <label for="secondCheck1">My all details is the same as my details to be displayed on invoice</label>
-                             </span>
+                                <input type="checkbox" id="secondCheck1" ng-change="primeToSecondary1()" ng-model="secondCheck1" />
+                                <label for="secondCheck1">My all details is the same as my details to be displayed on invoice</label>
+                            </span>
                         </p>
-                      
+
                         <div class="input-field col s12">
                             <label for="cdcname">Name </label>
-                            <input id="cdcname" name="cdcname" type="text"  data-error=".errorTxt13" ng-model="settings.contact_to_show_customer.name">
+                            <input id="cdcname" name="cdcname" type="text" data-error=".errorTxt13" ng-model="settings.contact_to_show_customer.name">
                             <div class="errorTxt13"></div>
                         </div>
-                         <div class="input-field col s12">
+                        <div class="input-field col s12">
                             <label for="cdcaddress">Address*</label>
-                            <input id="cdcaddress" name="cdcaddress" type="text" ng-model="settings.contact_to_show_customer.address" >
+                            <input id="cdcaddress" name="cdcaddress" type="text" ng-model="settings.contact_to_show_customer.address">
                             <div class="errorTxt1012"></div>
                         </div>
                         <div class="input-field col s12">
                             <label for="cdcphone">Phone* </label>
-                            <input id="cdcphone" type="text" name="cdcphone"  data-error=".errorTxt15" ng-model="settings.contact_to_show_customer.phone">
+                            <input id="cdcphone" type="text" name="cdcphone" data-error=".errorTxt15" ng-model="settings.contact_to_show_customer.phone">
                             <div class="errorTxt15"></div>
                         </div>
                         <div class="input-field col s12">
                             <label for="cdcphone">Website</label>
-                            <input id="cdcphone" type="url" name="cdcphone"  data-error=".errorTxt1523" ng-model="settings.contact_to_show_customer.website" >
+                            <input id="cdcphone" type="url" name="cdcphone" data-error=".errorTxt1523" ng-model="settings.contact_to_show_customer.website">
                             <div class="errorTxt1523"></div>
                         </div>
                         <div class="input-field col s12">
                             <label for="cdcemail">Email* </label>
-                            <input id="cdcemail" type="email" name="cdcemail"  data-error=".errorTxt14" ng-model="settings.contact_to_show_customer.email">
+                            <input id="cdcemail" type="email" name="cdcemail" data-error=".errorTxt14" ng-model="settings.contact_to_show_customer.email">
                             <div class="errorTxt14"></div>
                         </div>
-                        
+
                     </div>
                     <div class="right-align">
                         <button type="submit" class="btn waves-effect waves-light ul-1-btn camel-case">Next</button>
@@ -635,192 +676,249 @@ textarea{
                             <div class="margin m_b_25">
                                 <label for="days_of_service">
                                     <p>
-                                        <b class="black-text" style="font-weight:500">Working Days*</b> <i class="material-icons tiny blue-text tooltipped" data-position="right" data-delay="50" data-tooltip="Fill up the details">help_outline</i>
+                                        <b class="black-text" style="font-weight:500">Working Days*</b>
+                                        <i class="material-icons tiny blue-text tooltipped" data-position="right"
+                                            data-delay="50" data-tooltip="Fill up the details">help_outline</i>
                                     </p>
                                 </label>
-                                    <ul class="collapsible" data-collapsible="accordion">
-                                      <li>
-                                      <div class="collapsible-header">Sunday</div>
-                                      <div class="collapsible-body">
-                                          <div class="row">
-                                            <div class="col m2 s12 input-field">
-                                            <input type="checkbox" id="sundaycheck" ng-model="settings.days_of_service.sunday.status" />
-                                        <label for="sundaycheck">Sunday</label>
+                                <ul class="collapsible" data-collapsible="accordion">
+                                    <li>
+                                        <div class="collapsible-header">Sunday</div>
+                                        <div class="collapsible-body">
+                                            <div class="row">
+                                                <div class="col m2 s12 input-field">
+                                                    <input type="checkbox" id="sundaycheck" ng-model="settings.days_of_service.sunday.status" />
+                                                    <label for="sundaycheck">Sunday</label>
+                                                </div>
+                                                <div class="margin col s12 m5" ng-show="settings.days_of_service.sunday.status">
+                                                        <label style="left: 0 !important;">Start Time</label>
+                                                    <div class="input-field">
+                                                        <!-- <input type="text" class="timepicker" ng-model="settings.days_of_service.sunday.start_time"> -->
+                                                        <select style="display:block" ng-model="settings.days_of_service.sunday.start_time" >
+                                                            <option  ng-selected="settings.days_of_service.sunday.start_time==h" value="{{h}}" ng-repeat="h in hours" >{{h}}</option>
+                                                        </select>
+                                                        <!--  -->
+                                                    </div>
+                                                    <div class="errorTxt16"></div>
+                                                </div>
+                                                <div class="margin col s12 m5" ng-show="settings.days_of_service.sunday.status">
+                                                        <label style="left: 0 !important;">End Time</label>
+                                                    <div class="input-field">
+                                                        <!-- <input type="text" class="datepicker" ng-model="settings.days_of_service.sunday.end_time"> -->
+                                                        <select style="display:block" ng-model="settings.days_of_service.sunday.end_time" >
+                                                                <option ng-selected="settings.days_of_service.sunday.end_time==h" value="{{h}}" ng-repeat="h in hours" >{{h}}</option>
+                                                            </select>
+                                                        
+                                                    </div>
+                                                    <div class="errorTxt17"></div>
+                                                </div>
                                             </div>
-                                             <div class="margin col s12 m5" ng-show="settings.days_of_service.sunday.status">
-                                            <div class="input-field">
-                                            <input type="text" class="timepicker" ng-model="settings.days_of_service.sunday.start_time" >
-                                            <label style="left: 0 !important;">Start Time</label>
-                                            </div>
-                                            <div class="errorTxt16"></div>
                                         </div>
-                                        <div class="margin col s12 m5" ng-show="settings.days_of_service.sunday.status">
-                                            <div class="input-field">
-                                            <input type="text" class="datepicker" ng-model="settings.days_of_service.sunday.end_time" >
-                                            <label style="left: 0 !important;">End Time</label>
+                                    </li>
+                                    <li>
+                                        <div class="collapsible-header">Monday</div>
+                                        <div class="collapsible-body">
+                                            <div class="row">
+                                                <div class="col m2 s12 input-field">
+                                                    <input type="checkbox" id="mondaycheck" ng-model="settings.days_of_service.monday.status" />
+                                                    <label for="mondaycheck">Monday</label>
+                                                </div>
+                                                <div class="margin col s12 m5" ng-show="settings.days_of_service.monday.status">
+                                                        <label style="left: 0 !important;">Start Time</label>
+                                                    <div class="input-field">
+                                                        <!-- <input type="text" class="datepicker" ng-model="settings.days_of_service.monday.start_time"> -->
+                                                        <select style="display:block" ng-model="settings.days_of_service.monday.start_time" >
+                                                                <option ng-selected="settings.days_of_service.monday.start_time==h" value="{{h}}" ng-repeat="h in hours" >{{h}}</option>
+                                                            </select>
+                                                        
+                                                    </div>
+                                                    <div class="errorTxt16"></div>
+                                                </div>
+                                                <div class="margin col s12 m5" ng-show="settings.days_of_service.monday.status">
+                                                        <label style="left: 0 !important;">End Time</label>
+                                                    <div class="input-field">
+                                                        <!-- <input type="text" class="datepicker" ng-model="settings.days_of_service.monday.end_time"> -->
+                                                        <select style="display:block" ng-model="settings.days_of_service.monday.end_time" >
+                                                                <option  ng-selected="settings.days_of_service.monday.end_time==h" value="{{h}}" ng-repeat="h in hours" >{{h}}</option>
+                                                            </select>
+                                                        
+                                                    </div>
+                                                    <div class="errorTxt17"></div>
+                                                </div>
                                             </div>
-                                            <div class="errorTxt17"></div>
                                         </div>
-                                          </div>
-                                      </div>
-                                      </li>
-                                      <li>
-                                      <div class="collapsible-header">Monday</div>
-                                      <div class="collapsible-body">
-                                          <div class="row">
-                                            <div class="col m2 s12 input-field">
-                                            <input type="checkbox" id="mondaycheck" ng-model="settings.days_of_service.monday.status" />
-                                            <label for="mondaycheck">Monday</label>
+                                    </li>
+                                    <li>
+                                        <div class="collapsible-header">Tuesday</div>
+                                        <div class="collapsible-body">
+                                            <div class="row">
+                                                <div class="col m2 s12 input-field">
+                                                    <input type="checkbox" id="tuesdaycheck" ng-model="settings.days_of_service.tuesday.status" />
+                                                    <label for="tuesdaycheck">Tuesday</label>
+                                                </div>
+                                                <div class="margin col s12 m5" ng-show="settings.days_of_service.tuesday.status">
+                                                        <label style="left: 0 !important;">Start Time</label>
+                                                    <div class="input-field">
+                                                        <!-- <input type="text" class="datepicker" ng-model="settings.days_of_service.tuesday.start_time"> -->
+                                                        <select style="display:block" ng-model="settings.days_of_service.tuesday.start_time" >
+                                                                <option ng-selected="settings.days_of_service.tuesday.start_time==h" value="{{h}}" ng-repeat="h in hours" >{{h}}</option>
+                                                            </select>
+                                                       
+                                                    </div>
+                                                    <div class="errorTxt16"></div>
+                                                </div>
+                                                <div class="margin col s12 m5" ng-show="settings.days_of_service.tuesday.status">
+                                                        <label style="left: 0 !important;">End Time</label>
+                                                    <div class="input-field">
+                                                        <!-- <input type="text" class="datepicker" ng-model="settings.days_of_service.tuesday.end_time"> -->
+                                                        <select style="display:block" ng-model="settings.days_of_service.tuesday.end_time" >
+                                                                <option ng-selected="settings.days_of_service.tuesday.end_time==h" value="{{h}}" ng-repeat="h in hours" >{{h}}</option>
+                                                            </select>
+                                                        
+                                                    </div>
+                                                    <div class="errorTxt17"></div>
+                                                </div>
                                             </div>
-                                            <div class="margin col s12 m5" ng-show="settings.days_of_service.monday.status">
-  
-                                            <div class="input-field">
-                                            <input type="text" class="datepicker" ng-model="settings.days_of_service.monday.start_time">
-                                            <label style="left: 0 !important;">Start Time</label>
-                                            </div>
-                                            <div class="errorTxt16"></div>
+
                                         </div>
-                                        <div class="margin col s12 m5" ng-show="settings.days_of_service.monday.status">
-                                             <div class="input-field">
-                                            <input type="text" class="datepicker" ng-model="settings.days_of_service.monday.end_time">
-                                            <label style="left: 0 !important;">End Time</label>
-                                            </div>
-                                            <div class="errorTxt17"></div>
+                                    </li>
+                                    <li>
+                                        <div class="collapsible-header">
+                                            Wednesday
                                         </div>
-                                          </div>
-                                      </div>
-                                      </li>
-                                      <li>
-                                      <div class="collapsible-header">Tuesday</div>
-                                      <div class="collapsible-body">
-                                          <div class="row">
-                                            <div class="col m2 s12 input-field">
-                                            <input type="checkbox" id="tuesdaycheck" ng-model="settings.days_of_service.tuesday.status" />
-                                            <label for="tuesdaycheck">Tuesday</label>
+                                        <div class="collapsible-body">
+                                            <div class="row">
+                                                <div class="col m2 s12 input-field">
+                                                    <input type="checkbox" id="wednesdaycheck" ng-model="settings.days_of_service.wednesday.status" />
+                                                    <label for="wednesdaycheck">Wednesday</label>
+                                                </div>
+                                                <div class="margin col m5 s12" ng-show="settings.days_of_service.wednesday.status">
+                                                        <label style="left: 0 !important;">Start Time</label>
+                                                    <div class="input-field">
+                                                        <!-- <input type="text" class="datepicker" ng-model="settings.days_of_service.wednesday.start_time"> -->
+                                                        <select style="display:block" ng-model="settings.days_of_service.wednesday.start_time" >
+                                                                <option ng-selected="settings.days_of_service.wednesday.start_time==h" value="{{h}}" ng-repeat="h in hours" >{{h}}</option>
+                                                            </select>
+                                                        
+                                                    </div>
+                                                    <div class="errorTxt16"></div>
+                                                </div>
+                                                <div class="margin col m5 s12" ng-show="settings.days_of_service.wednesday.status">
+                                                        <label style="left: 0 !important;">End Time</label>
+                                                    <div class="input-field">
+                                                        <!-- <input type="text" class="datepicker" ng-model="settings.days_of_service.wednesday.end_time"> -->
+                                                        <select style="display:block" ng-model="settings.days_of_service.wednesday.end_time" >
+                                                                <option  ng-selected="settings.days_of_service.wednesday.end_time==h" value="{{h}}" ng-repeat="h in hours" >{{h}}</option>
+                                                            </select>
+                                                        
+                                                    </div>
+                                                    <div class="errorTxt17"></div>
+                                                </div>
                                             </div>
-                                             <div class="margin col s12 m5" ng-show="settings.days_of_service.tuesday.status">
-                                            <div class="input-field">
-                                            <input type="text" class="datepicker" ng-model="settings.days_of_service.tuesday.start_time">
-                                            <label style="left: 0 !important;">Start Time</label>
-                                            </div>
-                                            <div class="errorTxt16"></div>
                                         </div>
-                                        <div class="margin col s12 m5" ng-show="settings.days_of_service.tuesday.status">
-                                             <div class="input-field">
-                                            <input type="text" class="datepicker" ng-model="settings.days_of_service.tuesday.end_time">
-                                            <label style="left: 0 !important;">End Time</label>
+                                    </li>
+                                    <li>
+                                        <div class="collapsible-header">Thursday</div>
+                                        <div class="collapsible-body">
+                                            <div class="row">
+                                                <div class="col m2 s12 input-field">
+                                                    <input type="checkbox" id="thursdaycheck" ng-model="settings.days_of_service.thursday.status" />
+                                                    <label for="thursdaycheck">Thursday</label>
+                                                </div>
+                                                <div class="margin col m5 s12" ng-show="settings.days_of_service.thursday.status">
+                                                        <label style="left: 0 !important;">Start Time</label>
+                                                    <div class="input-field">
+                                                        <!-- <input type="text" class="datepicker" ng-model="settings.days_of_service.thursday.start_time"> -->
+                                                        <select style="display:block" ng-model="settings.days_of_service.thursday.start_time" >
+                                                                <option ng-selected="settings.days_of_service.thursday.start_time==h" value="{{h}}" ng-repeat="h in hours" >{{h}}</option>
+                                                            </select>
+                                                       
+                                                    </div>
+                                                    <div class="errorTxt16"></div>
+                                                </div>
+                                                <div class="margin col m5 s12" ng-show="settings.days_of_service.thursday.status">
+                                                        <label style="left: 0 !important;">End Time</label>
+                                                    <div class="input-field">
+                                                        <!-- <input type="text" class="datepicker" ng-model="settings.days_of_service.thursday.end_time"> -->
+                                                        <select style="display:block" ng-model="settings.days_of_service.thursday.end_time" >
+                                                                <option ng-selected="settings.days_of_service.thursday.end_time==h" value="{{h}}" ng-repeat="h in hours" >{{h}}</option>
+                                                            </select>
+                                                       
+                                                    </div>
+                                                    <div class="errorTxt17"></div>
+                                                </div>
                                             </div>
-                                            <div class="errorTxt17"></div>
                                         </div>
-                                          </div>
-                                         
-                                      </div>
-                                      </li>
-                                      <li>
-                                      <div class="collapsible-header">
-                                           Wednesday
-                                      </div>
-                                      <div class="collapsible-body">
-                                      <div class="row">
-                                        <div class="col m2 s12 input-field">
-                                         <input type="checkbox" id="wednesdaycheck" ng-model="settings.days_of_service.wednesday.status" />
-                                        <label for="wednesdaycheck">Wednesday</label>
+                                    </li>
+                                    <li>
+                                        <div class="collapsible-header">Friday</div>
+                                        <div class="collapsible-body">
+                                            <div class="row">
+                                                <div class="col m2 s12 input-field">
+                                                    <input type="checkbox" id="fridaycheck" ng-model="settings.days_of_service.friday.status" />
+                                                    <label for="fridaycheck">Friday</label>
+                                                </div>
+                                                <div class="margin col m5 s12" ng-show="settings.days_of_service.friday.status">
+                                                        <label style="left: 0 !important;">Start Time</label>
+                                                    <div class="input-field">
+                                                        <!-- <input type="text" class="datepicker" ng-model="settings.days_of_service.friday.start_time"> -->
+                                                        <select style="display:block" ng-model="settings.days_of_service.friday.start_time" >
+                                                                <option ng-selected="settings.days_of_service.friday.start_time==h" value="{{h}}" ng-repeat="h in hours" >{{h}}</option>
+                                                            </select>
+                                                       
+                                                    </div>
+                                                    <div class="errorTxt16"></div>
+                                                </div>
+                                                <div class="margin col m5 s12" ng-show="settings.days_of_service.friday.status">
+                                                        <label style="left: 0 !important;">End Time</label>
+                                                    <div class="input-field">
+                                                        <!-- <input type="text" class="datepicker" ng-model="settings.days_of_service.friday.end_time"> -->
+                                                        <select style="display:block" ng-model="settings.days_of_service.friday.end_time" >
+                                                                <option  ng-selected="settings.days_of_service.friday.end_time==h" value="{{h}}" ng-repeat="h in hours" >{{h}}</option>
+                                                            </select>
+                                                       
+                                                    </div>
+                                                    <div class="errorTxt17"></div>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="margin col m5 s12" ng-show="settings.days_of_service.wednesday.status">
-                                            <div class="input-field">
-                                            <input type="text" class="datepicker" ng-model="settings.days_of_service.wednesday.start_time">
-                                            <label style="left: 0 !important;">Start Time</label>
+                                    </li>
+                                    <li>
+                                        <div class="collapsible-header">Saturday</div>
+                                        <div class="collapsible-body">
+                                            <div class="row">
+                                                <div class="col m2 s12 input-field">
+                                                    <input type="checkbox" id="saturdaycheck" ng-model="settings.days_of_service.saturday.status" />
+                                                    <label for="saturdaycheck">Saturday</label>
+                                                </div>
+                                                <div class="margin col m5 s12" ng-show="settings.days_of_service.saturday.status">
+                                                        <label style="left: 0 !important;">Start Time</label>
+                                                    <div class="input-field">
+                                                        <!-- <input type="text" class="datepicker" ng-model="settings.days_of_service.saturday.start_time"> -->
+                                                        <select style="display:block" ng-model="settings.days_of_service.saturday.start_time" >
+                                                                <option ng-selected="settings.days_of_service.saturday.start_time==h" value="{{h}}" ng-repeat="h in hours" >{{h}}</option>
+                                                            </select>
+                                                       
+                                                    </div>
+                                                    <div class="errorTxt16"></div>
+                                                </div>
+                                                <div class="margin col m5 s12" ng-show="settings.days_of_service.saturday.status">
+                                                        <label style="left: 0 !important;">End Time</label>
+                                                    <div class="input-field">
+                                                        <!-- <input type="text" class="datepicker" ng-model="settings.days_of_service.saturday.end_time"> -->
+                                                        <select style="display:block" ng-model="settings.days_of_service.saturday.end_time" >
+                                                                <option ng-selected="settings.days_of_service.saturday.end_time==h" value="{{h}}" ng-repeat="h in hours" >{{h}}</option>
+                                                            </select>
+                                                       
+                                                    </div>
+                                                    <div class="errorTxt17"></div>
+                                                </div>
                                             </div>
-                                            <div class="errorTxt16"></div>
                                         </div>
-                                        <div class="margin col m5 s12" ng-show="settings.days_of_service.wednesday.status">
-                                             <div class="input-field">
-                                            <input type="text" class="datepicker" ng-model="settings.days_of_service.wednesday.end_time">
-                                            <label style="left: 0 !important;">End Time</label>
-                                            </div>
-                                            <div class="errorTxt17"></div>
-                                        </div>
-                                      </div>
-                                      </div>
-                                      </li>
-                                      <li>
-                                      <div class="collapsible-header">Thursday</div>
-                                      <div class="collapsible-body">
-                                          <div class="row">
-                                            <div class="col m2 s12 input-field">
-                                                <input type="checkbox" id="thursdaycheck" ng-model="settings.days_of_service.thursday.status" />
-                                                <label for="thursdaycheck">Thursday</label>
-                                            </div>
-                                            <div class="margin col m5 s12" ng-show="settings.days_of_service.thursday.status">
-                                            <div class="input-field">
-                                            <input type="text" class="datepicker" ng-model="settings.days_of_service.thursday.start_time">
-                                            <label style="left: 0 !important;">Start Time</label>
-                                            </div>
-                                            <div class="errorTxt16"></div>
-                                            </div>
-                                            <div class="margin col m5 s12" ng-show="settings.days_of_service.thursday.status">
-                                             <div class="input-field">
-                                            <input type="text" class="datepicker" ng-model="settings.days_of_service.thursday.end_time">
-                                            <label style="left: 0 !important;">End Time</label>
-                                            </div>
-                                            <div class="errorTxt17"></div>
-                                            </div>
-                                          </div>
-                                      </div>
-                                      </li>
-                                      <li>
-                                      <div class="collapsible-header">Friday</div>
-                                      <div class="collapsible-body">
-                                          <div class="row">
-                                            <div class="col m2 s12 input-field">
-                                            <input type="checkbox" id="fridaycheck" ng-model="settings.days_of_service.friday.status" />
-                                            <label for="fridaycheck">Friday</label>
-                                            </div>
-                                            <div class="margin col m5 s12" ng-show="settings.days_of_service.friday.status">
-                                            <div class="input-field">
-                                            <input type="text" class="datepicker" ng-model="settings.days_of_service.friday.start_time">
-                                            <label style="left: 0 !important;">Start Time</label>
-                                            </div>
-                                            <div class="errorTxt16"></div>
-                                            </div>
-                                            <div class="margin col m5 s12" ng-show="settings.days_of_service.friday.status">
-                                             <div class="input-field">
-                                            <input type="text" class="datepicker" ng-model="settings.days_of_service.friday.end_time">
-                                            <label style="left: 0 !important;">End Time</label>
-                                            </div>
-                                            <div class="errorTxt17"></div>
-                                            </div>
-                                          </div>
-                                      </div>
-                                      </li>
-                                       <li>
-                                      <div class="collapsible-header">Saturday</div>
-                                      <div class="collapsible-body">
-                                          <div class="row">
-                                            <div class="col m2 s12 input-field">
-                                             <input type="checkbox" id="saturdaycheck" ng-model="settings.days_of_service.saturday.status" />
-                                            <label for="saturdaycheck">Saturday</label>
-                                            </div>
-                                          <div class="margin col m5 s12" ng-show="settings.days_of_service.saturday.status">
-                                            <div class="input-field">
-                                            <input type="text" class="datepicker" ng-model="settings.days_of_service.saturday.start_time">
-                                            <label style="left: 0 !important;">Start Time</label>
-                                            </div>
-                                            <div class="errorTxt16"></div>
-                                            </div>
-                                            <div class="margin col m5 s12" ng-show="settings.days_of_service.saturday.status">
-                                             <div class="input-field">
-                                            <input type="text" class="datepicker" ng-model="settings.days_of_service.saturday.end_time">
-                                            <label style="left: 0 !important;">End Time</label>
-                                            </div>
-                                            <div class="errorTxt17"></div>
-                                            </div>
-                                            </div>
-                                      </div>
-                                      </li>
-                                      </ul>
-                                
-                             
+                                    </li>
+                                </ul>
+
+
                             </div>
                             <!-- <div class="margin col s12 temp_color">
                                 <label for="template_color">
@@ -830,7 +928,10 @@ textarea{
                                 <div class="errorTxt18"></div>
                             </div> -->
                             <div class="row user-setting">
-                                <p>Other configuration <i class="material-icons tiny blue-text tooltipped" data-position="right" data-delay="50" data-tooltip="Fill up the details">help_outline</i></p>
+                                <p>Other configuration
+                                    <i class="material-icons tiny blue-text tooltipped" data-position="right"
+                                        data-delay="50" data-tooltip="Fill up the details">help_outline</i>
+                                </p>
                                 <div class="margin col s12">
                                     <label for="booking_before_time" class="label-2">Earliest​ ​timeframe​ ​for​ ​online​ ​appointment​ ​setup​(Hours)*</label>
                                     <input id="booking_before_time" type="number" name="booking_before_time" data-error=".errorTxt19" ng-model="settings.booking_before_time">
@@ -854,7 +955,7 @@ textarea{
                         </div>
                     </div>
                     <div class="right-align">
-                        <button type="button" style="background-color: #9e9e9e !important;" ng-click="nextStep(1)" class="btn waves-effect waves-light camel-case" >Previous</button>
+                        <button type="button" style="background-color: #9e9e9e !important;" ng-click="nextStep(1)" class="btn waves-effect waves-light camel-case">Previous</button>
                         <button type="submit" class="btn waves-effect waves-light ul-2-btn camel-case">Next</button>
                     </div>
                 </form>
@@ -880,12 +981,12 @@ textarea{
                     </div>
                     <br>
                     <div class="right-align">
-                        <button type="button" style="background-color: #9e9e9e !important;" ng-click="nextStep(2)" class="btn waves-effect waves-light camel-case" >Previous</button>
+                        <button type="button" style="background-color: #9e9e9e !important;" ng-click="nextStep(2)" class="btn waves-effect waves-light camel-case">Previous</button>
                         <button type="button" ng-click="nextStep(4)" class="btn waves-effect waves-light ul-2-btn camel-case">Next</button>
                     </div>
                 </div>
                 <div ng-show="addImg">
-                    <form class="" ng-submit="addImages()" >
+                    <form class="" name="imageForm" id="imageForm" ng-submit="addImages()">
                         <div class="offer-section-otr white z-depth-1">
                             <div class="panel panel-default">
                                 <!-- <div class="panel-heading">
@@ -932,7 +1033,7 @@ textarea{
                                         </div>
                                         <div class="center-align ">
                                             <input type="button" id="cropped" class="btn btn-warning image_cropped" value="Crop Image" ng-click="crop()">
-                                             <input type="button" id="cropped" class="btn  image_cropped" value="Cancel">
+                                            <input type="button" id="cropped" ng-click="clearImage()" class="btn  image_cropped" value="Cancel">
                                             <!-- <div id="cropImage" class="errorImage">Crop offer banner</div> -->
                                         </div>
                                     </div>
@@ -947,7 +1048,7 @@ textarea{
                         </div>
                         <br>
                         <div class="right-align">
-                            <button type="button" style="background-color: #9e9e9e !important;" ng-click="nextStep(2)" class="btn waves-effect waves-light camel-case" >Previous</button>
+                            <button type="button" style="background-color: #9e9e9e !important;" ng-click="nextStep(2)" class="btn waves-effect waves-light camel-case">Previous</button>
                             <button type="submit" class="btn waves-effect waves-light ul-2-btn camel-case">Next</button>
                         </div>
                     </form>
@@ -955,8 +1056,8 @@ textarea{
             </div>
             <div class="ul-main-four ulmc" ng-class="{'active': step==4}">
                 <div class="file-field input-field col s12">
-                        Currently no configuration is required for Used Car Manager profile.<br>
-                        If we add things here in future, You will be notified via. email.
+                    Currently no configuration is required for Used Car Manager profile.
+                    <br> If we add things here in future, You will be notified via. email.
                 </div>
                 <div class="right-align">
                     <button type="button" style="background-color: #9e9e9e !important;" class="btn waves-effect waves-light camel-case" ng-click="nextStep(3)">Previous</button>
@@ -965,48 +1066,60 @@ textarea{
             </div>
             <div class="ul-main-five ulmc" ng-class="{'active': step==5}">
                 <div class="file-field input-field col s12">
-                        Currently no configuration is required for Service Adviser profile.<br>
-                        If we add things here in future, You will be notified via. email.
+                    Currently no configuration is required for Service Adviser profile.
+                    <br> If we add things here in future, You will be notified via. email.
                 </div>
                 <div class="right-align">
-                    <button type="button" style="background-color: #9e9e9e !important;"  class="btn waves-effect waves-light camel-case " ng-click="nextStep(4)">Previous</button>
+                    <button type="button" style="background-color: #9e9e9e !important;" class="btn waves-effect waves-light camel-case " ng-click="nextStep(4)">Previous</button>
                     <button type="button" ng-click="nextStep(6)" class="btn waves-effect waves-light ul-2-btn camel-case">Next</button>
                 </div>
             </div>
             <div class="ul-main-six ulmc" ng-class="{'active': step==6}">
-             <div class="bulk-upload-otr">
+                <div class="bulk-upload-otr">
                     <p>Use this option to upload data in bulk.</p>
-                    <p><b>Note:</b></p>
+                    <p>
+                        <b>Note:</b>
+                    </p>
                     <p>- For bulk upload to happen, You would need upload the service items data via. a Microsoft Excel file.</p>
-                    <p>Step 1: Please download the MS Excel file format <a href="http://www.dsaidemo.com/Service_items.xls" targer="_blank">HERE </a> </p>
-                    <p>Step 2: Please DONT change the format. Just fill in the service items data in the provided MS Excel file. </p>
+                    <p>Step 1: Please download the MS Excel file format
+                        <a href="http://www.dsaidemo.com/Service_items.xls"
+                            targer="_blank">HERE </a>
+                    </p>
+                    <p>Step 2: Please DONT change the format. Just fill in the service items data in the provided MS Excel file.
+                        </p>
                     <p>Step 3: Save the file in a folder on your computer.</p>
-                    <p>Step 4: Tap on the "Select file" button below > Browse to the folder that contains the MS Excel file you saved previously > Select the file and submit.</p>
-            </div>
-            <form ng-submit="uploadServiceFile()">
-                                  <div class="file-field input-field">
-                                    <div class="btn">
-                                      <span>Select file</span>
-                                      <input type="file" onchange="angular.element(this).scope().uploadServiceData(this.files)">
-                                    </div>
-                                    <div class="file-path-wrapper">
-                                      <input class="file-path validate" type="text">
-                                    </div>
-                  
-                  
-                                    <div id="card-alert" class="card red lighten-5" ng-if="already">
-                                        <div class="card-content red-text">
-                                          <p ng-repeat="all in already">Already exist : {{all.name}}</p>
-                                        </div>
-                                        <button type="button" ng-click="close()" class="close red-text" data-dismiss="alert" aria-label="Close">
-                                          <span aria-hidden="true">×</span>
-                                        </button>
-                                      </div>
-                                  </div>
-                                 <!--  For bulk upload, you can use an excel sheet.
+                    <p>Step 4: Tap on the "Select file" button below > Browse to the folder that contains the MS Excel file
+                        you saved previously > Select the file and submit.</p>
+                </div>
+                <form ng-submit="uploadServiceFile()">
+                    <div class="file-field input-field">
+                        <div class="btn">
+                            <span>Select file</span>
+                            <input type="file" onchange="angular.element(this).scope().uploadServiceData(this.files)">
+                        </div>
+                        <div class="file-path-wrapper">
+                            <input class="file-path validate" type="text">
+                        </div>
+
+
+                        <div id="card-alert" class="card red lighten-5" ng-if="already">
+                            <div class="card-content red-text">
+                                <p ng-if="already.length!=0" style="color:#000">
+                                    The following service items has been omitted ( as a service item with the same name exists for your dealership ) :
+                                    <br>
+                                </p>
+                                <p ng-repeat="all in already">
+                                    {{all.name}}</p>
+                            </div>
+                            <button type="button" ng-click="close()" class="close red-text" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                    </div>
+                    <!--  For bulk upload, you can use an excel sheet.
                   Please download the sample excel format <a href="http://www.dsaidemo.com/Service_items.xls" targer="_blank">HERE </a> -->
-                  
-                                  <!-- <div class="row">
+
+                    <!-- <div class="row">
                                     <div class="input-field col s12">
                                       <button class="btn waves-effect waves-light right submit" type="submit" name="action">
                                        UPLOAD
@@ -1014,78 +1127,43 @@ textarea{
                                      </button>
                                     </div>
                                   </div> -->
-                                </form>
-                                <div class="center">
-                                <p>OR you can add Users manually here</p>
-                              </div>
-                        <div class="file-field input-field col s12">
-                        <form class="formValidates" name="addServiceForm" id="formValidates" ng-submit="addService()">
-                        <div id="room_fileds">
-                        <div class="content"><div class="row"><div class="col m4 s12"><div class="input-field"><input type="text" placeholder="Service item Name* " /></div></div><div class="col m4 s12"><div class="input-field"><input type="text" placeholder="Description" /></div></div><div class="col m4 s12"><div class="row"><div class="col m8 s12 input-field"><input type="text" placeholder="Price*" /></div><div class="col m4 s12 center-align"><input type="button" id="more_fields" onclick="add_fields();" class="btn btn-floating" value="+" style="margin-top: 15px;width: 45px;" /></div></div></div></div></div>
+                </form>
+                <div class="center">
+                    <p>OR you can add Users manually here</p>
+                </div>
+                <div class="file-field input-field col s12">
+                    <form class="formValidates" name="addServiceForm" id="formValidates" ng-submit="addService()">
+                        <div id="room_fileds" ng-repeat="ser in  [].constructor(totalserve) track by $index">
+                            <div class="content">
+                                <div class="row">
+                                    <div class="col m4 s12">
+                                        <div class="input-field">
+                                            <input type="text" id="name{{$index}}" name="name{{$index}}" required placeholder="Service item Name* " ng-model="serviceData[$index].name"/>
+                                        </div>
+                                    </div>
+                                    <div class="col m4 s12">
+                                        <div class="input-field">
+                                            <input type="text" id="des{{$index}}" name="des{{$index}}" required placeholder="Description"  ng-model="serviceData[$index].description"/>
+                                        </div>
+                                    </div>
+                                    <div class="col m4 s12">
+                                        <div class="row">
+                                            <div class="col m8 s12 input-field">
+                                                <input type="number" nama="amount{{$index}}" id="amount{{$index}}" required min="0" placeholder="Price*" ng-model="serviceData[$index].amount" />
+                                            </div>
+                                            <div class="col m4 s12 center-align">
+                                                <input type="button" id="more_fields" ng-click="addservicediv();" class="btn btn-floating"
+                                                    value="+" style="margin-top: 15px;width: 45px;" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="right-align">
                             <button type="submit" class="btn waves-light waves-effect">Add above items</button>
                         </div>
-                              <!--   <div class="row">
-                                  <div class="input-field col s12">
-                                    <label for="sname">Service name*</label>
-                                    <input id="sname" name="sname" type="text" data-error=".errorTxt1" ng-model="serviceData.name" required>
-                                    <div class="errorTxt1"></div>
-                                  </div>
-                                </div>
-
-                                <div class="row">
-                                  <div class="input-field col s12">
-                                    <textarea id="description" name="description" class="materialize-textarea validate" data-error=".errorTxt2" length="120" style="" ng-model="serviceData.description" required></textarea>
-                                    <label for="description" class="">Description</label>
-                                    <div class="errorTxt2"></div>
-                                  </div>
-                                </div>
-                                <div class="row">
-                                  <div class="input-field col s12">
-                                    <label for="amount">Price*</label>
-                                    <input id="amount" name="amount" type="text" data-error=".errorTxt3" ng-model="serviceData.amount" required>
-                                    <div class="errorTxt3"></div>
-                                  </div>
-                                </div> -->
-                                <div class="row">
-                                  <div class="input-field col s12">
-                                    <!-- <a ui-sref="home.serviceview" class="btn grey darken-1">Cancel </a> -->
-                                    <button class="btn waves-effect waves-light right submit" type="submit" name="action">
-                                     Submit
-                                     <i class="mdi-content-send right"></i>
-                                   </button>
-                  
-                                  </div>
-                                </div>
-                              </form>
-                              
-                              <div class="">
-                                <!-- <form ng-submit="uploadServiceFile()">
-                                  <div class="file-field input-field">
-                                    <div class="btn">
-                                      <span>Upload</span>
-                                      <input type="file" onchange="angular.element(this).scope().uploadServiceData(this.files)">
-                                    </div>
-                                    <div class="file-path-wrapper">
-                                      <input class="file-path validate" type="text">
-                                    </div>
-                  
-                  
-                                    <div id="card-alert" class="card red lighten-5" ng-if="already">
-                                        <div class="card-content red-text">
-                                          <p ng-repeat="all in already">Already exist : {{all.name}}</p>
-                                        </div>
-                                        <button type="button" ng-click="close()" class="close red-text" data-dismiss="alert" aria-label="Close">
-                                          <span aria-hidden="true">×</span>
-                                        </button>
-                                      </div>
-                                  </div>
-                                  For bulk upload, you can use an excel sheet.
-                  Please download the sample excel format <a href="http://www.dsaidemo.com/Service_items.xls" targer="_blank">HERE </a>
-                                </form> -->
-                              </div>
-
+                    </form>
                 </div>
                 <div class="right-align">
                     <button type="button" style="background-color: #9e9e9e !important;" class="btn waves-effect waves-light camel-case" ng-click="nextStep(5)">Previous</button>
@@ -1093,15 +1171,21 @@ textarea{
                 </div>
             </div>
             <div class="ul-main-seven ulmc" ng-class="{'active': step==7}">
-            <div class="bulk-upload-otr">
-                    <p>Use this option to upload data in bulk.</p>
-                    <p><b>Note:</b></p>
-                    <p>- For bulk upload to happen, You would need upload the service items data via. a Microsoft Excel file.</p>
-                    <p>Step 1: Please download the MS Excel file format <a href="http://www.dsaidemo.com/Service_items.xls" targer="_blank">HERE </a> </p>
-                    <p>Step 2: Please DONT change the format. Just fill in the service items data in the provided MS Excel file. </p>
-                    <p>Step 3: Save the file in a folder on your computer.</p>
+                <div class="bulk-upload-otr">
+                    <p>Use this option to upload all the Users in your Dealership in bulk ( ie. Service Advisers, Schedulers, Technicians etc. ).</p>
+                    <p>
+                        <b>Note:</b>
+                    </p>
+                    <p>- For bulk upload to happen, You would need upload the User data via. a Microsoft Excel file.</p>
+                    <p>Step 1: Please download the MS Excel file format
+                        <a href="http://cleanup.tech/dsm-index/users.xls"
+                            targer="_blank">HERE </a>
+                    </p>
+                    <p>Step 2: Please DONT change the format. Just fill in the User's data in the provided MS Excel file.
+                        </p>
+                    <p>Step 3:  Save the file in a folder on your computer.</p>
                     <p>Step 4: Tap on the "Select file" button below > Browse to the folder that contains the MS Excel file you saved previously > Select the file and submit.</p>
-            </div>
+                </div>
                 <div class="file-field input-field col s12">
                     <div class="btn">
                         <span>Select file </span>
@@ -1110,74 +1194,72 @@ textarea{
                     <div class="file-path-wrapper">
                         <input class="file-path validate" disabled type="text">
                     </div>
-                   <!--  For bulk upload, you can use an csv.
-                    Please download the sample csv format <a href="http://cleanup.tech/dsm-index/users.csv" targer="_blank">HERE </a> -->
-                    <div class="errorTxt21"></div>
+                    <div id="card-alert" class="card red lighten-5" ng-if="alreadyu">
+                            <div class="card-content red-text">
+                                <p ng-if="alreadyu.length!=0" style="color:#000">
+                                    The following Users items has been omitted ( as a User item with the same EMAIL exists for your dealership ) :
+                                    <br>
+                                </p>
+                                <p ng-repeat="all in alreadyu" style="text-transform:none !important">
+                                    {{all.name}} ({{all.email}})</p>
+                            </div>
+                            <button type="button" ng-click="close()" class="close red-text" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
 
                 </div>
                 <div class="center">
                     <p>OR you can add Users manually here</p>
                 </div>
-                <div id="single_upload">
+                <form class="formValidates" name="addUsersForm" id="addUsersForm" ng-submit="addUser()">
+                <div id="single_upload" ng-repeat="ser in  [].constructor(totalusr) track by $index">
                     <div class="s_u_content">
                         <div class="row">
                             <div class="col m2 s12">
                                 <div class="input-field">
-                                    <input type="text" placeholder="Name*" />
+                                    <input type="text" placeholder="Name*" required name="uname{{$index}}" id="uname{{$index}}" ng-model="userData[$index].name" />
                                 </div>
                             </div>
-                             <div class="col m2 s12">
+                            <div class="col m2 s12">
                                 <div class="input-field">
-                                    <input type="email" placeholder="Email*" />
+                                    <input type="email" name="uemail{{$index}}" required id="uemail{{$index}}" placeholder="Email*"  ng-model="userData[$index].email"/>
                                 </div>
                             </div>
-                             <div class="col m2 s12">
+                            <div class="col m2 s12">
                                 <div class="input-field">
-                                    <input type="password" placeholder=" Password*">
+                                    <input type="password" name="upassword{{$index}}" required id="upassword{{$index}}" placeholder=" Password*" ng-model="userData[$index].password">
                                 </div>
                             </div>
                             <div class="col m6 s12">
-                                <p>
-                                    
-                                    <span>
-                                        <input type="checkbox" class="filled-in" id="filled-in-box" checked="checked" />
-                                        <label for="filled-in-box">SA</label>
+                                <p> 
+                                    <span ng-repeat="r in roles">
+                                        <input data-error=".filled-in-box{{$parent.$index}}" type="checkbox" class="filled-in"   ng-model="userData[$parent.$index].roles[$index]" ng-true-value="'{{r.name}}'" id="filled-in-box{{$index}}{{$parent.$index}}"  name="uroles{{$parent.$index}}"   />
+                                        <label for="filled-in-box{{$index}}{{$parent.$index}}">{{r.role}}</label>
+                                        <span class="filled-in-box{{$parent.$index}}" ng-show="$index==5" style="font-size:8px"></span>
                                     </span>
-                                    <span>
-                                        <input type="checkbox" class="filled-in" id="filled-in-box" checked="checked" />
-                                        <label for="filled-in-box">SS</label>
-                                    </span>
-                                    <span>
-                                        <input type="checkbox" class="filled-in" id="filled-in-box" checked="checked" />
-                                        <label for="filled-in-box">MM</label>
-                                    </span>
-                                    <span>
-                                        <input type="checkbox" class="filled-in" id="filled-in-box" checked="checked" />
-                                        <label for="filled-in-box">VI</label>
-                                    </span>
-                                    <span>
-                                        <input type="checkbox" class="filled-in" id="filled-in-box" checked="checked" />
-                                        <label for="filled-in-box">UCM</label>
-                                    </span>
-                                    <span>
-                                        <input type="checkbox" class="filled-in" id="filled-in-box" checked="checked" />
-                                        <label for="filled-in-box">ADMIN</label>
-                                    </span>
-                                   <input type="button" id="upload_fields" onclick="seven_upload();" class="btn btn-floating" value="+"  />
+                                   
+                                    <input type="button" id="upload_fields" ng-click="adduserdiv();" class="btn btn-floating" value="+" />
                                 </p>
                             </div>
                         </div>
-                    </div>        
+                    </div>
                 </div>
                 <div class="right-align">
                     <button type="submit" class="btn waves-effect waves-light">Add above Users</button>
                 </div>
+                </form>
                 <div class="bulk-upload-otr">
-                <p><b>SA</b> = Service Adviser</p>
-                <p><b>SS</b> = Service Scheduler  </p>
-                <p><b>MM</b> = Marketing Manager</p>
-                <p><b>VI</b> = Vehicle Inspector</p>
-                <p><b>UCM</b> = Used Car Manager</p>
+                    <p>
+                        <b>SA</b> = Service Adviser</p>
+                    <p>
+                        <b>SS</b> = Service Scheduler </p>
+                    <p>
+                        <b>MM</b> = Marketing Manager</p>
+                    <p>
+                        <b>VI</b> = Vehicle Inspector</p>
+                    <p>
+                        <b>UCM</b> = Used Car Manager</p>
                 </div>
                 <div class="right-align">
                     <button type="button" style="background-color: #9e9e9e !important;" class="btn waves-effect waves-light camel-case" ng-click="nextStep(6)">Previous</button>
@@ -1186,103 +1268,147 @@ textarea{
             </div>
             <div class="ul-main-eight ulmc" ng-class="{'active': step==8}">
                 <div class="bulk-upload-otr">
-                    <p>Use this option to upload data in bulk.</p>
-                    <p><b>Note:</b></p>
-                    <p>- For bulk upload to happen, You would need upload the service items data via. a Microsoft Excel file.</p>
-                    <p>Step 1: Please download the MS Excel file format <a href="http://cleanup.tech/dsm-index/customer.csv" targer="_blank">HERE </a> </p>
-                    <p>Step 2: Please DONT change the format. Just fill in the service items data in the provided MS Excel file. </p>
+                    <p>Use this option to upload all the Customers in your Dealership in bulk.</p>
+                    <p>
+                        <b>Note:</b>
+                    </p>
+                    <p>- - For bulk upload to happen, You would need upload the Customer data via. a Microsoft Excel file.
+                        </p>
+                    <p>Step 1:  Please download the MS Excel file format
+                        <a href="http://cleanup.tech/dsm-index/customer.xls"
+                            targer="_blank">HERE </a>
+                    </p>
+                    <p>Step 2: Please DONT change the format. Just fill in the Customer's data in the provided MS Excel file.
+                        </p>
                     <p>Step 3: Save the file in a folder on your computer.</p>
                     <p>Step 4: Tap on the "Select file" button below > Browse to the folder that contains the MS Excel file you saved previously > Select the file and submit.</p>
-            </div>
+                </div>
                 <div class="file-field input-field col s12">
-                    <div class="btn" >
+                    <div class="btn">
                         <span>Select file</span>
-                        <input type="file" onchange="angular.element(this).scope().uploadUserData(this.files)">
+                        <input type="file" onchange="angular.element(this).scope().uploadCustomerData(this.files)">
                     </div>
                     <div class="file-path-wrapper">
                         <input class="file-path validate" disabled type="text">
                     </div>
-                   <!--  For bulk upload, you can use an csv.
-                    Please download the sample csv format <a href="http://cleanup.tech/dsm-index/customer.csv" targer="_blank">HERE </a> -->
-                    <div class="errorTxt21"></div>
+                    <div id="card-alert" class="card red lighten-5" ng-if="alreadyc">
+                            <div class="card-content red-text">
+                                <p ng-if="alreadyc.length!=0" style="color:#000">
+                                        The following Customers has been omitted ( as a Customer with the same EMAIL already exists for your database ):
+                                    <br>
+                                </p>
+                                <p ng-repeat="all in alreadyc" style="text-transform:none !important">
+                                    {{all.name}} ({{all.email}})</p>
+                            </div>
+                            <button type="button" ng-click="close()" class="close red-text" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
 
                 </div>
-                <div id="eight_upload">
-                <div class="row">
-                    <div class="col m4 s12">
-                        <div class="input-field">
-                            <input type="text" placeholder="Name*" />
-                        </div>
-                    </div>
-                    <div class="col m4 s12">
-                        <div class="input-field">
-                            <input type="email" placeholder="Email*  " />
-                        </div>
-                    </div>
-                    <div class="col m4 s12">
-                        <div class="row">
-                            <div class="input-field col m8">
-                            <input type="password" placeholder="password*  " />
-                            </div>
-                            <div class="col m4 s12">
-                                <input type="button" id="more_fields" onclick="eight_fields();" class="btn btn-floating" value="+" style="margin-top: 25px;" />
+                <form class="formValidates" name="addCustomerForm" id="addCustomerForm" ng-submit="addCustomer()">
+                <div id="eight_upload"  ng-repeat="ser in  [].constructor(totalcus) track by $index">
+                    <div class="row">
+                        <div class="col m4 s12">
+                            <div class="input-field">
+                                <input type="text" placeholder="Name*"  required name="cname{{$index}}" id="cname{{$index}}" ng-model="customerData[$index].name"/>
                             </div>
                         </div>
-                        
+                        <div class="col m4 s12">
+                            <div class="input-field">
+                                <input type="email" placeholder="Email*  "  required name="cname{{$index}}" id="cname{{$index}}" ng-model="customerData[$index].email"/>
+                            </div>
+                        </div>
+                        <div class="col m4 s12">
+                            <div class="row">
+                                <div class="input-field col m8">
+                                    <input type="password" placeholder="password*  " required name="cname{{$index}}" id="cname{{$index}}" ng-model="customerData[$index].password" />
+                                </div>
+                                <div class="col m4 s12">
+                                    <input type="button" id="more_fields" ng-click="addcustomerdiv();" class="btn btn-floating" value="+" style="margin-top: 25px;"
+                                    />
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
-                </div>
                 </div>
                 <div class="left-align">
-                    <button type="button" class="btn waves-light waves-effect">Add above Customers</button>
+                    <button type="submit" class="btn waves-light waves-effect">Add above Customers</button>
                 </div>
+                </form>
                 <div class="right-align">
                     <button type="button" style="background-color: #9e9e9e !important;" class="btn waves-effect waves-light camel-case" ng-click="nextStep(7)">Previous</button>
                     <button type="button" ng-click="finalStep()" class="btn waves-effect waves-light ul-2-btn">Finsh</button>
                 </div>
             </div>
+            <div class="ul-main-four ulmc" ng-class="{'active': step==9}">
+                    <div class="row">
+                            <div class="col m5 s12">
+                                <div class="wizard-img">
+                                    <img src="https://media.istockphoto.com/photos/auto-mechanic-with-customer-picture-id172421050?k=6&m=172421050&s=612x612&w=0&h=DqkhSe2UlMZF91QrH5yHznHygzmVTR_2Q_37pRafNrI="
+                                        alt="image" style="width: 100%;" />
+                                </div>
+                            </div>
+                            <div class="col m7 s12">
+                                <div class="wizard-content bulk-upload-otr">
+                                    <p>Congratualtions! you completing setting up the dealer management platform for Dealership Name!</p>
+                                    <p>when you are ready to start using the system, click on  the Make system live button below for your customers and dealership to start using the system.</p>
+                                    <p>
+                                        you can always come back to the admin panel and make any changes as needed to the system.
+                                    </p>
+                                    <p class="right-align">
+                                            <button type="button" style="background-color: #9e9e9e !important;" class="btn waves-effect waves-light camel-case" ng-click="nextStep(8)">Previous</button>
+                                        <a href="http://cleanup.tech/" target="_blank"class="btn waves-effect waves-light camel-case">Make system live</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                </div>
         </div>
     </div>
 </div>
 
 <div id="modal1" class="modal">
-        <div class="modal-content">
-          <form class="" autocomplete="off" ng-submit="changePassword()">
+    <div class="modal-content">
+        <form class="" autocomplete="off" ng-submit="changePassword()">
             <div class="row">
-              <div class="input-field col s12">
-                <label for="password">Current Password *</label>
-                <input id="password" type="password" name="password" data-error=".errorTxt3" ng-model="changepassword.old_password">
-                <div class="errorTxt3"></div>
-              </div>
-              <div class="input-field col s12">
-                <label for="password1">New Password *</label>
-                <input id="password1" type="password" name="password" data-error=".errorTxt3" ng-model="changepassword.password">
-                <div class="errorTxt3"></div>
-              </div>
-              <div class="input-field col s12">
-                <label for="cpassword">Confirm Password *</label>
-                <input id="cpassword" type="password" name="cpassword" data-error=".errorTxt4" ng-model="changepassword.cpassword">
-                <div class="errorTxt4"></div>
-              </div>
+                <div class="input-field col s12">
+                    <label for="password">Current Password *</label>
+                    <input id="password" type="password" name="password" data-error=".errorTxt3" ng-model="changepassword.old_password">
+                    <div class="errorTxt3"></div>
+                </div>
+                <div class="input-field col s12">
+                    <label for="password1">New Password *</label>
+                    <input id="password1" type="password" name="password" data-error=".errorTxt3" ng-model="changepassword.password">
+                    <div class="errorTxt3"></div>
+                </div>
+                <div class="input-field col s12">
+                    <label for="cpassword">Confirm Password *</label>
+                    <input id="cpassword" type="password" name="cpassword" data-error=".errorTxt4" ng-model="changepassword.cpassword">
+                    <div class="errorTxt4"></div>
+                </div>
             </div>
             <div class="row">
-              <div class="input-field col s12">
-                <!-- <a class=""></a> -->
-                <button class="btn waves-effect waves-light col s12" type="submit" name="button">RESET PASSWORD</button>
-              </div>
+                <div class="input-field col s12">
+                    <!-- <a class=""></a> -->
+                    <button class="btn waves-effect waves-light col s12" type="submit" name="button">RESET PASSWORD</button>
+                </div>
             </div>
-          </form>
-        </div>
-        <!-- <div class="modal-footer">
+        </form>
+    </div>
+    <!-- <div class="modal-footer">
             <a class=" modal-action modal-close waves-effect waves-green btn-flat">RESET</a>
           </div> -->
-      </div>
+</div>
 <script type="text/javascript"> 
-//   $('.timepicker').pickatime({
+    //   $('.timepicker').pickatime({
     // $('.timepicker').pickatime({});
-//   });
+    //   });
     function anyThing() {
-      
-        setTimeout(function () { $('.stepper').nextStep(); }, 1500); }
+
+        setTimeout(function () { $('.stepper').nextStep(); }, 1500);
+    }
     $(function () { $('.stepper').activateStepper(); })
 </script>
 <script>
@@ -1310,7 +1436,28 @@ textarea{
 
     // });
 
-
+    $("#addUsersForm").validate({
+        errorElement: 'div',
+        errorPlacement: function (error, element) {
+            var placement = $(element).data('error');
+            if (placement) {
+                $(placement).append(error)
+            } else {
+                error.insertAfter(element);
+            }
+        }
+    });
+    $("#addCustomerForm").validate({
+        errorElement: 'div',
+        errorPlacement: function (error, element) {
+            var placement = $(element).data('error');
+            if (placement) {
+                $(placement).append(error)
+            } else {
+                error.insertAfter(element);
+            }
+        }
+    });
     $("#formValidate").validate({
         rules: {
             cname: {
@@ -1323,18 +1470,18 @@ textarea{
             },
             cphone: {
                 required: true,
-                minlength:10,
-                maxlength:10,
+                minlength: 10,
+                maxlength: 10,
                 // number:true
             }
         },
         messages: {
             cphone: {
-            required: "Enter a Phonenumber",
-            minlength: "Enter valid phone number",
-            maxlength: "Enter valid phone number",
-            number: "Enter valid phone number"
-        },
+                required: "Enter a Phonenumber",
+                minlength: "Enter valid phone number",
+                maxlength: "Enter valid phone number",
+                number: "Enter valid phone number"
+            },
         },
         errorElement: 'div',
         errorPlacement: function (error, element) {
@@ -1369,69 +1516,45 @@ textarea{
     });
     $('.modal-trigger').leanModal();
     $("#formValidates").validate({
-    rules: {
-      sname: {
-        required: true,
-        minlength: 6
-      },
-      description: {
-        required: true
-      },
-      amount: {
-        required: true,
-        number: true
-      }
-    },
-    //For custom messages
-    messages: {
-      sname: {
-        required: "Enter a service name",
-        minlength: "Enter at least 6 characters"
-      },
-      amount: {
-        number: "Enter valid number"
-      }
-    },
-    errorElement: 'div',
-    errorPlacement: function(error, element) {
-      var placement = $(element).data('error');
-      if (placement) {
-        $(placement).append(error)
-      } else {
-        error.insertAfter(element);
-      }
-    }
-  });
+        rules: {
+            sname: {
+                required: true,
+                minlength: 6
+            },
+            description: {
+                required: true
+            },
+            amount: {
+                required: true,
+                number: true
+            }
+        },
+        //For custom messages
+        messages: {
+            sname: {
+                required: "Enter a service name",
+                minlength: "Enter at least 6 characters"
+            },
+            amount: {
+                number: "Enter valid number"
+            }
+        },
+        errorElement: 'div',
+        errorPlacement: function (error, element) {
+            var placement = $(element).data('error');
+            if (placement) {
+                $(placement).append(error)
+            } else {
+                error.insertAfter(element);
+            }
+        }
+    });
 </script>
 <script>
-$(document).ready(function(){
-    $('.tooltipped').tooltip({delay: 50});
+    $(document).ready(function () {
+        $('.tooltipped').tooltip({ delay: 50 });
 
-    
-     $(".button-collapse").sideNav();
-  });
-</script>
-<script>
 
-function add_fields() {
-    var objTo = document.getElementById('room_fileds')
-    var divtest = document.createElement("div");
-    divtest.innerHTML = '<div class="content"><div class="row"><div class="col m4 s12"><div class="input-field"><input type="text" placeholder="Service item Name*"/></div></div><div class="col m4 s12"><div class="input-field"><input type="text" placeholder="Description"/></div></div><div class="col m4 s12"><div class="row"><div class="col m8 s12 input-field"><input type="text" placeholder="Price*"/></div><div class="col m4 s12 center-align"><input type="button" id="more_fields" onclick="add_fields();" class="btn btn-floating" value="+" style="margin-top:20px;width: 45px;"/></div></div></div></div></div>';
-    
-    objTo.appendChild(divtest)
-}
-function seven_upload(){
-    var objTo = document.getElementById('single_upload')
-    var divtest = document.createElement("div");
-    divtest.innerHTML = '<div class="s_u_content"><div class="row"><div class="col m2 s12"><div class="input-field"><input type="text" placeholder="Name*" /></div></div><div class="col m2 s12"><div class="input-field"><input type="email" placeholder="Email*" /></div></div><div class="col m2 s12"><div class="input-field"><input type="password" placeholder=" Password*"></div></div><div class="col m6 s12"><p><span><input type="checkbox" class="filled-in" id="filled-in-box" checked="checked" /><label for="filled-in-box">SA</label></span><span><input type="checkbox" class="filled-in" id="filled-in-box" checked="checked" /><label for="filled-in-box">SS</label></span><span><input type="checkbox" class="filled-in" id="filled-in-box" checked="checked" /><label for="filled-in-box">MM</label></span><span><input type="checkbox" class="filled-in" id="filled-in-box" checked="checked" /><label for="filled-in-box">VI</label></span><span><input type="checkbox" class="filled-in" id="filled-in-box" checked="checked" /><label for="filled-in-box">UCM</label></span><span><input type="checkbox" class="filled-in" id="filled-in-box" checked="checked" /><label for="filled-in-box">ADMIN</label></span><input type="button" id="upload_fields" onclick="seven_upload();" class="btn btn-floating" value="+"  /></p></div></div></div>';
-    objTo.appendChild(divtest)
-}        
-</script>
-<script>
-function eight_fields(){
-     var objTo = document.getElementById('eight_upload')
-    var divtest = document.createElement("div");
-    divtest.innerHTML = '<div class="row"><div class="col m4 s12"><div class="input-field"><input type="text" placeholder="Name*" /></div></div><div class="col m4 s12"><div class="input-field"><input type="email" placeholder="Email*  " /></div></div><div class="col m4 s12"><div class="row"><div class="input-field col m8"><input type="password" placeholder="password*  " /></div><div class="col m4 s12"><input type="button" id="more_fields" onclick="eight_fields();" class="btn btn-floating" value="+" style="margin-top: 25px;" /></div></div></div></div>';
- objTo.appendChild(divtest)
-}     
+        $(".button-collapse").sideNav();
+    });
 </script>

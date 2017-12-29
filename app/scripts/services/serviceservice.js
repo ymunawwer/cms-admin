@@ -21,7 +21,10 @@ angular.module('dmsAdminApp')
       addService: {
         url: endpoint + '/admin/services',
         method: 'POST',
-
+      },
+      addBulkService: {
+        url: endpoint + '/admin/services/bulk',
+        method: 'POST',
       },
       deleteService: {
         url: endpoint + '/admin/services/:id',
