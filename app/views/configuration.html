@@ -4,9 +4,23 @@
     background: transparent;
     margin: 0 1.55em;
 }
+.bulk-upload-otr p{
+        text-transform: none !important;
+    font-weight: 400 !important;
+    margin: 8px 0 !important;
+}
+[type="checkbox"].filled-in:checked+label:after{
+        border: 2px solid #000;
+background-color: #000;
+}
+.ul-main-seven p span{
+    display: inline-block;
+    padding: 25px 5px;
+}
 </style>
+
 <div class="main-slide-outer">
-        <!-- END HEADER -->
+        <!-- END HnEADER -->
         <ul id="slide-out" class="side-nav">
              <li class="user-details cyan darken-2">
                 <div class="row">
@@ -960,10 +974,59 @@ textarea{
                 </div>
             </div>
             <div class="ul-main-six ulmc" ng-class="{'active': step==6}">
-                <div class="file-field input-field col s12">
+             <div class="bulk-upload-otr">
+                    <p>Use this option to upload data in bulk.</p>
+                    <p><b>Note:</b></p>
+                    <p>- For bulk upload to happen, You would need upload the service items data via. a Microsoft Excel file.</p>
+                    <p>Step 1: Please download the MS Excel file format <a href="http://www.dsaidemo.com/Service_items.xls" targer="_blank">HERE </a> </p>
+                    <p>Step 2: Please DONT change the format. Just fill in the service items data in the provided MS Excel file. </p>
+                    <p>Step 3: Save the file in a folder on your computer.</p>
+                    <p>Step 4: Tap on the "Select file" button below > Browse to the folder that contains the MS Excel file you saved previously > Select the file and submit.</p>
+            </div>
+            <form ng-submit="uploadServiceFile()">
+                                  <div class="file-field input-field">
+                                    <div class="btn">
+                                      <span>Select file</span>
+                                      <input type="file" onchange="angular.element(this).scope().uploadServiceData(this.files)">
+                                    </div>
+                                    <div class="file-path-wrapper">
+                                      <input class="file-path validate" type="text">
+                                    </div>
+                  
+                  
+                                    <div id="card-alert" class="card red lighten-5" ng-if="already">
+                                        <div class="card-content red-text">
+                                          <p ng-repeat="all in already">Already exist : {{all.name}}</p>
+                                        </div>
+                                        <button type="button" ng-click="close()" class="close red-text" data-dismiss="alert" aria-label="Close">
+                                          <span aria-hidden="true">×</span>
+                                        </button>
+                                      </div>
+                                  </div>
+                                 <!--  For bulk upload, you can use an excel sheet.
+                  Please download the sample excel format <a href="http://www.dsaidemo.com/Service_items.xls" targer="_blank">HERE </a> -->
+                  
+                                  <!-- <div class="row">
+                                    <div class="input-field col s12">
+                                      <button class="btn waves-effect waves-light right submit" type="submit" name="action">
+                                       UPLOAD
+                                       <i class="mdi-content-send right"></i>
+                                     </button>
+                                    </div>
+                                  </div> -->
+                                </form>
+                                <div class="center">
+                                <p>OR you can add Users manually here</p>
+                              </div>
+                        <div class="file-field input-field col s12">
                         <form class="formValidates" name="addServiceForm" id="formValidates" ng-submit="addService()">
-              
-                                <div class="row">
+                        <div id="room_fileds">
+                        <div class="content"><div class="row"><div class="col m4 s12"><div class="input-field"><input type="text" placeholder="Service item Name* " /></div></div><div class="col m4 s12"><div class="input-field"><input type="text" placeholder="Description" /></div></div><div class="col m4 s12"><div class="row"><div class="col m8 s12 input-field"><input type="text" placeholder="Price*" /></div><div class="col m4 s12 center-align"><input type="button" id="more_fields" onclick="add_fields();" class="btn btn-floating" value="+" style="margin-top: 15px;width: 45px;" /></div></div></div></div></div>
+                        </div>
+                        <div class="right-align">
+                            <button type="submit" class="btn waves-light waves-effect">Add above items</button>
+                        </div>
+                              <!--   <div class="row">
                                   <div class="input-field col s12">
                                     <label for="sname">Service name*</label>
                                     <input id="sname" name="sname" type="text" data-error=".errorTxt1" ng-model="serviceData.name" required>
@@ -984,7 +1047,7 @@ textarea{
                                     <input id="amount" name="amount" type="text" data-error=".errorTxt3" ng-model="serviceData.amount" required>
                                     <div class="errorTxt3"></div>
                                   </div>
-                                </div>
+                                </div> -->
                                 <div class="row">
                                   <div class="input-field col s12">
                                     <!-- <a ui-sref="home.serviceview" class="btn grey darken-1">Cancel </a> -->
@@ -996,11 +1059,9 @@ textarea{
                                   </div>
                                 </div>
                               </form>
-                              <div class="center">
-                                - OR Upload file-
-                              </div>
+                              
                               <div class="">
-                                <form ng-submit="uploadServiceFile()">
+                                <!-- <form ng-submit="uploadServiceFile()">
                                   <div class="file-field input-field">
                                     <div class="btn">
                                       <span>Upload</span>
@@ -1022,16 +1083,7 @@ textarea{
                                   </div>
                                   For bulk upload, you can use an excel sheet.
                   Please download the sample excel format <a href="http://www.dsaidemo.com/Service_items.xls" targer="_blank">HERE </a>
-                  
-                                  <!-- <div class="row">
-                                    <div class="input-field col s12">
-                                      <button class="btn waves-effect waves-light right submit" type="submit" name="action">
-                                       UPLOAD
-                                       <i class="mdi-content-send right"></i>
-                                     </button>
-                                    </div>
-                                  </div> -->
-                                </form>
+                                </form> -->
                               </div>
 
                 </div>
@@ -1041,18 +1093,91 @@ textarea{
                 </div>
             </div>
             <div class="ul-main-seven ulmc" ng-class="{'active': step==7}">
+            <div class="bulk-upload-otr">
+                    <p>Use this option to upload data in bulk.</p>
+                    <p><b>Note:</b></p>
+                    <p>- For bulk upload to happen, You would need upload the service items data via. a Microsoft Excel file.</p>
+                    <p>Step 1: Please download the MS Excel file format <a href="http://www.dsaidemo.com/Service_items.xls" targer="_blank">HERE </a> </p>
+                    <p>Step 2: Please DONT change the format. Just fill in the service items data in the provided MS Excel file. </p>
+                    <p>Step 3: Save the file in a folder on your computer.</p>
+                    <p>Step 4: Tap on the "Select file" button below > Browse to the folder that contains the MS Excel file you saved previously > Select the file and submit.</p>
+            </div>
                 <div class="file-field input-field col s12">
                     <div class="btn">
-                        <span>Upload Users  </span>
+                        <span>Select file </span>
                         <input type="file" onchange="angular.element(this).scope().uploadUserData(this.files)">
                     </div>
                     <div class="file-path-wrapper">
                         <input class="file-path validate" disabled type="text">
                     </div>
-                    For bulk upload, you can use an csv.
-                    Please download the sample csv format <a href="http://cleanup.tech/dsm-index/users.csv" targer="_blank">HERE </a>
+                   <!--  For bulk upload, you can use an csv.
+                    Please download the sample csv format <a href="http://cleanup.tech/dsm-index/users.csv" targer="_blank">HERE </a> -->
                     <div class="errorTxt21"></div>
 
+                </div>
+                <div class="center">
+                    <p>OR you can add Users manually here</p>
+                </div>
+                <div id="single_upload">
+                    <div class="s_u_content">
+                        <div class="row">
+                            <div class="col m2 s12">
+                                <div class="input-field">
+                                    <input type="text" placeholder="Name*" />
+                                </div>
+                            </div>
+                             <div class="col m2 s12">
+                                <div class="input-field">
+                                    <input type="email" placeholder="Email*" />
+                                </div>
+                            </div>
+                             <div class="col m2 s12">
+                                <div class="input-field">
+                                    <input type="password" placeholder=" Password*">
+                                </div>
+                            </div>
+                            <div class="col m6 s12">
+                                <p>
+                                    
+                                    <span>
+                                        <input type="checkbox" class="filled-in" id="filled-in-box" checked="checked" />
+                                        <label for="filled-in-box">SA</label>
+                                    </span>
+                                    <span>
+                                        <input type="checkbox" class="filled-in" id="filled-in-box" checked="checked" />
+                                        <label for="filled-in-box">SS</label>
+                                    </span>
+                                    <span>
+                                        <input type="checkbox" class="filled-in" id="filled-in-box" checked="checked" />
+                                        <label for="filled-in-box">MM</label>
+                                    </span>
+                                    <span>
+                                        <input type="checkbox" class="filled-in" id="filled-in-box" checked="checked" />
+                                        <label for="filled-in-box">VI</label>
+                                    </span>
+                                    <span>
+                                        <input type="checkbox" class="filled-in" id="filled-in-box" checked="checked" />
+                                        <label for="filled-in-box">UCM</label>
+                                    </span>
+                                    <span>
+                                        <input type="checkbox" class="filled-in" id="filled-in-box" checked="checked" />
+                                        <label for="filled-in-box">ADMIN</label>
+                                    </span>
+                                   <input type="button" id="upload_fields" onclick="seven_upload();" class="btn btn-floating" value="+"  />
+                                </p>
+                            </div>
+                        </div>
+                    </div>        
+                </div>
+                <div class="right-align">
+                    <button type="submit" class="btn waves-effect waves-light">Add above Users</button>
+                </div>
+                <div class="bulk-upload-otr">
+                <p><b>SA</b> = Service Adviser</p>
+                <p><b>SS</b> = Service Scheduler  </p>
+                <p><b>MM</b> = Marketing Manager</p>
+                <p><b>VI</b> = Vehicle Inspector</p>
+                <p><b>UCM</b> = Used Car Manager</p>
                 </div>
                 <div class="right-align">
                     <button type="button" style="background-color: #9e9e9e !important;" class="btn waves-effect waves-light camel-case" ng-click="nextStep(6)">Previous</button>
@@ -1060,18 +1185,55 @@ textarea{
                 </div>
             </div>
             <div class="ul-main-eight ulmc" ng-class="{'active': step==8}">
+                <div class="bulk-upload-otr">
+                    <p>Use this option to upload data in bulk.</p>
+                    <p><b>Note:</b></p>
+                    <p>- For bulk upload to happen, You would need upload the service items data via. a Microsoft Excel file.</p>
+                    <p>Step 1: Please download the MS Excel file format <a href="http://cleanup.tech/dsm-index/customer.csv" targer="_blank">HERE </a> </p>
+                    <p>Step 2: Please DONT change the format. Just fill in the service items data in the provided MS Excel file. </p>
+                    <p>Step 3: Save the file in a folder on your computer.</p>
+                    <p>Step 4: Tap on the "Select file" button below > Browse to the folder that contains the MS Excel file you saved previously > Select the file and submit.</p>
+            </div>
                 <div class="file-field input-field col s12">
                     <div class="btn" >
-                        <span>Upload Customers</span>
+                        <span>Select file</span>
                         <input type="file" onchange="angular.element(this).scope().uploadUserData(this.files)">
                     </div>
                     <div class="file-path-wrapper">
                         <input class="file-path validate" disabled type="text">
                     </div>
-                    For bulk upload, you can use an csv.
-                    Please download the sample csv format <a href="http://cleanup.tech/dsm-index/customer.csv" targer="_blank">HERE </a>
+                   <!--  For bulk upload, you can use an csv.
+                    Please download the sample csv format <a href="http://cleanup.tech/dsm-index/customer.csv" targer="_blank">HERE </a> -->
                     <div class="errorTxt21"></div>
 
+                </div>
+                <div id="eight_upload">
+                <div class="row">
+                    <div class="col m4 s12">
+                        <div class="input-field">
+                            <input type="text" placeholder="Name*" />
+                        </div>
+                    </div>
+                    <div class="col m4 s12">
+                        <div class="input-field">
+                            <input type="email" placeholder="Email*  " />
+                        </div>
+                    </div>
+                    <div class="col m4 s12">
+                        <div class="row">
+                            <div class="input-field col m8">
+                            <input type="password" placeholder="password*  " />
+                            </div>
+                            <div class="col m4 s12">
+                                <input type="button" id="more_fields" onclick="eight_fields();" class="btn btn-floating" value="+" style="margin-top: 25px;" />
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                </div>
+                <div class="left-align">
+                    <button type="button" class="btn waves-light waves-effect">Add above Customers</button>
                 </div>
                 <div class="right-align">
                     <button type="button" style="background-color: #9e9e9e !important;" class="btn waves-effect waves-light camel-case" ng-click="nextStep(7)">Previous</button>
@@ -1248,4 +1410,28 @@ $(document).ready(function(){
     
      $(".button-collapse").sideNav();
   });
+</script>
+<script>
+
+function add_fields() {
+    var objTo = document.getElementById('room_fileds')
+    var divtest = document.createElement("div");
+    divtest.innerHTML = '<div class="content"><div class="row"><div class="col m4 s12"><div class="input-field"><input type="text" placeholder="Service item Name*"/></div></div><div class="col m4 s12"><div class="input-field"><input type="text" placeholder="Description"/></div></div><div class="col m4 s12"><div class="row"><div class="col m8 s12 input-field"><input type="text" placeholder="Price*"/></div><div class="col m4 s12 center-align"><input type="button" id="more_fields" onclick="add_fields();" class="btn btn-floating" value="+" style="margin-top:20px;width: 45px;"/></div></div></div></div></div>';
+    
+    objTo.appendChild(divtest)
+}
+function seven_upload(){
+    var objTo = document.getElementById('single_upload')
+    var divtest = document.createElement("div");
+    divtest.innerHTML = '<div class="s_u_content"><div class="row"><div class="col m2 s12"><div class="input-field"><input type="text" placeholder="Name*" /></div></div><div class="col m2 s12"><div class="input-field"><input type="email" placeholder="Email*" /></div></div><div class="col m2 s12"><div class="input-field"><input type="password" placeholder=" Password*"></div></div><div class="col m6 s12"><p><span><input type="checkbox" class="filled-in" id="filled-in-box" checked="checked" /><label for="filled-in-box">SA</label></span><span><input type="checkbox" class="filled-in" id="filled-in-box" checked="checked" /><label for="filled-in-box">SS</label></span><span><input type="checkbox" class="filled-in" id="filled-in-box" checked="checked" /><label for="filled-in-box">MM</label></span><span><input type="checkbox" class="filled-in" id="filled-in-box" checked="checked" /><label for="filled-in-box">VI</label></span><span><input type="checkbox" class="filled-in" id="filled-in-box" checked="checked" /><label for="filled-in-box">UCM</label></span><span><input type="checkbox" class="filled-in" id="filled-in-box" checked="checked" /><label for="filled-in-box">ADMIN</label></span><input type="button" id="upload_fields" onclick="seven_upload();" class="btn btn-floating" value="+"  /></p></div></div></div>';
+    objTo.appendChild(divtest)
+}        
+</script>
+<script>
+function eight_fields(){
+     var objTo = document.getElementById('eight_upload')
+    var divtest = document.createElement("div");
+    divtest.innerHTML = '<div class="row"><div class="col m4 s12"><div class="input-field"><input type="text" placeholder="Name*" /></div></div><div class="col m4 s12"><div class="input-field"><input type="email" placeholder="Email*  " /></div></div><div class="col m4 s12"><div class="row"><div class="input-field col m8"><input type="password" placeholder="password*  " /></div><div class="col m4 s12"><input type="button" id="more_fields" onclick="eight_fields();" class="btn btn-floating" value="+" style="margin-top: 25px;" /></div></div></div></div>';
+ objTo.appendChild(divtest)
+}     
 </script>
