@@ -184,6 +184,9 @@ angular.module('dmsAdminApp')
       $scope.isStarted = true;
       $scope.step = stage;
       $scope.complete = stage - 1;
+      if(stage==3){
+        $scope.clearImage();
+      }
     }
 
     imageService.getImage({}, {}, function (data) {
