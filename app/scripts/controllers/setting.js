@@ -95,7 +95,7 @@ angular.module('dmsAdminApp')
 
         settings.updateSetting({}, $scope.settings, function (data) {
           if (data.statusText == 'success') {
-            $scope.site.site_title = $scope.settings.site_title;
+            // $scope.site.site_title = $scope.settings.site_title;
             var message = data.message;
             $scope.isStarted = true;
             $scope.complete = 2;
