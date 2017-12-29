@@ -1109,7 +1109,8 @@
                     <p>Step 4: Tap on the "Select file" button below > Browse to the folder that contains the MS Excel file
                         you saved previously > Select the file and submit.</p>
                 </div>
-                <form ng-submit="uploadServiceFile()">
+                <form ng-submit="uploadServiceFile()" name="serviceUploadForm" id="serviceUploadForm">
+
                     <div class="file-field input-field">
                         <div class="btn">
                             <span>Select file</span>
@@ -1205,13 +1206,15 @@
                     <p>Step 4: Tap on the "Select file" button below > Browse to the folder that contains the MS Excel file you saved previously > Select the file and submit.</p>
                 </div>
                 <div class="file-field input-field col s12">
+                    <form id="userUploadForm" name="userUploadForm">
                     <div class="btn">
                         <span>Select file </span>
-                        <input type="file" onchange="angular.element(this).scope().uploadUserData(this.files)">
+                        <input type="file" name="user" onchange="angular.element(this).scope().uploadUserData(this.files)">
                     </div>
                     <div class="file-path-wrapper">
                         <input class="file-path validate" disabled type="text">
                     </div>
+                    </form>
                     <div id="card-alert" class="card red lighten-5" ng-if="alreadyu">
                             <div class="card-content red-text">
                                 <p ng-if="alreadyu.length!=0" style="color:#000">
@@ -1302,6 +1305,7 @@
                     <p>Step 4: Tap on the "Select file" button below > Browse to the folder that contains the MS Excel file you saved previously > Select the file and submit.</p>
                 </div>
                 <div class="file-field input-field col s12">
+                    <form id="customerUploadForm" name="customerUploadForm">
                     <div class="btn">
                         <span>Select file</span>
                         <input type="file" onchange="angular.element(this).scope().uploadCustomerData(this.files)">
@@ -1309,6 +1313,7 @@
                     <div class="file-path-wrapper">
                         <input class="file-path validate" disabled type="text">
                     </div>
+                    </form>
                     <div id="card-alert" class="card red lighten-5" ng-if="alreadyc">
                             <div class="card-content red-text">
                                 <p ng-if="alreadyc.length!=0" style="color:#000">
@@ -1423,6 +1428,8 @@
     //   $('.timepicker').pickatime({
     // $('.timepicker').pickatime({});
     //   });
+    
+   
     function anyThing() {
 
         setTimeout(function () { $('.stepper').nextStep(); }, 1500);
