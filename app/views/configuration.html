@@ -602,7 +602,7 @@
 
                         <div class="input-field col s12">
                             <label for="dnurl">Website </label>
-                            <input id="dnurl" type="url" name="dnurl" ng-model="settings.invoice_contact.website">
+                            <input id="dnurl" type="url" name="dnurl" placeholder="http://www.cleantech.com" ng-model="settings.invoice_contact.website">
                             <div class="errorTxt11"></div>
                         </div>
 
@@ -640,7 +640,7 @@
                         </div>
                         <div class="input-field col s12">
                             <label for="cdcphone">Website</label>
-                            <input id="cdcphone" type="url" name="cdcphone" data-error=".errorTxt1523" ng-model="settings.contact_to_show_customer.website">
+                            <input id="cdcphone" type="url" name="cdcphone" placeholder="http://www.cleantech.com" data-error=".errorTxt1523" ng-model="settings.contact_to_show_customer.website">
                             <div class="errorTxt1523"></div>
                         </div>
                         <div class="input-field col s12">
@@ -947,7 +947,7 @@
                                         data-delay="50" data-tooltip="Text here">help_outline</i>
                                 </p>
                                 <div class="margin col s12">
-                                    <label for="booking_before_time" class="label-2">Earliest​ ​timeframe​ ​for​ ​online​ ​appointment​ ​setup​(Hours)*</label>
+                                    <label for="booking_before_time" class="label-2">Earliest​ ​timeframe​ ​for​ ​online​ ​appointment​ ​setup​(Minutes)*</label>
                                     <input id="booking_before_time" type="number" name="booking_before_time" data-error=".errorTxt19" ng-model="settings.booking_before_time">
                                     <div class="errorTxt19"></div>
                                 </div>
@@ -961,7 +961,7 @@
                                     <div class="errorTxt20"></div>
                                 </div>
                                 <div class="margin col s12">
-                                    <label for="auto_cancel_appointment_time" class="label-2">Auto​ ​cancel​ ​service​ ​appts​ ​for​ ​no​ ​shows​ ​after​ ​x​ ​hours*</label>
+                                    <label for="auto_cancel_appointment_time" class="label-2">Auto​ ​cancel​ ​service​ ​appts​ ​for​ ​no​ ​shows​ ​after​ ​x​ Minutes*</label>
                                     <input id="auto_cancel_appointment_time" type="text" name="auto_cancel_appointment_time" data-error=".errorTxt21" ng-model="settings.auto_cancel_appointment_time">
                                     <div class="errorTxt21"></div>
                                 </div>
@@ -1059,11 +1059,15 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="right-align">
+                                   
+                                    <button type="submit" class="btn waves-effect waves-light ul-2-btn camel-case">Submit</button>
+                                </div>
                         </div>
                         <br>
                         <div class="right-align">
                             <button type="button" style="background-color: #9e9e9e !important;" ng-click="nextStep(2)" class="btn waves-effect waves-light camel-case">Previous</button>
-                            <button type="submit" class="btn waves-effect waves-light ul-2-btn camel-case">Next</button>
+                            <button type="button"  ng-click="nextStep(4)" class="btn waves-effect waves-light ul-2-btn camel-case">Next</button>
                         </div>
                     </form>
                 </div>

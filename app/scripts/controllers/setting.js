@@ -28,35 +28,7 @@ angular.module('dmsAdminApp')
     $scope.$on('$viewContentLoaded', function () { $('ul.tabs').tabs(); });
     $scope.selectTab = function (id) { $('ul.tabs').tabs('select_tab', id); };
     $scope.redirectPage = function (page) { $state.go(page); };
-    var handleFileSelect = function (evt) {
-      var valu = evt.currentTarget.files[0].type;
-      var patt = new RegExp("image/");
-      if (patt.test(valu)) {
-        angular.element('#img_cropper').children('canvas').css('display', 'block');
-        $('#upload_block').css('display', 'none');
-        $('.cropArea').css('display', 'block');
-        $('.image_cropped').css('display', 'inline-block');
-        angular.element('#image_type').css('display', 'none');
-
-        var file = evt.currentTarget.files[0];
-        var reader = new FileReader();
-
-        var output = document.getElementById("result");
-
-        reader.onload = function (evt) {
-          $scope.$apply(function ($scope) {
-            $scope.myImage = evt.target.result;
-            $scope.validImage = true;
-          });
-          angular.element('#image_type').css('display', 'none');
-        };
-        reader.readAsDataURL(file);
-        $("#fileInput").val = '';
-      } else {
-        $scope.validImage = false;
-        angular.element('#image_type').css('display', 'block');
-      }
-    };
+   
     angular.element(document.querySelector('#fileInput')).on('change', handleFileSelect);
     $scope.hours = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24];
     $scope.updateSetting = function () {
@@ -168,71 +140,7 @@ angular.module('dmsAdminApp')
       });
     }
 
-    $scope.myImage = '';
-    $scope.myCroppedImage = '';
-    $scope.cropType = "square";
-    $scope.validImage = false;
-    $scope.showCroppedImg = false;
-
-    //Once the user uploads the image from file type input
-    var handleFileSelect = function (evt) {
-      var valu = evt.currentTarget.files[0].type;
-      var patt = new RegExp("image/");
-      if (patt.test(valu)) {
-        angular.element('#img_cropper').children('canvas').css('display', 'block');
-        $('#upload_block').css('display', 'none');
-        $('.cropArea').css('display', 'block');
-        $('.image_cropped').css('display', 'inline-block');
-        angular.element('#image_type').css('display', 'none');
-        var file = evt.currentTarget.files[0];
-        var reader = new FileReader();
-        var output = document.getElementById("result");
-        reader.onload = function (evt) {
-          $scope.$apply(function ($scope) { $scope.myImage = evt.target.result; $scope.validImage = true; });
-          angular.element('#image_type').css('display', 'none');
-        };
-        reader.readAsDataURL(file); $("#fileInput").val = '';
-      } else {
-        $scope.validImage = false; angular.element('#image_type').css('display', 'block');
-      }
-    };
-    angular.element(document.querySelector('#fileInput')).on('change', handleFileSelect);
-    var mimeType = "image/jpeg"
-    function urltoFile(url, filename, mimeType) {
-      return (fetch(url).then(function (res) {
-        return res.arrayBuffer();
-      }).then(function (buf) {
-        return new File([buf], filename, { type: mimeType });
-      }));
-    }
-
-
-    // function to crop the uploaded images
-    $scope.crop = function () {
-      if ($scope.validImage) {
-        $scope.image_temp = $scope.myCroppedImage;
-
-        var byteString = atob($scope.myCroppedImage.split(',')[1]);
-
-        var ab = new ArrayBuffer(byteString.length);
-        var ia = new Uint8Array(ab);
-        for (var i = 0; i < byteString.length; i++) {
-          ia[i] = byteString.charCodeAt(i);
-        }
-        var blob = new Blob([ia], { type: 'image/png' });
-        console.log(blob);
-        blob.lastModifiedDate = new Date();
-        blob.lastModifiedDate = new Date();
-        $scope.settings.blob = blob;
-        $scope.settings.fileName = "a.png";
-
-        $scope.blobUrl = URL.createObjectURL(blob);
-        $scope.showCroppedImg = true;
-
-      } else {
-        Materialize.toast('<span>' + "Upload valid image" + '</span>', 3000);
-      }
-    }
+  
     //function to clear uploaded image 
     $scope.clearImage = function () {
       $scope.showCroppedImg = false;
@@ -349,7 +257,34 @@ angular.module('dmsAdminApp')
     }
 
    
+    $scope.crop = function() {
+      if ($scope.validImage) {
+        $scope.image_temp = $scope.myCroppedImage;
 
+        var byteString = atob($scope.myCroppedImage.split(',')[1]);
+        var ab = new ArrayBuffer(byteString.length);
+        var ia = new Uint8Array(ab);
+        for (var i = 0; i < byteString.length; i++) {
+          ia[i] = byteString.charCodeAt(i);
+        }
+        var blob = new Blob([ia], {type: 'image/png'});
+
+        blob.lastModifiedDate = new Date();
+        blob.lastModifiedDate = new Date();
+        $scope.blob = blob;
+        $scope.fileName = "a.png";
+
+        $scope.blobUrl = URL.createObjectURL(blob);
+
+        $scope.showCroppedImg = true;
+
+      } else {
+        Materialize.toast('<span>' +
+          "Upload valid image" +
+          '</span>',
+        3000);
+      }
+    }
 
     $scope.addImages = function () {
       if ($scope.validImage) {
@@ -360,8 +295,19 @@ angular.module('dmsAdminApp')
 
           imageService.uploadImage({}, fd, function (data) {
             if (data.statusCode === 200) {
+              $scope.clearImage()
+      $scope.viewImg = true;
+      $scope.addImg = false;
               Materialize.toast('<span>' + data.message + '</span>', 3000);
-              $state.go('home.list-image');
+              imageService.getImage({}, {}, function (data) {
+                if (data.statusCode == 200) {
+                  $scope.imageList = data.body.images;
+                  if ($scope.imageList.length == 0)
+                    $scope.addImg = true;
+                  else
+                    $scope.viewImg = true;
+                }
+              })
             }
             else {
               Materialize.toast('<span>' + data.message + '</span>', 3000);
