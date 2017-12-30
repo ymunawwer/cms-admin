@@ -17,6 +17,7 @@ angular.module('dmsAdminApp')
     $scope.settings.contact_to_show_customer = {};
     settings.getSetting({}, {}, function (data) {
       $scope.settings = data.body.setting;
+      $scope.man = $scope.settings.manufactur;
       if ($scope.settings.manufactur) {
         serviceservice.getMakesList({ id: $scope.settings.manufactur }, {}, function (data) {
           if (data.statusCode == 200) {
@@ -40,6 +41,12 @@ angular.module('dmsAdminApp')
           Materialize.toast('<span> Please enter a valid phone no.</span>', 3000);
           return;
         }
+        if($scope.settings.manufactur){
+          if($scope.settings.make.length==0){
+            Materialize.toast('<span> Please select make.</span>', 3000);
+          return;
+          }
+        }
         $scope.profileData.phone= tempPhone;
         $scope.profileData.manufactur = $scope.settings.manufactur;
         $scope.profileData.make = $scope.settings.make;
@@ -48,6 +55,7 @@ angular.module('dmsAdminApp')
           $scope.settings.site_title = $scope.profileData.name;
           settings.updateSetting({}, $scope.settings, function (data) {
             if (data.statusText == 'success') {
+              $scope.man = $scope.settings.manufactur;
               // $scope.site.site_title = $scope.settings.site_title;
               var message = data.message;
               $scope.isStarted = true;
