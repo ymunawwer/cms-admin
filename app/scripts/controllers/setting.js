@@ -26,6 +26,10 @@ angular.module('dmsAdminApp')
         });
       }
     });
+    settings.getCurrentPlan({}, {}, function (data) {
+      
+      $scope.plans = data.body.plan;
+    });
     $scope.$on('$viewContentLoaded', function () { $('ul.tabs').tabs(); });
     $scope.selectTab = function (id) { $('ul.tabs').tabs('select_tab', id); };
     $scope.redirectPage = function (page) { $state.go(page); };

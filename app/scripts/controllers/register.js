@@ -26,11 +26,7 @@ angular.module('dmsAdminApp')
       $scope.error = '';
       $scope.success = '';
     }
-    serviceservice.getMakesList({}, {}, function (data) {
-      if (data.statusCode == 200) {
-        $scope.makesList = data.body.makes;
-      }
-    });
+   
     $scope.form = {};
     $scope.saveDealar = function () {
       if($scope.userData.password !== $scope.userData.cpassword) {

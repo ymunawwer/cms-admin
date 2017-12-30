@@ -445,7 +445,7 @@
                 <li ng-click="nextStep(2)" class="li-2" ng-class="{'active': step==2 , 'done-li': (complete==2 || complete==3  || complete==4  || complete==5 || complete==6 || complete==7 || complete==8)}">Step 2
                     <p class="truncate">Scheduling</p>
                 </li>
-                <li ng-click="nextStep(3)" class="li-3" ng-class="{'active': step==3, 'done-li': (complete==3 || complete==4  || complete==5 || complete==6 || complete==7 || complete==8)}">Step 3
+                <li   ng-click="nextStep(3)" class="li-3" ng-class="{'active': step==3, 'done-li': (complete==3 || complete==4  || complete==5 || complete==6 || complete==7 || complete==8)}">Step 3
                     <p class="truncate">Marketing Manager</p>
                 </li>
                 <li ng-click="nextStep(4)" class="li-4" ng-class="{'active': step==4 , 'done-li': (  complete==4  || complete==5 || complete==6 || complete==7 || complete==8)}">Step 4
@@ -656,8 +656,8 @@
                             <div class="errorTxt15"></div>
                         </div>
                         <div class="input-field col s12">
-                            <label for="cdcphone">Website</label>
-                            <input id="cdcphone" type="url" name="cdcphone" placeholder="http://www.cleantech.com" data-error=".errorTxt1523" ng-model="settings.contact_to_show_customer.website">
+                            <label for="cdcurl">Website</label>
+                            <input id="cdcurl" type="url" name="cdcurl" placeholder="http://www.cleantech.com" data-error=".errorTxt1523" ng-model="settings.contact_to_show_customer.website">
                             <div class="errorTxt1523"></div>
                         </div>
                         <div class="input-field col s12">
@@ -1064,7 +1064,7 @@
                                         </div>
                                         <div class="center-align ">
                                             <input type="button" id="cropped" class="btn btn-warning image_cropped" value="Crop Image" ng-click="crop()">
-                                            <input type="button" id="cropped" ng-click="clearImage()" class="btn  image_cropped" value="Cancel">
+                                            <input type="button" id="ccropped" ng-click="clearImage()" class="btn  image_cropped" value="Cancel">
                                             <!-- <div id="cropImage" class="errorImage">Crop offer banner</div> -->
                                         </div>
                                     </div>
@@ -1360,16 +1360,16 @@
                         </div>
                         <div class="col m4 s12">
                             <div class="input-field">
-                                <input type="email" placeholder="Email*  "  required name="cname{{$index}}" id="cname{{$index}}" ng-model="customerData[$index].email"/>
+                                <input type="email" placeholder="Email*  "  required name="cemail{{$index}}" id="cemail{{$index}}" ng-model="customerData[$index].email"/>
                             </div>
                         </div>
                         <div class="col m4 s12">
                             <div class="row">
                                 <div class="input-field col m8">
-                                    <input type="password" placeholder="password*  " required name="cname{{$index}}" id="cname{{$index}}" ng-model="customerData[$index].password" />
+                                    <input type="password" placeholder="password*  " required name="cpassword{{$index}}" id="cpassword{{$index}}" ng-model="customerData[$index].password" />
                                 </div>
                                 <div class="col m4 s12">
-                                    <input type="button" id="more_fields" ng-click="addcustomerdiv();" class="btn btn-floating" value="+" style="margin-top: 25px;"
+                                    <input type="button" id="more_fieldss" ng-click="addcustomerdiv();" class="btn btn-floating" value="+" style="margin-top: 25px;"
                                     />
                                 </div>
                             </div>

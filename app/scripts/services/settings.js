@@ -24,9 +24,9 @@ angular.module('dmsAdminApp')
         headers: {
           "Content-Type": undefined
         }
-      },
-      getAutoCheck: {
-        url: endpoint + '/autocheck',
+      }, 
+      getCurrentPlan: {
+        url: endpoint + '/admin/plans/current',
         method: 'GET'
       },
     })
