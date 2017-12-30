@@ -1148,7 +1148,7 @@
                                   </div> -->
                 </form>
                 <div class="center">
-                    <p>OR you can add Users manually here</p>
+                    <p>OR you can add Service manually here</p>
                 </div>
                 <div class="file-field input-field col s12">
                     <form class="formValidates" name="addServiceForm" id="formValidates" ng-submit="addService()">
@@ -1314,6 +1314,7 @@
                         <input class="file-path validate" disabled type="text">
                     </div>
                     </form>
+
                     <div id="card-alert" class="card red lighten-5" ng-if="alreadyc">
                             <div class="card-content red-text">
                                 <p ng-if="alreadyc.length!=0" style="color:#000">
@@ -1328,6 +1329,9 @@
                             </button>
                         </div>
 
+                </div>
+                <div class="center">
+                        <p>OR you can add Customer manually here</p>
                 </div>
                 <form class="formValidates" name="addCustomerForm" id="addCustomerForm" ng-submit="addCustomer()">
                 <div id="eight_upload"  ng-repeat="ser in  [].constructor(totalcus) track by $index">
@@ -1362,7 +1366,7 @@
                 </form>
                 <div class="right-align">
                     <button type="button" style="background-color: #9e9e9e !important;" class="btn waves-effect waves-light camel-case" ng-click="nextStep(7)">Previous</button>
-                    <button type="button" ng-click="finalStep()" class="btn waves-effect waves-light ul-2-btn">Finsh</button>
+                    <button type="button" ng-click="nextStep(9)" class="btn waves-effect waves-light ul-2-btn camel-case">Next</button>
                 </div>
             </div>
             <div class="ul-main-four ulmc" ng-class="{'active': step==9}">
