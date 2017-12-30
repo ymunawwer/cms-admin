@@ -508,7 +508,7 @@
                     </div>
                     <div class="margin col s12 pl11">
                         <label for="manufactur">Makes</label>
-                        <select id="manufactur" ng-disabled="settings.manufactur"  multiple class="browser-default selection-corrector" name="manufactur" ng-model="settings.make" style="margin: 0 0 20px;">
+                        <select id="manufactur" style="height:123px;" ng-disabled="settings.manufactur"  multiple class="browser-default selection-corrector" name="manufactur" ng-model="settings.make" style="margin: 0 0 20px;">
                             <option ng-repeat="make in makesList" value="{{make._id}}">{{make.name}}</option>
                         </select>
                     </div>
@@ -516,14 +516,14 @@
                     <div ng-if="!man">
                             <div class="margin col s12 pl11">
                                 <label for="manufacturs">Dealer​ ​OEM​ ​association</label>
-                                <select id="manufacturs"  ng-change="changeManufacture()" class="browser-default selection-corrector" name="manufacturs" ng-model="settings.manufactur"
+                                <select id="manufacturs"   ng-change="changeManufacture()" class="browser-default selection-corrector" name="manufacturs" ng-model="settings.manufactur"
                                     style="margin: 0 0 20px;">
                                     <option ng-repeat="man in manufactureList" value="{{man._id}}">{{man.name}}</option>
                                 </select>
                             </div>
                             <div class="margin col s12 pl11">
                                 <label for="manufactur">Makes</label>
-                                <select id="manufactur"   multiple class="browser-default selection-corrector" name="manufactur" ng-model="settings.make" style="margin: 0 0 20px;">
+                                <select id="manufactur" style="height:123px;"  multiple class="browser-default selection-corrector" name="manufactur" ng-model="settings.make" style="margin: 0 0 20px;">
                                     <option ng-repeat="make in makesList" value="{{make._id}}">{{make.name}}</option>
                                 </select>
                             </div>
