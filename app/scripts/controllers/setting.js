@@ -8,7 +8,7 @@
  * Controller of the dmsAdminApp
  */
 angular.module('dmsAdminApp')
-  .controller('SettingCtrl', function ($scope, $state, session, settings, $http, endpoint, profileservice, serviceservice, userservice, imageService, $interval) {
+  .controller('SettingCtrl', function ($scope, $state, session, settings, $http, endpoint, profileservice, serviceservice, userservice, imageService,  $timeout) {
     $scope.isStarted = false;
     $scope.settings = {};
     $scope.settings.primary_contact = {};
@@ -26,6 +26,17 @@ angular.module('dmsAdminApp')
         });
       }
     });
+    $scope.close = function () {
+      // console.log('hi')
+      $scope.already = null;
+      $scope.alreadyc = null;
+      $scope.alreadyu = null;
+    }
+    function updateTime() {
+      $scope.close();
+    }
+   
+
     settings.getCurrentPlan({}, {}, function (data) {
       
       $scope.plans = data.body.plan;
@@ -162,16 +173,7 @@ angular.module('dmsAdminApp')
       $("#fileInput").val = '';
     }
    
-    $scope.close = function () {
-      // console.log('hi')
-      $scope.already = null;
-      $scope.alreadyc = null;
-      $scope.alreadyu = null;
-    }
-    function updateTime() {
-      $scope.close();
-    }
-    $interval(updateTime, 10000);
+   
 
     $scope.uploadServiceData = function (files) {
       var fd = new FormData();
@@ -192,6 +194,7 @@ angular.module('dmsAdminApp')
           for (var i = 0; i < data.body.result.length; i++) {
             if (data.body.result[i] != null) add++;
           }
+          $timeout(updateTime, 10000);
           angular.element(document.querySelector('#serviceUploadForm'))[0].reset();
           Materialize.toast('<span>' + add + " Service items have been uploaded successfully!" + '</span>', 3000);
         } else {
@@ -426,6 +429,7 @@ angular.module('dmsAdminApp')
               if (data.body.result[i] != null) add++;
             }
             $scope.totalserve =1;
+            $timeout(updateTime, 10000);
             angular.element(document.querySelector('#formValidates'))[0].reset();
             Materialize.toast('<span>' + add + " Service items have been uploaded successfully!" + '</span>', 3000);
           } else {
@@ -454,6 +458,7 @@ angular.module('dmsAdminApp')
           for(var i=0;i<data.body.result.length; i++){
             if(data.body.result[i]!=null) add++;
           }
+          $timeout(updateTime, 10000);
           angular.element(document.querySelector('#userUploadForm'))[0].reset();
           Materialize.toast('<span>' + add + " Users have been uploaded successfully!" + '</span>', 3000);
         } else {
@@ -487,6 +492,7 @@ angular.module('dmsAdminApp')
               if(data.body.result[i]!=null) add++;
             }
             $scope.totalusr = 1;
+            $timeout(updateTime, 10000);
             angular.element(document.querySelector('#addUsersForm'))[0].reset();
             Materialize.toast('<span>' + add + " Users have been uploaded successfully!" + '</span>', 3000);
           }
@@ -527,6 +533,7 @@ angular.module('dmsAdminApp')
         for(var i=0;i<data.body.result.length; i++){
           if(data.body.result[i]!=null) add++;
         }
+        $timeout(updateTime, 10000);
         angular.element(document.querySelector('#customerUploadForm'))[0].reset();
         Materialize.toast('<span>' + add + " Customers have been uploaded successfully!" + '</span>', 3000);
       } else {
@@ -560,6 +567,7 @@ angular.module('dmsAdminApp')
             if(data.body.result[i]!=null) add++;
           }
           $scope.totalcus =1;
+          $timeout(updateTime, 10000);
           angular.element(document.querySelector('#addCustomerForm'))[0].reset();
           Materialize.toast('<span>' + add + " Customers have been uploaded successfully!" + '</span>', 3000);
         }
