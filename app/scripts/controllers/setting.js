@@ -27,13 +27,13 @@ angular.module('dmsAdminApp')
       }
     });
     settings.getCurrentPlan({}, {}, function (data) {
-      
+
       $scope.plans = data.body.plan;
     });
     $scope.$on('$viewContentLoaded', function () { $('ul.tabs').tabs(); });
     $scope.selectTab = function (id) { $('ul.tabs').tabs('select_tab', id); };
     $scope.redirectPage = function (page) { $state.go(page); };
-   
+
     angular.element(document.querySelector('#fileInput')).on('change', handleFileSelect);
     $scope.hours = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24];
     $scope.updateSetting = function () {
@@ -45,13 +45,13 @@ angular.module('dmsAdminApp')
           Materialize.toast('<span> Please enter a valid phone no.</span>', 3000);
           return;
         }
-        if($scope.settings.manufactur){
-          if($scope.settings.make.length==0){
+        if ($scope.settings.manufactur) {
+          if ($scope.settings.make.length == 0) {
             Materialize.toast('<span> Please select make.</span>', 3000);
-          return;
+            return;
           }
         }
-        $scope.profileData.phone= tempPhone;
+        $scope.profileData.phone = tempPhone;
         $scope.profileData.manufactur = $scope.settings.manufactur;
         $scope.profileData.make = $scope.settings.make;
         profileservice.updateProfile({}, $scope.profileData, function (data) {
@@ -152,7 +152,7 @@ angular.module('dmsAdminApp')
       });
     }
 
-  
+
     //function to clear uploaded image 
     $scope.clearImage = function () {
       $scope.showCroppedImg = false;
@@ -161,7 +161,7 @@ angular.module('dmsAdminApp')
       angular.element(document.querySelector('#imageForm'))[0].reset();
       $("#fileInput").val = '';
     }
-   
+
     $scope.close = function () {
       // console.log('hi')
       $scope.already = null;
@@ -200,12 +200,12 @@ angular.module('dmsAdminApp')
       })
     };
 
-   
+
     $scope.nextStep = function (stage) {
       $scope.isStarted = true;
       $scope.step = stage;
       $scope.complete = stage - 1;
-      if(stage==3){
+      if (stage == 3) {
         $scope.clearImage();
       }
     }
@@ -280,8 +280,8 @@ angular.module('dmsAdminApp')
       }));
     }
 
-   
-    $scope.crop = function() {
+
+    $scope.crop = function () {
       if ($scope.validImage) {
         $scope.image_temp = $scope.myCroppedImage;
 
@@ -291,7 +291,7 @@ angular.module('dmsAdminApp')
         for (var i = 0; i < byteString.length; i++) {
           ia[i] = byteString.charCodeAt(i);
         }
-        var blob = new Blob([ia], {type: 'image/png'});
+        var blob = new Blob([ia], { type: 'image/png' });
 
         blob.lastModifiedDate = new Date();
         blob.lastModifiedDate = new Date();
@@ -306,7 +306,7 @@ angular.module('dmsAdminApp')
         Materialize.toast('<span>' +
           "Upload valid image" +
           '</span>',
-        3000);
+          3000);
       }
     }
 
@@ -320,8 +320,8 @@ angular.module('dmsAdminApp')
           imageService.uploadImage({}, fd, function (data) {
             if (data.statusCode === 200) {
               $scope.clearImage()
-      $scope.viewImg = true;
-      $scope.addImg = false;
+              $scope.viewImg = true;
+              $scope.addImg = false;
               Materialize.toast('<span>' + data.message + '</span>', 3000);
               imageService.getImage({}, {}, function (data) {
                 if (data.statusCode == 200) {
@@ -356,17 +356,16 @@ angular.module('dmsAdminApp')
       $scope.viewImg = false;
       $scope.addImg = true;
     }
-    $scope.finalStep = function(){
+    $scope.finalStep = function () {
       $scope.step = 1;
       $scope.complete = 1 - 1;
       Materialize.toast('<span>Congrats! your dealership is setup.  </span>', 3000);
     }
-    
 
-    $scope.primeToSecondary = function(){
-      $scope.settings.secondary_contact ={};
-      if($scope.secondCheck)
-      {
+
+    $scope.primeToSecondary = function () {
+      $scope.settings.secondary_contact = {};
+      if ($scope.secondCheck) {
         $scope.settings.secondary_contact.name = $scope.settings.primary_contact.name;
         $scope.settings.secondary_contact.title = $scope.settings.primary_contact.title
         $scope.settings.secondary_contact.email = $scope.settings.primary_contact.email
@@ -378,12 +377,11 @@ angular.module('dmsAdminApp')
         $scope.settings.secondary_contact.email = $scope.settings.secondary_contact.email
         $scope.settings.secondary_contact.phone = $scope.settings.secondary_contact.phone
       }
-      
+
     }
-    $scope.primeToSecondary1 = function(){
-      $scope.settings.contact_to_show_customer ={};
-      if($scope.secondCheck1)
-      {
+    $scope.primeToSecondary1 = function () {
+      $scope.settings.contact_to_show_customer = {};
+      if ($scope.secondCheck1) {
         $scope.settings.contact_to_show_customer.name = $scope.settings.invoice_contact.name;
         $scope.settings.contact_to_show_customer.address = $scope.settings.invoice_contact.address
         $scope.settings.contact_to_show_customer.email = $scope.settings.invoice_contact.email
@@ -397,18 +395,18 @@ angular.module('dmsAdminApp')
         $scope.settings.contact_to_show_customer.phone = $scope.settings.contact_to_show_customer.phone;
         $scope.settings.contact_to_show_customer.website = $scope.settings.contact_to_show_customer.website
       }
-      
+
     }
     $scope.totalserve = 1;
-    $scope.addservicediv = function(){
-      $scope.totalserve = $scope.totalserve+1;
+    $scope.addservicediv = function () {
+      $scope.totalserve = $scope.totalserve + 1;
     }
-    $scope.removeservicediv = function(){
-      $scope.totalserve = $scope.totalserve-1;
+    $scope.removeservicediv = function () {
+      $scope.totalserve = $scope.totalserve - 1;
     }
     $scope.serviceData = [];
     $scope.addService = function () {
-      if($scope.addServiceForm.$valid) {
+      if ($scope.addServiceForm.$valid) {
         $scope.serviceData.make = $scope.serviceData.make && $scope.serviceData.make.name != 'INDEPENDENT' ? $scope.serviceData.make.name : null;
 
         serviceservice.addBulkService({}, $scope.serviceData, function (data) {
@@ -419,13 +417,13 @@ angular.module('dmsAdminApp')
                 string = data.body.already[i].name + ',' + string;
               }
               $scope.already = data.body.already;
-  
+
             }
             var add = 0;
             for (var i = 0; i < data.body.result.length; i++) {
               if (data.body.result[i] != null) add++;
             }
-            $scope.totalserve =1;
+            $scope.totalserve = 1;
             angular.element(document.querySelector('#formValidates'))[0].reset();
             Materialize.toast('<span>' + add + " Service items have been uploaded successfully!" + '</span>', 3000);
           } else {
@@ -451,8 +449,8 @@ angular.module('dmsAdminApp')
 
           }
           var add = 0;
-          for(var i=0;i<data.body.result.length; i++){
-            if(data.body.result[i]!=null) add++;
+          for (var i = 0; i < data.body.result.length; i++) {
+            if (data.body.result[i] != null) add++;
           }
           angular.element(document.querySelector('#userUploadForm'))[0].reset();
           Materialize.toast('<span>' + add + " Users have been uploaded successfully!" + '</span>', 3000);
@@ -462,91 +460,59 @@ angular.module('dmsAdminApp')
       })
     };
     $scope.totalusr = 1;
-    $scope.adduserdiv = function(){
-      $scope.totalusr = $scope.totalusr+1;
+    $scope.adduserdiv = function () {
+      $scope.totalusr = $scope.totalusr + 1;
     }
-    $scope.removuserdiv = function(){
-      $scope.totalusr = $scope.totalusr-1;
+    $scope.removuserdiv = function () {
+      $scope.totalusr = $scope.totalusr - 1;
     }
     $scope.userData = [];
-    $scope.addUser = function(){
-      
-      if($scope.addUsersForm.$valid){
-        userservice.addBulkUser({}, $scope.userData, function(data){
-          if(data.statusCode === 200){
+    $scope.addUser = function () {
+
+      if ($scope.addUsersForm.$valid) {
+        userservice.addBulkUser({}, $scope.userData, function (data) {
+          if (data.statusCode === 200) {
             if (data.body.already.length != 0) {
               var string = '';
               for (var i = 0; i < data.body.already.length; i++) {
                 string = data.body.already[i].name + ',' + string;
               }
               $scope.alreadyu = data.body.already;
-  
+
             }
             var add = 0;
-            for(var i=0;i<data.body.result.length; i++){
-              if(data.body.result[i]!=null) add++;
+            for (var i = 0; i < data.body.result.length; i++) {
+              if (data.body.result[i] != null) add++;
             }
             $scope.totalusr = 1;
             angular.element(document.querySelector('#addUsersForm'))[0].reset();
             Materialize.toast('<span>' + add + " Users have been uploaded successfully!" + '</span>', 3000);
           }
-          else{
-            Materialize.toast('<span>'+data.message+'</span>', 3000);
+          else {
+            Materialize.toast('<span>' + data.message + '</span>', 3000);
           }
         })
-      }else{
+      } else {
         Materialize.toast('<span> Add all fields</span>', 3000);
       }
     }
 
-    $scope.roles = [ 
-      {name:"admin", role:"admin"},
-    {name:"marketing_manager", role:"MM"},
-    {name:"used_car_manager",role:"UCM"},
-    {name:"service_scheduler",role:"SS"},
-    {name:"service_adviser", role:"SA"},
-    {name:"vehicle​_inspection​", role:"VI"}
-  ];
+    $scope.roles = [
+      { name: "admin", role: "admin" },
+      { name: "marketing_manager", role: "MM" },
+      { name: "used_car_manager", role: "UCM" },
+      { name: "service_scheduler", role: "SS" },
+      { name: "service_adviser", role: "SA" },
+      { name: "vehicle​_inspection​", role: "VI" }
+    ];
 
-  $scope.uploadCustomerData = function (files) {
-    var fd = new FormData();
-    //Take the first selected file
-    fd.append("file", files[0]);
+    $scope.uploadCustomerData = function (files) {
+      var fd = new FormData();
+      //Take the first selected file
+      fd.append("file", files[0]);
 
-    userservice.uploadUserFile({}, fd, function (data) {
-      if (data.statusText == 'success') {
-        if (data.body.already.length != 0) {
-          var string = '';
-          for (var i = 0; i < data.body.already.length; i++) {
-            string = data.body.already[i].name + ',' + string;
-          }
-          $scope.alreadyc = data.body.already;
-
-        }
-        var add = 0;
-        for(var i=0;i<data.body.result.length; i++){
-          if(data.body.result[i]!=null) add++;
-        }
-        angular.element(document.querySelector('#customerUploadForm'))[0].reset();
-        Materialize.toast('<span>' + add + " Customers have been uploaded successfully!" + '</span>', 3000);
-      } else {
-        Materialize.toast('<span>' + 'Customer adding has been failed' + '</span>', 3000);
-      }
-    })
-  };
-  $scope.totalcus = 1;
-  $scope.addcustomerdiv = function(){
-    $scope.totalcus = $scope.totalcus+1;
-  }
-  $scope.removcustomerdiv = function(){
-    $scope.totalcus = $scope.totalcus-1;
-  }
-  $scope.customerData = [];
-  $scope.addCustomer = function(){
-      
-    if($scope.addCustomerForm.$valid){
-      userservice.addBulkUser({}, $scope.customerData, function(data){
-        if(data.statusCode === 200){
+      userservice.uploadUserFile({}, fd, function (data) {
+        if (data.statusText == 'success') {
           if (data.body.already.length != 0) {
             var string = '';
             for (var i = 0; i < data.body.already.length; i++) {
@@ -556,20 +522,53 @@ angular.module('dmsAdminApp')
 
           }
           var add = 0;
-          for(var i=0;i<data.body.result.length; i++){
-            if(data.body.result[i]!=null) add++;
+          for (var i = 0; i < data.body.result.length; i++) {
+            if (data.body.result[i] != null) add++;
           }
-          $scope.totalcus =1;
-          angular.element(document.querySelector('#addCustomerForm'))[0].reset();
+          angular.element(document.querySelector('#customerUploadForm'))[0].reset();
           Materialize.toast('<span>' + add + " Customers have been uploaded successfully!" + '</span>', 3000);
-        }
-        else{
-          Materialize.toast('<span>'+data.message+'</span>', 3000);
+        } else {
+          Materialize.toast('<span>' + 'Customer adding has been failed' + '</span>', 3000);
         }
       })
-    }else{
-      Materialize.toast('<span> Add all fields</span>', 3000);
+    };
+    $scope.totalcus = 1;
+    $scope.addcustomerdiv = function () {
+      $scope.totalcus = $scope.totalcus + 1;
     }
-  }
+    $scope.removcustomerdiv = function () {
+      $scope.totalcus = $scope.totalcus - 1;
+    }
+    $scope.customerData = [];
+    $scope.addCustomer = function () {
+
+      if ($scope.addCustomerForm.$valid) {
+        userservice.addBulkUser({}, $scope.customerData, function (data) {
+          if (data.statusCode === 200) {
+            if (data.body.already.length != 0) {
+              var string = '';
+              for (var i = 0; i < data.body.already.length; i++) {
+                string = data.body.already[i].name + ',' + string;
+              }
+              $scope.alreadyc = data.body.already;
+
+            }
+            var add = 0;
+            for (var i = 0; i < data.body.result.length; i++) {
+              if (data.body.result[i] != null) add++;
+            }
+            $scope.totalcus = 1;
+            angular.element(document.querySelector('#addCustomerForm'))[0].reset();
+            Materialize.toast('<span>' + add + " Customers have been uploaded successfully!" + '</span>', 3000);
+          }
+          else {
+            Materialize.toast('<span>' + data.message + '</span>', 3000);
+          }
+        })
+      } else {
+        Materialize.toast('<span> Add all fields</span>', 3000);
+      }
+    }
+    $scope.logout = function () { session.destroy('accesstoken'); $state.go('login') };
   });
 

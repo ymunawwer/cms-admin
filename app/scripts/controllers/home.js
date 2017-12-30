@@ -23,9 +23,7 @@ angular.module('dmsAdminApp')
     });
 
     $scope.logout = function(){
-      console.log("hi");
       session.destroy('accesstoken');
-      $state.go('login');
     }
     $('.button-collapse').sideNav({
       menuWidth: 270, // Default is 300

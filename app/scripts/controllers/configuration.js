@@ -9,6 +9,6 @@
  */
 angular.module('dmsAdminApp')
   .controller('ConfigurationCtrl', function ($scope, $state, session, settings) {
-      $scope.isStarted = false;
-      
+    $scope.isStarted = false;
+    $scope.logout = function () { alert();session.destroy('accesstoken'); $state.go('login')};
   })
