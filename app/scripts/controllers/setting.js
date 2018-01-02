@@ -84,6 +84,10 @@ angular.module('dmsAdminApp')
           });
         });
       }
+      else{
+        angular.element(document.querySelector('#stepOne'))[0].click();
+        // Materialize.toast('<span> Please enter all fields.</span>', 3000);
+      }
     }
     $scope.updateSetting1 = function () {
       if ($scope.formValidate1.$valid) {
@@ -101,6 +105,9 @@ angular.module('dmsAdminApp')
             Materialize.toast('<span>' + message + '</span>', 3000);
           }
         });
+      }else{
+        angular.element(document.querySelector('#stepTwo'))[0].click();
+        // Materialize.toast('<span> Please enter all fields.</span>', 3000);
       }
     }
     serviceservice.getManufactureList({}, {}, function (data) {
@@ -206,10 +213,21 @@ angular.module('dmsAdminApp')
 
     $scope.nextStep = function (stage) {
       $scope.isStarted = true;
+      if(stage==1){
+        $scope.step = stage;
+        $scope.complete = stage - 1;
+      }
+      else if(stage==2 && $scope.complete==0){
+        $scope.updateSetting();        
+      }
+      else if (stage == 3 && $scope.complete==1) {
+        $scope.updateSetting1(); 
+      }else{
+        if(stage==3){
+          $scope.clearImage();
+        }
       $scope.step = stage;
       $scope.complete = stage - 1;
-      if (stage == 3) {
-        $scope.clearImage();
       }
     }
 

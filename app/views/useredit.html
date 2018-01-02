@@ -16,7 +16,8 @@
                   <label for="cemail">E-Mail *</label>
                   <input id="cemail" type="email" required name="cemail" data-error=".errorTxt2" ng-model="userData.email">
                   <div class="errorTxt2"></div>
-                  <div class="input-field col s12">
+                  </div>
+                  <!-- <div class="input-field col s12">
                     <select multiple ng-model="userData.roles" id="mySelect">
                     <option value="" disabled selected>Choose your profile</option>
                     <option value="admin">Admin</option>
@@ -30,7 +31,19 @@
                     <div class="input-field">
                       <div class="errorTxt6"></div>
                     </div>
-                  </div>
+                  </div> -->
+                  <div class="col m12 s12">
+                      <label for="uroles">Roles*</label>
+  
+                    <p> 
+                        <span ng-repeat="r in roles">
+                            <input data-error=".filled-in-box"  type="checkbox" class="filled-in"   ng-model="role" ng-checked="r.status==true" ng-click="selectRoles(r.name)"  id="filled-in-box{{$index}}"  name="uroles"    />
+                            <label for="filled-in-box{{$index}}">{{r.role}} </label>
+                            &nbsp;
+                        </span>
+                        <div class="filled-in-box"></div>
+                    </p>
+                </div>
                   <!-- <div class=" input-field col s12">
                     <label for="genter_select">Gender *</label>
                     <p>
@@ -66,13 +79,11 @@
       rules: {
         uname: {
           required: true,
-          minlength: 6
         },
         cemail: {
           required: true,
           email: true
         },
-        cgender: "required",
       },
       //For custom messages
       messages: {

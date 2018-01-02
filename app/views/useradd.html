@@ -27,7 +27,7 @@
                   <input id="cpassword" type="password" name="cpassword" ng-model="userData.cpassword" required data-error=".errorTxt4">
                   <div class="errorTxt4"></div>
                 </div>
-                <div class="input-field col s12">
+                <!-- <div class="input-field col s12">
                   <select multiple ng-model="userData.roles" required>
                     <option value="" disabled selected>Double click here to list the roles</option>
                     <option value="admin">Admin</option>
@@ -40,7 +40,19 @@
                   <label>Choose the role you want to assign to this user ( you can also choose multiple roles )</label>
                   <div class="input-field">
                     <div class="errorTxt6"></div>
-                  </div>
+                  </div> -->
+
+                  <div class="col m12 s12">
+                      <label for="cpassword">Roles*</label>
+                    <p> 
+                        <span ng-repeat="r in roles">
+                            <input data-error=".filled-in-box"  type="checkbox" class="filled-in" ng-model="role"  ng-click="selectRoles(r.name)"  id="filled-in-box{{$index}}"  name="uroles"    />
+                            <label for="filled-in-box{{$index}}">{{r.role}}</label>
+                            <!-- <span class="filled-in-box{{$index}}" ng-show="$index==5" style="font-size:8px"></span> -->
+                            &nbsp;
+                        </span>
+                        <div class="filled-in-box"></div>
+                        </p>
                 </div>
 
                 <!-- <div class="col s12">
@@ -141,7 +153,6 @@ $(document).ready(function() {
     rules: {
       uname: {
         required: true,
-        minlength: 5
       },
       cemail: {
         required: true,
@@ -149,24 +160,11 @@ $(document).ready(function() {
       },
       password: {
         required: true,
-        minlength: 5
       },
       cpassword: {
         required: true,
-        minlength: 5,
         equalTo: "#password"
-      },
-      curl: {
-        required: true,
-        url: true
-      },
-      crole: "required",
-      ccomment: {
-        required: true,
-        minlength: 15
-      },
-      cgender: "required",
-      cagree: "required",
+      }
     },
     //For custom messages
     messages: {

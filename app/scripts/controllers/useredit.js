@@ -11,33 +11,40 @@ angular.module('dmsAdminApp').controller('UsereditCtrl', function($scope, $state
 
   var id = $stateParams.id;
   $scope.userData = {};
+  $scope.roles = [
+    { name: "admin", role: "admin" },
+    { name: "user", role: "user" },
+    { name: "marketing_manager", role: "MM" },
+    { name: "used_car_manager", role: "UCM" },
+    { name: "service_scheduler", role: "SS" },
+    { name: "service_adviser", role: "SA" },
+    { name: "vehicle​_inspection​", role: "VI" }
+  ];
+
+  $scope.selectedroles = $scope.selectedroles || [];
 
   userservice.getSingleUser({
     id: id
   }, {}, function(data) {
     if (data.statusCode == 200) {
       $scope.userData = data.body.user;
-      // // console.log($scope.userData.roles);
-      // // userData.roles = $scope.userData.roles
-      // // $scope.userData.roles = ['admin','user'];
-      // var test = $scope.userData.roles.join(',')
-      // // console.log($scope.userData.roles);
-      // $("#mySelect").material_select('update');
-      // var newValuesArr = [],select = $("#mySelect"),ul = select.prev();
-      // ul.children('li').toArray().forEach(function(li, i) {
-      //   console.log(li,i);
-      //   if (true && i> 0) {
-      //     newValuesArr.push(select.children('option').toArray()[i].value);
-      //   }
-      // });
-      // select.val(newValuesArr);
-      // console.log(newValuesArr);
-      $("select").material_select('update');
+      $scope.selectedroles = $scope.userData.roles;
+      $scope.roles.forEach(function(li, i) {
+        if($scope.userData.roles.indexOf(li.name) !== -1){
+          $scope.roles[i].status=true;
+        }else{
+          $scope.roles[i].status=false;
+        }
+      }); 
     }
   });
-
   $scope.addUser = function() {
+    if($scope.selectedroles.length==0){
+      Materialize.toast('<span>Please select atleast one roles</span>', 3000);
+      return false;
+    }
     if ($scope.userAddForm.$valid) {
+      $scope.userData.roles = $scope.selectedroles;
       userservice.updateUser({
         id: id
       }, $scope.userData, function(data) {
@@ -48,4 +55,15 @@ angular.module('dmsAdminApp').controller('UsereditCtrl', function($scope, $state
       })
     }
   }
+
+  
+    $scope.selectRoles = function (role) {
+      if ($scope.selectedroles.indexOf(role) === -1) {
+        $scope.selectedroles.push(role);
+      } else {
+        var posO = $scope.selectedroles.indexOf(role);
+        $scope.selectedroles.splice(posO, 1)
+      }
+      console.log($scope.selectedroles)
+    }
 });

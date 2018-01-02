@@ -479,7 +479,7 @@
         <!--ul-outer-->
         <div class="ul-main-content white z-depth-1">
             <div class="ul-main-one ulmc" ng-class="{'active': step==1}">
-                <form class="formValidate" name="formValidate" id="formValidate" ng-submit="updateSetting()">
+                <form class="formValidate"  name="formValidate" id="formValidate" ng-submit="updateSetting()">
                     <p>Account details
                         <i class="material-icons tiny blue-text tooltipped" data-position="right" data-delay="50" data-tooltip="Text here">help_outline</i>
                     </p>
@@ -544,7 +544,7 @@
                         </p>
                         <div>
                             <!-- <label for="pctitle">Title*</label> -->
-                            <select id="pctitle" class="browser-default selection-corrector" name="pctitle" ng-model="settings.primary_contact.title">
+                            <select id="pctitle" required class="browser-default selection-corrector" name="pctitle" ng-model="settings.primary_contact.title">
                                 <option value="">--Title--</option>
                                 <option value="Mr">Mr</option>
                                 <option value="Ms">Ms</option>
@@ -615,12 +615,12 @@
                             <div class="errorTxt10"></div>
                         </div>
                         <div class="input-field col s12">
-                            <label for="dnaddress">Address*</label>
+                            <label for="dnaddress">Address</label>
                             <input id="dnaddress" name="dnaddress" type="text" ng-model="settings.invoice_contact.address">
                             <div class="errorTxt100"></div>
                         </div>
                         <div class="input-field col s12">
-                            <label for="dnphone">Phone*</label>
+                            <label for="dnphone">Phone</label>
                             <input id="dnphone" type="text" name="dnphone" data-error=".errorTxt12" ng-model="settings.invoice_contact.phone">
                             <div class="errorTxt12"></div>
                         </div>
@@ -632,7 +632,7 @@
                         </div>
 
                         <div class="input-field col s12">
-                            <label for="dnemail">Email* </label>
+                            <label for="dnemail">Email </label>
                             <input id="dnemail" type="email" name="dnemail" data-error=".errorTxt11" ng-model="settings.invoice_contact.email">
                             <div class="errorTxt11"></div>
                         </div>
@@ -654,12 +654,12 @@
                             <div class="errorTxt13"></div>
                         </div>
                         <div class="input-field col s12">
-                            <label for="cdcaddress">Address*</label>
+                            <label for="cdcaddress">Address</label>
                             <input id="cdcaddress" name="cdcaddress" type="text" ng-model="settings.contact_to_show_customer.address">
                             <div class="errorTxt1012"></div>
                         </div>
                         <div class="input-field col s12">
-                            <label for="cdcphone">Phone* </label>
+                            <label for="cdcphone">Phone </label>
                             <input id="cdcphone" type="text" name="cdcphone" data-error=".errorTxt15" ng-model="settings.contact_to_show_customer.phone">
                             <div class="errorTxt15"></div>
                         </div>
@@ -669,14 +669,14 @@
                             <div class="errorTxt1523"></div>
                         </div>
                         <div class="input-field col s12">
-                            <label for="cdcemail">Email* </label>
+                            <label for="cdcemail">Email </label>
                             <input id="cdcemail" type="email" name="cdcemail" data-error=".errorTxt14" ng-model="settings.contact_to_show_customer.email">
                             <div class="errorTxt14"></div>
                         </div>
 
                     </div>
                     <div class="right-align">
-                        <button type="submit" class="btn waves-effect waves-light ul-1-btn camel-case">Next</button>
+                        <button type="submit" id="stepOne" class="btn waves-effect waves-light ul-1-btn camel-case">Next</button>
                     </div>
                 </form>
             </div>
@@ -973,12 +973,12 @@
                                 </p>
                                 <div class="margin col s12">
                                     <label for="booking_before_time" class="label-2">Earliest​ ​timeframe​ ​for​ ​online​ ​appointment​ ​setup​(Minutes)*</label>
-                                    <input id="booking_before_time" type="number" name="booking_before_time" data-error=".errorTxt19" ng-model="settings.booking_before_time">
+                                    <input id="booking_before_time" type="number"  required name="booking_before_time" data-error=".errorTxt19" ng-model="settings.booking_before_time">
                                     <div class="errorTxt19"></div>
                                 </div>
                                 <div class="margin col s12">
                                     <label for="appointment_interval" class="label-2">Service​ ​appointment​ ​interval​ ​for​ ​taking​ ​appointments(Minutes)*</label>
-                                    <select data-error=".errorTxt20" class="browser-default" name="appointment_interval" id="appointment_interval" ng-model="settings.appointment_interval">
+                                    <select data-error=".errorTxt20" required class="browser-default" name="appointment_interval" id="appointment_interval" ng-model="settings.appointment_interval">
                                         <option ng-value="15">15 mins</option>
                                         <option ng-value="30">30 mins</option>
                                         <option ng-value="60">60 mins</option>
@@ -987,7 +987,7 @@
                                 </div>
                                 <div class="margin col s12">
                                     <label for="auto_cancel_appointment_time" class="label-2">Auto​ ​cancel​ ​service​ ​appts​ ​for​ ​no​ ​shows​ ​after​ ​x​ Minutes*</label>
-                                    <input id="auto_cancel_appointment_time" type="text" name="auto_cancel_appointment_time" data-error=".errorTxt21" ng-model="settings.auto_cancel_appointment_time">
+                                    <input required id="auto_cancel_appointment_time" type="text" name="auto_cancel_appointment_time" data-error=".errorTxt21" ng-model="settings.auto_cancel_appointment_time">
                                     <div class="errorTxt21"></div>
                                 </div>
                             </div>
@@ -995,7 +995,7 @@
                     </div>
                     <div class="right-align">
                         <button type="button" style="background-color: #9e9e9e !important;" ng-click="nextStep(1)" class="btn waves-effect waves-light camel-case">Previous</button>
-                        <button type="submit" class="btn waves-effect waves-light ul-2-btn camel-case">Next</button>
+                        <button type="submit"  id="stepTwo" class="btn waves-effect waves-light ul-2-btn camel-case">Next</button>
                     </div>
                 </form>
             </div>
@@ -1515,8 +1515,7 @@
     $("#formValidate").validate({
         rules: {
             cname: {
-                required: true,
-                minlength: 5
+                required: true
             },
             cemail: {
                 required: true,
@@ -1572,8 +1571,7 @@
     $("#formValidates").validate({
         rules: {
             sname: {
-                required: true,
-                minlength: 6
+                required: true
             },
             description: {
                 required: true

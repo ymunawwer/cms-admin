@@ -24,6 +24,7 @@ angular.module('dmsAdminApp')
 
     $scope.logout = function(){
       session.destroy('accesstoken');
+      $state.go('login');
     }
     $('.button-collapse').sideNav({
       menuWidth: 270, // Default is 300
