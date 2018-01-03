@@ -8,7 +8,7 @@
  * Controller of the dmsAdminApp
  */
 angular.module('dmsAdminApp')
-  .controller('MofferCtrl', function ($scope, serviceservice, $state, $stateParams, session) {
+  .controller('MofferCtrl', function ($scope, serviceservice, $state, $stateParams, session, settings) {
     $scope.serviceList = [];
     $scope.servicelimit = 10;
     $scope.servicestart = 0;
@@ -17,7 +17,19 @@ angular.module('dmsAdminApp')
     // $scope.mileageList.mileage =[];
     $scope.admin = session.get('admin');
     $scope.manufacturs = $scope.admin.manufactur;
-    
+    settings.getSetting({}, {}, function (data) {
+      $scope.settings = data.body.setting;
+      $scope.manufacturs = $scope.settings.manufactur;
+      if($scope.manufacturs){
+      serviceservice.getMileageList({id: $scope.manufacturs}, {}, function (data) {
+        if (data.statusCode === 200) {
+          $scope.mileageList = data.body.items;
+          console.log('munish')
+          console.log($scope.mileageList)
+        }
+      });
+    }
+    });
     if(!$scope.manufacturs){
       serviceservice.getMakesList({},{}, function(data){
         if(data.statusCode == 200){
@@ -37,12 +49,8 @@ angular.module('dmsAdminApp')
     });
 
     }
-    serviceservice.getMileageList({id: $scope.admin.manufactur}, {}, function (data) {
-      if (data.statusCode === 200) {
-        $scope.mileageList = data.body.items;
-        console.log($scope.mileageList)
-      }
-    });
+
+   
 
     $scope.getAllService = function (keyvalue) {
       serviceservice.getServiceList({
