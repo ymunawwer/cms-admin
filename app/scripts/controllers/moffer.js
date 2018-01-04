@@ -121,8 +121,19 @@ angular.module('dmsAdminApp')
        
         serviceservice.addMOfferLists({}, $scope.list, function(data) {
           if (data.statusCode === 200) {
+
+            if (data.body.already.length != 0) {
+              var string = '';
+              for (var i = 0; i < data.body.already.length; i++) {
+                string = data.body.already[i].item.mileage + ',' + string;
+              }
+              $scope.already = data.body.already;
+              Materialize.toast('<span> A maintenance schdule offer with the same milleage and service items is already present. Plase change the milleage or service item</span>', 3000);
+              $state.go('home.list-offer');
+            }else{
             Materialize.toast('<span>' + data.message + '</span>', 3000);
             $state.go('home.list-offer');
+            }
           } else {
             Materialize.toast('<span>' + data.message + '</span>', 3000);
           }
