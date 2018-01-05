@@ -42,6 +42,11 @@ angular.module('dmsAdminApp')
       }
       $scope.userData.phone = tempPhone
       if ($scope.form.theForm.$valid) {
+        let emailRegex = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z0-9]{1,})$/;
+        if(!emailRegex.test($scope.userData.email)) {
+          Materialize.toast('<span>' + "Enter valid mail id." + '</span>', 3000);
+          return;
+        }
         register.saveDealar({}, $scope.userData, function (data) {
           if(data.statusCode === 200){
             session.set('accesstoken', data.body.accesstoken);
