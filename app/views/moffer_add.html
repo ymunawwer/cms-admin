@@ -9,7 +9,7 @@
         <div class="col s12 m12 l12">
           <div class="card-panel">
             <h4 class="header2">
-                Maintenance Schedule Offer Items {{manufacturs}}
+              Use this screen to create a maintenance offer
             </h4>
             <div class="row">
               <form class="formValidate" name="addServiceForm" id="formValidate" ng-submit="addMOfferList()">
@@ -22,7 +22,7 @@
                       </select>
                     </div>
                   </div>
-               <label for="sname21" ng-show="mileageList">Select the mileage</label>                    
+               <label for="sname21" ng-show="mileageList">Select the mileage intervals to apply the offer:</label>                    
 
                 <div class="row" ng-show="mileageList">
                   <div class="input-field col s12 m2" ng-repeat="mile in mileageList.mileage">
@@ -40,7 +40,7 @@
                   </p>
                 <div class="row">
                     <div class="input-field col s12">
-                      <label for="sname22">Search Services</label>
+                      <label for="sname22">Search and choose the service items to add</label>
                       <input id="sname22" name="sname22" type="text" data-error=".errorTxt22" ng-model="key" >
                       <div class="errorTxt21"></div>
                     </div>

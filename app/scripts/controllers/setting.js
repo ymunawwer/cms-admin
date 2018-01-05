@@ -16,7 +16,7 @@ angular.module('dmsAdminApp')
     $scope.settings.invoice_contact = {};
     $scope.settings.contact_to_show_customer = {};
     settings.getSetting({}, {}, function (data) {
-      $scope.settings = data.body.setting;
+      $scope.settings = data.body.setting || {};
       $scope.man = $scope.settings.manufactur;
       if ($scope.settings.manufactur) {
         serviceservice.getMakesList({ id: $scope.settings.manufactur }, {}, function (data) {
@@ -84,7 +84,7 @@ angular.module('dmsAdminApp')
           });
         });
       }
-      else{
+      else {
         angular.element(document.querySelector('#stepOne'))[0].click();
         // Materialize.toast('<span> Please enter all fields.</span>', 3000);
       }
@@ -105,7 +105,7 @@ angular.module('dmsAdminApp')
             Materialize.toast('<span>' + message + '</span>', 3000);
           }
         });
-      }else{
+      } else {
         angular.element(document.querySelector('#stepTwo'))[0].click();
         // Materialize.toast('<span> Please enter all fields.</span>', 3000);
       }
@@ -213,21 +213,21 @@ angular.module('dmsAdminApp')
 
     $scope.nextStep = function (stage) {
       $scope.isStarted = true;
-      if(stage==1){
+      if (stage == 1) {
         $scope.step = stage;
         $scope.complete = stage - 1;
       }
-      else if(stage==2 && $scope.complete==0){
-        $scope.updateSetting();        
+      else if (stage == 2 && $scope.complete == 0) {
+        $scope.updateSetting();
       }
-      else if (stage == 3 && $scope.complete==1) {
-        $scope.updateSetting1(); 
-      }else{
-        if(stage==3){
+      else if (stage == 3 && $scope.complete == 1) {
+        $scope.updateSetting1();
+      } else {
+        if (stage == 3) {
           $scope.clearImage();
         }
-      $scope.step = stage;
-      $scope.complete = stage - 1;
+        $scope.step = stage;
+        $scope.complete = stage - 1;
       }
     }
 
@@ -447,6 +447,7 @@ angular.module('dmsAdminApp')
             $scope.totalserve = 1;
             $timeout(updateTime, 10000);
             angular.element(document.querySelector('#formValidates'))[0].reset();
+            $scope.serviceData = [];
             Materialize.toast('<span>' + add + " Service items have been uploaded successfully!" + '</span>', 3000);
           } else {
             Materialize.toast('<span>' + data.message + '</span>', 3000);
@@ -510,6 +511,7 @@ angular.module('dmsAdminApp')
             $scope.totalusr = 1;
             $timeout(updateTime, 10000);
             angular.element(document.querySelector('#addUsersForm'))[0].reset();
+            $scope.userData = [];
             Materialize.toast('<span>' + add + " Users have been uploaded successfully!" + '</span>', 3000);
           }
           else {
@@ -585,6 +587,7 @@ angular.module('dmsAdminApp')
             $scope.totalcus = 1;
             $timeout(updateTime, 10000);
             angular.element(document.querySelector('#addCustomerForm'))[0].reset();
+            $scope.customerData = [];
             Materialize.toast('<span>' + add + " Customers have been uploaded successfully!" + '</span>', 3000);
           }
           else {
