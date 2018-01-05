@@ -96,7 +96,7 @@
       <div class="row margin">
         <div class="input-field col s12">
           <i class="mdi-social-person-outline prefix"></i>
-          <input id="phone" name="phone" type="text" placeholder="Ex: 2348623542"  pattern="[0-9]{10}" autocomplete="off" data-error=".errorTxt12" ng-model="userData.phone" required>
+          <input id="phone" name="phone" type="text"  oninvalid="this.setCustomValidity('Please enter a 10 digit number.')" oninput="setCustomValidity('')"  placeholder="Ex: 2348623542"  pattern="[0-9]{10}" autocomplete="off" data-error=".errorTxt12" ng-model="userData.phone" required>
           <label for="phone">Phone</label>
           <div class="errorTxt12"></div>
         </div>
