@@ -1,4 +1,9 @@
 <!--start container-->
+<style>
+#data-table-simple p{
+  margin: 4px 0;
+}
+</style>
 <div class="container">
     <div class="section">
     <div class="decor-div white z-depth-1">
@@ -21,13 +26,16 @@
               <tbody>
                 <tr ng-repeat="service in moffer">
                   <td>{{ service.mileage }}</td>
-                  <td><p ng-repeat="ser in service.services">{{ ser.name }}</p></td>
+                  <td><span ng-repeat="ser in service.services">{{ ser.name }},&nbsp; </span></td>
                   <!-- <td>{{ service.make }}</td>
                   <td>{{ service.model }}</td> -->
-                  <td>
-                    <a ui-sref="home.edit-offer({id: service._id})"><i class="material-icons dp48">edit</i></a>
-                    <!-- <a ><i class="material-icons dp48">delete_forever</i></a> -->
+                   <td>
+                  <a ui-sref="home.edit-offer({id: service._id})"><button class="waves-effect waves-light btn grey darken-1" >Edit</button></a>
                   </td>
+                  <!-- <td class="center-align">                  
+                    <a ui-sref="home.edit-offer({id: service._id})"><i class="material-icons dp48 black-text">edit</i></a> -->
+                    <!-- <a ><i class="material-icons dp48">delete_forever</i></a> -->
+                 <!--  </td> -->
                 </tr>
                 <tr ng-if="moffer.length==0">
                   <td colspan="3"> No data found</td>
