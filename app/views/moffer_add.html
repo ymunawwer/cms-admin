@@ -1,3 +1,8 @@
+<style>
+.card-panel h4.header2{
+  margin-left: 0;
+}
+</style>
 <div id="jqueryvalidation" class="section">
     <div class="row">
       <div class="col s12 m12 l12">
@@ -20,7 +25,7 @@
                <label for="sname21" ng-show="mileageList">Select the mileage intervals to apply the offer:</label>                    
 
                 <div class="row" ng-show="mileageList">
-                  <div class="input-field col s3" ng-repeat="mile in mileageList.mileage">
+                  <div class="input-field col s12 m2" ng-repeat="mile in mileageList.mileage">
                     <p >
                       <input name="group1" type="checkbox" ng-model="mileage" id="test{{mile}}" ng-change="selectMileages(mile)"  />
                       <label for="test{{mile}}">{{mile}}</label>
@@ -40,7 +45,7 @@
                       <div class="errorTxt21"></div>
                     </div>
                   </div>
-                <p ng-repeat="service in serviceList" ng-if="selected.indexOf(service._id) === -1" >
+                <p ng-repeat="service in serviceList" ng-if="selected.indexOf(service._id) === -1"  class="col l4">
                     <input name="group1" type="checkbox" ng-model="service.checked" id="test{{service._id}}" ng-change="selectService(service)"  />
                     <label for="test{{service._id}}">{{service.name}}</label>
                     </p>

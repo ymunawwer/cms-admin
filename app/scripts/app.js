@@ -74,7 +74,7 @@ angular.module('dmsAdminApp', ['ngCookies', 'ui.materialize', 'ui.router', 'ngCo
       .state('home.useredit', {
         url: 'user/edit/:id',
         templateUrl: 'views/useredit.html',
-        controller: 'UsereditCtrl',
+        controller: 'UtsereditCtrl',
         authenticate: true
       })
       .state('home.serviceadd', {
