@@ -41,7 +41,11 @@ angular.module('dmsAdminApp')
 
       $scope.plans = data.body.plan;
     });
-    $scope.$on('$viewContentLoaded', function () { $('ul.tabs').tabs(); });
+    $scope.$on('$viewContentLoaded', function () {
+      $('ul.tabs').tabs();
+      // $('.modal').modal();
+      console.log('CONTENT LOADED')
+    });
     $scope.selectTab = function (id) { $('ul.tabs').tabs('select_tab', id); };
     $scope.redirectPage = function (page) { $state.go(page); };
 
@@ -209,10 +213,27 @@ angular.module('dmsAdminApp')
         }
       })
     };
-
-
-    $scope.nextStep = function (stage) {
+    $scope.saveAndContinue = function () {
+      console.log('NEXT STEP', $scope.inCompletedStep);
+      $('#next_confirmation_modal').closeModal();
+      setTimeout(function () { $('.lean-overlay').hide(); }, 1000);
+      if ($scope.inCompletedStep === 7) {
+        if ($scope.addServiceForm.$valid) $scope.addService(true);
+        $('#formValidates').submit();
+      }
+      else if ($scope.inCompletedStep === 8) {
+        if ($scope.addUsersForm.$valid) $scope.addUser(true);
+        $('#addUsersForm').submit();
+      }
+      else if ($scope.inCompletedStep === 9) {
+        if ($scope.addCustomerForm.$valid) $scope.addCustomer(true);
+        $('#addCustomerForm').submit();
+      }
+    }
+    $scope.nextStep = function (stage, skip) {
+      console.log('NEXT STEP FUNCTION', stage);
       $scope.isStarted = true;
+      $scope.inCompletedStep = stage;//marking step as incomplete
       if (stage == 1) {
         $scope.step = stage;
         $scope.complete = stage - 1;
@@ -222,10 +243,47 @@ angular.module('dmsAdminApp')
       }
       else if (stage == 3 && $scope.complete == 1) {
         $scope.updateSetting1();
-      } else {
-        if (stage == 3) {
-          $scope.clearImage();
+      }
+      else if (stage == 7) {
+        if ($scope.serviceData.length && !skip) {
+          $scope.confirmationText = 'The Service items you have added are not saved.';
+          $('#next_confirmation_modal').openModal();
+          return;
         }
+        $('#next_confirmation_modal').closeModal({});
+        setTimeout(function () { $('.lean-overlay').hide(); }, 1000);
+        $scope.inCompletedStep = null;
+        $scope.step = stage;
+        $scope.complete = stage - 1;
+      }
+      else if (stage == 8) {
+        console.log('USER DATA', stage, $scope.userData.length, skip);
+        if ($scope.userData.length && !skip) {
+          $scope.confirmationText = 'The Users you have added are not saved.';
+          $('#next_confirmation_modal').openModal();
+          return;
+        }
+        $('#next_confirmation_modal').closeModal({});
+        setTimeout(function () { $('.lean-overlay').hide(); }, 1000);
+        $scope.inCompletedStep = null;
+        $scope.step = stage;
+        $scope.complete = stage - 1;
+      }
+      else if (stage == 9) {
+        console.log('Customer DATA', stage, $scope.userData.length, skip);
+        if ($scope.customerData.length && !skip) {
+          $scope.confirmationText = 'The Customers you have added are not saved.';
+          $('#next_confirmation_modal').openModal();
+          return;
+        }
+        $('#next_confirmation_modal').closeModal({});
+        setTimeout(function () { $('.lean-overlay').hide(); }, 1000);
+        $scope.inCompletedStep = null;
+        $scope.step = stage;
+        $scope.complete = stage - 1;
+      }
+      else {
+        if (stage == 3) $scope.clearImage();
         $scope.step = stage;
         $scope.complete = stage - 1;
       }
@@ -272,9 +330,7 @@ angular.module('dmsAdminApp')
 
         var file = evt.currentTarget.files[0];
         var reader = new FileReader();
-
         var output = document.getElementById("result");
-
         reader.onload = function (evt) {
           $scope.$apply(function ($scope) {
             $scope.myImage = evt.target.result;
@@ -305,29 +361,20 @@ angular.module('dmsAdminApp')
     $scope.crop = function () {
       if ($scope.validImage) {
         $scope.image_temp = $scope.myCroppedImage;
-
         var byteString = atob($scope.myCroppedImage.split(',')[1]);
         var ab = new ArrayBuffer(byteString.length);
         var ia = new Uint8Array(ab);
-        for (var i = 0; i < byteString.length; i++) {
-          ia[i] = byteString.charCodeAt(i);
-        }
+        for (var i = 0; i < byteString.length; i++) ia[i] = byteString.charCodeAt(i);
         var blob = new Blob([ia], { type: 'image/png' });
-
         blob.lastModifiedDate = new Date();
         blob.lastModifiedDate = new Date();
         $scope.blob = blob;
         $scope.fileName = "a.png";
-
         $scope.blobUrl = URL.createObjectURL(blob);
-
         $scope.showCroppedImg = true;
 
       } else {
-        Materialize.toast('<span>' +
-          "Upload valid image" +
-          '</span>',
-          3000);
+        Materialize.toast('<span> Upload valid image </span>', 3000);
       }
     }
 
@@ -422,11 +469,12 @@ angular.module('dmsAdminApp')
     $scope.addservicediv = function () {
       $scope.totalserve = $scope.totalserve + 1;
     }
-    $scope.removeservicediv = function () {
+    $scope.removeservicediv = function ($index) {
       $scope.totalserve = $scope.totalserve - 1;
+      $scope.serviceData.splice($index, 1);
     }
     $scope.serviceData = [];
-    $scope.addService = function () {
+    $scope.addService = function (continueStep) {
       if ($scope.addServiceForm.$valid) {
         $scope.serviceData.make = $scope.serviceData.make && $scope.serviceData.make.name != 'INDEPENDENT' ? $scope.serviceData.make.name : null;
 
@@ -449,6 +497,7 @@ angular.module('dmsAdminApp')
             angular.element(document.querySelector('#formValidates'))[0].reset();
             $scope.serviceData = [];
             Materialize.toast('<span>' + add + " Service items have been uploaded successfully!" + '</span>', 3000);
+            if (continueStep) $scope.nextStep($scope.inCompletedStep);
           } else {
             Materialize.toast('<span>' + data.message + '</span>', 3000);
           }
@@ -487,12 +536,12 @@ angular.module('dmsAdminApp')
     $scope.adduserdiv = function () {
       $scope.totalusr = $scope.totalusr + 1;
     }
-    $scope.removuserdiv = function () {
+    $scope.removuserdiv = function ($index) {
       $scope.totalusr = $scope.totalusr - 1;
+      $scope.userData.splice($index, 1);
     }
     $scope.userData = [];
-    $scope.addUser = function () {
-
+    $scope.addUser = function (continueStep) {
       if ($scope.addUsersForm.$valid) {
         userservice.addBulkUser({}, $scope.userData, function (data) {
           if (data.statusCode === 200) {
@@ -513,6 +562,7 @@ angular.module('dmsAdminApp')
             angular.element(document.querySelector('#addUsersForm'))[0].reset();
             $scope.userData = [];
             Materialize.toast('<span>' + add + " Users have been uploaded successfully!" + '</span>', 3000);
+            if (continueStep) $scope.nextStep($scope.inCompletedStep);
           }
           else {
             Materialize.toast('<span>' + data.message + '</span>', 3000);
@@ -563,8 +613,9 @@ angular.module('dmsAdminApp')
     $scope.addcustomerdiv = function () {
       $scope.totalcus = $scope.totalcus + 1;
     }
-    $scope.removcustomerdiv = function () {
+    $scope.removcustomerdiv = function ($index) {
       $scope.totalcus = $scope.totalcus - 1;
+      $scope.customerData.splice($index, 1);
     }
     $scope.customerData = [];
     $scope.addCustomer = function () {

@@ -10,11 +10,13 @@
         font-weight: 400 !important;
         margin: 8px 0 !important;
     }
-    .wizard-content.bulk-upload-otr p{
+
+    .wizard-content.bulk-upload-otr p {
         font-size: 18px;
         line-height: 28px;
         margin: 15px 0;
     }
+
     [type="checkbox"].filled-in:checked+label:after {
         border: 2px solid #000;
         background-color: #000;
@@ -23,6 +25,9 @@
     .ul-main-seven p span {
         display: inline-block;
         padding: 14px 5px;
+    }
+    body{
+        overflow-y: auto !important;
     }
 </style>
 
@@ -218,8 +223,8 @@
         <i class="material-icons small" style="position:relative;">menu</i>
     </a>
     <span class="right">
-            <a href="javascript:void(0)" ng-click="logout()" style="position:relative;right: 3.1em;top: 7px;" class="black-text">
-        <i class="material-icons" >power_settings_new</i>
+        <a href="javascript:void(0)" ng-click="logout()" style="position:relative;right: 3.1em;top: 7px;" class="black-text">
+            <i class="material-icons">power_settings_new</i>
         </a>
     </span>
 </div>
@@ -395,8 +400,9 @@
     .ul-main-two .tabs .tab a.active label {
         color: #f27518;
     }
-    .dealer-wizard-profile{
-        margin-top:-33px !important
+
+    .dealer-wizard-profile {
+        margin-top: -33px !important
     }
 </style>
 <div class="container"></div>
@@ -440,7 +446,7 @@
 </div>
 </div>
 <div>
-    <div class="dealer-wizard-profile"  ng-show="isStarted">
+    <div class="dealer-wizard-profile" ng-show="isStarted">
         <div class="dealer-wizard dw_sh" style="padding:0em !important">
             <p class="flow-text center-align">Dealer SetUp Wizard </p>
             <p class="center-align black-text">Welcome to dealer account setup wizard. Follow these steps and we can have you setup and ready in no time.</p>
@@ -453,7 +459,7 @@
                 <li ng-click="nextStep(2)" class="li-2" ng-class="{'active': step==2 , 'done-li': (complete==2 || complete==3  || complete==4  || complete==5 || complete==6 || complete==7 || complete==8)}">Step 2
                     <p class="truncate">Scheduling</p>
                 </li>
-                <li   ng-click="nextStep(3)" class="li-3" ng-class="{'active': step==3, 'done-li': (complete==3 || complete==4  || complete==5 || complete==6 || complete==7 || complete==8)}">Step 3
+                <li ng-click="nextStep(3)" class="li-3" ng-class="{'active': step==3, 'done-li': (complete==3 || complete==4  || complete==5 || complete==6 || complete==7 || complete==8)}">Step 3
                     <p class="truncate">Marketing Manager</p>
                 </li>
                 <li ng-click="nextStep(4)" class="li-4" ng-class="{'active': step==4 , 'done-li': (  complete==4  || complete==5 || complete==6 || complete==7 || complete==8)}">Step 4
@@ -465,21 +471,21 @@
                 <li class="li-6" ng-click="nextStep(6)" ng-class="{'active': step==6 , 'done-li': (complete==6 || complete==7 || complete==8)}">Step 6
                     <p class="truncate">Service Data</p>
                 </li>
-                <li class="li-7" ng-click="nextStep(7)" ng-class="{'active': step==7 , 'done-li': (complete==7 || complete==8)}">Step 7
+                <li class="li-7" ng-click="nextStep(7, true)" ng-class="{'active': step==7 , 'done-li': (complete==7 || complete==8)}">Step 7
                     <p class="truncate">User Setup</p>
                 </li>
-                <li class="li-8" ng-click="nextStep(8)" ng-class="{'active': step==8 , 'done-li': (complete==8)}">Step 8
+                <li class="li-8" ng-click="nextStep(8, true)" ng-class="{'active': step==8 , 'done-li': (complete==8)}">Step 8
                     <p class="truncate">Customer Setup</p>
                 </li>
-                <li class="li-9" ng-click="nextStep(9)" ng-class="{'active': step==9 , 'done-li': (complete==9)}">Step 9
-                        <p class="truncate">Final</p>
-                    </li>
+                <li class="li-9" ng-click="nextStep(9, true)" ng-class="{'active': step==9 , 'done-li': (complete==9)}">Step 9
+                    <p class="truncate">Final</p>
+                </li>
             </ul>
         </div>
         <!--ul-outer-->
         <div class="ul-main-content white z-depth-1">
             <div class="ul-main-one ulmc" ng-class="{'active': step==1}">
-                <form class="formValidate"  name="formValidate" id="formValidate" ng-submit="updateSetting()">
+                <form class="formValidate" name="formValidate" id="formValidate" ng-submit="updateSetting()">
                     <p>Account details
                         <i class="material-icons tiny blue-text tooltipped" data-position="right" data-delay="50" data-tooltip="Text here">help_outline</i>
                     </p>
@@ -493,41 +499,43 @@
                         <input id="cemail" type="email" name="cemail" required data-error=".errorTxt2" ng-model="profileData.email">
                         <div class="errorTxt2"></div>
                     </div>
-                    <div class="col s12 pl11" >
+                    <div class="col s12 pl11">
                         <label for="cphone">Phone*</label>
                         <input id="cphone" type="text" name="cephone" max-length="10" min-length="10" required data-error=".errorTxt3" ng-model="profileData.phone">
                         <div class="errorTxt3"></div>
                     </div>
                     <div ng-if="man">
-                    <div class="margin col s12 pl11">
-                        <label for="manufacturs">Dealer​ ​OEM​ ​association</label>
-                        <select id="manufacturs" ng-disabled="settings.manufactur" ng-change="changeManufacture()" class="browser-default selection-corrector" name="manufacturs" ng-model="settings.manufactur"
-                            style="margin: 0 0 20px;">
-                            <option ng-repeat="man in manufactureList" value="{{man._id}}">{{man.name}}</option>
-                        </select>
-                    </div>
-                    <div class="margin col s12 pl11">
-                        <label for="manufactur">Makes</label>
-                        <select id="manufactur" style="height:123px;" ng-disabled="settings.manufactur"  multiple class="browser-default selection-corrector" name="manufactur" ng-model="settings.make" style="margin: 0 0 20px;">
-                            <option ng-repeat="make in makesList" value="{{make._id}}">{{make.name}}</option>
-                        </select>
-                    </div>
+                        <div class="margin col s12 pl11">
+                            <label for="manufacturs">Dealer​ ​OEM​ ​association</label>
+                            <select id="manufacturs" ng-disabled="settings.manufactur" ng-change="changeManufacture()" class="browser-default selection-corrector"
+                                name="manufacturs" ng-model="settings.manufactur" style="margin: 0 0 20px;">
+                                <option ng-repeat="man in manufactureList" value="{{man._id}}">{{man.name}}</option>
+                            </select>
+                        </div>
+                        <div class="margin col s12 pl11">
+                            <label for="manufactur">Makes</label>
+                            <select id="manufactur" style="height:123px;" ng-disabled="settings.manufactur" multiple class="browser-default selection-corrector"
+                                name="manufactur" ng-model="settings.make" style="margin: 0 0 20px;">
+                                <option ng-repeat="make in makesList" value="{{make._id}}">{{make.name}}</option>
+                            </select>
+                        </div>
                     </div>
                     <div ng-if="!man">
-                            <div class="margin col s12 pl11">
-                                <label for="manufacturs">Dealer​ ​OEM​ ​association</label>
-                                <select id="manufacturs"   ng-change="changeManufacture()" class="browser-default selection-corrector" name="manufacturs" ng-model="settings.manufactur"
-                                    style="margin: 0 0 20px;">
-                                    <option ng-repeat="man in manufactureList" value="{{man._id}}">{{man.name}}</option>
-                                </select>
-                            </div>
-                            <div class="margin col s12 pl11">
-                                <label for="manufactur">Makes</label>
-                                <select id="manufactur" style="height:123px;"  multiple class="browser-default selection-corrector" name="manufactur" ng-model="settings.make" style="margin: 0 0 20px;">
-                                    <option ng-repeat="make in makesList" value="{{make._id}}">{{make.name}}</option>
-                                </select>
-                            </div>
-                            </div>
+                        <div class="margin col s12 pl11">
+                            <label for="manufacturs">Dealer​ ​OEM​ ​association</label>
+                            <select id="manufacturs" ng-change="changeManufacture()" class="browser-default selection-corrector" name="manufacturs" ng-model="settings.manufactur"
+                                style="margin: 0 0 20px;">
+                                <option ng-repeat="man in manufactureList" value="{{man._id}}">{{man.name}}</option>
+                            </select>
+                        </div>
+                        <div class="margin col s12 pl11">
+                            <label for="manufactur">Makes</label>
+                            <select id="manufactur" style="height:123px;" multiple class="browser-default selection-corrector" name="manufactur" ng-model="settings.make"
+                                style="margin: 0 0 20px;">
+                                <option ng-repeat="make in makesList" value="{{make._id}}">{{make.name}}</option>
+                            </select>
+                        </div>
+                    </div>
                     <!-- <div class=" margin">
                         <a class="waves-effect waves-light btn modal-trigger grey darken-2 modal-anchor" href="#modal1">Change Password</a>
                     </div> -->
@@ -539,8 +547,7 @@
                 </div> -->
                     <div class="row user-setting">
                         <p>Primary Contact
-                            <i class="material-icons tiny blue-text tooltipped" data-position="right" data-delay="50"
-                                data-tooltip="Text here">help_outline</i>
+                            <i class="material-icons tiny blue-text tooltipped" data-position="right" data-delay="50" data-tooltip="Text here">help_outline</i>
                         </p>
                         <div>
                             <!-- <label for="pctitle">Title*</label> -->
@@ -570,8 +577,7 @@
                     </div>
                     <div class="row user-setting">
                         <p>Contact for Invoicing
-                            <i class="material-icons tiny blue-text tooltipped" data-position="right" data-delay="50"
-                                data-tooltip="Text here">help_outline</i>&nbsp;&nbsp; &nbsp;
+                            <i class="material-icons tiny blue-text tooltipped" data-position="right" data-delay="50" data-tooltip="Text here">help_outline</i>&nbsp;&nbsp; &nbsp;
                             <span>
                                 <input type="checkbox" id="secondCheck" ng-change="primeToSecondary()" ng-model="secondCheck" />
                                 <label for="secondCheck">My all contact is the same as my primary contact</label>
@@ -605,8 +611,7 @@
                     </div>
                     <div class="row user-setting">
                         <p>Details to be displayed on invoice
-                            <i class="material-icons tiny blue-text tooltipped" data-position="right"
-                                data-delay="50" data-tooltip="Text here">help_outline</i>
+                            <i class="material-icons tiny blue-text tooltipped" data-position="right" data-delay="50" data-tooltip="Text here">help_outline</i>
                         </p>
 
                         <div class="input-field col s12">
@@ -639,8 +644,7 @@
                     </div>
                     <div class="row user-setting">
                         <p>Contact details for customers
-                            <i class="material-icons tiny blue-text tooltipped" data-position="right"
-                                data-delay="50" data-tooltip="Text here">help_outline</i>
+                            <i class="material-icons tiny blue-text tooltipped" data-position="right" data-delay="50" data-tooltip="Text here">help_outline</i>
                             &nbsp;&nbsp; &nbsp;
                             <span>
                                 <input type="checkbox" id="secondCheck1" ng-change="primeToSecondary1()" ng-model="secondCheck1" />
@@ -702,8 +706,7 @@
                                 <label for="days_of_service">
                                     <p>
                                         <b class="black-text" style="font-weight:500">Working Days*</b>
-                                        <i class="material-icons tiny blue-text tooltipped" data-position="right"
-                                            data-delay="50" data-tooltip="Text here">help_outline</i>
+                                        <i class="material-icons tiny blue-text tooltipped" data-position="right" data-delay="50" data-tooltip="Text here">help_outline</i>
                                     </p>
                                 </label>
                                 <ul class="collapsible" data-collapsible="accordion">
@@ -716,26 +719,30 @@
                                                     <label for="sundaycheck">Sunday</label>
                                                 </div>
                                                 <div class="margin col s12 m5" ng-show="settings.days_of_service.sunday.status">
-                                                        <label style="left: 0 !important;">Start Time</label>
+                                                    <label style="left: 0 !important;">Start Time</label>
                                                     <div class="input-field">
                                                         <!-- <input type="text" class="timepicker" ng-model="settings.days_of_service.sunday.start_time"> -->
-                                                        <select style="display:block" ng-model="settings.days_of_service.sunday.start_time" >
-                                                            <option  ng-if="h<=12" ng-disabled="settings.days_of_service.sunday.end_time<=h"  ng-selected="settings.days_of_service.sunday.start_time==h" value="{{h}}" ng-repeat="h in hours" >{{h}}:00 AM </option>
-                                                            <option  ng-if="h>12"ng-disabled="settings.days_of_service.sunday.end_time<=h"  ng-selected="settings.days_of_service.sunday.start_time==h" value="{{h}}" ng-repeat="h in hours" >{{h}}:00 PM </option>
+                                                        <select style="display:block" ng-model="settings.days_of_service.sunday.start_time">
+                                                            <option ng-if="h<=12" ng-disabled="settings.days_of_service.sunday.end_time<=h" ng-selected="settings.days_of_service.sunday.start_time==h"
+                                                                value="{{h}}" ng-repeat="h in hours">{{h}}:00 AM </option>
+                                                            <option ng-if="h>12" ng-disabled="settings.days_of_service.sunday.end_time<=h" ng-selected="settings.days_of_service.sunday.start_time==h"
+                                                                value="{{h}}" ng-repeat="h in hours">{{h}}:00 PM </option>
                                                         </select>
                                                         <!--  -->
                                                     </div>
                                                     <div class="errorTxt16"></div>
                                                 </div>
                                                 <div class="margin col s12 m5" ng-show="settings.days_of_service.sunday.status">
-                                                        <label style="left: 0 !important;">End Time</label>
+                                                    <label style="left: 0 !important;">End Time</label>
                                                     <div class="input-field">
                                                         <!-- <input type="text" class="datepicker" ng-model="settings.days_of_service.sunday.end_time"> -->
-                                                        <select style="display:block" ng-model="settings.days_of_service.sunday.end_time" >
-                                                                <option ng-if="h<=12" ng-disabled="settings.days_of_service.sunday.start_time>=h" ng-selected="settings.days_of_service.sunday.end_time==h" value="{{h}}" ng-repeat="h in hours" >{{h}}:00 AM</option>
-                                                                <option ng-if="h>12" ng-disabled="settings.days_of_service.sunday.start_time>=h" ng-selected="settings.days_of_service.sunday.end_time==h" value="{{h}}" ng-repeat="h in hours" >{{h}}:00 PM</option>
-                                                            </select>
-                                                        
+                                                        <select style="display:block" ng-model="settings.days_of_service.sunday.end_time">
+                                                            <option ng-if="h<=12" ng-disabled="settings.days_of_service.sunday.start_time>=h" ng-selected="settings.days_of_service.sunday.end_time==h"
+                                                                value="{{h}}" ng-repeat="h in hours">{{h}}:00 AM</option>
+                                                            <option ng-if="h>12" ng-disabled="settings.days_of_service.sunday.start_time>=h" ng-selected="settings.days_of_service.sunday.end_time==h"
+                                                                value="{{h}}" ng-repeat="h in hours">{{h}}:00 PM</option>
+                                                        </select>
+
                                                     </div>
                                                     <div class="errorTxt17"></div>
                                                 </div>
@@ -751,26 +758,30 @@
                                                     <label for="mondaycheck">Monday</label>
                                                 </div>
                                                 <div class="margin col s12 m5" ng-show="settings.days_of_service.monday.status">
-                                                        <label style="left: 0 !important;">Start Time</label>
+                                                    <label style="left: 0 !important;">Start Time</label>
                                                     <div class="input-field">
                                                         <!-- <input type="text" class="datepicker" ng-model="settings.days_of_service.monday.start_time"> -->
-                                                        <select style="display:block" ng-model="settings.days_of_service.monday.start_time" >
-                                                                <option ng-if="h<=12" ng-disabled="settings.days_of_service.monday.end_time<=h"  ng-selected="settings.days_of_service.monday.start_time==h" value="{{h}}" ng-repeat="h in hours" >{{h}}:00 AM</option>
-                                                                <option ng-if="h>12" ng-disabled="settings.days_of_service.monday.end_time<=h"  ng-selected="settings.days_of_service.monday.start_time==h" value="{{h}}" ng-repeat="h in hours" >{{h}}:00 PM</option>
-                                                            </select>
-                                                        
+                                                        <select style="display:block" ng-model="settings.days_of_service.monday.start_time">
+                                                            <option ng-if="h<=12" ng-disabled="settings.days_of_service.monday.end_time<=h" ng-selected="settings.days_of_service.monday.start_time==h"
+                                                                value="{{h}}" ng-repeat="h in hours">{{h}}:00 AM</option>
+                                                            <option ng-if="h>12" ng-disabled="settings.days_of_service.monday.end_time<=h" ng-selected="settings.days_of_service.monday.start_time==h"
+                                                                value="{{h}}" ng-repeat="h in hours">{{h}}:00 PM</option>
+                                                        </select>
+
                                                     </div>
                                                     <div class="errorTxt16"></div>
                                                 </div>
                                                 <div class="margin col s12 m5" ng-show="settings.days_of_service.monday.status">
-                                                        <label style="left: 0 !important;">End Time</label>
+                                                    <label style="left: 0 !important;">End Time</label>
                                                     <div class="input-field">
                                                         <!-- <input type="text" class="datepicker" ng-model="settings.days_of_service.monday.end_time"> -->
-                                                        <select style="display:block" ng-model="settings.days_of_service.monday.end_time" >
-                                                                <option  ng-if="h<=12" ng-disabled="settings.days_of_service.monday.start_time>=h" ng-selected="settings.days_of_service.monday.end_time==h" value="{{h}}" ng-repeat="h in hours" >{{h}}:00 AM</option>
-                                                                <option  ng-if="h>12" ng-disabled="settings.days_of_service.monday.start_time>=h" ng-selected="settings.days_of_service.monday.end_time==h" value="{{h}}" ng-repeat="h in hours" >{{h}}:00 PM</option>
-                                                            </select>
-                                                        
+                                                        <select style="display:block" ng-model="settings.days_of_service.monday.end_time">
+                                                            <option ng-if="h<=12" ng-disabled="settings.days_of_service.monday.start_time>=h" ng-selected="settings.days_of_service.monday.end_time==h"
+                                                                value="{{h}}" ng-repeat="h in hours">{{h}}:00 AM</option>
+                                                            <option ng-if="h>12" ng-disabled="settings.days_of_service.monday.start_time>=h" ng-selected="settings.days_of_service.monday.end_time==h"
+                                                                value="{{h}}" ng-repeat="h in hours">{{h}}:00 PM</option>
+                                                        </select>
+
                                                     </div>
                                                     <div class="errorTxt17"></div>
                                                 </div>
@@ -786,26 +797,30 @@
                                                     <label for="tuesdaycheck">Tuesday</label>
                                                 </div>
                                                 <div class="margin col s12 m5" ng-show="settings.days_of_service.tuesday.status">
-                                                        <label style="left: 0 !important;">Start Time</label>
+                                                    <label style="left: 0 !important;">Start Time</label>
                                                     <div class="input-field">
                                                         <!-- <input type="text" class="datepicker" ng-model="settings.days_of_service.tuesday.start_time"> -->
-                                                        <select style="display:block" ng-model="settings.days_of_service.tuesday.start_time" >
-                                                                <option ng-if="h<=12" ng-disabled="settings.days_of_service.tuesday.end_time<=h"  ng-selected="settings.days_of_service.tuesday.start_time==h" value="{{h}}" ng-repeat="h in hours" >{{h}}:00 AM</option>
-                                                                <option ng-if="h>12" ng-disabled="settings.days_of_service.tuesday.end_time<=h"  ng-selected="settings.days_of_service.tuesday.start_time==h" value="{{h}}" ng-repeat="h in hours" >{{h}}:00 PM</option>
-                                                            </select>
-                                                       
+                                                        <select style="display:block" ng-model="settings.days_of_service.tuesday.start_time">
+                                                            <option ng-if="h<=12" ng-disabled="settings.days_of_service.tuesday.end_time<=h" ng-selected="settings.days_of_service.tuesday.start_time==h"
+                                                                value="{{h}}" ng-repeat="h in hours">{{h}}:00 AM</option>
+                                                            <option ng-if="h>12" ng-disabled="settings.days_of_service.tuesday.end_time<=h" ng-selected="settings.days_of_service.tuesday.start_time==h"
+                                                                value="{{h}}" ng-repeat="h in hours">{{h}}:00 PM</option>
+                                                        </select>
+
                                                     </div>
                                                     <div class="errorTxt16"></div>
                                                 </div>
                                                 <div class="margin col s12 m5" ng-show="settings.days_of_service.tuesday.status">
-                                                        <label style="left: 0 !important;">End Time</label>
+                                                    <label style="left: 0 !important;">End Time</label>
                                                     <div class="input-field">
                                                         <!-- <input type="text" class="datepicker" ng-model="settings.days_of_service.tuesday.end_time"> -->
-                                                        <select style="display:block" ng-model="settings.days_of_service.tuesday.end_time" >
-                                                                <option ng-if="h<=12" ng-disabled="settings.days_of_service.tuesday.start_time>=h" ng-selected="settings.days_of_service.tuesday.end_time==h" value="{{h}}" ng-repeat="h in hours" >{{h}}:00 AM</option>
-                                                                <option ng-if="h>12" ng-disabled="settings.days_of_service.tuesday.start_time>=h" ng-selected="settings.days_of_service.tuesday.end_time==h" value="{{h}}" ng-repeat="h in hours" >{{h}}:00 PM</option>
-                                                            </select>
-                                                        
+                                                        <select style="display:block" ng-model="settings.days_of_service.tuesday.end_time">
+                                                            <option ng-if="h<=12" ng-disabled="settings.days_of_service.tuesday.start_time>=h" ng-selected="settings.days_of_service.tuesday.end_time==h"
+                                                                value="{{h}}" ng-repeat="h in hours">{{h}}:00 AM</option>
+                                                            <option ng-if="h>12" ng-disabled="settings.days_of_service.tuesday.start_time>=h" ng-selected="settings.days_of_service.tuesday.end_time==h"
+                                                                value="{{h}}" ng-repeat="h in hours">{{h}}:00 PM</option>
+                                                        </select>
+
                                                     </div>
                                                     <div class="errorTxt17"></div>
                                                 </div>
@@ -824,26 +839,30 @@
                                                     <label for="wednesdaycheck">Wednesday</label>
                                                 </div>
                                                 <div class="margin col m5 s12" ng-show="settings.days_of_service.wednesday.status">
-                                                        <label style="left: 0 !important;">Start Time</label>
+                                                    <label style="left: 0 !important;">Start Time</label>
                                                     <div class="input-field">
                                                         <!-- <input type="text" class="datepicker" ng-model="settings.days_of_service.wednesday.start_time"> -->
-                                                        <select style="display:block" ng-model="settings.days_of_service.wednesday.start_time" >
-                                                                <option ng-if="h<=12" ng-disabled="settings.days_of_service.wednesday.end_time<=h"  ng-selected="settings.days_of_service.wednesday.start_time==h" value="{{h}}" ng-repeat="h in hours" >{{h}}:00 AM</option>
-                                                                <option ng-if="h>12" ng-disabled="settings.days_of_service.wednesday.end_time<=h"  ng-selected="settings.days_of_service.wednesday.start_time==h" value="{{h}}" ng-repeat="h in hours" >{{h}}:00 PM</option>
-                                                            </select>
-                                                        
+                                                        <select style="display:block" ng-model="settings.days_of_service.wednesday.start_time">
+                                                            <option ng-if="h<=12" ng-disabled="settings.days_of_service.wednesday.end_time<=h" ng-selected="settings.days_of_service.wednesday.start_time==h"
+                                                                value="{{h}}" ng-repeat="h in hours">{{h}}:00 AM</option>
+                                                            <option ng-if="h>12" ng-disabled="settings.days_of_service.wednesday.end_time<=h" ng-selected="settings.days_of_service.wednesday.start_time==h"
+                                                                value="{{h}}" ng-repeat="h in hours">{{h}}:00 PM</option>
+                                                        </select>
+
                                                     </div>
                                                     <div class="errorTxt16"></div>
                                                 </div>
                                                 <div class="margin col m5 s12" ng-show="settings.days_of_service.wednesday.status">
-                                                        <label style="left: 0 !important;">End Time</label>
+                                                    <label style="left: 0 !important;">End Time</label>
                                                     <div class="input-field">
                                                         <!-- <input type="text" class="datepicker" ng-model="settings.days_of_service.wednesday.end_time"> -->
-                                                        <select style="display:block" ng-model="settings.days_of_service.wednesday.end_time" >
-                                                                <option  ng-if="h<=12" ng-disabled="settings.days_of_service.wednesday.start_time>=h" ng-selected="settings.days_of_service.wednesday.end_time==h" value="{{h}}" ng-repeat="h in hours" >{{h}}:00 AM</option>
-                                                                <option  ng-if="h>12" ng-disabled="settings.days_of_service.wednesday.start_time>=h" ng-selected="settings.days_of_service.wednesday.end_time==h" value="{{h}}" ng-repeat="h in hours" >{{h}}:00 PM</option>
-                                                            </select>
-                                                        
+                                                        <select style="display:block" ng-model="settings.days_of_service.wednesday.end_time">
+                                                            <option ng-if="h<=12" ng-disabled="settings.days_of_service.wednesday.start_time>=h" ng-selected="settings.days_of_service.wednesday.end_time==h"
+                                                                value="{{h}}" ng-repeat="h in hours">{{h}}:00 AM</option>
+                                                            <option ng-if="h>12" ng-disabled="settings.days_of_service.wednesday.start_time>=h" ng-selected="settings.days_of_service.wednesday.end_time==h"
+                                                                value="{{h}}" ng-repeat="h in hours">{{h}}:00 PM</option>
+                                                        </select>
+
                                                     </div>
                                                     <div class="errorTxt17"></div>
                                                 </div>
@@ -859,26 +878,30 @@
                                                     <label for="thursdaycheck">Thursday</label>
                                                 </div>
                                                 <div class="margin col m5 s12" ng-show="settings.days_of_service.thursday.status">
-                                                        <label style="left: 0 !important;">Start Time</label>
+                                                    <label style="left: 0 !important;">Start Time</label>
                                                     <div class="input-field">
                                                         <!-- <input type="text" class="datepicker" ng-model="settings.days_of_service.thursday.start_time"> -->
-                                                        <select style="display:block" ng-model="settings.days_of_service.thursday.start_time" >
-                                                                <option  ng-if="h<=12" ng-disabled="settings.days_of_service.thursday.end_time<=h"  ng-selected="settings.days_of_service.thursday.start_time==h" value="{{h}}" ng-repeat="h in hours" >{{h}}:00 AM</option>
-                                                                <option  ng-if="h>12" ng-disabled="settings.days_of_service.thursday.end_time<=h"  ng-selected="settings.days_of_service.thursday.start_time==h" value="{{h}}" ng-repeat="h in hours" >{{h}}:00 PM</option>
-                                                            </select>
-                                                       
+                                                        <select style="display:block" ng-model="settings.days_of_service.thursday.start_time">
+                                                            <option ng-if="h<=12" ng-disabled="settings.days_of_service.thursday.end_time<=h" ng-selected="settings.days_of_service.thursday.start_time==h"
+                                                                value="{{h}}" ng-repeat="h in hours">{{h}}:00 AM</option>
+                                                            <option ng-if="h>12" ng-disabled="settings.days_of_service.thursday.end_time<=h" ng-selected="settings.days_of_service.thursday.start_time==h"
+                                                                value="{{h}}" ng-repeat="h in hours">{{h}}:00 PM</option>
+                                                        </select>
+
                                                     </div>
                                                     <div class="errorTxt16"></div>
                                                 </div>
                                                 <div class="margin col m5 s12" ng-show="settings.days_of_service.thursday.status">
-                                                        <label style="left: 0 !important;">End Time</label>
+                                                    <label style="left: 0 !important;">End Time</label>
                                                     <div class="input-field">
                                                         <!-- <input type="text" class="datepicker" ng-model="settings.days_of_service.thursday.end_time"> -->
-                                                        <select style="display:block" ng-model="settings.days_of_service.thursday.end_time" >
-                                                                <option  ng-if="h<=12" ng-disabled="settings.days_of_service.thursday.start_time>=h" ng-selected="settings.days_of_service.thursday.end_time==h" value="{{h}}" ng-repeat="h in hours" >{{h}}:00 AM</option>
-                                                                <option  ng-if="h>12" ng-disabled="settings.days_of_service.thursday.start_time>=h" ng-selected="settings.days_of_service.thursday.end_time==h" value="{{h}}" ng-repeat="h in hours" >{{h}}:00 PM</option>
-                                                            </select>
-                                                       
+                                                        <select style="display:block" ng-model="settings.days_of_service.thursday.end_time">
+                                                            <option ng-if="h<=12" ng-disabled="settings.days_of_service.thursday.start_time>=h" ng-selected="settings.days_of_service.thursday.end_time==h"
+                                                                value="{{h}}" ng-repeat="h in hours">{{h}}:00 AM</option>
+                                                            <option ng-if="h>12" ng-disabled="settings.days_of_service.thursday.start_time>=h" ng-selected="settings.days_of_service.thursday.end_time==h"
+                                                                value="{{h}}" ng-repeat="h in hours">{{h}}:00 PM</option>
+                                                        </select>
+
                                                     </div>
                                                     <div class="errorTxt17"></div>
                                                 </div>
@@ -894,26 +917,30 @@
                                                     <label for="fridaycheck">Friday</label>
                                                 </div>
                                                 <div class="margin col m5 s12" ng-show="settings.days_of_service.friday.status">
-                                                        <label style="left: 0 !important;">Start Time</label>
+                                                    <label style="left: 0 !important;">Start Time</label>
                                                     <div class="input-field">
                                                         <!-- <input type="text" class="datepicker" ng-model="settings.days_of_service.friday.start_time"> -->
-                                                        <select style="display:block" ng-model="settings.days_of_service.friday.start_time" >
-                                                                <option ng-if="h<=12" ng-disabled="settings.days_of_service.friday.end_time<=h"  ng-selected="settings.days_of_service.friday.start_time==h" value="{{h}}" ng-repeat="h in hours" >{{h}}:00 AM</option>
-                                                                <option ng-if="h>12" ng-disabled="settings.days_of_service.friday.end_time<=h"  ng-selected="settings.days_of_service.friday.start_time==h" value="{{h}}" ng-repeat="h in hours" >{{h}}:00 PM</option>
-                                                            </select>
-                                                       
+                                                        <select style="display:block" ng-model="settings.days_of_service.friday.start_time">
+                                                            <option ng-if="h<=12" ng-disabled="settings.days_of_service.friday.end_time<=h" ng-selected="settings.days_of_service.friday.start_time==h"
+                                                                value="{{h}}" ng-repeat="h in hours">{{h}}:00 AM</option>
+                                                            <option ng-if="h>12" ng-disabled="settings.days_of_service.friday.end_time<=h" ng-selected="settings.days_of_service.friday.start_time==h"
+                                                                value="{{h}}" ng-repeat="h in hours">{{h}}:00 PM</option>
+                                                        </select>
+
                                                     </div>
                                                     <div class="errorTxt16"></div>
                                                 </div>
                                                 <div class="margin col m5 s12" ng-show="settings.days_of_service.friday.status">
-                                                        <label style="left: 0 !important;">End Time</label>
+                                                    <label style="left: 0 !important;">End Time</label>
                                                     <div class="input-field">
                                                         <!-- <input type="text" class="datepicker" ng-model="settings.days_of_service.friday.end_time"> -->
-                                                        <select style="display:block" ng-model="settings.days_of_service.friday.end_time" >
-                                                                <option  ng-if="h<=12" ng-disabled="settings.days_of_service.friday.start_time>=h" ng-selected="settings.days_of_service.friday.end_time==h" value="{{h}}" ng-repeat="h in hours" >{{h}}:00 AM</option>
-                                                                <option  ng-if="h>12" ng-disabled="settings.days_of_service.friday.start_time>=h" ng-selected="settings.days_of_service.friday.end_time==h" value="{{h}}" ng-repeat="h in hours" >{{h}}:00 PM</option>
-                                                            </select>
-                                                       
+                                                        <select style="display:block" ng-model="settings.days_of_service.friday.end_time">
+                                                            <option ng-if="h<=12" ng-disabled="settings.days_of_service.friday.start_time>=h" ng-selected="settings.days_of_service.friday.end_time==h"
+                                                                value="{{h}}" ng-repeat="h in hours">{{h}}:00 AM</option>
+                                                            <option ng-if="h>12" ng-disabled="settings.days_of_service.friday.start_time>=h" ng-selected="settings.days_of_service.friday.end_time==h"
+                                                                value="{{h}}" ng-repeat="h in hours">{{h}}:00 PM</option>
+                                                        </select>
+
                                                     </div>
                                                     <div class="errorTxt17"></div>
                                                 </div>
@@ -929,26 +956,30 @@
                                                     <label for="saturdaycheck">Saturday</label>
                                                 </div>
                                                 <div class="margin col m5 s12" ng-show="settings.days_of_service.saturday.status">
-                                                        <label style="left: 0 !important;">Start Time</label>
+                                                    <label style="left: 0 !important;">Start Time</label>
                                                     <div class="input-field">
                                                         <!-- <input type="text" class="datepicker" ng-model="settings.days_of_service.saturday.start_time"> -->
-                                                        <select style="display:block" ng-model="settings.days_of_service.saturday.start_time" >
-                                                                <option ng-if="h<=12" ng-disabled="settings.days_of_service.saturday.end_time<=h"  ng-selected="settings.days_of_service.saturday.start_time==h" value="{{h}}" ng-repeat="h in hours" >{{h}}:00 AM</option> 
-                                                                <option ng-if="h>12" ng-disabled="settings.days_of_service.saturday.end_time<=h"  ng-selected="settings.days_of_service.saturday.start_time==h" value="{{h}}" ng-repeat="h in hours" >{{h}}:00 PM</option> 
-                                                            </select>
-                                                       
+                                                        <select style="display:block" ng-model="settings.days_of_service.saturday.start_time">
+                                                            <option ng-if="h<=12" ng-disabled="settings.days_of_service.saturday.end_time<=h" ng-selected="settings.days_of_service.saturday.start_time==h"
+                                                                value="{{h}}" ng-repeat="h in hours">{{h}}:00 AM</option>
+                                                            <option ng-if="h>12" ng-disabled="settings.days_of_service.saturday.end_time<=h" ng-selected="settings.days_of_service.saturday.start_time==h"
+                                                                value="{{h}}" ng-repeat="h in hours">{{h}}:00 PM</option>
+                                                        </select>
+
                                                     </div>
                                                     <div class="errorTxt16"></div>
                                                 </div>
                                                 <div class="margin col m5 s12" ng-show="settings.days_of_service.saturday.status">
-                                                        <label style="left: 0 !important;">End Time</label>
+                                                    <label style="left: 0 !important;">End Time</label>
                                                     <div class="input-field">
                                                         <!-- <input type="text" class="datepicker" ng-model="settings.days_of_service.saturday.end_time"> -->
-                                                        <select style="display:block" ng-model="settings.days_of_service.saturday.end_time" >
-                                                                <option ng-if="h<=12" ng-disabled="settings.days_of_service.saturday.start_time>=h" ng-selected="settings.days_of_service.saturday.end_time==h" value="{{h}}" ng-repeat="h in hours" >{{h}}:00 AM</option>
-                                                                <option ng-if="h>12" ng-disabled="settings.days_of_service.saturday.start_time>=h" ng-selected="settings.days_of_service.saturday.end_time==h" value="{{h}}" ng-repeat="h in hours" >{{h}}:00 PM</option>
-                                                            </select>
-                                                       
+                                                        <select style="display:block" ng-model="settings.days_of_service.saturday.end_time">
+                                                            <option ng-if="h<=12" ng-disabled="settings.days_of_service.saturday.start_time>=h" ng-selected="settings.days_of_service.saturday.end_time==h"
+                                                                value="{{h}}" ng-repeat="h in hours">{{h}}:00 AM</option>
+                                                            <option ng-if="h>12" ng-disabled="settings.days_of_service.saturday.start_time>=h" ng-selected="settings.days_of_service.saturday.end_time==h"
+                                                                value="{{h}}" ng-repeat="h in hours">{{h}}:00 PM</option>
+                                                        </select>
+
                                                     </div>
                                                     <div class="errorTxt17"></div>
                                                 </div>
@@ -968,12 +999,11 @@
                             </div> -->
                             <div class="row user-setting">
                                 <p>Other configuration
-                                    <i class="material-icons tiny blue-text tooltipped" data-position="right"
-                                        data-delay="50" data-tooltip="Text here">help_outline</i>
+                                    <i class="material-icons tiny blue-text tooltipped" data-position="right" data-delay="50" data-tooltip="Text here">help_outline</i>
                                 </p>
                                 <div class="margin col s12">
                                     <label for="booking_before_time" class="label-2">Earliest​ ​timeframe​ ​for​ ​online​ ​appointment​ ​setup​(Minutes)*</label>
-                                    <input id="booking_before_time" type="number"  required name="booking_before_time" data-error=".errorTxt19" ng-model="settings.booking_before_time">
+                                    <input id="booking_before_time" type="number" required name="booking_before_time" data-error=".errorTxt19" ng-model="settings.booking_before_time">
                                     <div class="errorTxt19"></div>
                                 </div>
                                 <div class="margin col s12">
@@ -987,7 +1017,8 @@
                                 </div>
                                 <div class="margin col s12">
                                     <label for="auto_cancel_appointment_time" class="label-2">Auto​ ​cancel​ ​service​ ​appts​ ​for​ ​no​ ​shows​ ​after​ ​x​ Minutes*</label>
-                                    <input required id="auto_cancel_appointment_time" type="text" name="auto_cancel_appointment_time" data-error=".errorTxt21" ng-model="settings.auto_cancel_appointment_time">
+                                    <input required id="auto_cancel_appointment_time" type="text" name="auto_cancel_appointment_time" data-error=".errorTxt21"
+                                        ng-model="settings.auto_cancel_appointment_time">
                                     <div class="errorTxt21"></div>
                                 </div>
                             </div>
@@ -995,7 +1026,7 @@
                     </div>
                     <div class="right-align">
                         <button type="button" style="background-color: #9e9e9e !important;" ng-click="nextStep(1)" class="btn waves-effect waves-light camel-case">Previous</button>
-                        <button type="submit"  id="stepTwo" class="btn waves-effect waves-light ul-2-btn camel-case">Next</button>
+                        <button type="submit" id="stepTwo" class="btn waves-effect waves-light ul-2-btn camel-case">Next</button>
                     </div>
                 </form>
             </div>
@@ -1085,14 +1116,14 @@
                                 </div>
                             </div>
                             <div class="right-align">
-                                   
-                                    <button type="submit" class="btn waves-effect waves-light ul-2-btn camel-case">Submit</button>
-                                </div>
+
+                                <button type="submit" class="btn waves-effect waves-light ul-2-btn camel-case">Submit</button>
+                            </div>
                         </div>
                         <br>
                         <div class="right-align">
                             <button type="button" style="background-color: #9e9e9e !important;" ng-click="nextStep(2)" class="btn waves-effect waves-light camel-case">Previous</button>
-                            <button type="button"  ng-click="nextStep(4)" class="btn waves-effect waves-light ul-2-btn camel-case">Next</button>
+                            <button type="button" ng-click="nextStep(4)" class="btn waves-effect waves-light ul-2-btn camel-case">Next</button>
                         </div>
                     </form>
                 </div>
@@ -1125,11 +1156,10 @@
                     </p>
                     <p>- For bulk upload to happen, You would need upload the service items data via. a Microsoft Excel file.</p>
                     <p>Step 1: Please download the MS Excel file format
-                        <a href="http://www.dsaidemo.com/Service_items.xls"
-                            targer="_blank">HERE </a>
+                        <a href="http://www.dsaidemo.com/Service_items.xls" targer="_blank">HERE </a>
                     </p>
                     <p>Step 2: Please DONT change the format. Just fill in the service items data in the provided MS Excel file.
-                        </p>
+                    </p>
                     <p>Step 3: Save the file in a folder on your computer.</p>
                     <p>Step 4: Tap on the "Select file" button below > Browse to the folder that contains the MS Excel file
                         you saved previously > Select the file and submit.</p>
@@ -1160,44 +1190,35 @@
                             </button>
                         </div>
                     </div>
-                    <!--  For bulk upload, you can use an excel sheet.
-                  Please download the sample excel format <a href="http://www.dsaidemo.com/Service_items.xls" targer="_blank">HERE </a> -->
-
-                    <!-- <div class="row">
-                                    <div class="input-field col s12">
-                                      <button class="btn waves-effect waves-light right submit" type="submit" name="action">
-                                       UPLOAD
-                                       <i class="mdi-content-send right"></i>
-                                     </button>
-                                    </div>
-                                  </div> -->
                 </form>
                 <div class="center">
                     <p>OR you can add Service manually here</p>
                 </div>
                 <div class="file-field input-field col s12">
-                    <form class="formValidates" name="addServiceForm" id="formValidates" ng-submit="addService()">
+                    <form class="formValidates" name="addServiceForm" id="formValidates" action="javascript:void(0);" ng-submit="addService()">
                         <div id="room_fileds" ng-repeat="ser in  [].constructor(totalserve) track by $index">
                             <div class="content">
                                 <div class="row">
                                     <div class="col m4 s12">
                                         <div class="input-field">
-                                            <input type="text" id="name{{$index}}" name="name{{$index}}" required placeholder="Service item Name* " ng-model="serviceData[$index].name"/>
+                                            <input type="text" id="name{{$index}}" name="name{{$index}}" required placeholder="Service item Name* " ng-model="serviceData[$index].name"
+                                            />
                                         </div>
                                     </div>
                                     <div class="col m4 s12">
                                         <div class="input-field">
-                                            <input type="text" id="des{{$index}}" name="des{{$index}}" required placeholder="Description"  ng-model="serviceData[$index].description"/>
+                                            <input type="text" id="des{{$index}}" name="des{{$index}}" required placeholder="Description" ng-model="serviceData[$index].description"
+                                            />
                                         </div>
                                     </div>
                                     <div class="col m4 s12">
                                         <div class="row">
                                             <div class="col m8 s12 input-field">
-                                                <input type="number" nama="amount{{$index}}" id="amount{{$index}}" required min="0" placeholder="Price*" ng-model="serviceData[$index].amount" />
+                                                <input type="number" name="amount{{$index}}" id="amount{{$index}}" required min="0" placeholder="Price*" ng-model="serviceData[$index].amount"/>
                                             </div>
                                             <div class="col m4 s12 center-align">
-                                                <input type="button" id="more_fields" ng-click="addservicediv();" class="btn btn-floating"
-                                                    value="+" style="margin-top: 15px;width: 45px;" />
+                                                <input type="button" id="more_fields{{$index}}" ng-click="addservicediv();" class="btn btn-floating" value="+" style="margin-top: 15px;width: 45px;"/>
+                                                <input type="button" ng-hide="$index===0" id="more_fields{{$index}}{{$index}}" ng-click="removeservicediv($index);" class="btn btn-floating" value="-" style="margin-top: 15px;width: 45px;"/>
                                             </div>
                                         </div>
                                     </div>
@@ -1216,84 +1237,90 @@
             </div>
             <div class="ul-main-seven ulmc" ng-class="{'active': step==7}">
                 <div class="bulk-upload-otr">
-                    <p>Use this option to upload all the Users in your Dealership in bulk ( ie. Service Advisers, Schedulers, Technicians etc. ).</p>
+                    <p>Use this option to upload all the Users in your Dealership in bulk ( ie. Service Advisers, Schedulers,
+                        Technicians etc. ).</p>
                     <p>
                         <b>Note:</b>
                     </p>
                     <p>- For bulk upload to happen, You would need upload the User data via. a Microsoft Excel file.</p>
                     <p>Step 1: Please download the MS Excel file format
-                        <a href="http://cleanup.tech/dsm-index/users.xls"
-                            targer="_blank">HERE </a>
+                        <a href="http://cleanup.tech/dsm-index/users.xls" targer="_blank">HERE </a>
                     </p>
                     <p>Step 2: Please DONT change the format. Just fill in the User's data in the provided MS Excel file.
-                        </p>
-                    <p>Step 3:  Save the file in a folder on your computer.</p>
-                    <p>Step 4: Tap on the "Select file" button below > Browse to the folder that contains the MS Excel file you saved previously > Select the file and submit.</p>
+                    </p>
+                    <p>Step 3: Save the file in a folder on your computer.</p>
+                    <p>Step 4: Tap on the "Select file" button below > Browse to the folder that contains the MS Excel file
+                        you saved previously > Select the file and submit.</p>
                 </div>
                 <div class="file-field input-field col s12">
                     <form id="userUploadForm" name="userUploadForm">
-                    <div class="btn">
-                        <span>Select file </span>
-                        <input type="file" name="user" onchange="angular.element(this).scope().uploadUserData(this.files)">
-                    </div>
-                    <div class="file-path-wrapper">
-                        <input class="file-path validate" disabled type="text">
-                    </div>
+                        <div class="btn">
+                            <span>Select file </span>
+                            <input type="file" name="user" onchange="angular.element(this).scope().uploadUserData(this.files)">
+                        </div>
+                        <div class="file-path-wrapper">
+                            <input class="file-path validate" disabled type="text">
+                        </div>
                     </form>
                     <div id="card-alert" class="card red lighten-5" ng-if="alreadyu">
-                            <div class="card-content red-text">
-                                <p ng-if="alreadyu.length!=0" style="color:#000">
-                                    The following Users items has been omitted ( as a User item with the same EMAIL exists for your dealership ) :
-                                    <br>
-                                </p>
-                                <p ng-repeat="all in alreadyu" style="text-transform:none !important">
-                                    {{all.name}} ({{all.email}})</p>
-                            </div>
-                            <button type="button" ng-click="close()" class="close red-text" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">×</span>
-                            </button>
+                        <div class="card-content red-text">
+                            <p ng-if="alreadyu.length!=0" style="color:#000">
+                                The following Users items has been omitted ( as a User item with the same EMAIL exists for your dealership ) :
+                                <br>
+                            </p>
+                            <p ng-repeat="all in alreadyu" style="text-transform:none !important">
+                                {{all.name}} ({{all.email}})</p>
                         </div>
+                        <button type="button" ng-click="close()" class="close red-text" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
 
                 </div>
                 <div class="center">
                     <p>OR you can add Users manually here</p>
                 </div>
-                <form class="formValidates" name="addUsersForm" id="addUsersForm" ng-submit="addUser()">
-                <div id="single_upload" ng-repeat="ser in  [].constructor(totalusr) track by $index">
-                    <div class="s_u_content">
-                        <div class="row">
-                            <div class="col m2 s12">
-                                <div class="input-field">
-                                    <input type="text" placeholder="Name*" required name="uname{{$index}}" id="uname{{$index}}" ng-model="userData[$index].name" />
+                <form class="formValidates" name="addUsersForm" id="addUsersForm" action="javascript:void(0);" ng-submit="addUser()">
+                    <div id="single_upload" ng-repeat="ser in  [].constructor(totalusr) track by $index">
+                        <div class="s_u_content">
+                            <div class="row">
+                                <div class="col m2 s12">
+                                    <div class="input-field">
+                                        <input type="text" placeholder="Name*" required name="uname{{$index}}" id="uname{{$index}}" ng-model="userData[$index].name"
+                                        />
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col m2 s12">
-                                <div class="input-field">
-                                    <input type="email" name="uemail{{$index}}" required id="uemail{{$index}}" placeholder="Email*"  ng-model="userData[$index].email"/>
+                                <div class="col m2 s12">
+                                    <div class="input-field">
+                                        <input type="email" name="uemail{{$index}}" required id="uemail{{$index}}" placeholder="Email*" ng-model="userData[$index].email"
+                                        />
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col m2 s12">
-                                <div class="input-field">
-                                    <input type="password" name="upassword{{$index}}" required id="upassword{{$index}}" placeholder=" Password*" ng-model="userData[$index].password">
+                                <div class="col m2 s12">
+                                    <div class="input-field">
+                                        <input type="password" name="upassword{{$index}}" required id="upassword{{$index}}" placeholder=" Password*" ng-model="userData[$index].password">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col m6 s12">
-                                <p> 
-                                    <span ng-repeat="r in roles" ng-hide="r.role=='admin'">
-                                        <input data-error=".filled-in-box{{$parent.$index}}" type="checkbox" class="filled-in"   ng-model="userData[$parent.$index].roles[$index]" ng-true-value="'{{r.name}}'" id="filled-in-box{{$index}}{{$parent.$index}}"  name="uroles{{$parent.$index}}"   />
-                                        <label for="filled-in-box{{$index}}{{$parent.$index}}">{{r.role}}</label>
-                                        <span class="filled-in-box{{$parent.$index}}" ng-show="$index==5" style="font-size:8px"></span>
-                                    </span>
-                                   
-                                    <input type="button" id="upload_fields" ng-click="adduserdiv();" class="btn btn-floating" value="+" />
-                                </p>
+                                <div class="col m6 s12">
+                                    <p>
+                                        <span ng-repeat="r in roles" ng-hide="r.role=='admin'">
+                                            <input data-error=".filled-in-box{{$parent.$index}}" type="checkbox" class="filled-in" ng-model="userData[$parent.$index].roles[$index]"
+                                                ng-true-value="'{{r.name}}'" id="filled-in-box{{$index}}{{$parent.$index}}" name="uroles{{$parent.$index}}"
+                                            />
+                                            <label for="filled-in-box{{$index}}{{$parent.$index}}">{{r.role}}</label>
+                                            <span class="filled-in-box{{$parent.$index}}" ng-show="$index==5" style="font-size:8px"></span>
+                                        </span>
+
+                                        <input type="button" id="upload_fileds{{$index}}" ng-click="adduserdiv();" class="btn btn-floating" value="+" />
+                                        <input type="button" ng-hide="$index===0" id="upload_fileds{{$index}}{{$index}}" ng-click="removuserdiv($index);" class="btn btn-floating" value="-"/>
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="right-align">
-                    <button type="submit" class="btn waves-effect waves-light">Add above Users</button>
-                </div>
+                    <div class="right-align">
+                        <button type="submit" class="btn waves-effect waves-light">Add above Users</button>
+                    </div>
                 </form>
                 <div class="bulk-upload-otr">
                     <p>
@@ -1308,7 +1335,7 @@
                         <b>UCM</b> = Used Car Manager</p>
                 </div>
                 <div class="right-align">
-                    <button type="button" style="background-color: #9e9e9e !important;" class="btn waves-effect waves-light camel-case" ng-click="nextStep(6)">Previous</button>
+                    <button type="button" style="background-color: #9e9e9e !important;" class="btn waves-effect waves-light camel-case" ng-click="nextStep(6, true)">Previous</button>
                     <button type="button" ng-click="nextStep(8)" class="btn waves-effect waves-light ul-2-btn camel-case">Next</button>
                 </div>
             </div>
@@ -1319,108 +1346,125 @@
                         <b>Note:</b>
                     </p>
                     <p>- - For bulk upload to happen, You would need upload the Customer data via. a Microsoft Excel file.
-                        </p>
-                    <p>Step 1:  Please download the MS Excel file format
-                        <a href="http://cleanup.tech/dsm-index/customer.xls"
-                            targer="_blank">HERE </a>
+                    </p>
+                    <p>Step 1: Please download the MS Excel file format
+                        <a href="http://cleanup.tech/dsm-index/customer.xls" targer="_blank">HERE </a>
                     </p>
                     <p>Step 2: Please DONT change the format. Just fill in the Customer's data in the provided MS Excel file.
-                        </p>
+                    </p>
                     <p>Step 3: Save the file in a folder on your computer.</p>
-                    <p>Step 4: Tap on the "Select file" button below > Browse to the folder that contains the MS Excel file you saved previously > Select the file and submit.</p>
+                    <p>Step 4: Tap on the "Select file" button below > Browse to the folder that contains the MS Excel file
+                        you saved previously > Select the file and submit.</p>
                 </div>
                 <div class="file-field input-field col s12">
                     <form id="customerUploadForm" name="customerUploadForm">
-                    <div class="btn">
-                        <span>Select file</span>
-                        <input type="file" onchange="angular.element(this).scope().uploadCustomerData(this.files)">
-                    </div>
-                    <div class="file-path-wrapper">
-                        <input class="file-path validate" disabled type="text">
-                    </div>
+                        <div class="btn">
+                            <span>Select file</span>
+                            <input type="file" onchange="angular.element(this).scope().uploadCustomerData(this.files)">
+                        </div>
+                        <div class="file-path-wrapper">
+                            <input class="file-path validate" disabled type="text">
+                        </div>
                     </form>
 
                     <div id="card-alert" class="card red lighten-5" ng-if="alreadyc">
-                            <div class="card-content red-text">
-                                <p ng-if="alreadyc.length!=0" style="color:#000">
-                                        The following Customers has been omitted ( as a Customer with the same EMAIL already exists for your database ):
-                                    <br>
-                                </p>
-                                <p ng-repeat="all in alreadyc" style="text-transform:none !important">
-                                    {{all.name}} ({{all.email}})</p>
-                            </div>
-                            <button type="button" ng-click="close()" class="close red-text" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">×</span>
-                            </button>
+                        <div class="card-content red-text">
+                            <p ng-if="alreadyc.length!=0" style="color:#000">
+                                The following Customers has been omitted ( as a Customer with the same EMAIL already exists for your database ):
+                                <br>
+                            </p>
+                            <p ng-repeat="all in alreadyc" style="text-transform:none !important">
+                                {{all.name}} ({{all.email}})</p>
                         </div>
+                        <button type="button" ng-click="close()" class="close red-text" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
 
                 </div>
                 <div class="center">
-                        <p>OR you can add Customer manually here</p>
+                    <p>OR you can add Customer manually here</p>
                 </div>
-                <form class="formValidates" name="addCustomerForm" id="addCustomerForm" ng-submit="addCustomer()">
-                <div id="eight_upload"  ng-repeat="ser in  [].constructor(totalcus) track by $index">
-                    <div class="row">
-                        <div class="col m4 s12">
-                            <div class="input-field">
-                                <input type="text" placeholder="Name*"  required name="cname{{$index}}" id="cname{{$index}}" ng-model="customerData[$index].name"/>
-                            </div>
-                        </div>
-                        <div class="col m4 s12">
-                            <div class="input-field">
-                                <input type="email" placeholder="Email*  "  required name="cemail{{$index}}" id="cemail{{$index}}" ng-model="customerData[$index].email"/>
-                            </div>
-                        </div>
-                        <div class="col m4 s12">
-                            <div class="row">
-                                <div class="input-field col m8">
-                                    <input type="password" placeholder="password*  " required name="cpassword{{$index}}" id="cpassword{{$index}}" ng-model="customerData[$index].password" />
-                                </div>
-                                <div class="col m4 s12">
-                                    <input type="button" id="more_fieldss" ng-click="addcustomerdiv();" class="btn btn-floating" value="+" style="margin-top: 25px;"
+                <form class="formValidates" name="addCustomerForm" id="addCustomerForm" action="javascript:void(0);" ng-submit="addCustomer()">
+                    <div id="eight_upload" ng-repeat="ser in  [].constructor(totalcus) track by $index">
+                        <div class="row">
+                            <div class="col m4 s12">
+                                <div class="input-field">
+                                    <input type="text" placeholder="Name*" required name="cname{{$index}}" id="cname{{$index}}" ng-model="customerData[$index].name"
                                     />
                                 </div>
                             </div>
+                            <div class="col m4 s12">
+                                <div class="input-field">
+                                    <input type="email" placeholder="Email*  " required name="cemail{{$index}}" id="cemail{{$index}}" ng-model="customerData[$index].email"
+                                    />
+                                </div>
+                            </div>
+                            <div class="col m4 s12">
+                                <div class="row">
+                                    <div class="input-field col m8">
+                                        <input type="password" placeholder="password*  " required name="cpassword{{$index}}" id="cpassword{{$index}}" ng-model="customerData[$index].password"
+                                        />
+                                    </div>
+                                    <div class="col m4 s12">
+                                        <input type="button" id="more_fieldss{{$index}}" ng-click="addcustomerdiv();" class="btn btn-floating" value="+" style="margin-top: 25px;"
+                                        />
 
+                                        <input type="button" id="more_fieldss{{$index}}" ng-click="removcustomerdiv($index);" class="btn btn-floating" value="-" style="margin-top: 25px;"
+                                        />
+                                    </div>
+                                </div>
+
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="left-align">
-                    <button type="submit" class="btn waves-light waves-effect">Add above Customers</button>
-                </div>
+                    <div class="left-align">
+                        <button type="submit" class="btn waves-light waves-effect">Add above Customers</button>
+                    </div>
                 </form>
                 <div class="right-align">
-                    <button type="button" style="background-color: #9e9e9e !important;" class="btn waves-effect waves-light camel-case" ng-click="nextStep(7)">Previous</button>
+                    <button type="button" style="background-color: #9e9e9e !important;" class="btn waves-effect waves-light camel-case" ng-click="nextStep(7, true)">Previous</button>
                     <button type="button" ng-click="nextStep(9)" class="btn waves-effect waves-light ul-2-btn camel-case">Next</button>
                 </div>
             </div>
             <div class="ul-main-four ulmc" ng-class="{'active': step==9}">
-                    <div class="row">
-                            <div class="col m5 s12">
-                                <div class="wizard-img">
-                                    <img src="https://media.istockphoto.com/photos/auto-mechanic-with-customer-picture-id172421050?k=6&m=172421050&s=612x612&w=0&h=DqkhSe2UlMZF91QrH5yHznHygzmVTR_2Q_37pRafNrI="
-                                        alt="image" style="width: 100%;" />
-                                </div>
-                            </div>
-                            <div class="col m7 s12">
-                                <div class="wizard-content bulk-upload-otr">
-                                    <p>Congratualtions! you completing setting up the dealer management platform for Dealership Name!</p>
-                                    <p>when you are ready to start using the system, click on  the Make system live button below for your customers and dealership to start using the system.</p>
-                                    <p>
-                                        you can always come back to the admin panel and make any changes as needed to the system.
-                                    </p>
-                                    <p class="right-align">
-                                            <button type="button" style="background-color: #9e9e9e !important;" class="btn waves-effect waves-light camel-case" ng-click="nextStep(8)">Previous</button>
-                                        <a href="http://cleanup.tech/" target="_blank"class="btn waves-effect waves-light camel-case">Make system live</a>
-                                    </p>
-                                </div>
-                            </div>
+                <div class="row">
+                    <div class="col m5 s12">
+                        <div class="wizard-img">
+                            <img src="https://media.istockphoto.com/photos/auto-mechanic-with-customer-picture-id172421050?k=6&m=172421050&s=612x612&w=0&h=DqkhSe2UlMZF91QrH5yHznHygzmVTR_2Q_37pRafNrI="
+                                alt="image" style="width: 100%;" />
                         </div>
+                    </div>
+                    <div class="col m7 s12">
+                        <div class="wizard-content bulk-upload-otr">
+                            <p>Congratualtions! you completing setting up the dealer management platform for Dealership Name!</p>
+                            <p>when you are ready to start using the system, click on the Make system live button below for
+                                your customers and dealership to start using the system.</p>
+                            <p>
+                                you can always come back to the admin panel and make any changes as needed to the system.
+                            </p>
+                            <p class="right-align">
+                                <button type="button" style="background-color: #9e9e9e !important;" class="btn waves-effect waves-light camel-case" ng-click="nextStep(8, true)">Previous</button>
+                                <a href="http://cleanup.tech/" target="_blank" class="btn waves-effect waves-light camel-case">Make system live</a>
+                            </p>
+                        </div>
+                    </div>
                 </div>
+            </div>
         </div>
     </div>
 </div>
-
+<div id="next_confirmation_modal" class="modal">
+    <div class="modal-content">
+      <h5>{{confirmationText}}</h5>
+    </div>
+    <div class="row create_offer">
+      <div class="right-align" style="margin-right: 1.5em;">
+        <button type="button" class="btn btn-theme waves-effect waves-light cancel modal-close" ng-click="nextStep(inCompletedStep, true);">Continue without saving</button>
+        <button type="submit" class="btn btn-theme waves-effect waves-light modal-close" name="button" ng-click="saveAndContinue();">Save & Continue</button>
+      </div>
+    </div>
+  </div>
 <div id="modal1" class="modal">
     <div class="modal-content">
         <form class="" autocomplete="off" ng-submit="changePassword()">
@@ -1457,8 +1501,8 @@
     //   $('.timepicker').pickatime({
     // $('.timepicker').pickatime({});
     //   });
-    
-   
+
+
     function anyThing() {
 
         setTimeout(function () { $('.stepper').nextStep(); }, 1500);
@@ -1568,6 +1612,7 @@
         }
     });
     $('.modal-trigger').leanModal();
+    $('.modal').leanModal();
     $("#formValidates").validate({
         rules: {
             sname: {
@@ -1588,7 +1633,7 @@
                 minlength: "Enter at least 6 characters"
             },
             amount: {
-                number: "Enter valid number"
+                number: "Enter valid amount"
             }
         },
         errorElement: 'div',

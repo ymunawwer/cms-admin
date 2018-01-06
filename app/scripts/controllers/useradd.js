@@ -13,8 +13,7 @@ angular.module('dmsAdminApp')
     $scope.userData = {};
 
     $scope.roles = [
-      { name: "admin", role: "admin" },
-      { name: "user", role: "user" },
+      { name: "user", role: "User" },
       { name: "marketing_manager", role: "MM" },
       { name: "used_car_manager", role: "UCM" },
       { name: "service_scheduler", role: "SS" },
