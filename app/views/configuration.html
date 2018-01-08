@@ -302,7 +302,7 @@
     }
 
     .s2 select {
-        border: 1px solid #9e9e9e;
+        border: 1px solid #ddd;
         margin: 1em 0;
     }
 
@@ -454,25 +454,25 @@
         <div class="ul-outer z-depth-1 white center-align">
             <ul>
                 <li ng-click="nextStep(1)" class="li-1" ng-class="{'active': (step==1 ), 'done-li': (complete==1 || complete==2 || complete==3 || complete==4  || complete==5 || complete==6 || complete==7 || complete==8)}">Step 1
-                    <p>Profile</p>
+                    <p>Enter Dealership Information</p>
                 </li>
                 <li ng-click="nextStep(2)" class="li-2" ng-class="{'active': step==2 , 'done-li': (complete==2 || complete==3  || complete==4  || complete==5 || complete==6 || complete==7 || complete==8)}">Step 2
-                    <p class="truncate">Scheduling</p>
+                    <p class="truncate">Appointment Scheduling Configuration</p>
                 </li>
-                <li ng-click="nextStep(3)" class="li-3" ng-class="{'active': step==3, 'done-li': (complete==3 || complete==4  || complete==5 || complete==6 || complete==7 || complete==8)}">Step 3
-                    <p class="truncate">Marketing Manager</p>
-                </li>
+               <!--  <li ng-click="nextStep(3)" class="li-3" ng-class="{'active': step==3, 'done-li': (complete==3 || complete==4  || complete==5 || complete==6 || complete==7 || complete==8)}">Step 3
+                    <p class="truncate">Marketing</p>
+                </li> -->
                 <li ng-click="nextStep(4)" class="li-4" ng-class="{'active': step==4 , 'done-li': (  complete==4  || complete==5 || complete==6 || complete==7 || complete==8)}">Step 4
-                    <p class="truncate">Used Car</p>
+                    <p class="truncate">Trade-In</p>
                 </li>
                 <li ng-click="nextStep(5)" class="li-5" ng-class="{'active': step==5 , 'done-li': (complete==5 || complete==6 || complete==7 || complete==8)}">Step 5
-                    <p class="truncate">Service Adviser</p>
+                    <p class="truncate">Advisor</p>
                 </li>
                 <li class="li-6" ng-click="nextStep(6)" ng-class="{'active': step==6 , 'done-li': (complete==6 || complete==7 || complete==8)}">Step 6
                     <p class="truncate">Service Data</p>
                 </li>
                 <li class="li-7" ng-click="nextStep(7, true)" ng-class="{'active': step==7 , 'done-li': (complete==7 || complete==8)}">Step 7
-                    <p class="truncate">User Setup</p>
+                    <p class="truncate">Users</p>
                 </li>
                 <li class="li-8" ng-click="nextStep(8, true)" ng-class="{'active': step==8 , 'done-li': (complete==8)}">Step 8
                     <p class="truncate">Customer Setup</p>
@@ -485,36 +485,36 @@
         <!--ul-outer-->
         <div class="ul-main-content white z-depth-1">
             <div class="ul-main-one ulmc" ng-class="{'active': step==1}">
-                <form class="formValidate" name="formValidate" id="formValidate" ng-submit="updateSetting()">
-                    <p>Account details
+                <form class="formValidate row" name="formValidate" id="formValidate" ng-submit="updateSetting()">
+                    <p>Dealership Information
                         <i class="material-icons tiny blue-text tooltipped" data-position="right" data-delay="50" data-tooltip="Text here">help_outline</i>
                     </p>
                     <div class="col s12 pl11">
-                        <label for="cname">Dealer name*</label>
-                        <input id="cname" name="cname" type="text" required data-error=".errorTxt1" ng-model="profileData.name">
+                        <label for="cname" class="col m3 l2 s12">Dealer name*</label>
+                        <input id="cname" name="cname" type="text" required data-error=".errorTxt1" ng-model="profileData.name" class="col m9 l10 s12">
                         <div class="errorTxt1"></div>
                     </div>
                     <div class="col s12 pl11">
-                        <label for="cemail">Email*</label>
-                        <input id="cemail" type="email" name="cemail" required data-error=".errorTxt2" ng-model="profileData.email">
+                        <label for="cemail" class="col m3 l2 s12">Email*</label>
+                        <input id="cemail" type="email" name="cemail" required data-error=".errorTxt2" ng-model="profileData.email" class="col m9 l10 s12">
                         <div class="errorTxt2"></div>
                     </div>
                     <div class="col s12 pl11">
-                        <label for="cphone">Phone*</label>
-                        <input id="cphone" type="text" name="cephone" max-length="10" min-length="10" required data-error=".errorTxt3" ng-model="profileData.phone">
+                        <label for="cphone" class="col m3 l2 s12">Phone*</label>
+                        <input id="cphone" type="text" name="cephone" max-length="10" min-length="10" required data-error=".errorTxt3" ng-model="profileData.phone" class="col m9 l10 s12">
                         <div class="errorTxt3"></div>
                     </div>
                     <div ng-if="man">
                         <div class="margin col s12 pl11">
-                            <label for="manufacturs">Dealer​ ​OEM​ ​association</label>
-                            <select id="manufacturs" ng-disabled="settings.manufactur" ng-change="changeManufacture()" class="browser-default selection-corrector"
-                                name="manufacturs" ng-model="settings.manufactur" style="margin: 0 0 20px;">
+                            <label for="manufacturs" class="col m3 l2 s12">Dealer​ ​OEM​ ​association</label>
+                            <select id="manufacturs" ng-disabled="settings.manufactur" ng-change="changeManufacture()" class="browser-default selection-corrector col m9 l10 s12"
+                                name="manufacturs" ng-model="settings.manufactur" style="margin: 0 0 20px;" >
                                 <option ng-repeat="man in manufactureList" value="{{man._id}}">{{man.name}}</option>
                             </select>
                         </div>
                         <div class="margin col s12 pl11">
-                            <label for="manufactur">Makes</label>
-                            <select id="manufactur" style="height:123px;" ng-disabled="settings.manufactur" multiple class="browser-default selection-corrector"
+                            <label for="manufactur" class="col m3 l2 s12">Makes</label>
+                            <select id="manufactur" style="height:123px;" ng-disabled="settings.manufactur" multiple class="browser-default selection-corrector col m9 l10 s12"
                                 name="manufactur" ng-model="settings.make" style="margin: 0 0 20px;">
                                 <option ng-repeat="make in makesList" value="{{make._id}}">{{make.name}}</option>
                             </select>
@@ -522,15 +522,15 @@
                     </div>
                     <div ng-if="!man">
                         <div class="margin col s12 pl11">
-                            <label for="manufacturs">Dealer​ ​OEM​ ​association</label>
-                            <select id="manufacturs" ng-change="changeManufacture()" class="browser-default selection-corrector" name="manufacturs" ng-model="settings.manufactur"
+                            <label for="manufacturs" class="col m3 l2 s12">Dealer​ ​OEM​ ​association</label>
+                            <select id="manufacturs" ng-change="changeManufacture()" class="browser-default selection-corrector col m9 l10 s12" name="manufacturs" ng-model="settings.manufactur"
                                 style="margin: 0 0 20px;">
                                 <option ng-repeat="man in manufactureList" value="{{man._id}}">{{man.name}}</option>
                             </select>
                         </div>
                         <div class="margin col s12 pl11">
-                            <label for="manufactur">Makes</label>
-                            <select id="manufactur" style="height:123px;" multiple class="browser-default selection-corrector" name="manufactur" ng-model="settings.make"
+                            <label for="manufactur" class="col m3 l2 s12">Makes</label>
+                            <select id="manufactur" style="height:123px;" multiple class="browser-default selection-corrector col m9 l10 s12" name="manufactur" ng-model="settings.make"
                                 style="margin: 0 0 20px;">
                                 <option ng-repeat="make in makesList" value="{{make._id}}">{{make.name}}</option>
                             </select>
@@ -550,28 +550,27 @@
                             <i class="material-icons tiny blue-text tooltipped" data-position="right" data-delay="50" data-tooltip="Text here">help_outline</i>
                         </p>
                         <div>
-                            <!-- <label for="pctitle">Title*</label> -->
-                            <select id="pctitle" required class="browser-default selection-corrector" name="pctitle" ng-model="settings.primary_contact.title">
-                                <option value="">--Title--</option>
+                            <label for="pctitle" class="col m3 l2 s12">Title*</label>
+                            <select id="pctitle" required class="browser-default selection-corrector col m9 l10 s12" name="pctitle" ng-model="settings.primary_contact.title" >
                                 <option value="Mr">Mr</option>
                                 <option value="Ms">Ms</option>
                                 <option value="Mrs">Mrs</option>
                             </select>
                             <div class="errorTxt41"></div>
                         </div>
-                        <div class="input-field col s12">
-                            <label for="pcname">Name*</label>
-                            <input id="pcname" name="pcname" required type="text" data-error=".errorTxt4" ng-model="settings.primary_contact.name">
+                        <div>
+                            <label for="pcname" class="col m3 l2 s12">Name*</label>
+                            <input id="pcname" name="pcname" required type="text" data-error=".errorTxt4" ng-model="settings.primary_contact.name" class="col m9 l10 s12">
                             <div class="errorTxt4"></div>
                         </div>
-                        <div class="input-field col s12">
-                            <label for="pcemail">Email *</label>
-                            <input id="pcemail" type="email" required name="pcemail" data-error=".errorTxt5" ng-model="settings.primary_contact.email">
+                        <div >
+                            <label for="pcemail" class="col m3 l2 s12">Email *</label>
+                            <input id="pcemail" type="email" required name="pcemail" data-error=".errorTxt5" ng-model="settings.primary_contact.email" class="col m9 l10 s12">
                             <div class="errorTxt5"></div>
                         </div>
-                        <div class="input-field col s12">
-                            <label for="pcphone">Phone *</label>
-                            <input id="pcphone" type="text" required name="pcphone" data-error=".errorTxt6" ng-model="settings.primary_contact.phone">
+                        <div>
+                            <label for="pcphone" class="col m3 l2 s12">Phone *</label>
+                            <input id="pcphone" type="text" required name="pcphone" data-error=".errorTxt6" ng-model="settings.primary_contact.phone" class="col m9 l10 s12">
                             <div class="errorTxt6"></div>
                         </div>
                     </div>
@@ -584,32 +583,31 @@
                             </span>
                         </p>
                         <div>
-                            <!-- <label for="sctitle">Title*</label> -->
-                            <select id="sctitle" class="browser-default selection-corrector" name="sctitle" ng-model="settings.secondary_contact.title">
-                                <option value="">--Title--</option>
+                            <label for="sctitle" class="col m3 l2 s12">Title*</label>
+                            <select id="sctitle" class="browser-default selection-corrector col m9 l10 s12" name="sctitle" ng-model="settings.secondary_contact.title">
                                 <option value="Mr">Mr</option>
                                 <option value="Ms">Ms</option>
                                 <option value="Mrs">Mrs</option>
                             </select>
                             <div class="errorTxt42"></div>
                         </div>
-                        <div class="input-field col s12">
-                            <label for="scname">Name</label>
-                            <input id="scname" type="text" name="scname" data-error=".errorTxt8" ng-model="settings.secondary_contact.name">
+                        <div>
+                            <label for="scname" class="col m3 l2 s12">Name</label>
+                            <input id="scname" type="text" name="scname" data-error=".errorTxt8" ng-model="settings.secondary_contact.name" class="col m9 l10 s12">
                             <div class="errorTxt7"></div>
                         </div>
-                        <div class="input-field col s12">
-                            <label for="scemail">Email </label>
-                            <input id="scemail" type="email" name="scemail" data-error=".errorTxt8" ng-model="settings.secondary_contact.email">
+                        <div>
+                            <label for="scemail" class="col m3 l2 s12">Email </label>
+                            <input id="scemail" type="email" name="scemail" data-error=".errorTxt8" ng-model="settings.secondary_contact.email" class="col m9 l10 s12">
                             <div class="errorTxt8"></div>
                         </div>
-                        <div class="input-field col s12">
-                            <label for="scphone">Phone </label>
-                            <input id="scphone" type="text" name="scphone" data-error=".errorTxt9" ng-model="settings.secondary_contact.phone">
+                        <div>
+                            <label for="scphone" class="col m3 l2 s12">Phone </label>
+                            <input id="scphone" type="text" name="scphone" data-error=".errorTxt9" ng-model="settings.secondary_contact.phone" class="col m9 l10 s12">
                             <div class="errorTxt9"></div>
                         </div>
                     </div>
-                    <div class="row user-setting">
+                    <!-- <div class="row user-setting">
                         <p>Details to be displayed on invoice
                             <i class="material-icons tiny blue-text tooltipped" data-position="right" data-delay="50" data-tooltip="Text here">help_outline</i>
                         </p>
@@ -641,43 +639,52 @@
                             <input id="dnemail" type="email" name="dnemail" data-error=".errorTxt11" ng-model="settings.invoice_contact.email">
                             <div class="errorTxt11"></div>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="row user-setting">
                         <p>Contact details for customers
                             <i class="material-icons tiny blue-text tooltipped" data-position="right" data-delay="50" data-tooltip="Text here">help_outline</i>
                             &nbsp;&nbsp; &nbsp;
                             <span>
-                                <input type="checkbox" id="secondCheck1" ng-change="primeToSecondary1()" ng-model="secondCheck1" />
+                                <input type="checkbox" id="secondCheck1" ng-change="primeToSecondary1()" ng-model="secondCheck1" / class="col m9 l10 s12">
                                 <label for="secondCheck1">My all details is the same as my details to be displayed on invoice</label>
                             </span>
                         </p>
 
-                        <div class="input-field col s12">
-                            <label for="cdcname">Name </label>
-                            <input id="cdcname" name="cdcname" type="text" data-error=".errorTxt13" ng-model="settings.contact_to_show_customer.name">
+                        <div>
+                            <label for="cdcname" class="col m3 l2 s12">Name </label>
+                            <input id="cdcname" name="cdcname" type="text" data-error=".errorTxt13" ng-model="settings.contact_to_show_customer.name" class="col m9 l10 s12">
                             <div class="errorTxt13"></div>
                         </div>
-                        <div class="input-field col s12">
-                            <label for="cdcaddress">Address</label>
-                            <input id="cdcaddress" name="cdcaddress" type="text" ng-model="settings.contact_to_show_customer.address">
+                        <div>
+                            <label for="cdcaddress" class="col m3 l2 s12">Address</label>
+                            <input id="cdcaddress" name="cdcaddress" type="text" ng-model="settings.contact_to_show_customer.address" class="col m9 l10 s12">
                             <div class="errorTxt1012"></div>
                         </div>
-                        <div class="input-field col s12">
-                            <label for="cdcphone">Phone </label>
-                            <input id="cdcphone" type="text" name="cdcphone" data-error=".errorTxt15" ng-model="settings.contact_to_show_customer.phone">
+                        <div>
+                            <label for="cdcphone" class="col m3 l2 s12">Phone </label>
+                            <input id="cdcphone" type="text" name="cdcphone" data-error=".errorTxt15" ng-model="settings.contact_to_show_customer.phone" class="col m9 l10 s12">
                             <div class="errorTxt15"></div>
                         </div>
-                        <div class="input-field col s12">
-                            <label for="cdcurl">Website</label>
-                            <input id="cdcurl" type="url" name="cdcurl" placeholder="http://www.cleantech.com" data-error=".errorTxt1523" ng-model="settings.contact_to_show_customer.website">
+                        <div>
+                            <label for="cdcurl" class="col m3 l2 s12">Website</label>
+                            <input id="cdcurl" type="url" name="cdcurl" placeholder="http://www.cleantech.com" data-error=".errorTxt1523" ng-model="settings.contact_to_show_customer.website" class="col m9 l10 s12">
                             <div class="errorTxt1523"></div>
                         </div>
-                        <div class="input-field col s12">
-                            <label for="cdcemail">Email </label>
-                            <input id="cdcemail" type="email" name="cdcemail" data-error=".errorTxt14" ng-model="settings.contact_to_show_customer.email">
+                        <div>
+                            <label for="cdcemail" class="col m3 l2 s12">Email </label>
+                            <input id="cdcemail" type="email" name="cdcemail" data-error=".errorTxt14" ng-model="settings.contact_to_show_customer.email" class="col m9 l10 s12">
                             <div class="errorTxt14"></div>
                         </div>
-
+                        <div>
+                            <label for="cdcma" class="col m3 l2 s12">Manufacturer association</label>
+                            <input id="cdcma" type="text" name="cdcma"  class="col m9 l10 s12">
+                            <div class="errorTxt14"></div>
+                        </div>
+                        <div>
+                            <label for="cdcms" class="col m3 l2 s12">Makes Serviced</label>
+                            <input id="cdcms" type="text" name="cdcms"  class="col m9 l10 s12">
+                            <div class="errorTxt14"></div>
+                        </div>
                     </div>
                     <div class="right-align">
                         <button type="submit" id="stepOne" class="btn waves-effect waves-light ul-1-btn camel-case">Next</button>
@@ -705,288 +712,288 @@
                             <div class="margin m_b_25">
                                 <label for="days_of_service">
                                     <p>
-                                        <b class="black-text" style="font-weight:500">Working Days*</b>
+                                        <b class="black-text" style="font-weight:500">Set Weekly Working Hours*</b>
                                         <i class="material-icons tiny blue-text tooltipped" data-position="right" data-delay="50" data-tooltip="Text here">help_outline</i>
                                     </p>
                                 </label>
-                                <ul class="collapsible" data-collapsible="accordion">
-                                    <li>
-                                        <div class="collapsible-header">Sunday</div>
-                                        <div class="collapsible-body">
-                                            <div class="row">
-                                                <div class="col m2 s12 input-field">
-                                                    <input type="checkbox" id="sundaycheck" ng-model="settings.days_of_service.sunday.status" />
-                                                    <label for="sundaycheck">Sunday</label>
-                                                </div>
-                                                <div class="margin col s12 m5" ng-show="settings.days_of_service.sunday.status">
-                                                    <label style="left: 0 !important;">Start Time</label>
-                                                    <div class="input-field">
-                                                        <!-- <input type="text" class="timepicker" ng-model="settings.days_of_service.sunday.start_time"> -->
-                                                        <select style="display:block" ng-model="settings.days_of_service.sunday.start_time">
-                                                            <option ng-if="h<=12" ng-disabled="settings.days_of_service.sunday.end_time<=h" ng-selected="settings.days_of_service.sunday.start_time==h"
-                                                                value="{{h}}" ng-repeat="h in hours">{{h}}:00 AM </option>
-                                                            <option ng-if="h>12" ng-disabled="settings.days_of_service.sunday.end_time<=h" ng-selected="settings.days_of_service.sunday.start_time==h"
-                                                                value="{{h}}" ng-repeat="h in hours">{{h}}:00 PM </option>
-                                                        </select>
-                                                        <!--  -->
-                                                    </div>
-                                                    <div class="errorTxt16"></div>
-                                                </div>
-                                                <div class="margin col s12 m5" ng-show="settings.days_of_service.sunday.status">
-                                                    <label style="left: 0 !important;">End Time</label>
-                                                    <div class="input-field">
-                                                        <!-- <input type="text" class="datepicker" ng-model="settings.days_of_service.sunday.end_time"> -->
-                                                        <select style="display:block" ng-model="settings.days_of_service.sunday.end_time">
-                                                            <option ng-if="h<=12" ng-disabled="settings.days_of_service.sunday.start_time>=h" ng-selected="settings.days_of_service.sunday.end_time==h"
-                                                                value="{{h}}" ng-repeat="h in hours">{{h}}:00 AM</option>
-                                                            <option ng-if="h>12" ng-disabled="settings.days_of_service.sunday.start_time>=h" ng-selected="settings.days_of_service.sunday.end_time==h"
-                                                                value="{{h}}" ng-repeat="h in hours">{{h}}:00 PM</option>
-                                                        </select>
+<ul class="collapsible" data-collapsible="accordion">
+    <li>
+        <div class="collapsible-header">Sunday</div>
+        <div class="collapsible-body">
+            <div class="row">
+                <div class="col m2 s12 input-field">
+                    <input type="checkbox" id="sundaycheck" ng-model="settings.days_of_service.sunday.status" />
+                    <label for="sundaycheck">Sunday</label>
+                </div>
+                <div ng-show="settings.days_of_service.sunday.status">
+                    <label style="left: 0 !important;" class="col m2 s12">Start Time</label>
+                    <div>
+                        <!-- <input type="text" class="timepicker" ng-model="settings.days_of_service.sunday.start_time"> -->
+                        <select style="display:block" ng-model="settings.days_of_service.sunday.start_time" class="col m3 s12">
+                            <option ng-if="h<=12" ng-disabled="settings.days_of_service.sunday.end_time<=h" ng-selected="settings.days_of_service.sunday.start_time==h"
+                                value="{{h}}" ng-repeat="h in hours">{{h}}:00 AM </option>
+                            <option ng-if="h>12" ng-disabled="settings.days_of_service.sunday.end_time<=h" ng-selected="settings.days_of_service.sunday.start_time==h"
+                                value="{{h}}" ng-repeat="h in hours">{{h}}:00 PM </option>
+                        </select>
+                        <!--  -->
+                    </div>
+                    <div class="errorTxt16"></div>
+                </div>
+                <div ng-show="settings.days_of_service.sunday.status">
+                    <label style="left: 0 !important;" class="col m2 s12">End Time</label>
+                    <div>
+                        <!-- <input type="text" class="datepicker" ng-model="settings.days_of_service.sunday.end_time"> -->
+                        <select style="display:block" class="col m3 s12" ng-model="settings.days_of_service.sunday.end_time">
+                            <option ng-if="h<=12" ng-disabled="settings.days_of_service.sunday.start_time>=h" ng-selected="settings.days_of_service.sunday.end_time==h"
+                                value="{{h}}" ng-repeat="h in hours">{{h}}:00 AM</option>
+                            <option ng-if="h>12" ng-disabled="settings.days_of_service.sunday.start_time>=h" ng-selected="settings.days_of_service.sunday.end_time==h"
+                                value="{{h}}" ng-repeat="h in hours">{{h}}:00 PM</option>
+                        </select>
 
-                                                    </div>
-                                                    <div class="errorTxt17"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="collapsible-header">Monday</div>
-                                        <div class="collapsible-body">
-                                            <div class="row">
-                                                <div class="col m2 s12 input-field">
-                                                    <input type="checkbox" id="mondaycheck" ng-model="settings.days_of_service.monday.status" />
-                                                    <label for="mondaycheck">Monday</label>
-                                                </div>
-                                                <div class="margin col s12 m5" ng-show="settings.days_of_service.monday.status">
-                                                    <label style="left: 0 !important;">Start Time</label>
-                                                    <div class="input-field">
-                                                        <!-- <input type="text" class="datepicker" ng-model="settings.days_of_service.monday.start_time"> -->
-                                                        <select style="display:block" ng-model="settings.days_of_service.monday.start_time">
-                                                            <option ng-if="h<=12" ng-disabled="settings.days_of_service.monday.end_time<=h" ng-selected="settings.days_of_service.monday.start_time==h"
-                                                                value="{{h}}" ng-repeat="h in hours">{{h}}:00 AM</option>
-                                                            <option ng-if="h>12" ng-disabled="settings.days_of_service.monday.end_time<=h" ng-selected="settings.days_of_service.monday.start_time==h"
-                                                                value="{{h}}" ng-repeat="h in hours">{{h}}:00 PM</option>
-                                                        </select>
+                    </div>
+                    <div class="errorTxt17"></div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="collapsible-header">Monday</div>
+        <div class="collapsible-body">
+            <div class="row">
+                <div class="col m2 s12 input-field">
+                    <input type="checkbox" id="mondaycheck" ng-model="settings.days_of_service.monday.status" />
+                    <label for="mondaycheck">Monday</label>
+                </div>
+                <div ng-show="settings.days_of_service.monday.status">
+                    <label style="left: 0 !important;" class="col m2 s12">Start Time</label>
+                    <div class="input-field">
+                        <!-- <input type="text" class="datepicker" ng-model="settings.days_of_service.monday.start_time"> -->
+                        <select style="display:block" ng-model="settings.days_of_service.monday.start_time" class="col m3 s12">
+                            <option ng-if="h<=12" ng-disabled="settings.days_of_service.monday.end_time<=h" ng-selected="settings.days_of_service.monday.start_time==h"
+                                value="{{h}}" ng-repeat="h in hours">{{h}}:00 AM</option>
+                            <option ng-if="h>12" ng-disabled="settings.days_of_service.monday.end_time<=h" ng-selected="settings.days_of_service.monday.start_time==h"
+                                value="{{h}}" ng-repeat="h in hours">{{h}}:00 PM</option>
+                        </select>
 
-                                                    </div>
-                                                    <div class="errorTxt16"></div>
-                                                </div>
-                                                <div class="margin col s12 m5" ng-show="settings.days_of_service.monday.status">
-                                                    <label style="left: 0 !important;">End Time</label>
-                                                    <div class="input-field">
-                                                        <!-- <input type="text" class="datepicker" ng-model="settings.days_of_service.monday.end_time"> -->
-                                                        <select style="display:block" ng-model="settings.days_of_service.monday.end_time">
-                                                            <option ng-if="h<=12" ng-disabled="settings.days_of_service.monday.start_time>=h" ng-selected="settings.days_of_service.monday.end_time==h"
-                                                                value="{{h}}" ng-repeat="h in hours">{{h}}:00 AM</option>
-                                                            <option ng-if="h>12" ng-disabled="settings.days_of_service.monday.start_time>=h" ng-selected="settings.days_of_service.monday.end_time==h"
-                                                                value="{{h}}" ng-repeat="h in hours">{{h}}:00 PM</option>
-                                                        </select>
+                    </div>
+                    <div class="errorTxt16"></div>
+                </div>
+                <div class="" ng-show="settings.days_of_service.monday.status">
+                    <label style="left: 0 !important;" class="col m2 s12">End Time</label>
+                    <div class="input-field">
+                        <!-- <input type="text" class="datepicker" ng-model="settings.days_of_service.monday.end_time"> -->
+                        <select style="display:block" ng-model="settings.days_of_service.monday.end_time" class="col m3 s12">
+                            <option ng-if="h<=12" ng-disabled="settings.days_of_service.monday.start_time>=h" ng-selected="settings.days_of_service.monday.end_time==h"
+                                value="{{h}}" ng-repeat="h in hours">{{h}}:00 AM</option>
+                            <option ng-if="h>12" ng-disabled="settings.days_of_service.monday.start_time>=h" ng-selected="settings.days_of_service.monday.end_time==h"
+                                value="{{h}}" ng-repeat="h in hours">{{h}}:00 PM</option>
+                        </select>
 
-                                                    </div>
-                                                    <div class="errorTxt17"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="collapsible-header">Tuesday</div>
-                                        <div class="collapsible-body">
-                                            <div class="row">
-                                                <div class="col m2 s12 input-field">
-                                                    <input type="checkbox" id="tuesdaycheck" ng-model="settings.days_of_service.tuesday.status" />
-                                                    <label for="tuesdaycheck">Tuesday</label>
-                                                </div>
-                                                <div class="margin col s12 m5" ng-show="settings.days_of_service.tuesday.status">
-                                                    <label style="left: 0 !important;">Start Time</label>
-                                                    <div class="input-field">
-                                                        <!-- <input type="text" class="datepicker" ng-model="settings.days_of_service.tuesday.start_time"> -->
-                                                        <select style="display:block" ng-model="settings.days_of_service.tuesday.start_time">
-                                                            <option ng-if="h<=12" ng-disabled="settings.days_of_service.tuesday.end_time<=h" ng-selected="settings.days_of_service.tuesday.start_time==h"
-                                                                value="{{h}}" ng-repeat="h in hours">{{h}}:00 AM</option>
-                                                            <option ng-if="h>12" ng-disabled="settings.days_of_service.tuesday.end_time<=h" ng-selected="settings.days_of_service.tuesday.start_time==h"
-                                                                value="{{h}}" ng-repeat="h in hours">{{h}}:00 PM</option>
-                                                        </select>
+                    </div>
+                    <div class="errorTxt17"></div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="collapsible-header">Tuesday</div>
+        <div class="collapsible-body">
+            <div class="row">
+                <div class="col m2 s12 input-field">
+                    <input type="checkbox" id="tuesdaycheck" ng-model="settings.days_of_service.tuesday.status" />
+                    <label for="tuesdaycheck">Tuesday</label>
+                </div>
+                <div class="" ng-show="settings.days_of_service.tuesday.status">
+                    <label style="left: 0 !important;" class="col m2 s12">Start Time</label>
+                    <div>
+                        <!-- <input type="text" class="datepicker" ng-model="settings.days_of_service.tuesday.start_time"> -->
+                        <select style="display:block" ng-model="settings.days_of_service.tuesday.start_time" class="col m3 s12">
+                            <option ng-if="h<=12" ng-disabled="settings.days_of_service.tuesday.end_time<=h" ng-selected="settings.days_of_service.tuesday.start_time==h"
+                                value="{{h}}" ng-repeat="h in hours">{{h}}:00 AM</option>
+                            <option ng-if="h>12" ng-disabled="settings.days_of_service.tuesday.end_time<=h" ng-selected="settings.days_of_service.tuesday.start_time==h"
+                                value="{{h}}" ng-repeat="h in hours">{{h}}:00 PM</option>
+                        </select>
 
-                                                    </div>
-                                                    <div class="errorTxt16"></div>
-                                                </div>
-                                                <div class="margin col s12 m5" ng-show="settings.days_of_service.tuesday.status">
-                                                    <label style="left: 0 !important;">End Time</label>
-                                                    <div class="input-field">
-                                                        <!-- <input type="text" class="datepicker" ng-model="settings.days_of_service.tuesday.end_time"> -->
-                                                        <select style="display:block" ng-model="settings.days_of_service.tuesday.end_time">
-                                                            <option ng-if="h<=12" ng-disabled="settings.days_of_service.tuesday.start_time>=h" ng-selected="settings.days_of_service.tuesday.end_time==h"
-                                                                value="{{h}}" ng-repeat="h in hours">{{h}}:00 AM</option>
-                                                            <option ng-if="h>12" ng-disabled="settings.days_of_service.tuesday.start_time>=h" ng-selected="settings.days_of_service.tuesday.end_time==h"
-                                                                value="{{h}}" ng-repeat="h in hours">{{h}}:00 PM</option>
-                                                        </select>
+                    </div>
+                    <div class="errorTxt16"></div>
+                </div>
+                <div class="" ng-show="settings.days_of_service.tuesday.status">
+                    <label style="left: 0 !important;" class="col m2 s12">End Time</label>
+                    <div class="">
+                        <!-- <input type="text" class="datepicker" ng-model="settings.days_of_service.tuesday.end_time"> -->
+                        <select style="display:block" ng-model="settings.days_of_service.tuesday.end_time" class="col m3 s12">
+                            <option ng-if="h<=12" ng-disabled="settings.days_of_service.tuesday.start_time>=h" ng-selected="settings.days_of_service.tuesday.end_time==h"
+                                value="{{h}}" ng-repeat="h in hours">{{h}}:00 AM</option>
+                            <option ng-if="h>12" ng-disabled="settings.days_of_service.tuesday.start_time>=h" ng-selected="settings.days_of_service.tuesday.end_time==h"
+                                value="{{h}}" ng-repeat="h in hours">{{h}}:00 PM</option>
+                        </select>
 
-                                                    </div>
-                                                    <div class="errorTxt17"></div>
-                                                </div>
-                                            </div>
+                    </div>
+                    <div class="errorTxt17"></div>
+                </div>
+            </div>
 
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="collapsible-header">
-                                            Wednesday
-                                        </div>
-                                        <div class="collapsible-body">
-                                            <div class="row">
-                                                <div class="col m2 s12 input-field">
-                                                    <input type="checkbox" id="wednesdaycheck" ng-model="settings.days_of_service.wednesday.status" />
-                                                    <label for="wednesdaycheck">Wednesday</label>
-                                                </div>
-                                                <div class="margin col m5 s12" ng-show="settings.days_of_service.wednesday.status">
-                                                    <label style="left: 0 !important;">Start Time</label>
-                                                    <div class="input-field">
-                                                        <!-- <input type="text" class="datepicker" ng-model="settings.days_of_service.wednesday.start_time"> -->
-                                                        <select style="display:block" ng-model="settings.days_of_service.wednesday.start_time">
-                                                            <option ng-if="h<=12" ng-disabled="settings.days_of_service.wednesday.end_time<=h" ng-selected="settings.days_of_service.wednesday.start_time==h"
-                                                                value="{{h}}" ng-repeat="h in hours">{{h}}:00 AM</option>
-                                                            <option ng-if="h>12" ng-disabled="settings.days_of_service.wednesday.end_time<=h" ng-selected="settings.days_of_service.wednesday.start_time==h"
-                                                                value="{{h}}" ng-repeat="h in hours">{{h}}:00 PM</option>
-                                                        </select>
+        </div>
+    </li>
+    <li>
+        <div class="collapsible-header">
+            Wednesday
+        </div>
+        <div class="collapsible-body">
+            <div class="row">
+                <div class="col m2 s12 input-field">
+                    <input type="checkbox" id="wednesdaycheck" ng-model="settings.days_of_service.wednesday.status" />
+                    <label for="wednesdaycheck">Wednesday</label>
+                </div>
+                <div class="" ng-show="settings.days_of_service.wednesday.status">
+                    <label style="left: 0 !important;" class="col m2 s12">Start Time</label>
+                    <div class="input-field">
+                        <!-- <input type="text" class="datepicker" ng-model="settings.days_of_service.wednesday.start_time"> -->
+                        <select style="display:block" ng-model="settings.days_of_service.wednesday.start_time" class="col m3 s12">
+                            <option ng-if="h<=12" ng-disabled="settings.days_of_service.wednesday.end_time<=h" ng-selected="settings.days_of_service.wednesday.start_time==h"
+                                value="{{h}}" ng-repeat="h in hours">{{h}}:00 AM</option>
+                            <option ng-if="h>12" ng-disabled="settings.days_of_service.wednesday.end_time<=h" ng-selected="settings.days_of_service.wednesday.start_time==h"
+                                value="{{h}}" ng-repeat="h in hours">{{h}}:00 PM</option>
+                        </select>
 
-                                                    </div>
-                                                    <div class="errorTxt16"></div>
-                                                </div>
-                                                <div class="margin col m5 s12" ng-show="settings.days_of_service.wednesday.status">
-                                                    <label style="left: 0 !important;">End Time</label>
-                                                    <div class="input-field">
-                                                        <!-- <input type="text" class="datepicker" ng-model="settings.days_of_service.wednesday.end_time"> -->
-                                                        <select style="display:block" ng-model="settings.days_of_service.wednesday.end_time">
-                                                            <option ng-if="h<=12" ng-disabled="settings.days_of_service.wednesday.start_time>=h" ng-selected="settings.days_of_service.wednesday.end_time==h"
-                                                                value="{{h}}" ng-repeat="h in hours">{{h}}:00 AM</option>
-                                                            <option ng-if="h>12" ng-disabled="settings.days_of_service.wednesday.start_time>=h" ng-selected="settings.days_of_service.wednesday.end_time==h"
-                                                                value="{{h}}" ng-repeat="h in hours">{{h}}:00 PM</option>
-                                                        </select>
+                    </div>
+                    <div class="errorTxt16"></div>
+                </div>
+                <div class="" ng-show="settings.days_of_service.wednesday.status">
+                    <label style="left: 0 !important;" class="col m2 s12">End Time</label>
+                    <div class="">
+                        <!-- <input type="text" class="datepicker" ng-model="settings.days_of_service.wednesday.end_time"> -->
+                        <select style="display:block" ng-model="settings.days_of_service.wednesday.end_time" class="col m3 s12">
+                            <option ng-if="h<=12" ng-disabled="settings.days_of_service.wednesday.start_time>=h" ng-selected="settings.days_of_service.wednesday.end_time==h"
+                                value="{{h}}" ng-repeat="h in hours">{{h}}:00 AM</option>
+                            <option ng-if="h>12" ng-disabled="settings.days_of_service.wednesday.start_time>=h" ng-selected="settings.days_of_service.wednesday.end_time==h"
+                                value="{{h}}" ng-repeat="h in hours">{{h}}:00 PM</option>
+                        </select>
 
-                                                    </div>
-                                                    <div class="errorTxt17"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="collapsible-header">Thursday</div>
-                                        <div class="collapsible-body">
-                                            <div class="row">
-                                                <div class="col m2 s12 input-field">
-                                                    <input type="checkbox" id="thursdaycheck" ng-model="settings.days_of_service.thursday.status" />
-                                                    <label for="thursdaycheck">Thursday</label>
-                                                </div>
-                                                <div class="margin col m5 s12" ng-show="settings.days_of_service.thursday.status">
-                                                    <label style="left: 0 !important;">Start Time</label>
-                                                    <div class="input-field">
-                                                        <!-- <input type="text" class="datepicker" ng-model="settings.days_of_service.thursday.start_time"> -->
-                                                        <select style="display:block" ng-model="settings.days_of_service.thursday.start_time">
-                                                            <option ng-if="h<=12" ng-disabled="settings.days_of_service.thursday.end_time<=h" ng-selected="settings.days_of_service.thursday.start_time==h"
-                                                                value="{{h}}" ng-repeat="h in hours">{{h}}:00 AM</option>
-                                                            <option ng-if="h>12" ng-disabled="settings.days_of_service.thursday.end_time<=h" ng-selected="settings.days_of_service.thursday.start_time==h"
-                                                                value="{{h}}" ng-repeat="h in hours">{{h}}:00 PM</option>
-                                                        </select>
+                    </div>
+                    <div class="errorTxt17"></div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="collapsible-header">Thursday</div>
+        <div class="collapsible-body">
+            <div class="row">
+                <div class="col m2 s12 input-field">
+                    <input type="checkbox" id="thursdaycheck" ng-model="settings.days_of_service.thursday.status" />
+                    <label for="thursdaycheck">Thursday</label>
+                </div>
+                <div class="" ng-show="settings.days_of_service.thursday.status">
+                    <label style="left: 0 !important;" class="col m2 s12">Start Time</label>
+                    <div class="">
+                        <!-- <input type="text" class="datepicker" ng-model="settings.days_of_service.thursday.start_time"> -->
+                        <select style="display:block" ng-model="settings.days_of_service.thursday.start_time" class="col m3 s12">
+                            <option ng-if="h<=12" ng-disabled="settings.days_of_service.thursday.end_time<=h" ng-selected="settings.days_of_service.thursday.start_time==h"
+                                value="{{h}}" ng-repeat="h in hours">{{h}}:00 AM</option>
+                            <option ng-if="h>12" ng-disabled="settings.days_of_service.thursday.end_time<=h" ng-selected="settings.days_of_service.thursday.start_time==h"
+                                value="{{h}}" ng-repeat="h in hours">{{h}}:00 PM</option>
+                        </select>
 
-                                                    </div>
-                                                    <div class="errorTxt16"></div>
-                                                </div>
-                                                <div class="margin col m5 s12" ng-show="settings.days_of_service.thursday.status">
-                                                    <label style="left: 0 !important;">End Time</label>
-                                                    <div class="input-field">
-                                                        <!-- <input type="text" class="datepicker" ng-model="settings.days_of_service.thursday.end_time"> -->
-                                                        <select style="display:block" ng-model="settings.days_of_service.thursday.end_time">
-                                                            <option ng-if="h<=12" ng-disabled="settings.days_of_service.thursday.start_time>=h" ng-selected="settings.days_of_service.thursday.end_time==h"
-                                                                value="{{h}}" ng-repeat="h in hours">{{h}}:00 AM</option>
-                                                            <option ng-if="h>12" ng-disabled="settings.days_of_service.thursday.start_time>=h" ng-selected="settings.days_of_service.thursday.end_time==h"
-                                                                value="{{h}}" ng-repeat="h in hours">{{h}}:00 PM</option>
-                                                        </select>
+                    </div>
+                    <div class="errorTxt16"></div>
+                </div>
+                <div class="" ng-show="settings.days_of_service.thursday.status">
+                    <label style="left: 0 !important;" class="col m2 s12">End Time</label>
+                    <div class="">
+                        <!-- <input type="text" class="datepicker" ng-model="settings.days_of_service.thursday.end_time"> -->
+                        <select style="display:block" ng-model="settings.days_of_service.thursday.end_time" class="col m3 s12">
+                            <option ng-if="h<=12" ng-disabled="settings.days_of_service.thursday.start_time>=h" ng-selected="settings.days_of_service.thursday.end_time==h"
+                                value="{{h}}" ng-repeat="h in hours">{{h}}:00 AM</option>
+                            <option ng-if="h>12" ng-disabled="settings.days_of_service.thursday.start_time>=h" ng-selected="settings.days_of_service.thursday.end_time==h"
+                                value="{{h}}" ng-repeat="h in hours">{{h}}:00 PM</option>
+                        </select>
 
-                                                    </div>
-                                                    <div class="errorTxt17"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="collapsible-header">Friday</div>
-                                        <div class="collapsible-body">
-                                            <div class="row">
-                                                <div class="col m2 s12 input-field">
-                                                    <input type="checkbox" id="fridaycheck" ng-model="settings.days_of_service.friday.status" />
-                                                    <label for="fridaycheck">Friday</label>
-                                                </div>
-                                                <div class="margin col m5 s12" ng-show="settings.days_of_service.friday.status">
-                                                    <label style="left: 0 !important;">Start Time</label>
-                                                    <div class="input-field">
-                                                        <!-- <input type="text" class="datepicker" ng-model="settings.days_of_service.friday.start_time"> -->
-                                                        <select style="display:block" ng-model="settings.days_of_service.friday.start_time">
-                                                            <option ng-if="h<=12" ng-disabled="settings.days_of_service.friday.end_time<=h" ng-selected="settings.days_of_service.friday.start_time==h"
-                                                                value="{{h}}" ng-repeat="h in hours">{{h}}:00 AM</option>
-                                                            <option ng-if="h>12" ng-disabled="settings.days_of_service.friday.end_time<=h" ng-selected="settings.days_of_service.friday.start_time==h"
-                                                                value="{{h}}" ng-repeat="h in hours">{{h}}:00 PM</option>
-                                                        </select>
+                    </div>
+                    <div class="errorTxt17"></div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="collapsible-header">Friday</div>
+        <div class="collapsible-body">
+            <div class="row">
+                <div class="col m2 s12 input-field">
+                    <input type="checkbox" id="fridaycheck" ng-model="settings.days_of_service.friday.status" />
+                    <label for="fridaycheck">Friday</label>
+                </div>
+                <div class="" ng-show="settings.days_of_service.friday.status">
+                    <label style="left: 0 !important;" class="col m2 s12">Start Time</label>
+                    <div class="input-field">
+                        <!-- <input type="text" class="datepicker" ng-model="settings.days_of_service.friday.start_time"> -->
+                        <select style="display:block" ng-model="settings.days_of_service.friday.start_time" class="col m3 s12">
+                            <option ng-if="h<=12" ng-disabled="settings.days_of_service.friday.end_time<=h" ng-selected="settings.days_of_service.friday.start_time==h"
+                                value="{{h}}" ng-repeat="h in hours">{{h}}:00 AM</option>
+                            <option ng-if="h>12" ng-disabled="settings.days_of_service.friday.end_time<=h" ng-selected="settings.days_of_service.friday.start_time==h"
+                                value="{{h}}" ng-repeat="h in hours">{{h}}:00 PM</option>
+                        </select>
 
-                                                    </div>
-                                                    <div class="errorTxt16"></div>
-                                                </div>
-                                                <div class="margin col m5 s12" ng-show="settings.days_of_service.friday.status">
-                                                    <label style="left: 0 !important;">End Time</label>
-                                                    <div class="input-field">
-                                                        <!-- <input type="text" class="datepicker" ng-model="settings.days_of_service.friday.end_time"> -->
-                                                        <select style="display:block" ng-model="settings.days_of_service.friday.end_time">
-                                                            <option ng-if="h<=12" ng-disabled="settings.days_of_service.friday.start_time>=h" ng-selected="settings.days_of_service.friday.end_time==h"
-                                                                value="{{h}}" ng-repeat="h in hours">{{h}}:00 AM</option>
-                                                            <option ng-if="h>12" ng-disabled="settings.days_of_service.friday.start_time>=h" ng-selected="settings.days_of_service.friday.end_time==h"
-                                                                value="{{h}}" ng-repeat="h in hours">{{h}}:00 PM</option>
-                                                        </select>
+                    </div>
+                    <div class="errorTxt16"></div>
+                </div>
+                <div class="" ng-show="settings.days_of_service.friday.status">
+                    <label style="left: 0 !important;" class="col m2 s12">End Time</label>
+                    <div class="">
+                        <!-- <input type="text" class="datepicker" ng-model="settings.days_of_service.friday.end_time"> -->
+                        <select style="display:block" ng-model="settings.days_of_service.friday.end_time" class="col m3 s12">
+                            <option ng-if="h<=12" ng-disabled="settings.days_of_service.friday.start_time>=h" ng-selected="settings.days_of_service.friday.end_time==h"
+                                value="{{h}}" ng-repeat="h in hours">{{h}}:00 AM</option>
+                            <option ng-if="h>12" ng-disabled="settings.days_of_service.friday.start_time>=h" ng-selected="settings.days_of_service.friday.end_time==h"
+                                value="{{h}}" ng-repeat="h in hours">{{h}}:00 PM</option>
+                        </select>
 
-                                                    </div>
-                                                    <div class="errorTxt17"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="collapsible-header">Saturday</div>
-                                        <div class="collapsible-body">
-                                            <div class="row">
-                                                <div class="col m2 s12 input-field">
-                                                    <input type="checkbox" id="saturdaycheck" ng-model="settings.days_of_service.saturday.status" />
-                                                    <label for="saturdaycheck">Saturday</label>
-                                                </div>
-                                                <div class="margin col m5 s12" ng-show="settings.days_of_service.saturday.status">
-                                                    <label style="left: 0 !important;">Start Time</label>
-                                                    <div class="input-field">
-                                                        <!-- <input type="text" class="datepicker" ng-model="settings.days_of_service.saturday.start_time"> -->
-                                                        <select style="display:block" ng-model="settings.days_of_service.saturday.start_time">
-                                                            <option ng-if="h<=12" ng-disabled="settings.days_of_service.saturday.end_time<=h" ng-selected="settings.days_of_service.saturday.start_time==h"
-                                                                value="{{h}}" ng-repeat="h in hours">{{h}}:00 AM</option>
-                                                            <option ng-if="h>12" ng-disabled="settings.days_of_service.saturday.end_time<=h" ng-selected="settings.days_of_service.saturday.start_time==h"
-                                                                value="{{h}}" ng-repeat="h in hours">{{h}}:00 PM</option>
-                                                        </select>
+                    </div>
+                    <div class="errorTxt17"></div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="collapsible-header">Saturday</div>
+        <div class="collapsible-body">
+            <div class="row">
+                <div class="col m2 s12 input-field">
+                    <input type="checkbox" id="saturdaycheck" ng-model="settings.days_of_service.saturday.status" />
+                    <label for="saturdaycheck">Saturday</label>
+                </div>
+                <div class="margin" ng-show="settings.days_of_service.saturday.status">
+                    <label style="left: 0 !important;" class="col m2 s12">Start Time</label>
+                    <div class="">
+                        <!-- <input type="text" class="datepicker" ng-model="settings.days_of_service.saturday.start_time"> -->
+                        <select style="display:block" ng-model="settings.days_of_service.saturday.start_time" class="col m3 s12">
+                            <option ng-if="h<=12" ng-disabled="settings.days_of_service.saturday.end_time<=h" ng-selected="settings.days_of_service.saturday.start_time==h"
+                                value="{{h}}" ng-repeat="h in hours">{{h}}:00 AM</option>
+                            <option ng-if="h>12" ng-disabled="settings.days_of_service.saturday.end_time<=h" ng-selected="settings.days_of_service.saturday.start_time==h"
+                                value="{{h}}" ng-repeat="h in hours">{{h}}:00 PM</option>
+                        </select>
 
-                                                    </div>
-                                                    <div class="errorTxt16"></div>
-                                                </div>
-                                                <div class="margin col m5 s12" ng-show="settings.days_of_service.saturday.status">
-                                                    <label style="left: 0 !important;">End Time</label>
-                                                    <div class="input-field">
-                                                        <!-- <input type="text" class="datepicker" ng-model="settings.days_of_service.saturday.end_time"> -->
-                                                        <select style="display:block" ng-model="settings.days_of_service.saturday.end_time">
-                                                            <option ng-if="h<=12" ng-disabled="settings.days_of_service.saturday.start_time>=h" ng-selected="settings.days_of_service.saturday.end_time==h"
-                                                                value="{{h}}" ng-repeat="h in hours">{{h}}:00 AM</option>
-                                                            <option ng-if="h>12" ng-disabled="settings.days_of_service.saturday.start_time>=h" ng-selected="settings.days_of_service.saturday.end_time==h"
-                                                                value="{{h}}" ng-repeat="h in hours">{{h}}:00 PM</option>
-                                                        </select>
+                    </div>
+                    <div class="errorTxt16"></div>
+                </div>
+                <div class="margin " ng-show="settings.days_of_service.saturday.status">
+                    <label style="left: 0 !important;" class="col m2 s12">End Time</label>
+                    <div class="">
+                        <!-- <input type="text" class="datepicker" ng-model="settings.days_of_service.saturday.end_time"> -->
+                        <select style="display:block" ng-model="settings.days_of_service.saturday.end_time" class="col m3 s12">
+                            <option ng-if="h<=12" ng-disabled="settings.days_of_service.saturday.start_time>=h" ng-selected="settings.days_of_service.saturday.end_time==h"
+                                value="{{h}}" ng-repeat="h in hours">{{h}}:00 AM</option>
+                            <option ng-if="h>12" ng-disabled="settings.days_of_service.saturday.start_time>=h" ng-selected="settings.days_of_service.saturday.end_time==h"
+                                value="{{h}}" ng-repeat="h in hours">{{h}}:00 PM</option>
+                        </select>
 
-                                                    </div>
-                                                    <div class="errorTxt17"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
+                    </div>
+                    <div class="errorTxt17"></div>
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>
 
 
                             </div>
@@ -998,17 +1005,17 @@
                                 <div class="errorTxt18"></div>
                             </div> -->
                             <div class="row user-setting">
-                                <p>Other configuration
+                                <p>Set Appointment Parameters
                                     <i class="material-icons tiny blue-text tooltipped" data-position="right" data-delay="50" data-tooltip="Text here">help_outline</i>
                                 </p>
                                 <div class="margin col s12">
-                                    <label for="booking_before_time" class="label-2">Earliest​ ​timeframe​ ​for​ ​online​ ​appointment​ ​setup​(Minutes)*</label>
-                                    <input id="booking_before_time" type="number" required name="booking_before_time" data-error=".errorTxt19" ng-model="settings.booking_before_time">
+                                    <label for="booking_before_time" class="label-2 col m4 s12">Earliest​ ​timeframe​ ​for​ ​online​ ​appointment​ ​setup​(Minutes)*</label>
+                                    <input id="booking_before_time" type="number" required name="booking_before_time" data-error=".errorTxt19" ng-model="settings.booking_before_time" class="col m7 s12">
                                     <div class="errorTxt19"></div>
                                 </div>
                                 <div class="margin col s12">
-                                    <label for="appointment_interval" class="label-2">Service​ ​appointment​ ​interval​ ​for​ ​taking​ ​appointments(Minutes)*</label>
-                                    <select data-error=".errorTxt20" required class="browser-default" name="appointment_interval" id="appointment_interval" ng-model="settings.appointment_interval">
+                                    <label for="appointment_interval" class="label-2 col m4 s12">Service​ ​appointment​ ​interval​ ​for​ ​taking​ ​appointments(Minutes)*</label>
+                                    <select data-error=".errorTxt20" required class="browser-default col m7 s12" name="appointment_interval" id="appointment_interval" ng-model="settings.appointment_interval">
                                         <option ng-value="15">15 mins</option>
                                         <option ng-value="30">30 mins</option>
                                         <option ng-value="60">60 mins</option>
@@ -1016,9 +1023,9 @@
                                     <div class="errorTxt20"></div>
                                 </div>
                                 <div class="margin col s12">
-                                    <label for="auto_cancel_appointment_time" class="label-2">Auto​ ​cancel​ ​service​ ​appts​ ​for​ ​no​ ​shows​ ​after​ ​x​ Minutes*</label>
+                                    <label for="auto_cancel_appointment_time" class="label-2 col m4 s12">Auto​ ​cancel​ ​service​ ​appts​ ​for​ ​no​ ​shows​ ​after​ ​x​ Minutes*</label>
                                     <input required id="auto_cancel_appointment_time" type="text" name="auto_cancel_appointment_time" data-error=".errorTxt21"
-                                        ng-model="settings.auto_cancel_appointment_time">
+                                        ng-model="settings.auto_cancel_appointment_time" class="col m7 s12">
                                     <div class="errorTxt21"></div>
                                 </div>
                             </div>
@@ -1030,7 +1037,7 @@
                     </div>
                 </form>
             </div>
-            <div class="ul-main-three ulmc" ng-class="{'active': step==3}">
+            <!-- <div class="ul-main-three ulmc" ng-class="{'active': step==3}">
                 <div class="right-align" style="margin-bottom: 2em;" ng-show="addImg">
                     <button type="button" ng-click="viewImage()" class="btn waves-effect waves-light ul-2-btn">GO Back</button>
                 </div>
@@ -1058,13 +1065,13 @@
                 <div ng-show="addImg">
                     <form class="" name="imageForm" id="imageForm" ng-submit="addImages()">
                         <div class="offer-section-otr white z-depth-1">
-                            <div class="panel panel-default">
+                            <div class="panel panel-default">-->
                                 <!-- <div class="panel-heading">
                                     <div class="panel-title m_b_25">
                                         <b class="required flow-text ">Images</b>
                                     </div>
                                 </div> -->
-                                <div>
+                                <!--<div>
                                     <style>
                                         .cropArea {
                                             margin: 30px auto;
@@ -1082,7 +1089,7 @@
                                             <b>Tap the button below to choose an image from your computer.</b>
                                             <div class="">
                                                 <!-- <input type="file" id="fileInput" name="image" data-error=".errorTxt5" required/> -->
-                                                <div class="file-field input-field">
+                                                <!--<div class="file-field input-field">
                                                     <div class="btn waves-effect waves-light">
                                                         <span>Select</span>
                                                         <input type="file" id="fileInput" capture="filesystem">
@@ -1095,7 +1102,7 @@
                                                 <!-- <div class="image_type_error" id="image_type">
                 Invalid image type
               </div> -->
-                                            </div>
+                                            <!--</div>
                                         </div>
                                         <div class="cropArea">
                                             <img-crop result-image-size="640" ngf-pattern="'image/*'" ngf-accept="'image/*'" image="myImage" area-type="square" result-image="myCroppedImage">
@@ -1105,7 +1112,7 @@
                                             <input type="button" id="cropped" class="btn btn-warning image_cropped" value="Crop Image" ng-click="crop()">
                                             <input type="button" id="ccropped" ng-click="clearImage()" class="btn  image_cropped" value="Cancel">
                                             <!-- <div id="cropImage" class="errorImage">Crop offer banner</div> -->
-                                        </div>
+                                        <!--</div>
                                     </div>
                                     <div class="image_wrapper" ng-show="showCroppedImg">
                                         <div class="clear" ng-click="clearImage()">
@@ -1127,9 +1134,10 @@
                         </div>
                     </form>
                 </div>
-            </div>
+            </div> -->
             <div class="ul-main-four ulmc" ng-class="{'active': step==4}">
                 <div class="file-field input-field col s12">
+                    <p>Step 4: Trade-In Configuration</p>
                     Currently no configuration is required for Used Car Manager profile.
                     <br> If we add things here in future, You will be notified via. email.
                 </div>
@@ -1140,7 +1148,8 @@
             </div>
             <div class="ul-main-five ulmc" ng-class="{'active': step==5}">
                 <div class="file-field input-field col s12">
-                    Currently no configuration is required for Service Adviser profile.
+                    <p>Step 5: Service Advisor Configuration</p>
+                    Currently no configuration is required for Service Advisor profile.
                     <br> If we add things here in future, You will be notified via. email.
                 </div>
                 <div class="right-align">
@@ -1150,13 +1159,14 @@
             </div>
             <div class="ul-main-six ulmc" ng-class="{'active': step==6}">
                 <div class="bulk-upload-otr">
+                    <p><b>Step 6: Enter Service Data</b></p>
                     <p>Use this option to upload data in bulk.</p>
                     <p>
                         <b>Note:</b>
                     </p>
                     <p>- For bulk upload to happen, You would need upload the service items data via. a Microsoft Excel file.</p>
                     <p>Step 1: Please download the MS Excel file format
-                        <a href="http://www.dsaidemo.com/Service_items.xls" targer="_blank">HERE </a>
+                        <a href="http://www.dsaidemo.com/Service_items.xls" targer="_blank" style="color: #000;"><b><u>HERE</u></b></a>
                     </p>
                     <p>Step 2: Please DONT change the format. Just fill in the service items data in the provided MS Excel file.
                     </p>
@@ -1226,7 +1236,7 @@
                             </div>
                         </div>
                         <div class="right-align">
-                            <button type="submit" class="btn waves-light waves-effect">Add above items</button>
+                            <button type="submit" class="btn waves-light waves-effect" style="margin-top: 10px;">Add above items</button>
                         </div>
                     </form>
                 </div>
@@ -1237,14 +1247,15 @@
             </div>
             <div class="ul-main-seven ulmc" ng-class="{'active': step==7}">
                 <div class="bulk-upload-otr">
-                    <p>Use this option to upload all the Users in your Dealership in bulk ( ie. Service Advisers, Schedulers,
+                <p><b>Step 7: Enter System Users</b></p>
+                    <p>Use this option to upload all the Users in your Dealership in bulk ( ie. Service Advisors, Schedulers,
                         Technicians etc. ).</p>
                     <p>
                         <b>Note:</b>
                     </p>
                     <p>- For bulk upload to happen, You would need upload the User data via. a Microsoft Excel file.</p>
                     <p>Step 1: Please download the MS Excel file format
-                        <a href="http://cleanup.tech/dsm-index/users.xls" targer="_blank">HERE </a>
+                        <a href="http://cleanup.tech/dsm-index/users.xls" targer="_blank" style="color: #000;"><b><u>HERE</u></b></a>
                     </p>
                     <p>Step 2: Please DONT change the format. Just fill in the User's data in the provided MS Excel file.
                     </p>
@@ -1324,7 +1335,7 @@
                 </form>
                 <div class="bulk-upload-otr">
                     <p>
-                        <b>SA</b> = Service Adviser</p>
+                        <b>SA</b> = Service Advisor</p>
                     <p>
                         <b>SS</b> = Service Scheduler </p>
                     <p>
@@ -1341,6 +1352,7 @@
             </div>
             <div class="ul-main-eight ulmc" ng-class="{'active': step==8}">
                 <div class="bulk-upload-otr">
+                    <p><b>Step 8: Bulk Upload Customer Data</b></p>
                     <p>Use this option to upload all the Customers in your Dealership in bulk.</p>
                     <p>
                         <b>Note:</b>
@@ -1348,7 +1360,7 @@
                     <p>- - For bulk upload to happen, You would need upload the Customer data via. a Microsoft Excel file.
                     </p>
                     <p>Step 1: Please download the MS Excel file format
-                        <a href="http://cleanup.tech/dsm-index/customer.xls" targer="_blank">HERE </a>
+                        <a href="http://cleanup.tech/dsm-index/customer.xls" targer="_blank" style="color: #000;"><b><u>HERE</u></b></a>
                     </p>
                     <p>Step 2: Please DONT change the format. Just fill in the Customer's data in the provided MS Excel file.
                     </p>
