@@ -3,13 +3,30 @@
 #data-table-simple p{
   margin: 4px 0;
 }
+h4 > a{
+  border-radius: 50%;
+  background: #f07739;
+  color: #fff;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  float: right;
+}
+h4 a i{
+  margin: 0;
+    position: relative;
+    top: 4px;
+    left: -2px
+}
 </style>
 <div class="container">
     <div class="section">
     <div class="decor-div white z-depth-1">
       <!-- <p class="caption">Tables are a nice way to organize a lot of data. We provide a few utility classes to help you style your table as easily as possible. In addition, to improve mobile experience, all tables on mobile-screen widths are centered automatically.</p> -->
       <div id="table-datatables">
-        <h4 class="header">List of all service items in the system</h4>
+        <h4 class="header">List of all service items in the system
+          <a ui-sref="home.add-offer"><i class="material-icons right" style="">add</i></a>
+        </h4>
         <div class="row">
           <div class="col s12 m12 l12">
             <table id="data-table-simple" class="responsive-table display" cellspacing="0">
