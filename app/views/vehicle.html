@@ -45,9 +45,9 @@ table.responsive-table tbody {
                   <td>{{item.name}}</td>
                   <td><img src="{{item.icon}}" width="100px" height="auto"></td>
                   <td>{{item.vehicle_id}}</td>
-                  <td><button ng-click="showDetails = ! showDetails" class="waves-effect waves-light btn grey darken-1" >Edit</button>
+                  <td class="center-align"><button ng-click="showDetails = ! showDetails" class="waves-effect waves-light btn grey darken-1" >Edit</button>
                 </td>
-                <td>
+                <td class="center-align">
                   <button class="waves-effect waves-light btn" ng-click="vehicleDeletePopUp(item.id, $index)">Delete</button>
                 </td>
                   <!-- <td>

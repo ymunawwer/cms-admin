@@ -23,10 +23,10 @@
                 <td>{{ user.email }}</td>
                 <td><span ng-repeat="role in user.roles">{{ role }}<span ng-show="!$last">, </span></span>
                 </td>
-                <td>
+                <td class="center-align">
                   <a ui-sref="home.useredit({id: user.id})"><button class="waves-effect waves-light btn grey darken-1">Edit</button></a>
                 </td>
-                <td>
+                <td class="center-align">
                   <button class="waves-effect waves-light btn" ng-click="userdelete(user.id, $index)">Delete</button>
                 </td>
                 <!-- <td>
