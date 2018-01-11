@@ -459,9 +459,9 @@
                 <li ng-click="nextStep(2)" class="li-2" ng-class="{'active': step==2 , 'done-li': (complete==2 || complete==3  || complete==4  || complete==5 || complete==6 || complete==7 || complete==8)}">Step 2
                     <p class="truncate">Appointment Scheduling Configuration</p>
                 </li>
-               <!--  <li ng-click="nextStep(3)" class="li-3" ng-class="{'active': step==3, 'done-li': (complete==3 || complete==4  || complete==5 || complete==6 || complete==7 || complete==8)}">Step 3
+                <li ng-click="nextStep(3)" class="li-3" ng-class="{'active': step==3, 'done-li': (complete==3 || complete==4  || complete==5 || complete==6 || complete==7 || complete==8)}">Step 3
                     <p class="truncate">Marketing</p>
-                </li> -->
+                </li>
                 <li ng-click="nextStep(4)" class="li-4" ng-class="{'active': step==4 , 'done-li': (  complete==4  || complete==5 || complete==6 || complete==7 || complete==8)}">Step 4
                     <p class="truncate">Trade-In</p>
                 </li>
@@ -1037,7 +1037,7 @@
                     </div>
                 </form>
             </div>
-            <!-- <div class="ul-main-three ulmc" ng-class="{'active': step==3}">
+             <div class="ul-main-three ulmc" ng-class="{'active': step==3}">
                 <div class="right-align" style="margin-bottom: 2em;" ng-show="addImg">
                     <button type="button" ng-click="viewImage()" class="btn waves-effect waves-light ul-2-btn">GO Back</button>
                 </div>
@@ -1065,13 +1065,13 @@
                 <div ng-show="addImg">
                     <form class="" name="imageForm" id="imageForm" ng-submit="addImages()">
                         <div class="offer-section-otr white z-depth-1">
-                            <div class="panel panel-default">-->
+                            <div class="panel panel-default">
                                 <!-- <div class="panel-heading">
                                     <div class="panel-title m_b_25">
                                         <b class="required flow-text ">Images</b>
                                     </div>
                                 </div> -->
-                                <!--<div>
+                                <div>
                                     <style>
                                         .cropArea {
                                             margin: 30px auto;
@@ -1088,8 +1088,8 @@
                                         <div class="select_img">
                                             <b>Tap the button below to choose an image from your computer.</b>
                                             <div class="">
-                                                <!-- <input type="file" id="fileInput" name="image" data-error=".errorTxt5" required/> -->
-                                                <!--<div class="file-field input-field">
+                                                 <input type="file" id="fileInput" name="image" data-error=".errorTxt5" required/> 
+                                                <div class="file-field input-field">
                                                     <div class="btn waves-effect waves-light">
                                                         <span>Select</span>
                                                         <input type="file" id="fileInput" capture="filesystem">
@@ -1099,10 +1099,10 @@
                                                     </div>
                                                 </div>
                                                 <div class="errorTxt5"></div>
-                                                <!-- <div class="image_type_error" id="image_type">
+                                                 <div class="image_type_error" id="image_type">
                 Invalid image type
-              </div> -->
-                                            <!--</div>
+              </div> 
+                                            </div>
                                         </div>
                                         <div class="cropArea">
                                             <img-crop result-image-size="640" ngf-pattern="'image/*'" ngf-accept="'image/*'" image="myImage" area-type="square" result-image="myCroppedImage">
@@ -1111,8 +1111,8 @@
                                         <div class="center-align ">
                                             <input type="button" id="cropped" class="btn btn-warning image_cropped" value="Crop Image" ng-click="crop()">
                                             <input type="button" id="ccropped" ng-click="clearImage()" class="btn  image_cropped" value="Cancel">
-                                            <!-- <div id="cropImage" class="errorImage">Crop offer banner</div> -->
-                                        <!--</div>
+                                            <div id="cropImage" class="errorImage">Crop offer banner</div>
+                                        </div>
                                     </div>
                                     <div class="image_wrapper" ng-show="showCroppedImg">
                                         <div class="clear" ng-click="clearImage()">
@@ -1134,7 +1134,7 @@
                         </div>
                     </form>
                 </div>
-            </div> -->
+            </div> 
             <div class="ul-main-four ulmc" ng-class="{'active': step==4}">
                 <div class="file-field input-field col s12">
                     <p>Step 4: Trade-In Configuration</p>
