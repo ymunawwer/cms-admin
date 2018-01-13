@@ -18,6 +18,12 @@ angular.module('dmsAdminApp')
     settings.getSetting({}, {}, function (data) {
       $scope.settings = data.body.setting || {};
       $scope.man = $scope.settings.manufactur;
+      if($scope.settings.finish_status==true){
+        $scope.isStarted = true;
+        $scope.step = 1;
+        $scope.complete = 1 - 1;
+      }
+      $scope.selectmake = $scope.settings.make;
       if ($scope.settings.manufactur) {
         serviceservice.getMakesList({ id: $scope.settings.manufactur }, {}, function (data) {
           if (data.statusCode == 200) {
@@ -52,6 +58,7 @@ angular.module('dmsAdminApp')
     angular.element(document.querySelector('#fileInput')).on('change', handleFileSelect);
     $scope.hours = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24];
     $scope.updateSetting = function () {
+      
       if ($scope.formValidate.$valid) {
         var tempPhone = $scope.profileData.phone;
         tempPhone = tempPhone.split("-").join("");
@@ -61,14 +68,16 @@ angular.module('dmsAdminApp')
           return;
         }
         if ($scope.settings.manufactur) {
-          if ($scope.settings.make.length == 0) {
+          if ($scope.selectmake.length == 0) {
             Materialize.toast('<span> Please select make.</span>', 3000);
             return;
           }
         }
         $scope.profileData.phone = tempPhone;
         $scope.profileData.manufactur = $scope.settings.manufactur;
-        $scope.profileData.make = $scope.settings.make;
+        $scope.profileData.make = $scope.selectmake;
+        $scope.settings.make = $scope.selectmake;
+       
         profileservice.updateProfile({}, $scope.profileData, function (data) {
           $scope.profileData = data.body.user;
           $scope.settings.site_title = $scope.profileData.name;
@@ -89,8 +98,8 @@ angular.module('dmsAdminApp')
         });
       }
       else {
-        angular.element(document.querySelector('#stepOne'))[0].click();
-        // Materialize.toast('<span> Please enter all fields.</span>', 3000);
+        // angular.element(document.querySelector('#stepOne'))[0].click();
+        Materialize.toast('<span> Please enter all fields.</span>', 3000);
       }
     }
     $scope.updateSetting1 = function () {
@@ -233,55 +242,83 @@ angular.module('dmsAdminApp')
     $scope.nextStep = function (stage, skip) {
       console.log('NEXT STEP FUNCTION', stage);
       $scope.isStarted = true;
+      
       $scope.inCompletedStep = stage;//marking step as incomplete
+      
       if (stage == 1) {
         $scope.step = stage;
         $scope.complete = stage - 1;
       }
       else if (stage == 2 && $scope.complete == 0) {
-        $scope.updateSetting();
+        $scope.updateSetting();  
+            
       }
       else if (stage == 3 && $scope.complete == 1) {
         $scope.updateSetting1();
       }
       else if (stage == 7) {
-        if ($scope.serviceData.length && !skip) {
-          $scope.confirmationText = 'The Service items you have added are not saved.';
-          $('#next_confirmation_modal').openModal();
-          return;
-        }
-        $('#next_confirmation_modal').closeModal({});
-        setTimeout(function () { $('.lean-overlay').hide(); }, 1000);
-        $scope.inCompletedStep = null;
-        $scope.step = stage;
-        $scope.complete = stage - 1;
+        serviceservice.getServiceList({
+        }, {}, function (data) {
+          if (data.statusCode == 200) {
+            $scope.serviceCount = data.body.count;
+            if ($scope.serviceCount==0) {
+              Materialize.toast('<span>' + 'No service found plase add atleast one service' + '</span>', 3000);
+              // $scope.confirmationText = 'The Service items you have added are not saved.';
+              // $('#next_confirmation_modal').openModal();
+              return;
+            }
+            // $('#next_confirmation_modal').closeModal({});
+            // setTimeout(function () { $('.lean-overlay').hide(); }, 1000);
+            $scope.inCompletedStep = null;
+            $scope.step = stage;
+            $scope.complete = stage - 1;
+          }
+        })
+        
       }
       else if (stage == 8) {
-        console.log('USER DATA', stage, $scope.userData.length, skip);
-        if ($scope.userData.length && !skip) {
-          $scope.confirmationText = 'The Users you have added are not saved.';
-          $('#next_confirmation_modal').openModal();
-          return;
-        }
-        $('#next_confirmation_modal').closeModal({});
-        setTimeout(function () { $('.lean-overlay').hide(); }, 1000);
-        $scope.inCompletedStep = null;
-        $scope.step = stage;
-        $scope.complete = stage - 1;
+        serviceservice.getServiceList({
+        }, {}, function (data) {
+          if (data.statusCode == 200) {
+            $scope.serviceCount = data.body.count;
+            if ($scope.serviceCount==0) {
+              Materialize.toast('<span>' + 'No service found plase add atleast one service' + '</span>', 3000);
+              // $scope.confirmationText = 'The Service items you have added are not saved.';
+              // $('#next_confirmation_modal').openModal();
+              return;
+            }
+          }
+          });
+        userservice.getUserList({
+        }, {}, function(data) {
+          if (data.statusCode == 200) {
+            $scope.userCount = data.body.count;
+            if ($scope.userCount==0) {
+              Materialize.toast('<span>' + 'No users found plase add atleast one user' + '</span>', 3000);
+              return;
+            }
+            // $('#next_confirmation_modal').closeModal({});
+            // setTimeout(function () { $('.lean-overlay').hide(); }, 1000);
+            $scope.inCompletedStep = null;
+            $scope.step = stage;
+            $scope.complete = stage - 1;
+          }
+        })
+        
       }
-      else if (stage == 9) {
-        console.log('Customer DATA', stage, $scope.userData.length, skip);
-        if ($scope.customerData.length && !skip) {
-          $scope.confirmationText = 'The Customers you have added are not saved.';
-          $('#next_confirmation_modal').openModal();
-          return;
-        }
-        $('#next_confirmation_modal').closeModal({});
-        setTimeout(function () { $('.lean-overlay').hide(); }, 1000);
-        $scope.inCompletedStep = null;
-        $scope.step = stage;
-        $scope.complete = stage - 1;
-      }
+      // else if (stage == 9) {
+      //   console.log('Customer DATA', stage, $scope.userData.length, skip);
+      //   if ($scope.customerData.length && !skip) {
+      //     $scope.confirmationText = 'The Customers you have added are not saved.';
+      //     $('#next_confirmation_modal').openModal();
+      //     return;
+      //   }
+      //   $('#next_confirmation_modal').closeModal({});
+      //   setTimeout(function () { $('.lean-overlay').hide(); }, 1000);
+      //   $scope.inCompletedStep = null;
+      //   $scope.step = stage;
+      //   $scope.complete = stage - 1;
+      // }
       else {
         if (stage == 3) $scope.clearImage();
         $scope.step = stage;
@@ -650,4 +687,35 @@ angular.module('dmsAdminApp')
       }
     }
     $scope.logout = function () { session.destroy('accesstoken'); $state.go('login'); };
+
+   
+    $scope.selectmake = $scope.selectmake || [];
+    $scope.changeMake = function (make) {
+      console.log(make)
+      if ($scope.selectmake.indexOf(make._id) === -1) {
+        $scope.selectmake.push(make._id);
+      } else {
+        var posO = $scope.selectmake.indexOf(make._id);
+        $scope.selectmake.splice(posO, 1)
+      }
+      console.log($scope.selectmake)
+    }
+    $scope.setFlag = function(){
+      $scope.settings.finish_status = true;
+          settings.updateSetting({}, $scope.settings, function (data) {
+            if (data.statusText == 'success') {
+              $scope.man = $scope.settings.manufactur;
+              // $scope.site.site_title = $scope.settings.site_title;
+              var message = data.message;
+              $scope.isStarted = true;
+              $scope.complete = 0;
+              $scope.step = 1;
+              // Materialize.toast('<span>' + message + '</span>', 3000);
+            } else {
+              var message = data.statusMessage;
+              Materialize.toast('<span>' + message + '</span>', 3000);
+            }
+          });
+    }
+    
   });

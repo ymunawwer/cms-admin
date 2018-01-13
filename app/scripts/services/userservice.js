@@ -10,7 +10,7 @@
 angular.module('dmsAdminApp').service('userservice', function($resource, session, endpoint) {
   return $resource('', null, {
     getUserList: {
-      url: endpoint + '/admin/users?skip=:skip&limit=:limit',
+      url: endpoint + '/admin/users/users?skip=:skip&limit=:limit',
       method: 'GET',
       params: {
         skip: "@skip",

@@ -20,6 +20,9 @@ angular.module('dmsAdminApp')
 
     settings.getSetting({}, {}, function(data) {
       $scope.site = data.body.setting;
+      if($scope.site.finish_status==false){
+        $state.go('configuration');
+      }
     });
 
     $scope.logout = function(){

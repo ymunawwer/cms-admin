@@ -238,6 +238,18 @@ angular.module('dmsAdminApp', ['ngCookies', 'ui.materialize', 'ui.router', 'ngCo
         controller: 'HomeCtrl',
         authenticate: true
       })
+      .state('serviceview', {
+        url: '/services',
+        templateUrl: 'views/serviceview.html',
+        controller: 'ServiceviewCtrl',
+        authenticate: true
+      })
+      .state('userview', {
+        url: '/users',
+        templateUrl: 'views/userview.html',
+        controller: 'UserviewCtrl',
+        authenticate: true
+      })
 
   }  
 ])

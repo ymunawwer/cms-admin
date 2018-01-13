@@ -222,16 +222,16 @@
         </ul>
 
     </ul>
-    <a href="#" data-activates="slide-out" class="button-collapse">
+    <a href="javascript:void(0)" data-activates="slide-out" class="button-collapse">
         <i class="material-icons small" style="position:relative;">menu</i>
     </a>
     <span class="right">
        <!--  <a href="javascript:void(0)" ng-click="logout()" style="position:relative;right: 3.1em;top: 7px;" class="black-text">
             <i class="material-icons">power_settings_new</i>
         </a> -->
-      <a class='dropdown-button ' href='#' data-activates='dropdown1' style="position:relative;right: 3.1em;top: 7px;"><img src="assets/images/shape_1.png" width="25" alt="img"></a>
+      <a class='dropdown-button' href='javascript:void(0)' data-activates='dropdown1' style="position:relative;right: 3.1em;top: 7px;"><img src="assets/images/shape_1.png" width="25" alt="img"></a>
       <ul id='dropdown1' class='dropdown-content'>
-        <li><a href="#!">Logout</a></li>
+        <li><a href="javascript:void(0)" ng-click="logout()">Logout</a></li>
       </ul>
     </span>
 </div>
@@ -493,11 +493,11 @@
                 <li class="li-7" ng-click="nextStep(7, true)" ng-class="{'active': step==7 , 'done-li': (complete==7 || complete==8)}">Step 7
                     <p class="truncate">Users</p>
                 </li>
-                <li class="li-8" ng-click="nextStep(8, true)" ng-class="{'active': step==8 , 'done-li': (complete==8)}">Step 8
+                <!-- <li class="li-8" ng-click="nextStep(8, true)" ng-class="{'active': step==8 , 'done-li': (complete==8)}">Step 8
                     <p class="truncate">Customer Setup</p>
-                </li>
-                <li class="li-9" ng-click="nextStep(9, true)" ng-class="{'active': step==9 , 'done-li': (complete==9)}">Step 9
-                    <p class="truncate">Final</p>
+                </li> -->
+                <li ng-hide="settings.finish_status==true" class="li-9" ng-click="nextStep(8, true)" ng-class="{'active': step==8 , 'done-li': (complete==8)}">Final
+                    <!-- <p class="truncate">Final</p> -->
                 </li>
             </ul>
         </div>
@@ -538,66 +538,11 @@
                                 <option ng-repeat="make in makesList" value="{{make._id}}">{{make.name}}</option>
                             </select> -->
                             <span class="col m9 l10 s12 step-1-check-outr">
-                                <span>
-                                  <input type="checkbox" class="filled-in" id="filled-in-box" checked="checked" />
-                                  <label for="filled-in-box">Filled in</label>
+                                <span ng-repeat="make in makesList">
+                                  <input type="checkbox" disabled class="filled-in" ng-click="changeMake(make)" id="test{{make._id}}"  ng-checked="settings.make.indexOf(make._id) !== -1" />
+                                  <label for="test{{make._id}}">{{make.name}}</label>
                                 </span>
-                                <span>
-                                  <input type="checkbox" class="filled-in" id="filled-in-box-1" checked="checked" />
-                                  <label for="filled-in-box-1">Filled in</label>
-                                </span>
-                                <span>
-                                  <input type="checkbox" class="filled-in" id="filled-in-box-2" checked="checked" />
-                                  <label for="filled-in-box-2">Filled in</label>
-                                </span>
-                                <span>
-                                  <input type="checkbox" class="filled-in" id="filled-in-box-3" checked="checked" />
-                                  <label for="filled-in-box-3">Filled in</label>
-                                </span>
-                                <span>
-                                  <input type="checkbox" class="filled-in" id="filled-in-box-4" checked="checked" />
-                                  <label for="filled-in-box-4">Filled in</label>
-                                </span>
-                                <span>
-                                  <input type="checkbox" class="filled-in" id="filled-in-box-5" checked="checked" />
-                                  <label for="filled-in-box-5">Filled in</label>
-                                </span>
-                                <span>
-                                  <input type="checkbox" class="filled-in" id="filled-in-box-1" checked="checked" />
-                                  <label for="filled-in-box-1">Filled in</label>
-                                </span>
-                                <span>
-                                  <input type="checkbox" class="filled-in" id="filled-in-box-1" checked="checked" />
-                                  <label for="filled-in-box-1">Filled in</label>
-                                </span>
-                                <span>
-                                  <input type="checkbox" class="filled-in" id="filled-in-box-1" checked="checked" />
-                                  <label for="filled-in-box-1">Filled in</label>
-                                </span>
-                                <span>
-                                  <input type="checkbox" class="filled-in" id="filled-in-box-1" checked="checked" />
-                                  <label for="filled-in-box-1">Filled in</label>
-                                </span>
-                                <span>
-                                  <input type="checkbox" class="filled-in" id="filled-in-box-1" checked="checked" />
-                                  <label for="filled-in-box-1">Filled in</label>
-                                </span>
-                                <span>
-                                  <input type="checkbox" class="filled-in" id="filled-in-box-1" checked="checked" />
-                                  <label for="filled-in-box-1">Filled in</label>
-                                </span>
-                                <span>
-                                  <input type="checkbox" class="filled-in" id="filled-in-box-1" checked="checked" />
-                                  <label for="filled-in-box-1">Filled in</label>
-                                </span>
-                                <span>
-                                  <input type="checkbox" class="filled-in" id="filled-in-box-1" checked="checked" />
-                                  <label for="filled-in-box-1">Filled in</label>
-                                </span>
-                                <span>
-                                  <input type="checkbox" class="filled-in" id="filled-in-box-1" checked="checked" />
-                                  <label for="filled-in-box-1">Filled in</label>
-                                </span>
+                                
                             </span>
                             
                         </div>
@@ -612,10 +557,17 @@
                         </div>
                         <div class="margin col s12 pl11">
                             <label for="manufactur" class="col m3 l2 s12">Makes</label>
-                            <select id="manufactur" style="height:123px;" multiple class="browser-default selection-corrector col m9 l10 s12" name="manufactur" ng-model="settings.make"
+                            <!-- <select id="manufactur" style="height:123px;" multiple class="browser-default selection-corrector col m9 l10 s12" name="manufactur" ng-model="settings.make"
                                 style="margin: 0 0 20px;">
                                 <option ng-repeat="make in makesList" value="{{make._id}}">{{make.name}}</option>
-                            </select>
+                            </select> -->
+                            <span class="col m9 l10 s12 step-1-check-outr">
+                                <span ng-repeat="make in makesList">
+                                    <input type="checkbox" class="filled-in" ng-click="changeMake(make)" id="test{{make._id}}"   />
+                                  <label for="test{{make._id}}">{{make.name}}</label>
+                                </span>
+                                
+                            </span>
                         </div>
                     </div>
                     <!-- <div class=" margin">
@@ -665,7 +617,7 @@
                             </span>
                         </p>
                         <div>
-                            <label for="sctitle" class="col m3 l2 s12">Title*</label>
+                            <label for="sctitle" class="col m3 l2 s12">Title</label>
                             <select id="sctitle" class="browser-default selection-corrector col m9 l10 s12" name="sctitle" ng-model="settings.secondary_contact.title">
                                 <option value="Mr">Mr</option>
                                 <option value="Ms">Ms</option>
@@ -755,17 +707,17 @@
                         <div>
                             <label for="cdcemail" class="col m3 l2 s12">Email </label>
                             <input id="cdcemail" type="email" name="cdcemail" data-error=".errorTxt14" ng-model="settings.contact_to_show_customer.email" class="col m9 l10 s12">
-                            <div class="errorTxt14"></div>
+                            <div class="errorTxt144"></div>
                         </div>
                         <div>
                             <label for="cdcma" class="col m3 l2 s12">Manufacturer association</label>
                             <input id="cdcma" type="text" name="cdcma"  class="col m9 l10 s12">
-                            <div class="errorTxt14"></div>
+                            <div class="errorTxt114"></div>
                         </div>
                         <div>
                             <label for="cdcms" class="col m3 l2 s12">Makes Serviced</label>
                             <input id="cdcms" type="text" name="cdcms"  class="col m9 l10 s12">
-                            <div class="errorTxt14"></div>
+                            <div class="errorTxt124"></div>
                         </div>
                     </div>
                     <div class="right-align">
@@ -837,8 +789,8 @@
                 </div>
                 <div class="col m2 s12 center-align">
                     <span class="span_holiday_check">
-                      <input type="checkbox" class="filled-in" id="holiday" checked="checked" />
-                      <label for="holiday">Holiday</label>
+                      <input type="checkbox" class="filled-in" id="holiday1" ng-model="settings.days_of_service.sunday.status" />
+                      <label for="holiday1">open</label>
                     </span>
                 </div>
             </div>
@@ -882,8 +834,8 @@
                 </div>
                 <div class="col m2 s12 center-align">
                     <span class="span_holiday_check">
-                      <input type="checkbox" class="filled-in" id="holiday" checked="checked" />
-                      <label for="holiday">Holiday</label>
+                        <input type="checkbox" class="filled-in" id="holiday11" ng-model="settings.days_of_service.monday.status" />
+                        <label for="holiday11">open</label>
                     </span>
                 </div>
             </div>
@@ -927,8 +879,8 @@
                 </div>
                 <div class="col m2 s12 center-align">
                     <span class="span_holiday_check">
-                      <input type="checkbox" class="filled-in" id="holiday" checked="checked" />
-                      <label for="holiday">Holiday</label>
+                        <input type="checkbox" class="filled-in" id="holiday12" ng-model="settings.days_of_service.tuesday.status" />
+                        <label for="holiday12">open</label>
                     </span>
                 </div>
             </div>
@@ -975,8 +927,8 @@
                 </div>
                 <div class="col m2 s12 center-align">
                     <span class="span_holiday_check">
-                      <input type="checkbox" class="filled-in" id="holiday" checked="checked" />
-                      <label for="holiday">Holiday</label>
+                        <input type="checkbox" class="filled-in" id="holiday13" ng-model="settings.days_of_service.wednesday.status" />
+                        <label for="holiday13">open</label>
                     </span>
                 </div>
             </div>
@@ -1020,8 +972,8 @@
                 </div>
                 <div class="col m2 s12 center-align">
                     <span class="span_holiday_check">
-                      <input type="checkbox" class="filled-in" id="holiday" checked="checked" />
-                      <label for="holiday">Holiday</label>
+                        <input type="checkbox" class="filled-in" id="holiday15" ng-model="settings.days_of_service.thursday.status" />
+                        <label for="holiday15">open</label>
                     </span>
                 </div>
             </div>
@@ -1065,8 +1017,8 @@
                 </div>
                 <div class="col m2 s12 center-align">
                     <span class="span_holiday_check">
-                      <input type="checkbox" class="filled-in" id="holiday" checked="checked" />
-                      <label for="holiday">Holiday</label>
+                        <input type="checkbox" class="filled-in" id="holiday17" ng-model="settings.days_of_service.friday.status" />
+                        <label for="holiday17">open</label>
                     </span>
                 </div>
             </div>
@@ -1110,8 +1062,8 @@
                 </div>
                 <div class="col m2 s12 center-align">
                     <span class="span_holiday_check">
-                      <input type="checkbox" class="filled-in" id="holiday" checked="checked" />
-                      <label for="holiday">Holiday</label>
+                        <input type="checkbox" class="filled-in" id="holiday10" ng-model="settings.days_of_service.saturday.status" />
+                        <label for="holiday10">open</label>
                     </span>
                 </div>
             </div>
@@ -1284,7 +1236,7 @@
             <div class="ul-main-six ulmc" ng-class="{'active': step==6}">
                 <div class="bulk-upload-otr">
                     <p><b>Step 6: Enter Service Data</b>
-                    <b class="right"><u><a href="#" class="black-text">Link</a></u></b>
+                    <b class="right"><u><a  ui-sref="serviceview" target="_blank" class="black-text">Link</a></u></b>
                     </p>
                     <p>Use this option to upload data in bulk.</p>
                     <p>
@@ -1329,7 +1281,7 @@
                 </form>
                 <div class="center">
                     <p>OR you can add Service manually here
-                          <b class="right cap_txt" ><u><a href="#" class="black-text">Link</a></u></b>
+                          <!-- <b class="right cap_txt" ><u><a href="#" class="black-text">Link</a></u></b> -->
                     </p>
 
                 </div>
@@ -1377,7 +1329,7 @@
             <div class="ul-main-seven ulmc" ng-class="{'active': step==7}">
                 <div class="bulk-upload-otr">
                 <p><b>Step 7: Enter System Users</b>
-                    <b class="right"><u><a href="#" class="black-text">Link</a></u></b>
+                    <b class="right"><u><a ui-sref="userview" target="_blank()" class="black-text">Link</a></u></b>
                 </p>
                     <p>Use this option to upload all the Users in your Dealership in bulk ( ie. Service Advisors, Schedulers,
                         Technicians etc. ).</p>
@@ -1422,7 +1374,7 @@
                 <div class="center">
                     <p>OR you can add Users manually here
                         <b class="right cap_txt">
-                        <u><a href="#" class="black-text">Link</a></u>
+                        <!-- <u><a href="#" class="black-text">Link</a></u> -->
                         </b>
                     </p>
                 </div>
@@ -1482,10 +1434,10 @@
                 </div>
                 <div class="right-align">
                     <button type="button" style="background-color: #9e9e9e !important;" class="btn waves-effect waves-light camel-case" ng-click="nextStep(6, true)">Previous</button>
-                    <button type="button" ng-click="nextStep(8)" class="btn waves-effect waves-light ul-2-btn camel-case">Next</button>
+                    <button type="button" ng-if="settings.finish_status==false" ng-click="nextStep(8)" class="btn waves-effect waves-light ul-2-btn camel-case">Next</button>
                 </div>
             </div>
-            <div class="ul-main-eight ulmc" ng-class="{'active': step==8}">
+            <!-- <div class="ul-main-eight ulmc" ng-class="{'active': step==8}">
                 <div class="bulk-upload-otr">
                     <p><b>Step 8: Bulk Upload Customer Data</b>
                          <b class="right"><u><a href="#" class="black-text">Link</a></u></b>
@@ -1577,8 +1529,8 @@
                     <button type="button" style="background-color: #9e9e9e !important;" class="btn waves-effect waves-light camel-case" ng-click="nextStep(7, true)">Previous</button>
                     <button type="button" ng-click="nextStep(9)" class="btn waves-effect waves-light ul-2-btn camel-case">Next</button>
                 </div>
-            </div>
-            <div class="ul-main-four ulmc" ng-class="{'active': step==9}">
+            </div> -->
+            <div class="ul-main-four ulmc" ng-if="settings.finish_status==false" ng-class="{'active': step==8}">
                 <div class="row">
                     <div class="col m5 s12">
                         <div class="wizard-img">
@@ -1595,8 +1547,8 @@
                                 you can always come back to the admin panel and make any changes as needed to the system.
                             </p>
                             <p class="right-align">
-                                <button type="button" style="background-color: #9e9e9e !important;" class="btn waves-effect waves-light camel-case" ng-click="nextStep(8, true)">Previous</button>
-                                <a href="http://cleanup.tech/" target="_blank" class="btn waves-effect waves-light camel-case">Make system live</a>
+                                <button type="button" style="background-color: #9e9e9e !important;" class="btn waves-effect waves-light camel-case" ng-click="nextStep(7, true)">Previous</button>
+                                <a href="http://cleanup.tech/"  ng-click="setFlag();" target="_blank" class="btn waves-effect waves-light camel-case">Make system live</a>
                             </p>
                         </div>
                     </div>
@@ -1805,4 +1757,16 @@
 
         $(".button-collapse").sideNav();
     });
+    $('.dropdown-button').dropdown({
+      inDuration: 300,
+      outDuration: 225,
+      constrainWidth: false, // Does not change width of dropdown to that of the activator
+      hover: true, // Activate on hover
+      gutter: 0, // Spacing from edge
+      belowOrigin: false, // Displays dropdown below the button
+      alignment: 'left', // Displays dropdown with edge aligned to the left of button
+      stopPropagation: false // Stops event propagation
+    }
+  );
+     
 </script>
