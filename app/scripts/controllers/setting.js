@@ -18,12 +18,13 @@ angular.module('dmsAdminApp')
     settings.getSetting({}, {}, function (data) {
       $scope.settings = data.body.setting || {};
       $scope.man = $scope.settings.manufactur;
-      if($scope.settings.finish_status==true){
+      if ($scope.settings.finish_status == true) {
         $scope.isStarted = true;
         $scope.step = 1;
         $scope.complete = 1 - 1;
       }
       $scope.selectmake = $scope.settings.make;
+      $scope.settings.holidays = $scope.settings.holidays && $scope.settings.holidays.filter(onlyUnique);
       if ($scope.settings.manufactur) {
         serviceservice.getMakesList({ id: $scope.settings.manufactur }, {}, function (data) {
           if (data.statusCode == 200) {
@@ -58,7 +59,7 @@ angular.module('dmsAdminApp')
     angular.element(document.querySelector('#fileInput')).on('change', handleFileSelect);
     $scope.hours = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24];
     $scope.updateSetting = function () {
-      
+
       if ($scope.formValidate.$valid) {
         var tempPhone = $scope.profileData.phone;
         tempPhone = tempPhone.split("-").join("");
@@ -77,7 +78,7 @@ angular.module('dmsAdminApp')
         $scope.profileData.manufactur = $scope.settings.manufactur;
         $scope.profileData.make = $scope.selectmake;
         $scope.settings.make = $scope.selectmake;
-       
+
         profileservice.updateProfile({}, $scope.profileData, function (data) {
           $scope.profileData = data.body.user;
           $scope.settings.site_title = $scope.profileData.name;
@@ -102,9 +103,30 @@ angular.module('dmsAdminApp')
         Materialize.toast('<span> Please enter all fields.</span>', 3000);
       }
     }
+    function onlyUnique(value, index, self) {
+      return self.indexOf(value) === index;
+    }
+    var $picker = $('.datepickerholiday').pickadate({
+      selectMonths: true, // Creates a dropdown to control month
+      selectYears: 15, // Creates a dropdown of 15 years to control year,
+      today: 'Today',
+      clear: 'Clear',
+      min: true,
+      close: 'Ok',
+      closeOnSelect: false, // Close upon selecting a date,
+      onSet: function (thingSet) {
+        if (!thingSet.select) return;
+        $scope.$apply(function () {
+          var holidays = $scope.settings.holidays || [];
+          holidays.push(thingSet.select);
+          $scope.settings.holidays = holidays.filter(onlyUnique);
+        })
+      }
+    });
     $scope.updateSetting1 = function () {
       if ($scope.formValidate1.$valid) {
-
+        $scope.settings.holidays = $scope.settings.holidays && $scope.settings.holidays.length ?
+          $scope.settings.holidays.filter(onlyUnique).map(function (item) { return new Date(item) }) : [];
         settings.updateSetting({}, $scope.settings, function (data) {
           if (data.statusText == 'success') {
             // $scope.site.site_title = $scope.settings.site_title;
@@ -242,16 +264,16 @@ angular.module('dmsAdminApp')
     $scope.nextStep = function (stage, skip) {
       console.log('NEXT STEP FUNCTION', stage);
       $scope.isStarted = true;
-      
+
       $scope.inCompletedStep = stage;//marking step as incomplete
-      
+
       if (stage == 1) {
         $scope.step = stage;
         $scope.complete = stage - 1;
       }
       else if (stage == 2 && $scope.complete == 0) {
-        $scope.updateSetting();  
-            
+        $scope.updateSetting();
+
       }
       else if (stage == 3 && $scope.complete == 1) {
         $scope.updateSetting1();
@@ -261,7 +283,7 @@ angular.module('dmsAdminApp')
         }, {}, function (data) {
           if (data.statusCode == 200) {
             $scope.serviceCount = data.body.count;
-            if ($scope.serviceCount==0) {
+            if ($scope.serviceCount == 0) {
               Materialize.toast('<span>' + 'No service found plase add atleast one service' + '</span>', 3000);
               // $scope.confirmationText = 'The Service items you have added are not saved.';
               // $('#next_confirmation_modal').openModal();
@@ -274,26 +296,26 @@ angular.module('dmsAdminApp')
             $scope.complete = stage - 1;
           }
         })
-        
+
       }
       else if (stage == 8) {
         serviceservice.getServiceList({
         }, {}, function (data) {
           if (data.statusCode == 200) {
             $scope.serviceCount = data.body.count;
-            if ($scope.serviceCount==0) {
+            if ($scope.serviceCount == 0) {
               Materialize.toast('<span>' + 'No service found plase add atleast one service' + '</span>', 3000);
               // $scope.confirmationText = 'The Service items you have added are not saved.';
               // $('#next_confirmation_modal').openModal();
               return;
             }
           }
-          });
+        });
         userservice.getUserList({
-        }, {}, function(data) {
+        }, {}, function (data) {
           if (data.statusCode == 200) {
             $scope.userCount = data.body.count;
-            if ($scope.userCount==0) {
+            if ($scope.userCount == 0) {
               Materialize.toast('<span>' + 'No users found plase add atleast one user' + '</span>', 3000);
               return;
             }
@@ -304,7 +326,7 @@ angular.module('dmsAdminApp')
             $scope.complete = stage - 1;
           }
         })
-        
+
       }
       // else if (stage == 9) {
       //   console.log('Customer DATA', stage, $scope.userData.length, skip);
@@ -688,7 +710,7 @@ angular.module('dmsAdminApp')
     }
     $scope.logout = function () { session.destroy('accesstoken'); $state.go('login'); };
 
-   
+
     $scope.selectmake = $scope.selectmake || [];
     $scope.changeMake = function (make) {
       console.log(make)
@@ -700,22 +722,22 @@ angular.module('dmsAdminApp')
       }
       console.log($scope.selectmake)
     }
-    $scope.setFlag = function(){
+    $scope.setFlag = function () {
       $scope.settings.finish_status = true;
-          settings.updateSetting({}, $scope.settings, function (data) {
-            if (data.statusText == 'success') {
-              $scope.man = $scope.settings.manufactur;
-              // $scope.site.site_title = $scope.settings.site_title;
-              var message = data.message;
-              $scope.isStarted = true;
-              $scope.complete = 0;
-              $scope.step = 1;
-              // Materialize.toast('<span>' + message + '</span>', 3000);
-            } else {
-              var message = data.statusMessage;
-              Materialize.toast('<span>' + message + '</span>', 3000);
-            }
-          });
+      settings.updateSetting({}, $scope.settings, function (data) {
+        if (data.statusText == 'success') {
+          $scope.man = $scope.settings.manufactur;
+          // $scope.site.site_title = $scope.settings.site_title;
+          var message = data.message;
+          $scope.isStarted = true;
+          $scope.complete = 0;
+          $scope.step = 1;
+          // Materialize.toast('<span>' + message + '</span>', 3000);
+        } else {
+          var message = data.statusMessage;
+          Materialize.toast('<span>' + message + '</span>', 3000);
+        }
+      });
     }
-    
+
   });

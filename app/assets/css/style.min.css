@@ -2838,3 +2838,19 @@ input:-webkit-autofill {
     background-color: #f27618;
     z-index: 0
 }
+.dealer-wizard-profile .ul-main-content .ul-main-two .add_circle
+{
+    position: relative;
+    top: 9px;
+    left: 5px;
+    cursor: pointer;
+    color: #f07639;
+}
+.dealer-wizard-profile .ul-main-content .ul-main-two .chip{
+    margin: 4px;
+}
+.holiday_box{
+    max-height: 200px;
+    overflow-y: scroll;
+    display: inline;
+}
