@@ -349,6 +349,9 @@ angular.module('dmsAdminApp')
         $scope.step = stage;
         $scope.complete = stage - 1;
       }
+      $('html, body').animate({
+        scrollTop: 0
+    }, 'fast');
     }
 
     imageService.getImage({}, {}, function (data) {
