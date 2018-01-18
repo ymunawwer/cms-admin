@@ -90,6 +90,9 @@ angular.module('dmsAdminApp')
               $scope.isStarted = true;
               $scope.complete = 1;
               $scope.step = 2;
+              $('html, body').animate({
+                scrollTop: 0
+            }, 'fast');
               // Materialize.toast('<span>' + message + '</span>', 3000);
             } else {
               var message = data.statusMessage;
@@ -113,7 +116,7 @@ angular.module('dmsAdminApp')
       clear: 'Clear',
       min: true,
       close: 'Ok',
-      closeOnSelect: false, // Close upon selecting a date,
+      closeOnSelect: true, // Close upon selecting a date,
       onSet: function (thingSet) {
         if (!thingSet.select) return;
         $scope.$apply(function () {
@@ -740,4 +743,4 @@ angular.module('dmsAdminApp')
       });
     }
 
-  });
+  })
