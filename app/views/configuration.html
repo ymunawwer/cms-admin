@@ -34,6 +34,11 @@
     .cap_txt {
         text-transform: capitalize;
     }
+    .picker__select--year.browser-default,
+    .picker__select--month.browser-default{
+        margin: 0 0 15px;
+        border: none;
+    }
 </style>
 
 <div class="main-slide-outer">
@@ -1107,7 +1112,7 @@
                                         <div class="chip" ng-hide="settings.holidays.length">Select Date</div>
                                         <div class="chip" ng-repeat="dateT in settings.holidays">
                                             {{dateT | date:format:'Y-m-d'}}&nbsp;&nbsp;
-                                            <i ng-click="settings.holidays.splice($index, 1)">X</i>
+                                            <i ng-click="settings.holidays.splice($index, 1)" class="material-icons">close</i>
                                         </div>
                                         <i class="material-icons add_circle datepickerholiday">perm_contact_calendar</i>
                                     </div>
