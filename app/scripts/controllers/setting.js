@@ -287,7 +287,7 @@ angular.module('dmsAdminApp')
           if (data.statusCode == 200) {
             $scope.serviceCount = data.body.count;
             if ($scope.serviceCount == 0) {
-              Materialize.toast('<span>' + 'No service found plase add atleast one service' + '</span>', 3000);
+              Materialize.toast('<span>' + 'Please add at-least 1 service item to proceed.' + '</span>', 3000);
               // $scope.confirmationText = 'The Service items you have added are not saved.';
               // $('#next_confirmation_modal').openModal();
               return;
@@ -307,7 +307,7 @@ angular.module('dmsAdminApp')
           if (data.statusCode == 200) {
             $scope.serviceCount = data.body.count;
             if ($scope.serviceCount == 0) {
-              Materialize.toast('<span>' + 'No service found plase add atleast one service' + '</span>', 3000);
+              Materialize.toast('<span>' + 'Please add at-least 1 service item to proceed.' + '</span>', 3000);
               // $scope.confirmationText = 'The Service items you have added are not saved.';
               // $('#next_confirmation_modal').openModal();
               return;
@@ -319,7 +319,7 @@ angular.module('dmsAdminApp')
           if (data.statusCode == 200) {
             $scope.userCount = data.body.count;
             if ($scope.userCount == 0) {
-              Materialize.toast('<span>' + 'No users found plase add atleast one user' + '</span>', 3000);
+              Materialize.toast('<span>' + 'Please add at-least 1 user to proceed.' + '</span>', 3000);
               return;
             }
             // $('#next_confirmation_modal').closeModal({});

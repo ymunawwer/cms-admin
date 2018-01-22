@@ -238,7 +238,7 @@
         </ul>
 
     </ul>
-    <a href="javascript:void(0)" data-activates="slide-out" class="button-collapse">
+    <a href="javascript:void(0)"  ng-show="settings.finish_status==true" data-activates="slide-out" class="button-collapse">
         <i class="material-icons small" style="position:relative;">menu</i>
     </a>
     <span class="right">
@@ -489,7 +489,11 @@
 </div>
 <div>
     <div class="dealer-wizard-profile" ng-show="isStarted">
-        <div class="dealer-wizard dw_sh" style="padding:0em !important">
+        <div class="dealer-wizard dw_sh"  ng-if="settings.finish_status==true" style="padding:0em !important">
+            <p class="flow-text center-align">Dealer SetUp Wizard </p>
+            <p class="center-align black-text">Welcome to dealer account setup wizard. Follow these steps and we can have you setup and ready in no time.</p>
+        </div>
+        <div class="dealer-wizard dw_sh" ng-if="settings.finish_status==false" >
             <p class="flow-text center-align">Dealer SetUp Wizard </p>
             <p class="center-align black-text">Welcome to dealer account setup wizard. Follow these steps and we can have you setup and ready in no time.</p>
         </div>
@@ -1123,7 +1127,7 @@
                                             {{dateT | date:format:'Y-m-d'}}&nbsp;&nbsp;
                                             <i ng-click="settings.holidays.splice($index, 1)" class="material-icons">close</i>
                                         </div>
-                                        <i class="material-icons add_circle datepickerholiday">perm_contact_calendar</i>
+                                        <i  style="font-size:36px !important" class="material-icons add_circle datepickerholiday">perm_contact_calendar</i>
                                     </div>
                                 </div>
                                 <div class="margin col s12">
@@ -1173,7 +1177,7 @@
                 </div> -->
                 <div ng-show="viewImg">
                     <div class="row">
-                        <p>Select images to be used for marketing offers.</p>
+                        <!-- <p>Select images to be used for marketing offers.</p> -->
                         <div class="col s6 m3 image-container" ng-repeat="image in imageList">
                             <img class="responsive-img z-depth-1 oml_img" src="{{ image.picture.url }}" alt="">
                             <div class="close" ng-click="deleteRemove(image.id, $index)">
@@ -1342,7 +1346,7 @@
                 </form>
                 <div class="center">
                     <p>OR you can add Service manually here
-                        <!-- <b class="right cap_txt" ><u><a href="#" class="black-text">Link</a></u></b> -->
+                        <b class="right cap_txt" ><u><a ui-sref="serviceview" target="_blank" class="black-text">View / Edit Service items</a></u></b>
                     </p>
 
                 </div>
@@ -1396,7 +1400,7 @@
                         <b style="text-transform: uppercase;font-weight: 500;">Step 7: Enter System Users</b>
                         <b class="right">
                             <u>
-                                <a ui-sref="userview" target="_blank()" class="black-text">View / Edit Service items</a>
+                                <a ui-sref="userview" target="_blank()" class="black-text">View / Edit Users</a>
                             </u>
                         </b>
                     </p>
@@ -1447,7 +1451,7 @@
                 <div class="center">
                     <p>OR you can add Users manually here
                         <b class="right cap_txt">
-                            <!-- <u><a href="#" class="black-text">Link</a></u> -->
+                            <u><a ui-sref="userview" target="_blank()" class="black-text">View / Edit Users</a></u>
                         </b>
                     </p>
                 </div>
