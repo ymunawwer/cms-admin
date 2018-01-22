@@ -2841,10 +2841,11 @@ input:-webkit-autofill {
 .dealer-wizard-profile .ul-main-content .ul-main-two .add_circle
 {
     position: relative;
-    top: 9px;
+    top:11px;
     left: 5px;
     cursor: pointer;
     color: #f07639;
+    font-size: 28px;
 }
 .dealer-wizard-profile .ul-main-content .ul-main-two .chip{
     margin: 4px;
