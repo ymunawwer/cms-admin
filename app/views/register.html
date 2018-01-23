@@ -18,6 +18,11 @@
     width: 100%;
     max-width: 100%;
   }
+  input::placeholder {
+    color: #888;
+    font-weight: 300;
+    font-size: 13px;
+  }
 </style>
 <div class="login-wrapper" id="jqueryvalidation">
   <div id="login-page" class="login-page" class="row" ng-if="!pricingTable">
@@ -70,26 +75,29 @@
         </div>
       </div>
       <div class="row margin">
-        <div class="input-field col s12">
+        <div class=" col s12">
           <i class="mdi-action-lock-outline prefix"></i>
-          <input id="password" name="password" type="password" data-error=".errorTxt2" ng-model="userData.password" required minlength="6">
           <label for="password">Password</label>
+          <input id="password" name="password" type="password" data-error=".errorTxt2" ng-model="userData.password" required minlength="6">
+          
           <div class="errorTxt2"></div>
         </div>
       </div>
       <div class="row margin">
-        <div class="input-field col s12">
+        <div class="col s12">
           <i class="mdi-action-lock-outline prefix"></i>
-          <input id="cpassword" name="cpassword" type="password" ng-model="userData.cpassword" data-error=".errorTxt2" required minlength="6">
           <label for="cpassword">Confirm Password</label>
+          <input id="cpassword" name="cpassword" type="password" ng-model="userData.cpassword" data-error=".errorTxt2" required minlength="6">
+          
           <div class="errorTxt2"></div>
         </div>
       </div>
       <div class="row margin">
-        <div class="input-field col s12">
+        <div class="col s12">
           <i class="mdi-social-person-outline prefix"></i>
-          <input id="name" name="name" type="text" autocomplete="off" data-error=".errorTxt11" ng-model="userData.name" required>
           <label for="name">Your Dealership name</label>
+          <input id="name" name="name" type="text" autocomplete="off" data-error=".errorTxt11" ng-model="userData.name" required>
+          
           <div class="errorTxt11"></div>
         </div>
       </div>
