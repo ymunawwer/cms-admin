@@ -126,6 +126,7 @@ angular.module('dmsAdminApp')
         })
       }
     });
+    $scope.showCalender = function(){$picker.open();};
     $scope.updateSetting1 = function () {
       if ($scope.formValidate1.$valid) {
         $scope.settings.holidays = $scope.settings.holidays && $scope.settings.holidays.length ?

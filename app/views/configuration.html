@@ -744,16 +744,6 @@
                                 class="col m9 l10 s12">
                             <div class="errorTxt144"></div>
                         </div>
-                        <div>
-                            <label for="cdcma" class="col m3 l2 s12">Manufacturer association</label>
-                            <input id="cdcma" type="text" name="cdcma" class="col m9 l10 s12">
-                            <div class="errorTxt114"></div>
-                        </div>
-                        <div>
-                            <label for="cdcms" class="col m3 l2 s12">Makes Serviced</label>
-                            <input id="cdcms" type="text" name="cdcms" class="col m9 l10 s12">
-                            <div class="errorTxt124"></div>
-                        </div>
                     </div>
                     <div class="right-align">
                         <button type="submit" id="stepOne"  class="btn waves-effect waves-light ul-1-btn camel-case">Next</button>
@@ -1127,7 +1117,20 @@
                                             {{dateT | date:format:'Y-m-d'}}&nbsp;&nbsp;
                                             <i ng-click="settings.holidays.splice($index, 1)" class="material-icons">close</i>
                                         </div>
-                                        <i  style="font-size:36px !important" class="material-icons add_circle datepickerholiday">perm_contact_calendar</i>
+                                        <!-- <i class="datepickerholiday material-icons" >perm_contact_calendar</i> -->
+                                        <style>
+                                            input.datepickerholiday{
+                                                background-image: url(https://image.flaticon.com/icons/svg/34/34389.svg);
+                                                background-position: 0px -1px;
+                                                background-repeat: no-repeat;
+                                                background-size: contain;
+                                                cursor: pointer;
+                                                color: transparent;
+                                                
+                                            }
+                                        </style>
+                                        <input class="datepickerholiday" style="height: 35px;width: 35px;border:none;"/>
+                                        <!-- <i  style="font-size:36px !important;position:static;" class="material-icons add_circle" ng-click="showCalender()">perm_contact_calendar</i> -->
                                     </div>
                                 </div>
                                 <div class="margin col s12">

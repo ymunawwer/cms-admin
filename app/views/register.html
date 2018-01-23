@@ -61,11 +61,11 @@
         </div>
       </div>
       <div class="row margin">
-        <div class="input-field col s12">
+        <div class="col s12">
           <i class="mdi-social-person-outline prefix"></i>
+          <label for="email">Your Email ID</label>
           <input id="email" name="email" placeholder="Ex: john@providername.com
           " type="email" autocomplete="off" data-error=".errorTxt1" ng-model="userData.email" required>
-          <label for="email">Your Email ID</label>
           <div class="errorTxt1"></div>
         </div>
       </div>
@@ -94,10 +94,11 @@
         </div>
       </div>
       <div class="row margin">
-        <div class="input-field col s12">
+        <div class="col s12">
           <i class="mdi-social-person-outline prefix"></i>
-          <input id="phone" name="phone" type="text"  oninvalid="this.setCustomValidity('Please enter a 10 digit number.')" oninput="setCustomValidity('')"  placeholder="Ex: 2348623542"  pattern="[0-9]{10}" autocomplete="off" data-error=".errorTxt12" ng-model="userData.phone" required>
           <label for="phone">Phone</label>
+          <input id="phone" name="phone" type="text"  oninvalid="this.setCustomValidity('Please enter a 10 digit number.')" oninput="setCustomValidity('')"  placeholder="Ex: 2348623542"  pattern="[0-9]{10}" autocomplete="off" data-error=".errorTxt12" ng-model="userData.phone" required>
+          
           <div class="errorTxt12"></div>
         </div>
       </div>

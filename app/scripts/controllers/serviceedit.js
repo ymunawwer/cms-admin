@@ -41,7 +41,7 @@ angular.module('dmsAdminApp')
     $scope.updateUser = function(){
       if($scope.editServiceForm.$valid){
         $scope.serviceData.amount = $scope.serviceData.price;
-        $scope.serviceData.make = $scope.serviceData.make.name;
+        $scope.serviceData.make = $scope.serviceData.make && $scope.serviceData.make.name;
         serviceservice.updateService({id: id}, $scope.serviceData, function(data){
           if(data.statusCode == 200){
             $scope.serviceData = data.body.service;
