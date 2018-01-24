@@ -15,6 +15,7 @@ angular.module('dmsAdminApp')
     $scope.settings.secondary_contact = {};
     $scope.settings.invoice_contact = {};
     $scope.settings.contact_to_show_customer = {};
+    $scope.settings.days_of_service = {};
     settings.getSetting({}, {}, function (data) {
       $scope.settings = data.body.setting || {};
       $scope.man = $scope.settings.manufactur;
@@ -746,5 +747,17 @@ angular.module('dmsAdminApp')
         }
       });
     }
-
+  })
+  .directive('dayBox', function() {
+    return {
+      restrict: 'E',
+      scope: {
+        day: '=',
+        label: '@',
+        hours: '='
+      },
+      templateUrl: './views/day.html',
+      link: function(scope,elem,attr){
+    }
+    };
   })

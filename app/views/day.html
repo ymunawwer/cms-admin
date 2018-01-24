@@ -1,0 +1,40 @@
+<div class="collapsible-header">
+    {{label}}</div>
+<div class="collapsible-body">
+    <div class="row">
+        <div class="col m2 s12 input-field center-align" style="margin-top: 10px;">
+            <input type="checkbox" id="{{label}}check" ng-model="day.status" />
+            <label for="{{label}}check">{{label}}</label>
+        </div>
+        <div>
+            <label style="left: 0 !important;" class="col m2 s12">Start Time</label>
+            <div>
+                <!-- <input type="text" class="timepicker" ng-model="settings.days_of_service.sunday.start_time"> -->
+                <select style="display:block" ng-model="day.start_time" class="col m2 s12">
+                    <option ng-if="h<=12" ng-disabled="day.end_time<=h" ng-selected="day.start_time==h" value="{{h}}" ng-repeat="h in hours">{{h}}:00 AM </option>
+                    <option ng-if="h>12" ng-disabled="day.end_time<=h" ng-selected="day.start_time==h" value="{{h}}" ng-repeat="h in hours">{{h}}:00 PM </option>
+                </select>
+                <!--  -->
+            </div>
+            <div class="errorTxt16"></div>
+        </div>
+        <div>
+            <label style="left: 0 !important;" class="col m2 s12">End Time</label>
+            <div>
+                <!-- <input type="text" class="datepicker" ng-model="settings.days_of_service.sunday.end_time"> -->
+                <select style="display:block" class="col m2 s12" ng-model="day.end_time">
+                    <option ng-if="h<=12" ng-disabled="day.start_time>=h" ng-selected="day.end_time==h" value="{{h}}" ng-repeat="h in hours">{{h}}:00 AM</option>
+                    <option ng-if="h>12" ng-disabled="day.start_time>=h" ng-selected="day.end_time==h" value="{{h}}" ng-repeat="h in hours">{{h}}:00 PM</option>
+                </select>
+
+            </div>
+            <div class="errorTxt17"></div>
+        </div>
+        <div class="col m2 s12 center-align">
+            <span class="span_holiday_check">
+                <input type="checkbox" class="filled-in" id="holiday1" ng-model="day.status" />
+                <label for="holiday1">open</label>
+            </span>
+        </div>
+    </div>
+</div>
