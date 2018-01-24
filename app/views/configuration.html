@@ -536,7 +536,7 @@
                         <i class="material-icons tiny blue-text tooltipped" data-position="right" data-delay="50" data-tooltip="Text here">help_outline</i>
                     </p>
                     <div class="col s12 pl11">
-                        <label for="cname" class="col m3 l2 s12">Dealer name*</label>
+                        <label for="cname" class="col m3 l2 s12">Dealer Name*</label>
                         <input id="cname" name="cname" type="text" required data-error=".errorTxt1" ng-model="profileData.name" class="col m9 l10 s12">
                         <div class="errorTxt1"></div>
                     </div>
@@ -553,7 +553,7 @@
                     </div>
                     <div ng-if="man">
                         <div class="margin col s12 pl11">
-                            <label for="manufacturs" class="col m3 l2 s12">Dealer​ ​OEM​ ​association</label>
+                            <label for="manufacturs" class="col m3 l2 s12">Dealer​ ​OEM​ ​Association</label>
                             <select id="manufacturs" ng-disabled="settings.manufactur" ng-change="changeManufacture()" class="browser-default selection-corrector col m9 l10 s12"
                                 name="manufacturs" ng-model="settings.manufactur" style="margin: 0 0 20px;">
                                 <option ng-repeat="man in manufactureList" value="{{man._id}}">{{man.name}}</option>
@@ -578,7 +578,7 @@
                     </div>
                     <div ng-if="!man">
                         <div class="margin col s12 pl11">
-                            <label for="manufacturs" class="col m3 l2 s12">Dealer​ ​OEM​ ​association</label>
+                            <label for="manufacturs" class="col m3 l2 s12">Dealer​ ​OEM​ ​Association</label>
                             <select id="manufacturs" ng-change="changeManufacture()" class="browser-default selection-corrector col m9 l10 s12" name="manufacturs"
                                 ng-model="settings.manufactur" style="margin: 0 0 20px;">
                                 <option ng-repeat="man in manufactureList" value="{{man._id}}">{{man.name}}</option>
@@ -1353,6 +1353,7 @@
                     </p>
 
                 </div>
+
                 <div class="file-field input-field col s12">
                     <form class="formValidates" name="addServiceForm" id="formValidates" action="javascript:void(0);" ng-submit="addService()">
                         <div id="room_fileds" ng-repeat="ser in  [].constructor(totalserve) track by $index">
@@ -1392,6 +1393,38 @@
                         </div>
                     </form>
                 </div>
+                <div id="table-datatables" style="margin-top:1em;display: inline-block;width: 100%;">
+                        <div class="row">
+                            <div>
+                              <table id="data-table-simple" class="responsive-table display" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                          <th>Service Item Name</th>
+                                          <th>Description</th>
+                                          <th>Price</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                     <tr>
+                                        <td>Alvin</td>
+                                        <td>Eclair</td>
+                                        <td>$0.87</td>
+                                      </tr>
+                                      <tr>
+                                        <td>Alan</td>
+                                        <td>Jellybean</td>
+                                        <td>$3.76</td>
+                                      </tr>
+                                      <tr>
+                                        <td>Jonathan</td>
+                                        <td>Lollipop</td>
+                                        <td>$7.00</td>
+                                      </tr>
+                                </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div> 
                 <div class="right-align">
                     <button type="button" style="background-color: #9e9e9e !important;" class="btn waves-effect waves-light camel-case" ng-click="nextStep(5)">Previous</button>
                     <button type="button" ng-click="nextStep(7)" class="btn waves-effect waves-light ul-2-btn camel-case">Next</button>
