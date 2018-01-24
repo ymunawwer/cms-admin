@@ -48,6 +48,12 @@
         right: 3em;
         margin-bottom: 3em;
     }
+    .switch label input[type=checkbox]:checked+.lever {
+    background-color: #fdbe8e;
+    }
+    .switch label input[type=checkbox]:checked+.lever:after {
+    background-color: #f27617;
+    }
 </style>
 
 <div class="main-slide-outer">
@@ -783,8 +789,16 @@
                                         <div class="collapsible-body">
                                             <div class="row">
                                                 <div class="col m2 s12 input-field center-align" style="margin-top: 10px;">
-                                                    <input type="checkbox" id="sundaycheck" ng-model="settings.days_of_service.sunday.status" />
-                                                    <label for="sundaycheck">Sunday</label>
+                                                    <!-- <input type="checkbox" id="sundaycheck" ng-model="settings.days_of_service.sunday.status" />
+                                                    <label for="sundaycheck">Sunday</label> -->
+    <div class="switch">
+        <label style="padding-top: 17px;position: static;">
+          Close
+          <input type="checkbox">
+          <span class="lever"></span>
+          Open
+        </label>
+    </div>
                                                 </div>
                                                 <div ng-show="settings.days_of_service.sunday.status">
                                                     <label style="left: 0 !important;" class="col m2 s12">Start Time</label>
@@ -828,8 +842,16 @@
                                         <div class="collapsible-body">
                                             <div class="row">
                                                 <div class="col m2 s12 input-field center-align" style="margin-top: 10px;">
-                                                    <input type="checkbox" id="mondaycheck" ng-model="settings.days_of_service.monday.status" />
-                                                    <label for="mondaycheck">Monday</label>
+                                                    <!-- <input type="checkbox" id="mondaycheck" ng-model="settings.days_of_service.monday.status" />
+                                                    <label for="mondaycheck">Monday</label> -->
+                                                    <div class="switch">
+                                                        <label style="padding-top: 17px;position: static;">
+                                                          Close
+                                                          <input type="checkbox">
+                                                          <span class="lever"></span>
+                                                          Open
+                                                        </label>
+                                                    </div>
                                                 </div>
                                                 <div ng-show="settings.days_of_service.monday.status">
                                                     <label style="left: 0 !important;" class="col m2 s12">Start Time</label>
@@ -873,8 +895,16 @@
                                         <div class="collapsible-body">
                                             <div class="row">
                                                 <div class="col m2 s12 input-field center-align" style="margin-top: 10px;">
-                                                    <input type="checkbox" id="tuesdaycheck" ng-model="settings.days_of_service.tuesday.status" />
-                                                    <label for="tuesdaycheck">Tuesday</label>
+                                                    <!-- <input type="checkbox" id="tuesdaycheck" ng-model="settings.days_of_service.tuesday.status" />
+                                                    <label for="tuesdaycheck">Tuesday</label> -->
+                                                    <div class="switch">
+                                                    <label style="padding-top: 17px;position: static;">
+                                                      Close
+                                                      <input type="checkbox">
+                                                      <span class="lever"></span>
+                                                      Open
+                                                    </label>
+                                                </div>
                                                 </div>
                                                 <div class="" ng-show="settings.days_of_service.tuesday.status">
                                                     <label style="left: 0 !important;" class="col m2 s12">Start Time</label>
@@ -921,8 +951,16 @@
                                         <div class="collapsible-body">
                                             <div class="row">
                                                 <div class="col m2 s12 input-field center-align" style="margin-top: 10px;">
-                                                    <input type="checkbox" id="wednesdaycheck" ng-model="settings.days_of_service.wednesday.status" />
-                                                    <label for="wednesdaycheck">Wednesday</label>
+                                                    <!-- <input type="checkbox" id="wednesdaycheck" ng-model="settings.days_of_service.wednesday.status" />
+                                                    <label for="wednesdaycheck">Wednesday</label> -->
+                                                    <div class="switch">
+                                                    <label style="padding-top: 17px;position: static;">
+                                                      Close
+                                                      <input type="checkbox">
+                                                      <span class="lever"></span>
+                                                      Open
+                                                    </label>
+                                                </div>
                                                 </div>
                                                 <div class="" ng-show="settings.days_of_service.wednesday.status">
                                                     <label style="left: 0 !important;" class="col m2 s12">Start Time</label>
@@ -966,8 +1004,16 @@
                                         <div class="collapsible-body">
                                             <div class="row">
                                                 <div class="col m2 s12 input-field center-align" style="margin-top: 10px;">
-                                                    <input type="checkbox" id="thursdaycheck" ng-model="settings.days_of_service.thursday.status" />
-                                                    <label for="thursdaycheck">Thursday</label>
+                                                    <!-- <input type="checkbox" id="thursdaycheck" ng-model="settings.days_of_service.thursday.status" />
+                                                    <label for="thursdaycheck">Thursday</label> -->
+                                                    <div class="switch">
+        <label style="padding-top: 17px;position: static;">
+          Close
+          <input type="checkbox">
+          <span class="lever"></span>
+          Open
+        </label>
+    </div>
                                                 </div>
                                                 <div class="" ng-show="settings.days_of_service.thursday.status">
                                                     <label style="left: 0 !important;" class="col m2 s12">Start Time</label>
@@ -1011,8 +1057,16 @@
                                         <div class="collapsible-body">
                                             <div class="row">
                                                 <div class="col m2 s12 input-field center-align" style="margin-top: 10px;">
-                                                    <input type="checkbox" id="fridaycheck" ng-model="settings.days_of_service.friday.status" />
-                                                    <label for="fridaycheck">Friday</label>
+                                                    <!-- <input type="checkbox" id="fridaycheck" ng-model="settings.days_of_service.friday.status" />
+                                                    <label for="fridaycheck">Friday</label> -->
+                                                    <div class="switch">
+                                                        <label style="padding-top: 17px;position: static;">
+                                                          Close
+                                                          <input type="checkbox">
+                                                          <span class="lever"></span>
+                                                          Open
+                                                        </label>
+                                                    </div>
                                                 </div>
                                                 <div class="" ng-show="settings.days_of_service.friday.status">
                                                     <label style="left: 0 !important;" class="col m2 s12">Start Time</label>
@@ -1056,8 +1110,16 @@
                                         <div class="collapsible-body">
                                             <div class="row">
                                                 <div class="col m2 s12 input-field center-align" style="margin-top: 10px;">
-                                                    <input type="checkbox" id="saturdaycheck" ng-model="settings.days_of_service.saturday.status" />
-                                                    <label for="saturdaycheck">Saturday</label>
+                                                    <!-- <input type="checkbox" id="saturdaycheck" ng-model="settings.days_of_service.saturday.status" />
+                                                    <label for="saturdaycheck">Saturday</label> -->
+                                                    <div class="switch">
+                                            <label style="padding-top: 17px;position: static;">
+                                              Close
+                                              <input type="checkbox">
+                                              <span class="lever"></span>
+                                              Open
+                                            </label>
+                                        </div>
                                                 </div>
                                                 <div class="margin" ng-show="settings.days_of_service.saturday.status">
                                                     <label style="left: 0 !important;" class="col m2 s12">Start Time</label>
