@@ -31,17 +31,17 @@ angular.module('dmsAdminApp')
       }
     });
     if (!$scope.manufacturs) {
-      serviceservice.getMakesList({}, {}, function (data) {
+      serviceservice.getManufactureList({}, {}, function (data) {
         if (data.statusCode == 200) {
-          $scope.makesList = data.body.makes;
+          $scope.makesList = data.body.manufacture;
         }
       })
 
     }
 
-    $scope.changeSelectMake = function () {
-      console.log($scope.make)
-      serviceservice.getMileageList({ id: $scope.make }, {}, function (data) {
+    $scope.changeSelectMake = function (make) {
+      console.log(make)
+      serviceservice.getMileageList({ id: make }, {}, function (data) {
         if (data.statusCode === 200) {
           $scope.mileageList = data.body.items;
           console.log($scope.mileageList)

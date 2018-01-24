@@ -17,7 +17,7 @@
 
                     <label for="smake" class="lbl_sa">Make*</label>
                     <div class="input-field col s12">
-                      <select id="smake" ng-change="changeSelectMake()" ng-model="make" required style="display:block;">
+                      <select id="smake" ng-change="changeSelectMake(make)" ng-model="make" required style="display:block;">
                         <option ng-repeat="make in makesList | orderBy:'name'" value="{{make._id}}">{{make.name}}</option>
                       </select>
                     </div>
