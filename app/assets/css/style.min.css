@@ -2323,11 +2323,13 @@ textarea.materialize-textarea:focus:not([readonly])+label {
 .side-nav::-webkit-scollbar,
 .ul-outer::-webkit-scrollbar,
 body::-webkit-scrollbar,
-ul.side-nav.leftside-navigation::-webkit-scrollbar {
+ul.side-nav.leftside-navigation::-webkit-scrollbar
+ {
     width: 8px
 }
 
-#table-datatables::-webkit-scrollbar {
+#table-datatables::-webkit-scrollbar,
+.holiday_box::-webkit-scrollbar {
     width: 8px;
     height: 8px
 }
@@ -2337,7 +2339,8 @@ ul.side-nav.leftside-navigation::-webkit-scrollbar {
 .side-nav::-webkit-scrollbar-thumb,
 .ul-outer::-webkit-scrollbar-thumb,
 body::-webkit-scrollbar-thumb,
-ul.side-nav.leftside-navigation::-webkit-scrollbar-thumb {
+ul.side-nav.leftside-navigation::-webkit-scrollbar-thumb,
+.holiday_box::-webkit-scrollbar-thumb {
     background: #666;
     -webkit-border-radius: 0;
     -moz-border-radius: 0;
@@ -2350,7 +2353,8 @@ ul.side-nav.leftside-navigation::-webkit-scrollbar-thumb {
 .side-nav::-webkit-scollbar-track,
 .ul-outer::-webkit-scrollbar,
 body::-webkit-scrollbar-track,
-ul.side-nav.leftside-navigation::-webkit-scrollbar-track {
+ul.side-nav.leftside-navigation::-webkit-scrollbar-track,
+.holiday_box::-webkit-scrollbar-track {
     background: #ddd;
     -webkit-border-radius: 0;
     -moz-border-radius: 0;
@@ -2624,7 +2628,7 @@ input:-webkit-autofill {
 }
 
 .dealer-wizard-profile .ul-main-content {
-    padding: 2em
+    padding: 1em 2em 2em 2em;
 }
 
 .dealer-wizard-profile .ul-main-content p {
@@ -2852,6 +2856,6 @@ input:-webkit-autofill {
 }
 .holiday_box{
     max-height: 200px;
-    overflow-y: scroll;
+    overflow-y: auto;
     display: inline;
 }
