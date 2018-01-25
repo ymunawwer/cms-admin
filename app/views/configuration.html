@@ -346,7 +346,7 @@
     
 </style>
 <div class="container"></div>
-<div class="dealer-wizard z-depth-1 white" ng-show="!isStarted">
+<div class="dealer-wizard z-depth-1 white" ng-show="!isStarted && !settings.steps_incomplete_in_wizard">
     <p class="flow-text center-align">Dealer SetUp Wizard</p>
     <p class="center-align black-text">Welcome to dealer account setup wizard. Follow these steps and we can have you setup and ready in no time.</p>
     <div class="row">
@@ -386,7 +386,7 @@
 </div>
 </div>
 <div>
-    <div class="dealer-wizard-profile" ng-show="isStarted">
+    <div class="dealer-wizard-profile" ng-show="isStarted || settings.steps_incomplete_in_wizard">
         <div class="dealer-wizard dw_sh" ng-if="settings.finish_status==true" style="padding:0em !important">
             <p class="flow-text center-align">Dealer SetUp Wizard </p>
             <p class="center-align black-text">Welcome to dealer account setup wizard. Follow these steps and we can have you setup and ready in no time.</p>
@@ -397,25 +397,26 @@
         </div>
         <div class="ul-outer z-depth-1 white center-align">
             <ul>
-                <li ng-click="nextStep(1)" class="li-1" ng-class="{'active': (step==1 ), 'done-li': (complete==1 || complete==2 || complete==3 || complete==4  || complete==5 || complete==6 || complete==7 || complete==8)}">Step 1
+                    
+                <li ng-click="nextStep(1)" class="li-1" ng-class="{'active': (step==1 ), 'done-li': (settings.steps_completed_in_wizard.indexOf(1) !== -1)}">Step 1
                     <p>Enter Dealership Information</p>
                 </li>
-                <li ng-click="nextStep(2)" class="li-2" ng-class="{'active': step==2 , 'done-li': (complete==2 || complete==3  || complete==4  || complete==5 || complete==6 || complete==7 || complete==8)}">Step 2
+                <li ng-click="nextStep(2)" class="li-2" ng-class="{'active': step==2 , 'done-li': (settings.steps_completed_in_wizard.indexOf(2) !== -1)}">Step 2
                     <p class="truncate">Appointment Scheduling Configuration</p>
                 </li>
-                <li ng-click="nextStep(3)" class="li-3" ng-class="{'active': step==3, 'done-li': (complete==3 || complete==4  || complete==5 || complete==6 || complete==7 || complete==8)}">Step 3
+                <li ng-click="nextStep(3)" class="li-3" ng-class="{'active': step==3, 'done-li': (settings.steps_completed_in_wizard.indexOf(3) !== -1)}">Step 3
                     <p class="truncate">Marketing</p>
                 </li>
-                <li ng-click="nextStep(4)" class="li-4" ng-class="{'active': step==4 , 'done-li': (  complete==4  || complete==5 || complete==6 || complete==7 || complete==8)}">Step 4
+                <li ng-click="nextStep(4)" class="li-4" ng-class="{'active': step==4 , 'done-li': (settings.steps_completed_in_wizard.indexOf(4) !== -1)}">Step 4
                     <p class="truncate">Trade-In</p>
                 </li>
-                <li ng-click="nextStep(5)" class="li-5" ng-class="{'active': step==5 , 'done-li': (complete==5 || complete==6 || complete==7 || complete==8)}">Step 5
+                <li ng-click="nextStep(5)" class="li-5" ng-class="{'active': step==5 , 'done-li': (settings.steps_completed_in_wizard.indexOf(5) !== -1)}">Step 5
                     <p class="truncate">Advisor</p>
                 </li>
-                <li class="li-6" ng-click="nextStep(6)" ng-class="{'active': step==6 , 'done-li': (complete==6 || complete==7 || complete==8)}">Step 6
+                <li class="li-6" ng-click="nextStep(6)" ng-class="{'active': step==6 , 'done-li': (settings.steps_completed_in_wizard.indexOf(6) !== -1)}">Step 6
                     <p class="truncate">Service Data</p>
                 </li>
-                <li class="li-7" ng-click="nextStep(7, true)" ng-class="{'active': step==7 , 'done-li': (complete==7 || complete==8)}">Step 7
+                <li class="li-7" ng-click="nextStep(7, true)" ng-class="{'active': step==7 , 'done-li': (settings.steps_completed_in_wizard.indexOf(7) !== -1)}">Step 7
                     <p class="truncate">Users</p>
                 </li>
                 <!-- <li class="li-8" ng-click="nextStep(8, true)" ng-class="{'active': step==8 , 'done-li': (complete==8)}">Step 8
@@ -1078,7 +1079,13 @@
                             <div class="row">
                                 <div class="col m2 s12">
                                     <div class="input-field">
-                                        <input type="text" placeholder="Name*" required name="uname{{$index}}" id="uname{{$index}}" ng-model="userData[$index].name"
+                                        <input type="text" placeholder="First Name*" required name="uname{{$index}}" id="uname{{$index}}" ng-model="userData[$index].first_name"
+                                        />
+                                    </div>
+                                </div>
+                                <div class="col m2 s12">
+                                    <div class="input-field">
+                                        <input type="text" placeholder="Last Name*" required name="lname{{$index}}" id="lname{{$index}}" ng-model="userData[$index].last_name"
                                         />
                                     </div>
                                 </div>
@@ -1088,14 +1095,9 @@
                                         />
                                     </div>
                                 </div>
-                                <!-- <div class="col m2 s12">
-                                    <div class="input-field">
-                                        <input type="password" name="upassword{{$index}}" required id="upassword{{$index}}" placeholder=" Password*" ng-model="userData[$index].password">
-                                    </div>
-                                </div> -->
                                 <div class="col m6 s12">
                                     <p>
-                                        <span ng-repeat="r in roles" ng-hide="r.role=='admin'">
+                                        <span ng-repeat="r in roles">
                                             <input data-error=".filled-in-box{{$parent.$index}}" type="checkbox" class="filled-in" ng-model="userData[$parent.$index].roles[$index]"
                                                 ng-true-value="'{{r.name}}'" id="filled-in-box{{$index}}{{$parent.$index}}" name="uroles{{$parent.$index}}"
                                             />
