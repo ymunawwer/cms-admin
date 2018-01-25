@@ -24,6 +24,50 @@ div.center p{
     </div>
   </div>
 </div>
+<div id="modalEdit" class="modal">
+    <div class="modal-content">
+        <div class="card-panel">
+            <h4 class="header2">Edit a service item
+  </h4>
+            <div class="row">
+              <form class="formValidate" name="editServiceForm" id="formValidate" ng-submit="updateService()">
+               
+                <div class="row">
+                  <div class="input-field col s12">
+                    <label for="sname">Name*</label>
+                    <input id="sname" name="sname" type="text" data-error=".errorTxt1" ng-model="serviceData.name" required>
+                    <div class="errorTxt1"></div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-field col s12">
+                    <textarea id="message1" name="description" class="materialize-textarea validate" data-error=".errorTxt2" length="120" ng-model="serviceData.description" required style="min-height: 60px !important;"></textarea>
+                    <label for="message1" class="">Description</label>
+                    <div class="errorTxt2"></div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-field col s12">
+                    <label for="amount">Price*</label>
+                    <input id="amount" name="amount" type="text" data-error=".errorTxt3" ng-model="serviceData.price" required>
+                    <div class="errorTxt3"></div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-field col s12">
+                    <a ui-sref="home.serviceview">
+                    <button class="btn waves-effect waves-light grey modal-close" style="background-color: #757575!important;">Cancel</button></a>
+                    <button class="btn waves-effect waves-light right submit" type="submit" name="action">
+                     Submit
+                     <i class="mdi-content-send right"></i>
+                   </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+    </div>
+  </div>
 
 <div class="container">
   <div class="section">
@@ -153,7 +197,7 @@ div.center p{
                           <td>{{service.description}}</td>
                           <td>{{service.price | currency}}</td>
                           <td>
-                            <a ui-sref="home.serviceedit({id: service.id})"><button class="waves-effect waves-light btn grey darken-1" >Edit</button></a>
+                            <a ng-click="serviceEdit(service)"><button class="waves-effect waves-light btn grey darken-1" >Edit</button></a>
                           </td>
                           <td>
                             <button class="waves-effect waves-light btn" ng-click="serviceDeleteAlert(service.id, $index)">Delete</button>

@@ -27,13 +27,14 @@ angular.module('dmsAdminApp')
         }
       })
     }
-    $scope.getService()
+    $scope.getService() 
 
     $scope.serviceDeleteAlert = function (id, index) {
       $scope.serviceId = id;
       $scope.serviceindex = index;
       $('.modal').openModal({});
     }
+   
     $scope.servicedelete = function () {
       serviceservice.deleteService({ id: $scope.serviceId }, {}, function (data) { if (data.statusCode == 200) { $scope.getService()
         $('.modal').closeModal({}); } })
@@ -156,4 +157,24 @@ angular.module('dmsAdminApp')
         }
       })
     };
+
+    $scope.serviceEdit = function (service) {
+      $scope.serviceData = service;
+      $('#modalEdit').openModal({});
+    }
+    $scope.updateService = function(){
+      if($scope.editServiceForm.$valid){
+        $scope.serviceData.amount = $scope.serviceData.price;
+        // $scope.serviceData.make = $scope.serviceData.make && $scope.serviceData.make.name;
+        serviceservice.updateService({id: $scope.serviceData._id}, $scope.serviceData, function(data){
+          if(data.statusCode == 200){
+            $('#modalEdit').closeModal({});
+            Materialize.toast('<span>'+data.message+'</span>', 3000);
+          }
+          else{
+            Materialize.toast('<span>'+data.message+'</span>', 3000);
+          }
+        })
+      }
+    }
   });

@@ -32,6 +32,50 @@
   </div>
 </div>
 
+<div id="userEdit" class="modal">
+    <div class="modal-content">
+        <div class="card-panel">
+            <div class="row">
+              <form class="formValidate" name="userAddForm" id="formValidate" ng-submit="updateUser()">
+                <div class="row">
+                  <div class="input-field col s12">
+                    <label for="uname">Username*</label>
+                    <input id="uname" name="uname" required type="text" data-error=".errorTxt1" ng-model="userData.name">
+                    <div class="errorTxt1"></div>
+                  </div>
+                  <div class="input-field col s12">
+                    <label for="cemail">E-Mail *</label>
+                    <input id="cemail" type="email" required name="cemail" data-error=".errorTxt2" ng-model="userData.email">
+                    <div class="errorTxt2"></div>
+                    </div>
+                   
+                    <div class="col m12 s12">
+                        <label for="uroles">Roles*</label>
+    
+                      <p> 
+                          <span ng-repeat="r in roles">
+                              <input data-error=".filled-in-box"  type="checkbox" class="filled-in"   ng-model="role" ng-checked="r.status==true" ng-click="selectRoles(r.name)"  id="filled-in-box{{$index}}"  name="uroles"    />
+                              <label for="filled-in-box{{$index}}">{{r.role}} </label>
+                              &nbsp;
+                          </span>
+                          <div class="filled-in-box"></div>
+                      </p>
+                  </div>
+                  
+                    <div class="input-field col s12">
+                      <button type="button" class="btn waves-effect waves-light grey modal-close" style="background: #747474 !important;">Cancel </button>
+                      <button class="btn waves-effect waves-light right submit" type="submit" name="action">
+                      Submit
+                      <i class="mdi-content-send right"></i>
+                    </button>
+                    </div>
+                  </div>
+              </form>
+              </div>
+            </div>
+    </div>
+  </div>
+
 <div class="container">
   <div class="section">
   <div class="decor-div white z-depth-1">
@@ -161,6 +205,7 @@
                             <tr>
                                 <th>Name</th>
                                 <th>Email</th>
+                                <th>Roles</th>
                                 <th colspan="2" class="center-align">Action</th>
                             </tr>
                         </thead>
@@ -168,8 +213,17 @@
                             <tr ng-repeat="user in userList">
                                 <td>{{user.name}}</td>
                                 <td>{{user.email}}</td>
+                                <td>
+                                  <span ng-repeat="r in user.roles">
+                                    <span ng-if="r=='admin'">ADMIN,</span>
+                                    <span ng-if="r=='marketing_manager'">MM,</span>
+                                    <span ng-if="r=='used_car_manager'">UCM,</span>
+                                    <span ng-if="r=='service_scheduler'">SS,</span>
+                                    <span ng-if="r=='service_adviser'">SA,</span>
+                                    <span ng-if="r=='vehicle​_inspection​'">VI,</span>
+                                </span></td>
                                 <td class="center-align">
-                                  <a ui-sref="home.useredit({id: user.id})"><button class="waves-effect waves-light btn grey darken-1">Edit</button></a>
+                                  <a ng-click="userEdit(user)"><button class="waves-effect waves-light btn grey darken-1">Edit</button></a>
                                 </td>
                                 <td class="center-align">
                                   <button class="waves-effect waves-light btn" ng-click="userdelete(user.id, $index)">Delete</button>
