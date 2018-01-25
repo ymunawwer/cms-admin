@@ -485,7 +485,7 @@
                                 <option ng-repeat="man in manufactureList" value="{{man._id}}">{{man.name}}</option>
                             </select>
                         </div>
-                        <div class="margin col s12 pl11" style="margin:7px 0 10px !important;">
+                        <div class="margin col s12 pl11" style="margin:7px 0 10px !important;"  ng-if="makesList.length">
                             <label for="manufactur" class="col m3 l2 s12" style="padding-top:0 !important;">Makes</label>
                             <!-- <select id="manufactur" style="height:123px;" ng-disabled="settings.manufactur" multiple class="browser-default selection-corrector col m9 l10 s12"
                                 name="manufactur" ng-model="settings.make" style="margin: 0 0 20px;">
@@ -511,7 +511,7 @@
                                 <option ng-repeat="man in manufactureList" value="{{man._id}}">{{man.name}}</option>
                             </select>
                         </div>
-                        <div class="margin col s12 pl11">
+                        <div class="margin col s12 pl11"  ng-if="makesList.length">
                             <label for="manufactur" class="col m3 l2 s12">Makes</label>
                             <!-- <select id="manufactur" style="height:123px;" multiple class="browser-default selection-corrector col m9 l10 s12" name="manufactur" ng-model="settings.make"
                                 style="margin: 0 0 20px;">
