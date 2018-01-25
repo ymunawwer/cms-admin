@@ -1,44 +1,157 @@
-<!--start container-->
+
+
+<div id="modal1" class="modal">
+  <div class="modal-content">
+    <h5>Do you really want to delete this service?</h5>
+  </div>
+  <div class="row create_offer">
+    <div class="right-align" style="margin-right: 1.5em;">
+      <button type="button" class="btn btn-theme waves-effect waves-light cancel modal-close">NO</button>
+      <button type="submit" class="btn btn-theme waves-effect waves-light" name="button" ng-click="servicedelete()">YES</button>
+    </div>
+  </div>
+</div>
+
 <div class="container">
   <div class="section">
   <div class="decor-div white z-depth-1">
     <!-- <p class="caption">Tables are a nice way to organize a lot of data. We provide a few utility classes to help you style your table as easily as possible. In addition, to improve mobile experience, all tables on mobile-screen widths are centered automatically.</p> -->
     <div id="table-datatables">
-      <h4 class="header">List of all service items in the system</h4>
-      <div class="row">
-        <div class="col s12 m12 l12">
-          <table id="data-table-simple" class="responsive-table display" cellspacing="0">
-            <thead>
-              <tr>
-                <th>Service item name</th>
-                <th>Description</th>
-                <th>Amount</th>
-                <!-- <th>Make</th>
-                <th>Model</th> -->
-                <th class="center-align" colspan="2">Action</th>
-              </tr>
-            </thead>
+<div class="ul-main-six ulmc" >
+  <div class="bulk-upload-otr">
+      <p>
+          <b style="text-transform: uppercase;font-weight: 500;">Enter Service Data</b>
+          <!-- <b class="right">
+              <u>
+                  <a ui-sref="serviceview" target="_blank" class="black-text">View / Edit Service items</a>
+              </u>
+          </b> -->
+      </p>
+      <p>Use this option to upload data in bulk.</p>
+      <p>
+          <b>Note:</b>
+      </p>
+      <p>- For bulk upload to happen, You would need upload the service items data via. a Microsoft Excel file.</p>
+      <p>Step 1: Please download the MS Excel file format
+          <a href="http://www.dsaidemo.com/Service_items.xls" targer="_blank" style="color: #000;">
+              <b>
+                  <u>HERE</u>
+              </b>
+          </a>
+      </p>
+      <p>Step 2: Please DONT change the format. Just fill in the service items data in the provided MS Excel file.
+      </p>
+      <p>Step 3: Save the file in a folder on your computer.</p>
+      <p>Step 4: Tap on the "Select file" button below > Browse to the folder that contains the MS Excel file
+          you saved previously > Select the file and submit.</p>
+  </div>
+  <form ng-submit="uploadServiceFile()" name="serviceUploadForm" id="serviceUploadForm">
 
-            <tbody>
-              <tr ng-repeat="service in serviceList">
-                <td>{{ service.name }}</td>
-                <td>{{ service.description }}</td>
-                <td>{{ service.price }}</td>
-                <!-- <td>{{ service.make }}</td>
-                <td>{{ service.model }}</td> -->
-                 <td>
-                  <a ui-sref="home.serviceedit({id: service.id})"><button class="waves-effect waves-light btn grey darken-1" >Edit</button></a>
-                </td>
-                <td>
-                  <button class="waves-effect waves-light btn" ng-click="servicedelete(service.id, $index)">Delete</button>
-                </td>
-                <!-- <td>
-                  <a ui-sref="home.serviceedit({id: service.id})"><i class="material-icons dp48">edit</i></a>
-                  <a href="javascript:void(0)" ng-click="servicedelete(service.id, $index)"><i class="material-icons dp48">delete_forever</i></a>
-                </td> -->
-              </tr>
-            </tbody>
-          </table>
+      <div class="file-field input-field">
+          <div class="btn">
+              <span>Select file</span>
+              <input type="file" onchange="angular.element(this).scope().uploadServiceData(this.files)">
+          </div>
+          <div class="file-path-wrapper">
+              <input class="file-path validate" type="text">
+          </div>
+
+
+          <div id="card-alert" class="card red lighten-5" ng-if="already">
+              <div class="card-content red-text">
+                  <p ng-if="already.length!=0" style="color:#000">
+                      The following service items has been omitted ( as a service item with the same name exists for your dealership ) :
+                      <br>
+                  </p>
+                  <p ng-repeat="all in already">
+                      {{all.name}}</p>
+              </div>
+              <button type="button" ng-click="close()" class="close red-text" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+              </button>
+          </div>
+      </div>
+  </form>
+  <div class="center">
+      <p>OR you can add Service manually here
+          <!-- <b class="right cap_txt">
+              <u>
+                  <a ui-sref="serviceview" target="_blank" class="black-text">View / Edit Service items</a>
+              </u>
+          </b> -->
+      </p>
+
+  </div>
+
+  <div class="file-field input-field col s12">
+      <form class="formValidates" name="addServiceForm" id="formValidates" action="javascript:void(0);" ng-submit="addService()">
+          <div id="room_fileds" ng-repeat="ser in  [].constructor(totalserve) track by $index">
+              <div class="content">
+                  <div class="row">
+                      <div class="col m4 s12">
+                          <div class="input-field">
+                              <input type="text" id="name{{$index}}" name="name{{$index}}" required placeholder="Service item Name* " ng-model="serviceData[$index].name"
+                              />
+                          </div>
+                      </div>
+                      <div class="col m4 s12">
+                          <div class="input-field">
+                              <input type="text" id="des{{$index}}" name="des{{$index}}" required placeholder="Description" ng-model="serviceData[$index].description"
+                              />
+                          </div>
+                      </div>
+                      <div class="col m4 s12">
+                          <div class="row">
+                              <div class="col m8 s12 input-field">
+                                  <input type="number" name="amount{{$index}}" id="amount{{$index}}" required min="0" placeholder="Price*" ng-model="serviceData[$index].amount"
+                                  />
+                              </div>
+                              <div class="col m4 s12 center-align">
+                                  <input type="button" id="more_fields{{$index}}" ng-click="addservicediv();" class="btn btn-floating" value="+" style="margin-top: 15px;width: 45px;"
+                                  />
+                                  <input type="button" ng-hide="$index===0" id="more_fields{{$index}}{{$index}}" ng-click="removeservicediv($index);" class="btn btn-floating"
+                                      value="-" style="margin-top: 15px;width: 45px;" />
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="right-align" style="    position: static;margin: 0 0 3em;">
+              <button type="submit" class="btn waves-light waves-effect" style="margin-top: 10px;">Add above items</button>
+          </div>
+      </form>
+  </div>
+  <div id="table-datatables" style="margin-top:1em;display: inline-block;width: 100%;">
+      <div class="row">
+          <div>
+              <table id="data-table-simple" class="responsive-table display" cellspacing="0">
+                  <thead>
+                      <tr>
+                          <th>Service Item Name</th>
+                          <th>Description</th>
+                          <th>Price</th>
+                          <th class="center-align" colspan="2">Action</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr ng-repeat="service in serviceList">
+                          <td>{{service.name}}</td>
+                          <td>{{service.description}}</td>
+                          <td>{{service.price | currency}}</td>
+                          <td>
+                            <a ui-sref="home.serviceedit({id: service.id})"><button class="waves-effect waves-light btn grey darken-1" >Edit</button></a>
+                          </td>
+                          <td>
+                            <button class="waves-effect waves-light btn" ng-click="serviceDeleteAlert(service.id, $index)">Delete</button>
+                          </td>
+                      </tr>
+                      <tr ng-if="!serviceList.length">
+                          <td colspan="3">No service data added.</td>
+                      </tr>
+                  </tbody>
+              </table>
+          </div>
           <div ng-if="serviceCount>servicelimit" class="dataTables_info" id="data-table-simple_info" role="status" aria-live="polite">Showing {{servicestart + 1}}-{{servicestart + servicelimit}} of {{serviceCount}} entries</div>
           <div ng-if="serviceCount>servicelimit" class="dataTables_paginate paging_simple_numbers" id="data-table-simple_paginate">
             <a class="paginate_button previous disabled" aria-controls="data-table-simple" ng-class="{'disabled' : (servicepage==1)}" ng-click="servicepaginate(servicepage-1)" data-dt-idx="0" tabindex="0" id="data-table-simple_previous">Previous</a>
@@ -47,26 +160,12 @@
             </span>
             <a class="paginate_button next" ng-class="{'disabled' : (servicepage==servicetotalPages)}" ng-click="servicepaginate(servicepage+1)" aria-controls="data-table-simple" data-dt-idx="7" tabindex="0" id="data-table-simple_next">Next</a>
           </div>
-        </div>
       </div>
-    </div>
-    </div>
-    <br>
-   <!--  <div class="divider"></div>
- -->
   </div>
-  <!-- Floating Action Button -->
-  <div class="fixed-action-btn" style="bottom: 50px; right: 19px;">
-    <a class="btn-floating btn-large">
-      <i class="mdi-action-stars"></i>
-    </a>
-    <ul>
-      <li><a href="css-helpers.html" class="btn-floating red"><i class="large mdi-communication-live-help"></i></a></li>
-      <li><a href="app-widget.html" class="btn-floating yellow darken-1"><i class="large mdi-device-now-widgets"></i></a></li>
-      <li><a href="app-calendar.html" class="btn-floating green"><i class="large mdi-editor-insert-invitation"></i></a></li>
-      <li><a href="app-email.html" class="btn-floating blue"><i class="large mdi-communication-email"></i></a></li>
-    </ul>
-  </div>
-  <!-- Floating Action Button -->
+  
 </div>
-<!--end container-->
+</div>
+</div>
+</div>
+</div>
+

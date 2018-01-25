@@ -1,0 +1,222 @@
+<style>
+    .container .row {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+</style>
+<div class="container">
+    <div class="section">
+        <div class="decor-div white z-depth-1">
+            <!-- <p class="caption">USER LIST<br></p> -->
+            <div id="table-datatables">
+                <div class="ul-main-two ulmc" ng-class="{'active': step==2}">
+                    <p style="padding:0;"> Appointment Scheduling Configuration</p>
+                    <form class="formValidate1" name="formValidate1" id="formValidate1" ng-submit="updateSetting1()">
+                        <div class="row s2">
+                            <div class="row if-label">
+                                <div class="margin m_b_25">
+                                    <label for="days_of_service">
+                                        <p style="padding:0;">
+                                            <b class="black-text" style="font-weight:500">Set Weekly Working Hours*</b>
+                                            <i class="material-icons tiny blue-text tooltipped" data-position="right" data-delay="50" data-tooltip="Text here">help_outline</i>
+                                        </p>
+                                    </label>
+                                    <ul class="collapsible">
+                                        <li>
+                                            <day-box day="settings.days_of_service.sunday" hours="hours" label="Sunday"></day-box>
+                                        </li>
+                                        <li>
+                                            <day-box day="settings.days_of_service.monday" hours="hours" label="Monday"></day-box>
+                                        </li>
+                                        <li>
+                                            <day-box day="settings.days_of_service.tuesday" hours="hours" label="Tuesday"></day-box>
+                                        </li>
+                                        <li>
+                                            <day-box day="settings.days_of_service.wednesday" hours="hours" label="Wedneday"></day-box>
+                                        </li>
+                                        <li>
+                                            <day-box day="settings.days_of_service.thursday" hours="hours" label="Thursday"></day-box>
+                                        </li>
+                                        <li>
+                                            <day-box day="settings.days_of_service.friday" hours="hours" label="Friday"></day-box>
+                                        </li>
+                                        <li>
+                                            <day-box day="settings.days_of_service.saturday" hours="hours" label="Saturday"></day-box>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                                <!-- <div class="margin col s12 temp_color">
+                                        <label for="template_color">
+                                            <p class="black-text" style="padding:0 5px 0 1px ;">Template Color*</p>
+                                        </label>
+                                        <input id="template_color" type="color" name="template_color" data-error=".errorTxt18" ng-model="settings.template_color">
+                                        <div class="errorTxt18"></div>
+                                    </div> -->
+                                <div class="row user-setting">
+                                    <p>Set Appointment Parameters
+                                        <i class="material-icons tiny blue-text tooltipped" data-position="right" data-delay="50" data-tooltip="Text here">help_outline</i>
+                                    </p>
+                                    <div class="margin col s12">
+                                        <label for="holidays" class="label-2 col m4 s12">Holidays</label>
+                                        <div class="holiday_box col m8 offset-m4" style="position: relative;top:-1.7em;">
+                                            <div class="chip" ng-hide="settings.holidays.length">Select Date</div>
+                                            <div class="chip" ng-repeat="dateT in settings.holidays">
+                                                {{dateT | date:format:'Y-m-d'}}&nbsp;&nbsp;
+                                                <i ng-click="settings.holidays.splice($index, 1)" class="material-icons">close</i>
+                                            </div>
+                                            <!-- <i class="datepickerholiday material-icons" >perm_contact_calendar</i> -->
+                                            <style>
+                                                input.datepickerholiday {
+                                                    background-image: url(https://image.flaticon.com/icons/svg/34/34389.svg);
+                                                    background-position: 0px -1px;
+                                                    background-repeat: no-repeat;
+                                                    background-size: contain;
+                                                    cursor: pointer;
+                                                    color: transparent;
+
+                                                }
+                                            </style>
+                                            <input class="datepickerholiday" style="height: 35px;width: 35px;border:none;" />
+                                            <!-- <i  style="font-size:36px !important;position:static;" class="material-icons add_circle" ng-click="showCalender()">perm_contact_calendar</i> -->
+                                        </div>
+                                    </div>
+                                    <div class="margin col s12">
+                                        <label for="is_mobile_app_needed" class="label-2 col m4 s12">Mobile App</label>
+
+                                        <input type="checkbox" class="filled-in col m7 s12 " id="filled-in-box" ng-model="settings.is_mobile_app_needed" />
+                                        <label for="filled-in-box" class="mbl_app" style="padding: 0px 0 0 35px !important;
+                                            margin-top: 20px;margin-bottom: 12px !important;">Mobile App</label>
+                                    </div>
+                                    <div class="margin col s12">
+                                        <label for="booking_before_time" class="label-2 col m4 s12">Earliest​ ​timeframe​ ​for​ ​online​ ​appointment​ ​setup​(Minutes)*</label>
+                                        <input id="booking_before_time" type="number" required name="booking_before_time" data-error=".errorTxt19" ng-model="settings.booking_before_time"
+                                            class="col m7 s12">
+                                        <div class="errorTxt19"></div>
+                                    </div>
+                                    <div class="margin col s12">
+                                        <label for="appointment_interval" class="label-2 col m4 s12">Service​ ​appointment​ ​interval​ ​for​ ​taking​ ​appointments(Minutes)*</label>
+                                        <select data-error=".errorTxt20" required class="browser-default col m7 s12" name="appointment_interval" id="appointment_interval"
+                                            ng-model="settings.appointment_interval">
+                                            <option ng-value="15">15 mins</option>
+                                            <option ng-value="30">30 mins</option>
+                                            <option ng-value="60">60 mins</option>
+                                        </select>
+                                        <div class="errorTxt20"></div>
+                                    </div>
+                                    <div class="margin col s12">
+                                        <label for="auto_cancel_appointment_time" class="label-2 col m4 s12">Auto​ ​cancel​ ​service​ ​appts​ ​for​ ​no​ ​shows​ ​after​ ​x​ Minutes*</label>
+                                        <input required id="auto_cancel_appointment_time" type="text" name="auto_cancel_appointment_time" data-error=".errorTxt21"
+                                            ng-model="settings.auto_cancel_appointment_time" class="col m7 s12">
+                                        <div class="errorTxt21"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="right-align">
+                            <button type="submit" id="stepTwo" class="btn waves-effect waves-light ul-2-btn camel-case">Update</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+      
+        $("#formValidate").validate({
+            rules: {
+                cname: {
+                    required: true
+                },
+                cemail: {
+                    required: true,
+                    email: true
+                },
+                cphone: {
+                    required: true,
+                    minlength: 10,
+                    maxlength: 10,
+                    // number:true
+                }
+            },
+            messages: {
+                cphone: {
+                    required: "Enter a Phonenumber",
+                    minlength: "Enter valid phone number",
+                    maxlength: "Enter valid phone number",
+                    number: "Enter valid phone number"
+                },
+            },
+            errorElement: 'div',
+            errorPlacement: function (error, element) {
+                var placement = $(element).data('error');
+                if (placement) {
+                    $(placement).append(error)
+                } else {
+                    error.insertAfter(element);
+                }
+            }
+        });
+    
+        $("#formValidate1").validate({
+            rules: {
+                auto_cancel_appointment_time: "required",
+                appointment_interval: "required",
+                booking_before_time: "required",
+                template_color: "required",
+                work_end_time: "required",
+                work_start_time: "required",
+            },
+    
+            errorElement: 'div',
+            errorPlacement: function (error, element) {
+                var placement = $(element).data('error');
+                if (placement) {
+                    $(placement).append(error)
+                } else {
+                    error.insertAfter(element);
+                }
+            }
+        });
+        $('.modal-trigger').leanModal();
+        $('.modal').leanModal();
+        $("#formValidates").validate({
+            rules: {
+                sname: {
+                    required: true
+                },
+                description: {
+                    required: true
+                },
+                amount: {
+                    required: true,
+                    number: true
+                }
+            },
+            //For custom messages
+            messages: {
+                sname: {
+                    required: "Enter a service name",
+                    minlength: "Enter at least 6 characters"
+                },
+                amount: {
+                    number: "Enter valid amount"
+                }
+            },
+            errorElement: 'div',
+            errorPlacement: function (error, element) {
+                var placement = $(element).data('error');
+                if (placement) {
+                    $(placement).append(error)
+                } else {
+                    error.insertAfter(element);
+                }
+            }
+        });
+    </script>
+    <script>
+      
+    
+    </script>   
