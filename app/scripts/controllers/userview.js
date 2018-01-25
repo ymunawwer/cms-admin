@@ -204,4 +204,33 @@ angular.module('dmsAdminApp')
       })
     };
 
+    $scope.userEdit = function (user) {
+      $scope.userData = user;
+      $scope.selectedroles = $scope.userData.roles;
+      $scope.roles.forEach(function(li, i) {
+        if($scope.userData.roles.indexOf(li.name) !== -1){
+          $scope.roles[i].status=true;
+        }else{
+          $scope.roles[i].status=false;
+        }
+      }); 
+      $('#userEdit').openModal({});
+    }
+    $scope.updateUser = function() {
+      if($scope.selectedroles.length==0){
+        Materialize.toast('<span>Please select atleast one roles</span>', 3000);
+        return false;
+      }
+      if ($scope.userAddForm.$valid) {
+        $scope.userData.roles = $scope.selectedroles;
+        userservice.updateUser({
+          id: $scope.userData._id
+        }, $scope.userData, function(data) {
+          if (data.statusCode == 200) {
+            $('#userEdit').closeModal({});
+            Materialize.toast('<span>' + data.message + '</span>', 3000);
+          }
+        })
+      }
+    }
   });
