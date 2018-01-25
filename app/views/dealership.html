@@ -1,0 +1,368 @@
+<style>
+    .container .row {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+    .decor-div {
+    padding: 1em 2em 2em 2em;
+    }
+    .p_style{
+        font-size: 15px;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 1em;
+    }
+    .step-1-check-outr span {
+    display: inline-block;
+    margin: 0 10px 10px 0;
+}
+.ul-main-one label {
+    font-size: 13px;
+    line-height: 25px;
+    padding: 20px 0 0!important;
+}
+ .ul-main-one [type="checkbox"]+label {
+    padding-left: 35px!important;
+    line-height: initial;
+    padding-top: 4px!important;
+}
+.ul-main-one input{
+    border-bottom: 1px solid #9e9e9e !important;
+}
+</style>
+<div class="container">
+    <div class="section">
+        <div class="decor-div white z-depth-1">
+            <!-- <p class="caption">USER LIST<br></p> -->
+            <div id="table-datatables">
+                <div class="ul-main-one ulmc">
+                    <p><b class="p_style">Enter Dealership Information</b></p>
+                    <form class="formValidate row" name="formValidate" id="formValidate" ng-submit="updateSetting()">
+                        <p><b class="p_style">Dealership Information</b>
+                            <i class="material-icons tiny blue-text tooltipped" data-position="right" data-delay="50" data-tooltip="Text here">help_outline</i>
+                        </p>
+                        <div class="col s12 pl11">
+                            <label for="cname" class="col m3 l2 s12">Name*</label>
+                            <input id="cname" name="cname" type="text" required data-error=".errorTxt1" ng-model="profileData.name" class="col m9 l10 s12">
+                            <div class="errorTxt1"></div>
+                        </div>
+                        <div class="col s12 pl11">
+                            <label for="cemail" class="col m3 l2 s12">Email*</label>
+                            <input id="cemail" type="email" name="cemail" required data-error=".errorTxt2" ng-model="profileData.email" class="col m9 l10 s12">
+                            <div class="errorTxt2"></div>
+                        </div>
+                        <div class="col s12 pl11">
+                            <label for="cphone" class="col m3 l2 s12">Phone*</label>
+                            <input id="cphone" type="text" name="cephone" max-length="10" min-length="10" required data-error=".errorTxt3" ng-model="profileData.phone"
+                                class="col m9 l10 s12">
+                            <div class="errorTxt3"></div>
+                        </div>
+                        <div ng-if="man">
+                            <div class="margin col s12 pl11">
+                                <label for="manufacturs" class="col m3 l2 s12">Dealer​ ​OEM​ ​Association</label>
+                                <select id="manufacturs" ng-disabled="settings.manufactur" ng-change="changeManufacture()" class="browser-default selection-corrector col m9 l10 s12"
+                                    name="manufacturs" ng-model="settings.manufactur" style="margin: 0 0 20px;">
+                                    <option ng-repeat="man in manufactureList" value="{{man._id}}">{{man.name}}</option>
+                                </select>
+                            </div>
+                            <div class="margin col s12 pl11">
+                                <label for="manufactur" class="col m3 l2 s12" style="padding-top:0 !important;">Makes</label>
+                                <!-- <select id="manufactur" style="height:123px;" ng-disabled="settings.manufactur" multiple class="browser-default selection-corrector col m9 l10 s12"
+                            name="manufactur" ng-model="settings.make" style="margin: 0 0 20px;">
+                            <option ng-repeat="make in makesList" value="{{make._id}}">{{make.name}}</option>
+                        </select> -->
+                                <span class="col m9 l10 s12 step-1-check-outr">
+                                    <span ng-repeat="make in makesList">
+                                        <input type="checkbox" disabled class="filled-in" ng-click="changeMake(make)" id="test{{make._id}}" ng-checked="settings.make.indexOf(make._id) !== -1"
+                                        />
+                                        <label for="test{{make._id}}">{{make.name}}</label>
+                                    </span>
+
+                                </span>
+
+                            </div>
+                        </div>
+                        <div ng-if="!man">
+                            <div class="margin col s12 pl11">
+                                <label for="manufacturs" class="col m3 l2 s12">Dealer​ ​OEM​ ​Association</label>
+                                <select id="manufacturs" ng-change="changeManufacture()" class="browser-default selection-corrector col m9 l10 s12" name="manufacturs"
+                                    ng-model="settings.manufactur" style="margin: 0 0 20px;">
+                                    <option value="">Indepentant</option>
+                                    <option ng-repeat="man in manufactureList" value="{{man._id}}">{{man.name}}</option>
+                                </select>
+                            </div>
+                            <div class="margin col s12 pl11">
+                                <label for="manufactur" class="col m3 l2 s12">Makes</label>
+                                <!-- <select id="manufactur" style="height:123px;" multiple class="browser-default selection-corrector col m9 l10 s12" name="manufactur" ng-model="settings.make"
+                            style="margin: 0 0 20px;">
+                            <option ng-repeat="make in makesList" value="{{make._id}}">{{make.name}}</option>
+                        </select> -->
+                                <span class="col m9 l10 s12 step-1-check-outr">
+                                    <span ng-repeat="make in makesList">
+                                        <input type="checkbox" class="filled-in" ng-click="changeMake(make)" id="test{{make._id}}" />
+                                        <label for="test{{make._id}}">{{make.name}}</label>
+                                    </span>
+
+                                </span>
+                            </div>
+                        </div>
+                        <!-- <div class=" margin">
+                    <a class="waves-effect waves-light btn modal-trigger grey darken-2 modal-anchor" href="#modal1">Change Password</a>
+                </div> -->
+                        <!-- <div class="input-field col s12">
+                <button class="btn waves-effect waves-light right submit" type="submit" name="action">
+                    Submit
+                    <i class="mdi-content-send right"></i>
+                </button>
+            </div> -->
+                        <div class="row user-setting">
+                            <p style="display: inline-block;"><b class="p_style">Primary Contact</b>
+                                <i class="material-icons tiny blue-text tooltipped" data-position="right" data-delay="50" data-tooltip="Text here">help_outline</i>
+                            </p>
+                            <div>
+                                <label for="pcname" class="col m3 l2 s12">Name*</label>
+                                <input id="pcname" name="pcname" required type="text" data-error=".errorTxt4" ng-model="settings.primary_contact.name" class="col m9 l10 s12">
+                                <div class="errorTxt4"></div>
+                            </div>
+                            <div>
+                                <label for="pcemail" class="col m3 l2 s12">Email *</label>
+                                <input id="pcemail" type="email" required name="pcemail" data-error=".errorTxt5" ng-model="settings.primary_contact.email"
+                                    class="col m9 l10 s12">
+                                <div class="errorTxt5"></div>
+                            </div>
+                            <div>
+                                <label for="pcphone" class="col m3 l2 s12">Phone *</label>
+                                <input id="pcphone" type="text" required name="pcphone" data-error=".errorTxt6" ng-model="settings.primary_contact.phone"
+                                    class="col m9 l10 s12">
+                                <div class="errorTxt6"></div>
+                            </div>
+                            <div>
+                                <label for="pctitle" class="col m3 l2 s12">Title*</label>
+                                <input id="pctitle" type="text" required class="browser-default selection-corrector col m9 l10 s12" name="pctitle" ng-model="settings.primary_contact.title">
+                                <div class="errorTxt41"></div>
+                            </div>
+                        </div>
+                        <div class="row user-setting">
+                            <p><b class="p_style">Contact for Invoicing</b>
+                                <i class="material-icons tiny blue-text tooltipped" data-position="right" data-delay="50" data-tooltip="Text here">help_outline</i>&nbsp;&nbsp; &nbsp;
+                                <span>
+                                    <input type="checkbox" id="secondCheck" ng-change="primeToSecondary()" ng-model="secondCheck" />
+                                    <label for="secondCheck">My all contact is the same as my primary contact</label>
+                                </span>
+                            </p>
+                            <div>
+                                <label for="scname" class="col m3 l2 s12">Name</label>
+                                <input id="scname" type="text" name="scname" data-error=".errorTxt8" ng-model="settings.secondary_contact.name" class="col m9 l10 s12">
+                                <div class="errorTxt7"></div>
+                            </div>
+                            <div>
+                                <label for="scemail" class="col m3 l2 s12">Email </label>
+                                <input id="scemail" type="email" name="scemail" data-error=".errorTxt8" ng-model="settings.secondary_contact.email" class="col m9 l10 s12">
+                                <div class="errorTxt8"></div>
+                            </div>
+                            <div>
+                                <label for="scphone" class="col m3 l2 s12">Phone </label>
+                                <input id="scphone" type="text" name="scphone" data-error=".errorTxt9" ng-model="settings.secondary_contact.phone" class="col m9 l10 s12">
+                                <div class="errorTxt9"></div>
+                            </div>
+                            <div>
+                                <label for="pctitle" class="col m3 l2 s12">Title*</label>
+                                <input id="pctitle" type="text" required class="browser-default selection-corrector col m9 l10 s12" name="pctitle" ng-model="settings.secondary_contact.title">
+                                <div class="errorTxt41"></div>
+                            </div>
+                        </div>
+                        <!-- <div class="row user-setting">
+                    <p>Details to be displayed on invoice
+                        <i class="material-icons tiny blue-text tooltipped" data-position="right" data-delay="50" data-tooltip="Text here">help_outline</i>
+                    </p>
+
+                    <div class="input-field col s12">
+                        <label for="dnname">Name</label>
+                        <input id="dnname" name="dnname" type="text" data-error=".errorTxt10" ng-model="settings.invoice_contact.name">
+                        <div class="errorTxt10"></div>
+                    </div>
+                    <div class="input-field col s12">
+                        <label for="dnaddress">Address</label>
+                        <input id="dnaddress" name="dnaddress" type="text" ng-model="settings.invoice_contact.address">
+                        <div class="errorTxt100"></div>
+                    </div>
+                    <div class="input-field col s12">
+                        <label for="dnphone">Phone</label>
+                        <input id="dnphone" type="text" name="dnphone" data-error=".errorTxt12" ng-model="settings.invoice_contact.phone">
+                        <div class="errorTxt12"></div>
+                    </div>
+
+                    <div class="input-field col s12">
+                        <label for="dnurl">Website </label>
+                        <input id="dnurl" type="url" name="dnurl" placeholder="http://www.cleantech.com" ng-model="settings.invoice_contact.website">
+                        <div class="errorTxt11"></div>
+                    </div>
+
+                    <div class="input-field col s12">
+                        <label for="dnemail">Email </label>
+                        <input id="dnemail" type="email" name="dnemail" data-error=".errorTxt11" ng-model="settings.invoice_contact.email">
+                        <div class="errorTxt11"></div>
+                    </div>
+                </div> -->
+                        <div class="row user-setting">
+                            <p class="p_style">Contact details for customers
+                                <i class="material-icons tiny blue-text tooltipped" data-position="right" data-delay="50" data-tooltip="Text here">help_outline</i>
+                                &nbsp;&nbsp; &nbsp;
+                                <span>
+                                    <input type="checkbox" id="secondCheck1" ng-change="primeToSecondary1()" ng-model="secondCheck1" / class="col m9 l10 s12">
+                                    <label for="secondCheck1">My all details is the same as my details to be displayed on invoice</label>
+                                </span>
+                            </p>
+
+                            <div>
+                                <label for="cdcname" class="col m3 l2 s12">Name </label>
+                                <input id="cdcname" name="cdcname" type="text" data-error=".errorTxt13" ng-model="settings.contact_to_show_customer.name"
+                                    class="col m9 l10 s12">
+                                <div class="errorTxt13"></div>
+                            </div>
+                            <div>
+                                <label for="cdcaddress" class="col m3 l2 s12">Address</label>
+                                <input id="cdcaddress" name="cdcaddress" type="text" ng-model="settings.contact_to_show_customer.address" class="col m9 l10 s12">
+                                <div class="errorTxt1012"></div>
+                            </div>
+                            <div>
+                                <label for="cdcphone" class="col m3 l2 s12">Phone </label>
+                                <input id="cdcphone" type="text" name="cdcphone" data-error=".errorTxt15" ng-model="settings.contact_to_show_customer.phone"
+                                    class="col m9 l10 s12">
+                                <div class="errorTxt15"></div>
+                            </div>
+                            <div>
+                                <label for="cdcurl" class="col m3 l2 s12">Website</label>
+                                <input id="cdcurl" type="url" name="cdcurl" placeholder="http://www.cleantech.com" data-error=".errorTxt1523" ng-model="settings.contact_to_show_customer.website"
+                                    class="col m9 l10 s12">
+                                <div class="errorTxt1523"></div>
+                            </div>
+                            <div>
+                                <label for="cdcemail" class="col m3 l2 s12">Email </label>
+                                <input id="cdcemail" type="email" name="cdcemail" data-error=".errorTxt14" ng-model="settings.contact_to_show_customer.email"
+                                    class="col m9 l10 s12">
+                                <div class="errorTxt144"></div>
+                            </div>
+                        </div>
+                        <div class="right-align">
+                            <button type="submit" id="stepOne" class="btn waves-effect waves-light ul-1-btn camel-case">Update</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+      
+        $("#formValidate").validate({
+            rules: {
+                cname: {
+                    required: true
+                },
+                cemail: {
+                    required: true,
+                    email: true
+                },
+                cphone: {
+                    required: true,
+                    minlength: 10,
+                    maxlength: 10,
+                    // number:true
+                }
+            },
+            messages: {
+                cphone: {
+                    required: "Enter a Phonenumber",
+                    minlength: "Enter valid phone number",
+                    maxlength: "Enter valid phone number",
+                    number: "Enter valid phone number"
+                },
+            },
+            errorElement: 'div',
+            errorPlacement: function (error, element) {
+                var placement = $(element).data('error');
+                if (placement) {
+                    $(placement).append(error)
+                } else {
+                    error.insertAfter(element);
+                }
+            }
+        });
+    
+        $("#formValidate1").validate({
+            rules: {
+                auto_cancel_appointment_time: "required",
+                appointment_interval: "required",
+                booking_before_time: "required",
+                template_color: "required",
+                work_end_time: "required",
+                work_start_time: "required",
+            },
+    
+            errorElement: 'div',
+            errorPlacement: function (error, element) {
+                var placement = $(element).data('error');
+                if (placement) {
+                    $(placement).append(error)
+                } else {
+                    error.insertAfter(element);
+                }
+            }
+        });
+        $('.modal-trigger').leanModal();
+        $('.modal').leanModal();
+        $("#formValidates").validate({
+            rules: {
+                sname: {
+                    required: true
+                },
+                description: {
+                    required: true
+                },
+                amount: {
+                    required: true,
+                    number: true
+                }
+            },
+            //For custom messages
+            messages: {
+                sname: {
+                    required: "Enter a service name",
+                    minlength: "Enter at least 6 characters"
+                },
+                amount: {
+                    number: "Enter valid amount"
+                }
+            },
+            errorElement: 'div',
+            errorPlacement: function (error, element) {
+                var placement = $(element).data('error');
+                if (placement) {
+                    $(placement).append(error)
+                } else {
+                    error.insertAfter(element);
+                }
+            }
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $('.tooltipped').tooltip({ delay: 50 });
+            $(".button-collapse").sideNav();
+    
+    
+        });
+        $('.dropdown-button').dropdown({
+            inDuration: 300,
+            outDuration: 225,
+            constrainWidth: false, // Does not change width of dropdown to that of the activator
+            hover: true, // Activate on hover
+            gutter: 0, // Spacing from edge
+            belowOrigin: false, // Displays dropdown below the button
+            alignment: 'left', // Displays dropdown with edge aligned to the left of button
+            stopPropagation: false // Stops event propagation
+        });
+    
+    </script>

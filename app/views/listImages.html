@@ -1,15 +1,32 @@
-<div class="container image-wrapper">
+
+<div class="container">
   <div class="section">
-    <div class="row">
-      <div class="col s6 m3 image-container" ng-repeat="image in imageList">
-        <img class="responsive-img z-depth-1 oml_img" src="{{ image.picture.url }}" alt="" >
-        <div class="close" ng-click="deleteRemove(image.id, $index)">
-          <i class="material-icons dp48 oml_icon">close</i>
+    <div class="decor-div white z-depth-1">
+       <a ui-sref="home.add-image" style="display: inline-block;width: 100%;text-align:right;">
+          <i class="material-icons orange-text" style="font-size: 36px !important">control_point</i>
+          <!-- <span class="view_icon"></span> -->
+        </a>
+      <!-- <p class="caption">Tables are a nice way to organize a lot of data. We provide a few utility classes to help you style your table as easily as possible. In addition, to improve mobile experience, all tables on mobile-screen widths are centered automatically.</p> -->
+      <div id="table-datatables">
+        <!-- <center> <h4> Marketing</h4></center> -->
+       
+
+        <div class="container image-wrapper">
+          <div class="section">
+            <div class="row">
+              <div class="col s6 m3 image-container" ng-repeat="image in imageList">
+                <img class="responsive-img z-depth-1 oml_img" src="{{ image.picture.url }}" alt="">
+                <div class="close" ng-click="deleteRemove(image.id, $index)">
+                  <i class="material-icons dp48 oml_icon">close</i>
+                </div>
+              </div>
+            </div>
+            <div class="" ng-show="imageList.length == 0">
+              <h4>No Images</h4>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="" ng-show="imageList.length == 0">
-      <h4>No Images</h4>
     </div>
   </div>
 </div>
