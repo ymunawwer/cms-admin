@@ -3,6 +3,68 @@
         margin-left: 0 !important;
         margin-right: 0 !important;
     }
+    .p_style{
+        font-size: 15px;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 1em;
+    }
+    .decor-div {
+    padding: 1em 2em 2em 2em;
+    }
+    .collapsible-body {
+    display: block !important;
+    }
+    .ul-main-two .collapsible {
+    box-shadow: none;
+    border: 1px solid #ddd!important;
+    border-bottom: none!important;
+    margin: 1em 0;
+}
+.ul-main-two .collapsible-body div label {
+    left: 0!important;
+    display: inline-block;
+    text-align: center;
+    padding-top: 2em;
+    font-size: 13px;
+}
+.switch label input[type=checkbox]:checked+.lever {
+    background-color: #fdbe8e;
+}
+.switch label input[type=checkbox]:checked+.lever:after {
+    background-color: #f27617;
+}
+.s2 select {
+    border: 1px solid #ddd;
+    margin: 1em 0;
+}
+.ul-main-two .user-setting label {
+    font-size: 13px;
+    line-height: 25px;
+    padding: 20px 0 0!important;
+}
+#table-datatables td, #table-datatables th {
+    padding: 0;
+    border: none;
+    background: transparent;
+}
+.picker__date-display, .picker__day--selected, .picker__day--selected:hover, .picker--focused .picker__day--selected {
+    background-color: #f27518;
+}
+.picker__weekday-display {
+    background-color: #d05e09;
+    font-weight: 400;
+}
+.picker__select--year.browser-default, .picker__select--month.browser-default {
+    margin: 0 0 15px;
+    border: none;
+}
+.picker__day.picker__day--today, .picker__close, .picker__today {
+    color: #f27518;
+}
+.ul-main-two .chip {
+    margin: 4px;
+}
 </style>
 <div class="container">
     <div class="section">
@@ -10,14 +72,14 @@
             <!-- <p class="caption">USER LIST<br></p> -->
             <div id="table-datatables">
                 <div class="ul-main-two ulmc" ng-class="{'active': step==2}">
-                    <p style="padding:0;"> Appointment Scheduling Configuration</p>
+                    <p style="padding:0;" class="p_style"> Appointment Scheduling Configuration</p>
                     <form class="formValidate1" name="formValidate1" id="formValidate1" ng-submit="updateSetting1()">
                         <div class="row s2">
                             <div class="row if-label">
                                 <div class="margin m_b_25">
                                     <label for="days_of_service">
                                         <p style="padding:0;">
-                                            <b class="black-text" style="font-weight:500">Set Weekly Working Hours*</b>
+                                            <b class="black-text p_style" style="font-weight:500">Set Weekly Working Hours*</b>
                                             <i class="material-icons tiny blue-text tooltipped" data-position="right" data-delay="50" data-tooltip="Text here">help_outline</i>
                                         </p>
                                     </label>
@@ -54,7 +116,7 @@
                                         <div class="errorTxt18"></div>
                                     </div> -->
                                 <div class="row user-setting">
-                                    <p>Set Appointment Parameters
+                                    <p class="p_style">Set Appointment Parameters
                                         <i class="material-icons tiny blue-text tooltipped" data-position="right" data-delay="50" data-tooltip="Text here">help_outline</i>
                                     </p>
                                     <div class="margin col s12">

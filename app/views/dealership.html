@@ -3,6 +3,32 @@
         margin-left: 0 !important;
         margin-right: 0 !important;
     }
+    .decor-div {
+    padding: 1em 2em 2em 2em;
+    }
+    .p_style{
+        font-size: 15px;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 1em;
+    }
+    .step-1-check-outr span {
+    display: inline-block;
+    margin: 0 10px 10px 0;
+}
+.ul-main-one label {
+    font-size: 13px;
+    line-height: 25px;
+    padding: 20px 0 0!important;
+}
+ .ul-main-one [type="checkbox"]+label {
+    padding-left: 35px!important;
+    line-height: initial;
+    padding-top: 4px!important;
+}
+.ul-main-one input{
+    border-bottom: 1px solid #9e9e9e !important;
+}
 </style>
 <div class="container">
     <div class="section">
@@ -10,9 +36,9 @@
             <!-- <p class="caption">USER LIST<br></p> -->
             <div id="table-datatables">
                 <div class="ul-main-one ulmc">
-                    <p>Enter Dealership Information</p>
+                    <p><b class="p_style">Enter Dealership Information</b></p>
                     <form class="formValidate row" name="formValidate" id="formValidate" ng-submit="updateSetting()">
-                        <p>Dealership Information
+                        <p><b class="p_style">Dealership Information</b>
                             <i class="material-icons tiny blue-text tooltipped" data-position="right" data-delay="50" data-tooltip="Text here">help_outline</i>
                         </p>
                         <div class="col s12 pl11">
@@ -90,7 +116,7 @@
                 </button>
             </div> -->
                         <div class="row user-setting">
-                            <p>Primary Contact
+                            <p style="display: inline-block;"><b class="p_style">Primary Contact</b>
                                 <i class="material-icons tiny blue-text tooltipped" data-position="right" data-delay="50" data-tooltip="Text here">help_outline</i>
                             </p>
                             <div>
@@ -117,7 +143,7 @@
                             </div>
                         </div>
                         <div class="row user-setting">
-                            <p>Contact for Invoicing
+                            <p><b class="p_style">Contact for Invoicing</b>
                                 <i class="material-icons tiny blue-text tooltipped" data-position="right" data-delay="50" data-tooltip="Text here">help_outline</i>&nbsp;&nbsp; &nbsp;
                                 <span>
                                     <input type="checkbox" id="secondCheck" ng-change="primeToSecondary()" ng-model="secondCheck" />
@@ -179,7 +205,7 @@
                     </div>
                 </div> -->
                         <div class="row user-setting">
-                            <p>Contact details for customers
+                            <p class="p_style">Contact details for customers
                                 <i class="material-icons tiny blue-text tooltipped" data-position="right" data-delay="50" data-tooltip="Text here">help_outline</i>
                                 &nbsp;&nbsp; &nbsp;
                                 <span>
