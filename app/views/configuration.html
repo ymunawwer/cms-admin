@@ -59,8 +59,23 @@
     .switch label input[type=checkbox]:checked+.lever:after {
         background-color: #f27617;
     }
+    .dropdown-content {
+    border-radius: 3px;
+    top: 3em !important;
+}
+.dropdown-content li>a, .dropdown-content li>span {
+    font-size: 16px;
+    color: #26a69a;
+    display: block;
+    line-height: 22px;
+    padding: 14px 16px;
+}
 </style>
-
+ 
+  <!-- Dropdown Structure -->
+  <ul id='dropdown1' class='dropdown-content'>
+    <li><a href="#!">Logout</a></li>
+  </ul>
 <div class="main-slide-outer">
     <!-- END HnEADER -->
     <ul id="slide-out" class="side-nav">
@@ -470,7 +485,7 @@
                                 <option ng-repeat="man in manufactureList" value="{{man._id}}">{{man.name}}</option>
                             </select>
                         </div>
-                        <div class="margin col s12 pl11">
+                        <div class="margin col s12 pl11" style="margin:7px 0 10px !important;">
                             <label for="manufactur" class="col m3 l2 s12" style="padding-top:0 !important;">Makes</label>
                             <!-- <select id="manufactur" style="height:123px;" ng-disabled="settings.manufactur" multiple class="browser-default selection-corrector col m9 l10 s12"
                                 name="manufactur" ng-model="settings.make" style="margin: 0 0 20px;">
@@ -693,7 +708,7 @@
                                 </p>
                                 <div class="margin col s12">
                                     <label for="holidays" class="label-2 col m4 s12">Holidays</label>
-                                    <div class="holiday_box col m8 offset-m4" style="position: relative;top:-1.7em;">
+                                    <div class="holiday_box col m8 offset-m4" style="position: relative;top:-1.7em;padding-left:0;">
                                         <div class="chip" ng-hide="settings.holidays.length">Select Date</div>
                                         <div class="chip" ng-repeat="dateT in settings.holidays">
                                             {{dateT | date:format:'Y-m-d'}}&nbsp;&nbsp;
@@ -881,7 +896,7 @@
                         <b style="text-transform: uppercase;font-weight: 500;">Step 6: Enter Service Data</b>
                         <b class="right">
                             <u>
-                                <a ui-sref="serviceview" target="_blank" class="black-text">View / Edit Service items</a>
+                                <a ui-sref="serviceview" target="_blank" class="black-text">View / Edit Service Items</a>
                             </u>
                         </b>
                     </p>
@@ -934,7 +949,7 @@
                     <p>OR you can add Service manually here
                         <b class="right cap_txt">
                             <u>
-                                <a ui-sref="serviceview" target="_blank" class="black-text">View / Edit Service items</a>
+                                <a ui-sref="serviceview" target="_blank" class="black-text">View / Edit Service Items</a>
                             </u>
                         </b>
                     </p>
