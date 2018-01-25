@@ -78,61 +78,61 @@
             </div>
         </li>
         <ui>
-                <li class="bold" ui-sref-active="active">
-                  <a ui-sref="home.dashboard" class="waves-effect waves-cyan slide-last-a">
+            <li class="bold" ui-sref-active="active">
+                <a ui-sref="home.dashboard" class="waves-effect waves-cyan slide-last-a">
                     <i class="mdi-action-dashboard"></i> Dashboard
-                  </a>
-                </li>
-              </ui>
-              <ui>
-                <li class="bold" ui-sref-active="active">
-                  <a ui-sref="home.dealership" class="waves-effect waves-cyan slide-last-a">
+                </a>
+            </li>
+        </ui>
+        <ui>
+            <li class="bold" ui-sref-active="active">
+                <a ui-sref="home.dealership" class="waves-effect waves-cyan slide-last-a">
                     <i class="mdi-action-query-builder"></i> Dealership Information
-                  </a>
-                </li>
-              </ui>
-              <ui>
-                <li class="bold" ui-sref-active="active">
-                  <a ui-sref="home.scheduling" class="waves-effect waves-cyan slide-last-a">
+                </a>
+            </li>
+        </ui>
+        <ui>
+            <li class="bold" ui-sref-active="active">
+                <a ui-sref="home.scheduling" class="waves-effect waves-cyan slide-last-a">
                     <i class="mdi-action-assignment-ind"></i> Appointment Scheduling
-                  </a>
-                </li>
-              </ui>
-              <ui>
-                <li class="bold" ui-sref-active="active">
-                  <a ui-sref="home.list-image" class="waves-effect waves-cyan slide-last-a">
+                </a>
+            </li>
+        </ui>
+        <ui>
+            <li class="bold" ui-sref-active="active">
+                <a ui-sref="home.list-image" class="waves-effect waves-cyan slide-last-a">
                     <i class="mdi-action-loyalty"></i> Marketing
-                  </a>
-                </li>
-              </ui>
-              <ui>
-                <li class="bold" ui-sref-active="active">
-                  <a ui-sref="home.serviceview" class="waves-effect waves-cyan slide-last-a">
+                </a>
+            </li>
+        </ui>
+        <ui>
+            <li class="bold" ui-sref-active="active">
+                <a ui-sref="home.serviceview" class="waves-effect waves-cyan slide-last-a">
                     <i class="mdi-action-account-box"></i> Service Data
-                  </a>
-                </li>
-              </ui>
-              <ui>
-                <li class="bold" ui-sref-active="active">
-                  <a ui-sref="home.userview" class="waves-effect waves-cyan slide-last-a">
+                </a>
+            </li>
+        </ui>
+        <ui>
+            <li class="bold" ui-sref-active="active">
+                <a ui-sref="home.userview" class="waves-effect waves-cyan slide-last-a">
                     <i class="mdi-social-people"></i> Users
-                  </a>
-                </li>
-              </ui>
-              <ul>
-                <li class="bold" ui-sref-active="active">
-                  <a ui-sref="home.list-offer" class="waves-effect waves-cyan slide-last-a">
+                </a>
+            </li>
+        </ui>
+        <ul>
+            <li class="bold" ui-sref-active="active">
+                <a ui-sref="home.list-offer" class="waves-effect waves-cyan slide-last-a">
                     <i class="mdi-maps-local-offer"></i> Maintenance Schedule Offer
-                  </a>
-                </li>
-              </ul>
-              <ul>
-                <li class="bold" ui-sref-active="active">
-                  <a href="javascript:void(0)" ui-sref="configuration" class=" waves-effect waves-cyan slide-last-a">
-                    <i class="mdi-action-settings-applications"></i> Settings
-                  </a>
-                </li>
-              </ul>
+                </a>
+            </li>
+        </ul>
+        <ul>
+            <li class="bold" ui-sref-active="active">
+                <a href="javascript:void(0)" ui-sref="configuration" class=" waves-effect waves-cyan slide-last-a">
+                    <i class="mdi-action-settings-applications"></i> Wizard
+                </a>
+            </li>
+        </ul>
 
     </ul>
     <a href="javascript:void(0)" ng-show="settings.finish_status==true" data-activates="slide-out" class="button-collapse">
@@ -343,7 +343,6 @@
     .span_holiday_check label {
         padding-left: 26px !important;
     }
-    
 </style>
 <div class="container"></div>
 <div class="dealer-wizard z-depth-1 white" ng-show="!isStarted && !settings.current_step_in_wizard">
@@ -397,7 +396,7 @@
         </div>
         <div class="ul-outer z-depth-1 white center-align">
             <ul>
-                    
+
                 <li ng-click="nextStep(1)" class="li-1" ng-class="{'active': (step==1 ), 'done-li': (settings.steps_completed_in_wizard.indexOf(1) !== -1)}">Step 1
                     <p>Enter Dealership Information</p>
                 </li>
@@ -451,6 +450,18 @@
                             class="col m9 l10 s12">
                         <div class="errorTxt3"></div>
                     </div>
+                    <div>
+                            <label for="cdcaddress" class="col m3 l2 s12">Address</label>
+                            <input id="cdcaddress" name="cdcaddress" type="text" ng-model="settings.primary_contact.address" class="col m9 l10 s12">
+                            <div class="errorTxt1012"></div>
+                        </div>
+
+                        <div>
+                            <label for="cdcurl" class="col m3 l2 s12">Website</label>
+                            <input id="cdcurl" type="url" name="cdcurl" placeholder="http://www.cleantech.com" data-error=".errorTxt1523" ng-model="settings.primary_contact.website"
+                                class="col m9 l10 s12">
+                            <div class="errorTxt1523"></div>
+                        </div>
                     <div ng-if="man">
                         <div class="margin col s12 pl11">
                             <label for="manufacturs" class="col m3 l2 s12">Dealer​ ​OEM​ ​Association</label>
@@ -615,21 +626,10 @@
                             <div class="errorTxt13"></div>
                         </div>
                         <div>
-                            <label for="cdcaddress" class="col m3 l2 s12">Address</label>
-                            <input id="cdcaddress" name="cdcaddress" type="text" ng-model="settings.contact_to_show_customer.address" class="col m9 l10 s12">
-                            <div class="errorTxt1012"></div>
-                        </div>
-                        <div>
                             <label for="cdcphone" class="col m3 l2 s12">Phone </label>
                             <input id="cdcphone" type="text" name="cdcphone" data-error=".errorTxt15" ng-model="settings.contact_to_show_customer.phone"
                                 class="col m9 l10 s12">
                             <div class="errorTxt15"></div>
-                        </div>
-                        <div>
-                            <label for="cdcurl" class="col m3 l2 s12">Website</label>
-                            <input id="cdcurl" type="url" name="cdcurl" placeholder="http://www.cleantech.com" data-error=".errorTxt1523" ng-model="settings.contact_to_show_customer.website"
-                                class="col m9 l10 s12">
-                            <div class="errorTxt1523"></div>
                         </div>
                         <div>
                             <label for="cdcemail" class="col m3 l2 s12">Email </label>
