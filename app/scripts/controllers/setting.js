@@ -93,7 +93,7 @@ angular.module('dmsAdminApp')
               $scope.step = 2;
               $('html, body').animate({
                 scrollTop: 0
-            }, 'fast');
+              }, 'fast');
               // Materialize.toast('<span>' + message + '</span>', 3000);
             } else {
               var message = data.statusMessage;
@@ -127,7 +127,7 @@ angular.module('dmsAdminApp')
         })
       }
     });
-    $scope.showCalender = function(){$picker.open();};
+    $scope.showCalender = function () { $picker.open(); };
     $scope.updateSetting1 = function () {
       if ($scope.formValidate1.$valid) {
         $scope.settings.holidays = $scope.settings.holidays && $scope.settings.holidays.length ?
@@ -237,6 +237,7 @@ angular.module('dmsAdminApp')
             $scope.already = data.body.already;
 
           }
+          $scope.services = data.body.result ? $scope.services.concat(data.body.result): $scope.services;
           var add = 0;
           for (var i = 0; i < data.body.result.length; i++) {
             if (data.body.result[i] != null) add++;
@@ -266,6 +267,26 @@ angular.module('dmsAdminApp')
         $('#addCustomerForm').submit();
       }
     }
+    $scope.getServices = function () {
+      serviceservice.getServiceList({
+      }, {}, function (data) {
+        if (data.statusCode == 200) {
+          $scope.serviceCount = data.body.count;
+          $scope.services = data.body.services;
+        }
+      });
+    };
+    $scope.getUsers = function () {
+      userservice.getUserList({
+      }, {}, function (data) {
+        if (data.statusCode == 200) {
+          $scope.userCount = data.body.count;
+          $scope.users = data.body.users;
+        }
+      })
+    };
+    $scope.getServices();
+    $scope.getUsers();
     $scope.nextStep = function (stage, skip) {
       console.log('NEXT STEP FUNCTION', stage);
       $scope.isStarted = true;
@@ -353,7 +374,7 @@ angular.module('dmsAdminApp')
       }
       $('html, body').animate({
         scrollTop: 0
-    }, 'fast');
+      }, 'fast');
     }
 
     imageService.getImage({}, {}, function (data) {
@@ -547,6 +568,7 @@ angular.module('dmsAdminApp')
 
         serviceservice.addBulkService({}, $scope.serviceData, function (data) {
           if (data.statusCode === 200) {
+            $scope.services = data.body.result ? $scope.services.concat(data.body.result): $scope.services;
             if (data.body.already.length != 0) {
               var string = '';
               for (var i = 0; i < data.body.already.length; i++) {
@@ -587,6 +609,7 @@ angular.module('dmsAdminApp')
             $scope.alreadyu = data.body.already;
 
           }
+          $scope.users= data.body.result ?  $scope.users.concat(data.body.result) : $scope.users;
           var add = 0;
           for (var i = 0; i < data.body.result.length; i++) {
             if (data.body.result[i] != null) add++;
@@ -612,12 +635,15 @@ angular.module('dmsAdminApp')
       if ($scope.addUsersForm.$valid) {
         userservice.addBulkUser({}, $scope.userData, function (data) {
           if (data.statusCode === 200) {
+            $scope.users= data.body.result ?  $scope.users.concat(data.body.result) : $scope.users;
+            console.log( $scope.users)
             if (data.body.already.length != 0) {
               var string = '';
               for (var i = 0; i < data.body.already.length; i++) {
                 string = data.body.already[i].name + ',' + string;
               }
               $scope.alreadyu = data.body.already;
+              
 
             }
             var add = 0;
@@ -748,7 +774,7 @@ angular.module('dmsAdminApp')
       });
     }
   })
-  .directive('dayBox', function() {
+  .directive('dayBox', function () {
     return {
       restrict: 'E',
       scope: {
@@ -757,7 +783,7 @@ angular.module('dmsAdminApp')
         hours: '='
       },
       templateUrl: './views/day.html',
-      link: function(scope,elem,attr){
-    }
+      link: function (scope, elem, attr) {
+      }
     };
   })
