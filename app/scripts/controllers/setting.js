@@ -12,6 +12,7 @@ angular.module('dmsAdminApp')
     $scope.isStarted = false;
     $scope.settings = {};
     $scope.settings.primary_contact = {};
+    $scope.settings.steps_completed_in_wizard = [];
     $scope.settings.secondary_contact = {};
     $scope.settings.invoice_contact = {};
     $scope.settings.contact_to_show_customer = {};
@@ -19,13 +20,20 @@ angular.module('dmsAdminApp')
     settings.getSetting({}, {}, function (data) {
       $scope.settings = data.body.setting || {};
       $scope.man = $scope.settings.manufactur;
-      if ($scope.settings.finish_status == true) {
-        $scope.isStarted = true;
-        $scope.step = 1;
-        $scope.complete = 1 - 1;
-      }
+      // if ($scope.settings.finish_status == true) {
+      //   $scope.isStarted = true;
+      //   $scope.step = 1;
+      //   $scope.complete = 1 - 1;
+      // }
       $scope.selectmake = $scope.settings.make;
       $scope.settings.holidays = $scope.settings.holidays && $scope.settings.holidays.filter(onlyUnique);
+      $scope.settings.steps_completed_in_wizard = $scope.settings.steps_completed_in_wizard || [];
+      if ($scope.settings.steps_incomplete_in_wizard) {
+        // setTimeout(function () { 
+          $scope.step = $scope.settings.steps_incomplete_in_wizard; 
+          $scope.complete = $scope.settings.steps_incomplete_in_wizard - 1;
+        // }, 1000);
+      }
       if ($scope.settings.manufactur) {
         serviceservice.getMakesList({ id: $scope.settings.manufactur }, {}, function (data) {
           if (data.statusCode == 200) {
@@ -91,6 +99,7 @@ angular.module('dmsAdminApp')
               $scope.isStarted = true;
               $scope.complete = 1;
               $scope.step = 2;
+              $scope.updateSteps();
               $('html, body').animate({
                 scrollTop: 0
               }, 'fast');
@@ -139,6 +148,7 @@ angular.module('dmsAdminApp')
             $scope.isStarted = true;
             $scope.complete = 2;
             $scope.step = 3;
+            $scope.updateSteps();
             // Materialize.toast('<span>' + message + '</span>', 3000);
           } else {
             var message = data.statusMessage;
@@ -237,7 +247,8 @@ angular.module('dmsAdminApp')
             $scope.already = data.body.already;
 
           }
-          $scope.services = data.body.result ? $scope.services.concat(data.body.result): $scope.services;
+          data.body.result = data.body.result && data.body.result.length ? data.body.result.filter(function (item) { return item != null }) : [];
+          $scope.services = data.body.result.length ? $scope.services.concat(data.body.result) : $scope.services;
           var add = 0;
           for (var i = 0; i < data.body.result.length; i++) {
             if (data.body.result[i] != null) add++;
@@ -290,16 +301,14 @@ angular.module('dmsAdminApp')
     $scope.nextStep = function (stage, skip) {
       console.log('NEXT STEP FUNCTION', stage);
       $scope.isStarted = true;
-
       $scope.inCompletedStep = stage;//marking step as incomplete
-
       if (stage == 1) {
         $scope.step = stage;
         $scope.complete = stage - 1;
+        $scope.updateSteps();
       }
       else if (stage == 2 && $scope.complete == 0) {
         $scope.updateSetting();
-
       }
       else if (stage == 3 && $scope.complete == 1) {
         $scope.updateSetting1();
@@ -320,6 +329,7 @@ angular.module('dmsAdminApp')
             $scope.inCompletedStep = null;
             $scope.step = stage;
             $scope.complete = stage - 1;
+            $scope.updateSteps();
           }
         })
 
@@ -335,6 +345,7 @@ angular.module('dmsAdminApp')
               // $('#next_confirmation_modal').openModal();
               return;
             }
+            $scope.updateSteps();
           }
         });
         userservice.getUserList({
@@ -350,6 +361,7 @@ angular.module('dmsAdminApp')
             $scope.inCompletedStep = null;
             $scope.step = stage;
             $scope.complete = stage - 1;
+            $scope.updateSteps();
           }
         })
 
@@ -371,6 +383,7 @@ angular.module('dmsAdminApp')
         if (stage == 3) $scope.clearImage();
         $scope.step = stage;
         $scope.complete = stage - 1;
+        $scope.updateSteps();
       }
       $('html, body').animate({
         scrollTop: 0
@@ -568,7 +581,8 @@ angular.module('dmsAdminApp')
 
         serviceservice.addBulkService({}, $scope.serviceData, function (data) {
           if (data.statusCode === 200) {
-            $scope.services = data.body.result ? $scope.services.concat(data.body.result): $scope.services;
+            data.body.result = data.body.result && data.body.result.length ? data.body.result.filter(function (item) { return item != null }) : [];
+            $scope.services = data.body.result.length ? $scope.services.concat(data.body.result) : $scope.services;
             if (data.body.already.length != 0) {
               var string = '';
               for (var i = 0; i < data.body.already.length; i++) {
@@ -609,7 +623,8 @@ angular.module('dmsAdminApp')
             $scope.alreadyu = data.body.already;
 
           }
-          $scope.users= data.body.result ?  $scope.users.concat(data.body.result) : $scope.users;
+          data.body.result = data.body.result && data.body.result.length ? data.body.result.filter(function (item) { return item != null }) : [];
+          $scope.users = data.body.result.length ? $scope.users.concat(data.body.result) : $scope.users;
           var add = 0;
           for (var i = 0; i < data.body.result.length; i++) {
             if (data.body.result[i] != null) add++;
@@ -635,15 +650,16 @@ angular.module('dmsAdminApp')
       if ($scope.addUsersForm.$valid) {
         userservice.addBulkUser({}, $scope.userData, function (data) {
           if (data.statusCode === 200) {
-            $scope.users= data.body.result ?  $scope.users.concat(data.body.result) : $scope.users;
-            console.log( $scope.users)
+            data.body.result = data.body.result && data.body.result.length ? data.body.result.filter(function (item) { return item != null }) : [];
+            $scope.users = data.body.result.length ? $scope.users.concat(data.body.result) : $scope.users;
+            console.log($scope.users)
             if (data.body.already.length != 0) {
               var string = '';
               for (var i = 0; i < data.body.already.length; i++) {
                 string = data.body.already[i].name + ',' + string;
               }
               $scope.alreadyu = data.body.already;
-              
+
 
             }
             var add = 0;
@@ -766,6 +782,7 @@ angular.module('dmsAdminApp')
           $scope.isStarted = true;
           $scope.complete = 0;
           $scope.step = 1;
+          $scope.updateSteps();
           // Materialize.toast('<span>' + message + '</span>', 3000);
         } else {
           var message = data.statusMessage;
@@ -773,6 +790,20 @@ angular.module('dmsAdminApp')
         }
       });
     }
+
+    $scope.updateSteps = function () {
+      settings.updateSetting({}, {
+        completed_step: $scope.complete,
+        incomplete_step: $scope.step,
+        _id: $scope.settings._id,
+        dealer: $scope.settings.dealer
+      }, function (data) {
+        if (data.statusCode == 200) {
+          console.log('STEPS UPDATED')
+          $scope.settings.steps_completed_in_wizard = data.body.setting.steps_completed_in_wizard;
+        }
+      });
+    };
   })
   .directive('dayBox', function () {
     return {
