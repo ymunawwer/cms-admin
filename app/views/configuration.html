@@ -346,7 +346,7 @@
     
 </style>
 <div class="container"></div>
-<div class="dealer-wizard z-depth-1 white" ng-show="!isStarted && !settings.steps_incomplete_in_wizard">
+<div class="dealer-wizard z-depth-1 white" ng-show="!isStarted && !settings.current_step_in_wizard">
     <p class="flow-text center-align">Dealer SetUp Wizard</p>
     <p class="center-align black-text">Welcome to dealer account setup wizard. Follow these steps and we can have you setup and ready in no time.</p>
     <div class="row">
@@ -386,7 +386,7 @@
 </div>
 </div>
 <div>
-    <div class="dealer-wizard-profile" ng-show="isStarted || settings.steps_incomplete_in_wizard">
+    <div class="dealer-wizard-profile" ng-show="isStarted || settings.current_step_in_wizard">
         <div class="dealer-wizard dw_sh" ng-if="settings.finish_status==true" style="padding:0em !important">
             <p class="flow-text center-align">Dealer SetUp Wizard </p>
             <p class="center-align black-text">Welcome to dealer account setup wizard. Follow these steps and we can have you setup and ready in no time.</p>
@@ -519,6 +519,11 @@
                             <div class="errorTxt4"></div>
                         </div>
                         <div>
+                            <label for="pctitle" class="col m3 l2 s12">Title*</label>
+                            <input id="pctitle" type="text" required class="browser-default selection-corrector col m9 l10 s12" name="pctitle" ng-model="settings.primary_contact.title">
+                            <div class="errorTxt41"></div>
+                        </div>
+                        <div>
                             <label for="pcemail" class="col m3 l2 s12">Email *</label>
                             <input id="pcemail" type="email" required name="pcemail" data-error=".errorTxt5" ng-model="settings.primary_contact.email"
                                 class="col m9 l10 s12">
@@ -529,11 +534,6 @@
                             <input id="pcphone" type="text" required name="pcphone" data-error=".errorTxt6" ng-model="settings.primary_contact.phone"
                                 class="col m9 l10 s12">
                             <div class="errorTxt6"></div>
-                        </div>
-                        <div>
-                            <label for="pctitle" class="col m3 l2 s12">Title*</label>
-                            <input id="pctitle" type="text" required class="browser-default selection-corrector col m9 l10 s12" name="pctitle" ng-model="settings.primary_contact.title">
-                            <div class="errorTxt41"></div>
                         </div>
                     </div>
                     <div class="row user-setting">
@@ -550,6 +550,11 @@
                             <div class="errorTxt7"></div>
                         </div>
                         <div>
+                            <label for="pctitle" class="col m3 l2 s12">Title*</label>
+                            <input id="pctitle" type="text" required class="browser-default selection-corrector col m9 l10 s12" name="pctitle" ng-model="settings.secondary_contact.title">
+                            <div class="errorTxt41"></div>
+                        </div>
+                        <div>
                             <label for="scemail" class="col m3 l2 s12">Email </label>
                             <input id="scemail" type="email" name="scemail" data-error=".errorTxt8" ng-model="settings.secondary_contact.email" class="col m9 l10 s12">
                             <div class="errorTxt8"></div>
@@ -558,11 +563,6 @@
                             <label for="scphone" class="col m3 l2 s12">Phone </label>
                             <input id="scphone" type="text" name="scphone" data-error=".errorTxt9" ng-model="settings.secondary_contact.phone" class="col m9 l10 s12">
                             <div class="errorTxt9"></div>
-                        </div>
-                        <div>
-                            <label for="pctitle" class="col m3 l2 s12">Title*</label>
-                            <input id="pctitle" type="text" required class="browser-default selection-corrector col m9 l10 s12" name="pctitle" ng-model="settings.secondary_contact.title">
-                            <div class="errorTxt41"></div>
                         </div>
                     </div>
                     <!-- <div class="row user-setting">

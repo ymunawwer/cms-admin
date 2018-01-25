@@ -28,11 +28,14 @@ angular.module('dmsAdminApp')
       $scope.selectmake = $scope.settings.make;
       $scope.settings.holidays = $scope.settings.holidays && $scope.settings.holidays.filter(onlyUnique);
       $scope.settings.steps_completed_in_wizard = $scope.settings.steps_completed_in_wizard || [];
-      if ($scope.settings.steps_incomplete_in_wizard) {
-        // setTimeout(function () { 
-          $scope.step = $scope.settings.steps_incomplete_in_wizard; 
-          $scope.complete = $scope.settings.steps_incomplete_in_wizard - 1;
-        // }, 1000);
+      console.log("CURRENT STEP IN  WIZARD = ", $scope.settings.current_step_in_wizard)
+      if ($scope.settings.current_step_in_wizard) {
+        $scope.step = $scope.settings.current_step_in_wizard;
+        $scope.complete = $scope.settings.current_step_in_wizard - 1;
+      }
+      else {
+        console.log("CURRENT STEP IN  WIZARD = ", $scope.settings.current_step_in_wizard)
+        $scope.isStarted = false;
       }
       if ($scope.settings.manufactur) {
         serviceservice.getMakesList({ id: $scope.settings.manufactur }, {}, function (data) {
@@ -299,7 +302,8 @@ angular.module('dmsAdminApp')
     $scope.getServices();
     $scope.getUsers();
     $scope.nextStep = function (stage, skip) {
-      console.log('NEXT STEP FUNCTION', stage);
+      console.log('STEPS COMPLETED =', $scope.settings.steps_completed_in_wizard)
+      console.log('STEP  =', stage)
       $scope.isStarted = true;
       $scope.inCompletedStep = stage;//marking step as incomplete
       if (stage == 1) {
@@ -308,14 +312,33 @@ angular.module('dmsAdminApp')
         $scope.updateSteps();
       }
       else if (stage == 2 && $scope.complete == 0) {
+        if ($scope.settings.steps_completed_in_wizard.indexOf(1) === -1) {
+          Materialize.toast('<span>Please complete Step 1.</span>', 3000);
+          return;
+        }
         $scope.updateSetting();
       }
       else if (stage == 3 && $scope.complete == 1) {
+        if ($scope.settings.steps_completed_in_wizard.indexOf(1) === -1) {
+          Materialize.toast('<span>Please complete Step 1.</span>', 3000);
+          return;
+        }
+        if ($scope.settings.steps_completed_in_wizard.indexOf(2) === -1) {
+          Materialize.toast('<span>Please complete Step 1.</span>', 3000);
+          return;
+        }
         $scope.updateSetting1();
       }
       else if (stage == 7) {
-        serviceservice.getServiceList({
-        }, {}, function (data) {
+        if ($scope.settings.steps_completed_in_wizard.indexOf(1) === -1) {
+          Materialize.toast('<span>Please complete Step 1.</span>', 3000);
+          return;
+        }
+        if ($scope.settings.steps_completed_in_wizard.indexOf(2) === -1) {
+          Materialize.toast('<span>Please complete Step 2.</span>', 3000);
+          return;
+        }
+        serviceservice.getServiceList({}, {}, function (data) {
           if (data.statusCode == 200) {
             $scope.serviceCount = data.body.count;
             if ($scope.serviceCount == 0) {
@@ -335,21 +358,15 @@ angular.module('dmsAdminApp')
 
       }
       else if (stage == 8) {
-        serviceservice.getServiceList({
-        }, {}, function (data) {
-          if (data.statusCode == 200) {
-            $scope.serviceCount = data.body.count;
-            if ($scope.serviceCount == 0) {
-              Materialize.toast('<span>' + 'Please add at-least 1 service item to proceed.' + '</span>', 3000);
-              // $scope.confirmationText = 'The Service items you have added are not saved.';
-              // $('#next_confirmation_modal').openModal();
-              return;
-            }
-            $scope.updateSteps();
-          }
-        });
-        userservice.getUserList({
-        }, {}, function (data) {
+        if ($scope.settings.steps_completed_in_wizard.indexOf(1) === -1) {
+          Materialize.toast('<span>Please complete Step 1.</span>', 3000);
+          return;
+        }
+        if ($scope.settings.steps_completed_in_wizard.indexOf(2) === -1) {
+          Materialize.toast('<span>Please complete Step 2.</span>', 3000);
+          return;
+        }
+        userservice.getUserList({}, {}, function (data) {
           if (data.statusCode == 200) {
             $scope.userCount = data.body.count;
             if ($scope.userCount == 0) {
@@ -380,7 +397,16 @@ angular.module('dmsAdminApp')
       //   $scope.complete = stage - 1;
       // }
       else {
+        if ($scope.settings.steps_completed_in_wizard.indexOf(1) === -1) {
+          Materialize.toast('<span>Please complete Step 1.</span>', 3000);
+          return;
+        }
+        if ($scope.settings.steps_completed_in_wizard.indexOf(2) === -1) {
+          Materialize.toast('<span>Please complete Step 2.</span>', 3000);
+          return;
+        }
         if (stage == 3) $scope.clearImage();
+
         $scope.step = stage;
         $scope.complete = stage - 1;
         $scope.updateSteps();
@@ -792,8 +818,9 @@ angular.module('dmsAdminApp')
     }
 
     $scope.updateSteps = function () {
+      var completedSteps = Array.from({ length: ($scope.complete + 1) }, (x, i) => i);;
       settings.updateSetting({}, {
-        completed_step: $scope.complete,
+        completed_step: completedSteps,
         incomplete_step: $scope.step,
         _id: $scope.settings._id,
         dealer: $scope.settings.dealer
