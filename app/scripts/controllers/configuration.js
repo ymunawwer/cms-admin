@@ -104,7 +104,6 @@ angular.module('dmsAdminApp')
         });
       }
       else {
-        // angular.element(document.querySelector('#stepOne'))[0].click();
         Materialize.toast('<span> Please enter all fields.</span>', 3000);
       }
     }

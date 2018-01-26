@@ -358,6 +358,12 @@
     .span_holiday_check label {
         padding-left: 26px !important;
     }
+    .dealer-wizard-profile .ul-outer{
+        text-transform: none !important
+    }
+    .dealer-wizard-profile .ul-main-content p{
+        text-transform: none !important
+    }
 </style>
 <div class="container"></div>
 <div class="dealer-wizard z-depth-1 white" ng-show="!isStarted && !settings.current_step_in_wizard">
@@ -412,31 +418,31 @@
         <div class="ul-outer z-depth-1 white center-align">
             <ul>
 
-                <li ng-click="nextStep(1)" class="li-1" ng-class="{'active': (step==1 ), 'done-li': (settings.steps_completed_in_wizard.indexOf(1) !== -1)}">Step 1
+                <li ng-click="nextStep(1)"  data-position="top" data-delay="50" data-tooltip="Enter Dealership Information" class="li-1 tooltipped" ng-class="{'active': (step==1 ), 'done-li': (settings.steps_completed_in_wizard.indexOf(1) !== -1)}">Step 1
                     <p>Enter Dealership Information</p>
                 </li>
-                <li ng-click="nextStep(2)" class="li-2" ng-class="{'active': step==2 , 'done-li': (settings.steps_completed_in_wizard.indexOf(2) !== -1)}">Step 2
+                <li ng-click="nextStep(2)"  data-position="top" data-delay="50" data-tooltip="Appointment Scheduling Configuration"class="tooltipped li-2" ng-class="{'active': step==2 , 'done-li': (settings.steps_completed_in_wizard.indexOf(2) !== -1)}">Step 2
                     <p class="truncate">Appointment Scheduling Configuration</p>
                 </li>
-                <li ng-click="nextStep(3)" class="li-3" ng-class="{'active': step==3, 'done-li': (settings.steps_completed_in_wizard.indexOf(3) !== -1)}">Step 3
+                <li ng-click="nextStep(3)" data-position="top" data-delay="50" data-tooltip="Marketing" class="tooltipped li-3" ng-class="{'active': step==3, 'done-li': (settings.steps_completed_in_wizard.indexOf(3) !== -1)}">Step 3
                     <p class="truncate">Marketing</p>
                 </li>
-                <li ng-click="nextStep(4)" class="li-4" ng-class="{'active': step==4 , 'done-li': (settings.steps_completed_in_wizard.indexOf(4) !== -1)}">Step 4
+                <li ng-click="nextStep(4)" data-position="top" data-delay="50" data-tooltip="Trade-In" class="tooltipped li-4" ng-class="{'active': step==4 , 'done-li': (settings.steps_completed_in_wizard.indexOf(4) !== -1)}">Step 4
                     <p class="truncate">Trade-In</p>
                 </li>
-                <li ng-click="nextStep(5)" class="li-5" ng-class="{'active': step==5 , 'done-li': (settings.steps_completed_in_wizard.indexOf(5) !== -1)}">Step 5
+                <li ng-click="nextStep(5)" data-position="top" data-delay="50" data-tooltip="Advisor" class="tooltipped li-5" ng-class="{'active': step==5 , 'done-li': (settings.steps_completed_in_wizard.indexOf(5) !== -1)}">Step 5
                     <p class="truncate">Advisor</p>
                 </li>
-                <li class="li-6" ng-click="nextStep(6)" ng-class="{'active': step==6 , 'done-li': (settings.steps_completed_in_wizard.indexOf(6) !== -1)}">Step 6
+                <li class="tooltipped li-6" data-position="top" data-delay="50" data-tooltip="Service Data" ng-click="nextStep(6)" ng-class="{'active': step==6 , 'done-li': (settings.steps_completed_in_wizard.indexOf(6) !== -1)}">Step 6
                     <p class="truncate">Service Data</p>
                 </li>
-                <li class="li-7" ng-click="nextStep(7, true)" ng-class="{'active': step==7 , 'done-li': (settings.steps_completed_in_wizard.indexOf(7) !== -1)}">Step 7
+                <li class="tooltipped li-7" data-position="top" data-delay="50" data-tooltip="Users" ng-click="nextStep(7, true)" ng-class="{'active': step==7 , 'done-li': (settings.steps_completed_in_wizard.indexOf(7) !== -1)}">Step 7
                     <p class="truncate">Users</p>
                 </li>
                 <!-- <li class="li-8" ng-click="nextStep(8, true)" ng-class="{'active': step==8 , 'done-li': (complete==8)}">Step 8
                     <p class="truncate">Customer Setup</p>
                 </li> -->
-                <li ng-hide="settings.finish_status==true" class="li-9" ng-click="nextStep(8, true)" ng-class="{'active': step==8 , 'done-li': (complete==8)}">Final
+                <li ng-hide="settings.finish_status==true" class=" tooltipped li-9" data-position="top" data-delay="50" data-tooltip="Final" ng-click="nextStep(8, true)" ng-class="{'active': step==8 , 'done-li': (complete==8)}">Final
                     <!-- <p class="truncate">Final</p> -->
                 </li>
             </ul>
@@ -487,10 +493,7 @@
                         </div>
                         <div class="margin col s12 pl11" style="margin:7px 0 10px !important;"  ng-if="makesList.length">
                             <label for="manufactur" class="col m3 l2 s12" style="padding-top:0 !important;">Makes</label>
-                            <!-- <select id="manufactur" style="height:123px;" ng-disabled="settings.manufactur" multiple class="browser-default selection-corrector col m9 l10 s12"
-                                name="manufactur" ng-model="settings.make" style="margin: 0 0 20px;">
-                                <option ng-repeat="make in makesList" value="{{make._id}}">{{make.name}}</option>
-                            </select> -->
+                           
                             <span class="col m9 l10 s12 step-1-check-outr">
                                 <span ng-repeat="make in makesList">
                                     <input type="checkbox" disabled class="filled-in" ng-click="changeMake(make)" id="test{{make._id}}" ng-checked="settings.make.indexOf(make._id) !== -1"
@@ -511,12 +514,9 @@
                                 <option ng-repeat="man in manufactureList" value="{{man._id}}">{{man.name}}</option>
                             </select>
                         </div>
-                        <div class="margin col s12 pl11"  ng-if="makesList.length">
-                            <label for="manufactur" class="col m3 l2 s12">Makes</label>
-                            <!-- <select id="manufactur" style="height:123px;" multiple class="browser-default selection-corrector col m9 l10 s12" name="manufactur" ng-model="settings.make"
-                                style="margin: 0 0 20px;">
-                                <option ng-repeat="make in makesList" value="{{make._id}}">{{make.name}}</option>
-                            </select> -->
+                        <div class="margin col s12 pl11" style="margin:7px 0 10px !important;"  ng-if="makesList.length && settings.manufactur " >
+                            <label for="manufactur" style="padding-top:0 !important;" class="col m3 l2 s12">Makes</label>
+                            
                             <span class="col m9 l10 s12 step-1-check-outr">
                                 <span ng-repeat="make in makesList">
                                     <input type="checkbox" class="filled-in" ng-click="changeMake(make)" id="test{{make._id}}" />
@@ -526,15 +526,7 @@
                             </span>
                         </div>
                     </div>
-                    <!-- <div class=" margin">
-                        <a class="waves-effect waves-light btn modal-trigger grey darken-2 modal-anchor" href="#modal1">Change Password</a>
-                    </div> -->
-                    <!-- <div class="input-field col s12">
-                    <button class="btn waves-effect waves-light right submit" type="submit" name="action">
-                        Submit
-                        <i class="mdi-content-send right"></i>
-                    </button>
-                </div> -->
+                  
                     <div class="row user-setting">
                         <p>Primary Contact
                             <i class="material-icons tiny blue-text tooltipped" data-position="right" data-delay="50" data-tooltip="Text here">help_outline</i>
@@ -566,7 +558,7 @@
                         <p>Contact for Invoicing
                             <i class="material-icons tiny blue-text tooltipped" data-position="right" data-delay="50" data-tooltip="Text here">help_outline</i>&nbsp;&nbsp; &nbsp;
                             <span>
-                                <input type="checkbox" id="secondCheck" ng-change="primeToSecondary()" ng-model="secondCheck" />
+                                <input type="checkbox" id="secondCheck" ng-disabled="secondCheck" ng-change="primeToSecondary()" ng-model="secondCheck" />
                                 <label for="secondCheck">My all contact is the same as my primary contact</label>
                             </span>
                         </p>
@@ -576,8 +568,8 @@
                             <div class="errorTxt7"></div>
                         </div>
                         <div>
-                            <label for="pctitle" class="col m3 l2 s12">Title*</label>
-                            <input id="pctitle" type="text" required class="browser-default selection-corrector col m9 l10 s12" name="pctitle" ng-model="settings.secondary_contact.title">
+                            <label for="pctitle" class="col m3 l2 s12">Title</label>
+                            <input id="pctitle" type="text"  class="browser-default selection-corrector col m9 l10 s12" name="pctitle" ng-model="settings.secondary_contact.title">
                             <div class="errorTxt41"></div>
                         </div>
                         <div>
@@ -629,11 +621,16 @@
                             <i class="material-icons tiny blue-text tooltipped" data-position="right" data-delay="50" data-tooltip="Text here">help_outline</i>
                             &nbsp;&nbsp; &nbsp;
                             <span>
-                                <input type="checkbox" id="secondCheck1" ng-change="primeToSecondary1()" ng-model="secondCheck1" / class="col m9 l10 s12">
+                                <input type="checkbox" ng-disabled="secondCheck1" id="secondCheck1" ng-change="primeToSecondary1()" ng-model="secondCheck1"  class="col m9 l10 s12">
                                 <label for="secondCheck1">My all details is the same as my details to be displayed on invoice</label>
                             </span>
                         </p>
-
+                        <div>
+                                <label for="cdcemail" class="col m3 l2 s12">Email </label>
+                                <input id="cdcemail" type="email" name="cdcemail" data-error=".errorTxt14" ng-model="settings.contact_to_show_customer.email"
+                                    class="col m9 l10 s12">
+                                <div class="errorTxt144"></div>
+                            </div>
                         <div>
                             <label for="cdcname" class="col m3 l2 s12">Name </label>
                             <input id="cdcname" name="cdcname" type="text" data-error=".errorTxt13" ng-model="settings.contact_to_show_customer.name"
@@ -646,12 +643,7 @@
                                 class="col m9 l10 s12">
                             <div class="errorTxt15"></div>
                         </div>
-                        <div>
-                            <label for="cdcemail" class="col m3 l2 s12">Email </label>
-                            <input id="cdcemail" type="email" name="cdcemail" data-error=".errorTxt14" ng-model="settings.contact_to_show_customer.email"
-                                class="col m9 l10 s12">
-                            <div class="errorTxt144"></div>
-                        </div>
+                        
                     </div>
                     <div class="right-align">
                         <button type="submit" id="stepOne" class="btn waves-effect waves-light ul-1-btn camel-case">Next</button>
@@ -894,11 +886,11 @@
                 <div class="bulk-upload-otr">
                     <p>
                         <b style="text-transform: uppercase;font-weight: 500;">Step 6: Enter Service Data</b>
-                        <b class="right">
+                        <!-- <b class="right">
                             <u>
                                 <a ui-sref="serviceview" target="_blank" class="black-text">View / Edit Service Items</a>
                             </u>
-                        </b>
+                        </b> -->
                     </p>
                     <p>Use this option to upload data in bulk.</p>
                     <p>
@@ -947,11 +939,11 @@
                 </form>
                 <div class="center">
                     <p>OR you can add Service manually here
-                        <b class="right cap_txt">
+                        <!-- <b class="right cap_txt">
                             <u>
                                 <a ui-sref="serviceview" target="_blank" class="black-text">View / Edit Service Items</a>
                             </u>
-                        </b>
+                        </b> -->
                     </p>
 
                 </div>
@@ -1029,11 +1021,11 @@
                 <div class="bulk-upload-otr">
                     <p>
                         <b style="text-transform: uppercase;font-weight: 500;">Step 7: Enter System Users</b>
-                        <b class="right">
+                        <!-- <b class="right">
                             <u>
                                 <a ui-sref="userview" target="_blank()" class="black-text">View / Edit Users</a>
                             </u>
-                        </b>
+                        </b> -->
                     </p>
                     <p>Use this option to upload all the Users in your Dealership in bulk ( ie. Service Advisors, Schedulers,
                         Technicians etc. ).</p>
@@ -1081,11 +1073,11 @@
                 </div>
                 <div class="center">
                     <p>OR you can add Users manually here
-                        <b class="right cap_txt">
+                        <!-- <b class="right cap_txt">
                             <u>
                                 <a ui-sref="userview" target="_blank()" class="black-text">View / Edit Users</a>
                             </u>
-                        </b>
+                        </b> -->
                     </p>
                 </div>
                 <form class="formValidates" name="addUsersForm" id="addUsersForm" action="javascript:void(0);" ng-submit="addUser()">

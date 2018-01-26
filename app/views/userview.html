@@ -4,7 +4,7 @@
     }
     div.center p{
     font-size: 15px;
-    text-transform: uppercase;
+    text-transform: none;
     font-weight: 500;
     margin-bottom: 1em;
 }
@@ -84,7 +84,7 @@
 <div class="ul-main-seven ulmc" >
                 <div class="bulk-upload-otr">
                     <p>
-                        <b style="text-transform: uppercase;font-weight: 500;">Enter System Users</b>
+                        <b style="text-transform: none;font-weight: 500;">Enter System Users</b>
                         <!-- <b class="right">
                             <u>
                                 <a ui-sref="userview" target="_blank()" class="black-text">View / Edit Users</a>
@@ -150,7 +150,13 @@
                             <div class="row">
                                 <div class="col m2 s12">
                                     <div class="input-field">
-                                        <input type="text" placeholder="Name*" required name="uname{{$index}}" id="uname{{$index}}" ng-model="userData[$index].name"
+                                        <input type="text" placeholder="First Name*" required name="uname{{$index}}" id="uname{{$index}}" ng-model="userData[$index].first_name"
+                                        />
+                                    </div>
+                                </div>
+                                <div class="col m2 s12">
+                                    <div class="input-field">
+                                        <input type="text" placeholder="Last Name*" required name="lname{{$index}}" id="lname{{$index}}" ng-model="userData[$index].last_name"
                                         />
                                     </div>
                                 </div>
