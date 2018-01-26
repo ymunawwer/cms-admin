@@ -32,7 +32,10 @@ angular.module('dmsAdminApp')
           if(data.statusCode === 200){
             session.set('accesstoken', data.body.accesstoken);
             session.set('admin', data.body);
+            if(data.body.setting_finish_status==false)
             $state.go('configuration');
+            else
+            $state.go('home.dashboard');
             Materialize.toast('<span>'+"Welcome Admin"+'</span>', 3000);
           }
           else{
