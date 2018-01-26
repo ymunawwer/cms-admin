@@ -429,13 +429,13 @@
         <div class="ul-outer z-depth-1 white center-align">
             <ul>
 
-                <li ng-click="nextStep(1)" data-position="top" data-delay="50" data-tooltip="Enter Dealership Information" class="li-1 tooltipped"
+                <li ng-click="nextStep(1)" data-position="top" data-delay="50" data-tooltip="Dealer Info" class="li-1 tooltipped"
                     ng-class="{'active': (step==1 ), 'done-li': (settings.steps_completed_in_wizard.indexOf(1) !== -1)}">Step 1
-                    <p>Enter Dealership Information</p>
+                    <p>Dealer Info</p>
                 </li>
-                <li ng-click="nextStep(2)" data-position="top" data-delay="50" data-tooltip="Appointment Scheduling Configuration" class="tooltipped li-2"
+                <li ng-click="nextStep(2)" data-position="top" data-delay="50" data-tooltip="Scheduling" class="tooltipped li-2"
                     ng-class="{'active': step==2 , 'done-li': (settings.steps_completed_in_wizard.indexOf(2) !== -1)}">Step 2
-                    <p class="truncate">Appointment Scheduling Configuration</p>
+                    <p class="truncate">Scheduling</p>
                 </li>
                 <li ng-click="nextStep(3)" data-position="top" data-delay="50" data-tooltip="Marketing" class="tooltipped li-3" ng-class="{'active': step==3, 'done-li': (settings.steps_completed_in_wizard.indexOf(3) !== -1)}">Step 3
                     <p class="truncate">Marketing</p>
@@ -470,7 +470,7 @@
                         <i class="material-icons tiny blue-text tooltipped" data-position="right" data-delay="50" data-tooltip="Text here">help_outline</i>
                     </p>
                     <div class="col s12 pl11">
-                        <label for="cname" class="col m3 l2 s12">Name*</label>
+                        <label for="cname" class="col m3 l2 s12">Dealer Name*</label>
                         <input id="cname" name="cname" type="text" required data-error=".errorTxt1" ng-model="profileData.name" class="col m9 l10 s12">
                         <div class="errorTxt1"></div>
                     </div>
@@ -732,8 +732,10 @@
                                                 color: transparent;
 
                                             }
+                                            input.datepickerholiday:
                                         </style>
-                                        <input class="datepickerholiday" style="height: 35px;width: 35px;border:none;" />
+                                        <!-- <input class="datepickerholiday" style="height: 35px;width: 35px;border:none;" /> --><label class="datepickerholiday" style="color: #000;font-weight: 500;cursor: pointer;text-decoration: underline;">Click to Select</label>
+
                                         <!-- <i  style="font-size:36px !important;position:static;" class="material-icons add_circle" ng-click="showCalender()">perm_contact_calendar</i> -->
                                     </div>
                                 </div>
@@ -788,9 +790,9 @@
                         <!-- <p>Select images to be used for marketing offers.</p> -->
                         <div class="col s6 m3 image-container" ng-repeat="image in imageList">
                             <img class="responsive-img z-depth-1 oml_img" src="{{ image.picture.url }}" alt="">
-                            <!-- <div class="close" ng-click="deleteRemove(image.id, $index)">
+                            <div class="close" ng-click="deleteRemove(image.id, $index)">
                                 <i class="material-icons dp48 oml_icon">close</i>
-                            </div> -->
+                            </div>
                         </div>
                     </div>
                     <div class="" ng-show="imageList.length == 0">
@@ -1284,11 +1286,10 @@
                             <p>
                                 you can always come back to the admin panel and make any changes as needed to the system.
                             </p>
-                            <p class="right-align" style="    position: relative;
-                            text-align: right;
-                            top: 10em;right: -2.2em;">
+                            <p class="right-align" style="position: relative;
+    bottom: -10em;right: -2.2em;display: inline-block;width: 100%;">
                                 <button type="button" style="background-color: #9e9e9e !important;" class="btn waves-effect waves-light camel-case" ng-click="nextStep(7, true)">Previous</button>
-                                <a href="http://cleanup.tech/" ng-click="setFlag();" target="_blank" class="btn waves-effect waves-light camel-case">Make system live</a>
+                                <a href="http://cleanup.tech/" ng-click="setFlag();" target="_blank" class="btn waves-effect waves-light camel-case">Complete On-boarding.</a>
                             </p>
                         </div>
                     </div>

@@ -11,6 +11,17 @@ div.center p{
 #table-datatables .row{
   padding:10px;
 }
+@media only screen and (max-width: 992px){
+  #modalEdit .right.submit{
+    margin: 0 !important;
+  }
+  #modalEdit .row.align{
+    position: static !important;
+  }
+  #modalEdit .ui-a{
+    margin:0 !important;
+  }
+}
 </style>
 
 <div id="modal1" class="modal">
@@ -53,13 +64,13 @@ div.center p{
                     <div class="errorTxt3"></div>
                   </div>
                 </div>
-                <div class="row">
-                  <div class="input-field col s12">
-                    <a ui-sref="home.serviceview">
+                <div class="row align" style="position: absolute;width: 100%;bottom: -4em;">
+                  <div class="input-field col s12" style="margin:0;">
+                    <a ui-sref="home.serviceview" class="ui-a" style="display: inline-block;
+    margin-left: -2em;">
                     <button class="btn waves-effect waves-light grey modal-close" style="background-color: #757575!important;">Cancel</button></a>
-                    <button class="btn waves-effect waves-light right submit" type="submit" name="action">
+                    <button class="btn waves-effect waves-light right submit" type="submit" name="action" style="margin-right: .5em;">
                      Submit
-                     <i class="mdi-content-send right"></i>
                    </button>
                   </div>
                 </div>
