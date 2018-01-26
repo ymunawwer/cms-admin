@@ -32,12 +32,12 @@ angular.module('dmsAdminApp')
     $scope.serviceDeleteAlert = function (id, index) {
       $scope.serviceId = id;
       $scope.serviceindex = index;
-      $('.modal').openModal({});
+      $('#modal1').openModal({});
     }
    
     $scope.servicedelete = function () {
       serviceservice.deleteService({ id: $scope.serviceId }, {}, function (data) { if (data.statusCode == 200) { $scope.getService()
-        $('.modal').closeModal({}); } })
+        $('#modal1').closeModal({}); } })
     }
     $scope.servicepaginate = function (page) {
       console.log(page);

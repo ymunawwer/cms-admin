@@ -86,7 +86,7 @@ angular.module('dmsAdminApp')
     $scope.userdelete = function (id, index) {
       $scope.userId = id;
       $scope.userindex = index;
-      $('.modal').openModal({});
+      $('#modal1').openModal({});
     }
 
     $scope.deleteUser = function () {
@@ -95,7 +95,7 @@ angular.module('dmsAdminApp')
       }, {}, function (data) {
         if (data.statusCode == 200) {
           $scope.getUsers();
-          $('.modal').closeModal({});
+          $('#modal1').closeModal({});
         }
       })
     }
@@ -166,15 +166,15 @@ angular.module('dmsAdminApp')
       }
     }
 
-    $scope.selectedroles = $scope.selectedroles || [];
+    $scope.selectedroless = $scope.selectedroless || [];
     $scope.selectRoles = function (role) {
-      if ($scope.selectedroles.indexOf(role) === -1) {
-        $scope.selectedroles.push(role);
+      if ($scope.selectedroless.indexOf(role) === -1) {
+        $scope.selectedroless.push(role);
       } else {
-        var posO = $scope.selectedroles.indexOf(role);
-        $scope.selectedroles.splice(posO, 1)
+        var posO = $scope.selectedroless.indexOf(role);
+        $scope.selectedroless.splice(posO, 1)
       }
-      console.log($scope.selectedroles)
+      console.log($scope.selectedroless)
     }
     $scope.uploadUserData = function (files) {
       var fd = new FormData();
@@ -208,7 +208,7 @@ angular.module('dmsAdminApp')
 
     $scope.userEdit = function (user) {
       $scope.userData = user;
-      $scope.selectedroles = $scope.userData.roles;
+      $scope.selectedroless = $scope.userData.roles;
       $scope.roles.forEach(function(li, i) {
         if($scope.userData.roles.indexOf(li.name) !== -1){
           $scope.roles[i].status=true;
@@ -224,7 +224,7 @@ angular.module('dmsAdminApp')
         return false;
       }
       if ($scope.userAddForm.$valid) {
-        $scope.userData.roles = $scope.selectedroles;
+        $scope.userData.roles = $scope.selectedroless;
         userservice.updateUser({
           id: $scope.userData._id
         }, $scope.userData, function(data) {
