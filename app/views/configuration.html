@@ -11,6 +11,10 @@
         margin: 8px 0 !important;
     }
 
+    .collapsible-header:after {
+        display: none !important;
+    }
+
     .wizard-content.bulk-upload-otr p {
         font-size: 18px;
         line-height: 28px;
@@ -59,23 +63,28 @@
     .switch label input[type=checkbox]:checked+.lever:after {
         background-color: #f27617;
     }
+
     .dropdown-content {
-    border-radius: 3px;
-    top: 3em !important;
-}
-.dropdown-content li>a, .dropdown-content li>span {
-    font-size: 16px;
-    color: #26a69a;
-    display: block;
-    line-height: 22px;
-    padding: 14px 16px;
-}
+        border-radius: 3px;
+        top: 3em !important;
+    }
+
+    .dropdown-content li>a,
+    .dropdown-content li>span {
+        font-size: 16px;
+        color: #26a69a;
+        display: block;
+        line-height: 22px;
+        padding: 14px 16px;
+    }
 </style>
- 
-  <!-- Dropdown Structure -->
-  <ul id='dropdown1' class='dropdown-content'>
-    <li><a href="#!">Logout</a></li>
-  </ul>
+
+<!-- Dropdown Structure -->
+<ul id='dropdown1' class='dropdown-content'>
+    <li>
+        <a href="#!">Logout</a>
+    </li>
+</ul>
 <div class="main-slide-outer">
     <!-- END HnEADER -->
     <ul id="slide-out" class="side-nav">
@@ -358,10 +367,12 @@
     .span_holiday_check label {
         padding-left: 26px !important;
     }
-    .dealer-wizard-profile .ul-outer{
+
+    .dealer-wizard-profile .ul-outer {
         text-transform: none !important
     }
-    .dealer-wizard-profile .ul-main-content p{
+
+    .dealer-wizard-profile .ul-main-content p {
         text-transform: none !important
     }
 </style>
@@ -418,10 +429,12 @@
         <div class="ul-outer z-depth-1 white center-align">
             <ul>
 
-                <li ng-click="nextStep(1)"  data-position="top" data-delay="50" data-tooltip="Enter Dealership Information" class="li-1 tooltipped" ng-class="{'active': (step==1 ), 'done-li': (settings.steps_completed_in_wizard.indexOf(1) !== -1)}">Step 1
+                <li ng-click="nextStep(1)" data-position="top" data-delay="50" data-tooltip="Enter Dealership Information" class="li-1 tooltipped"
+                    ng-class="{'active': (step==1 ), 'done-li': (settings.steps_completed_in_wizard.indexOf(1) !== -1)}">Step 1
                     <p>Enter Dealership Information</p>
                 </li>
-                <li ng-click="nextStep(2)"  data-position="top" data-delay="50" data-tooltip="Appointment Scheduling Configuration"class="tooltipped li-2" ng-class="{'active': step==2 , 'done-li': (settings.steps_completed_in_wizard.indexOf(2) !== -1)}">Step 2
+                <li ng-click="nextStep(2)" data-position="top" data-delay="50" data-tooltip="Appointment Scheduling Configuration" class="tooltipped li-2"
+                    ng-class="{'active': step==2 , 'done-li': (settings.steps_completed_in_wizard.indexOf(2) !== -1)}">Step 2
                     <p class="truncate">Appointment Scheduling Configuration</p>
                 </li>
                 <li ng-click="nextStep(3)" data-position="top" data-delay="50" data-tooltip="Marketing" class="tooltipped li-3" ng-class="{'active': step==3, 'done-li': (settings.steps_completed_in_wizard.indexOf(3) !== -1)}">Step 3
@@ -442,7 +455,8 @@
                 <!-- <li class="li-8" ng-click="nextStep(8, true)" ng-class="{'active': step==8 , 'done-li': (complete==8)}">Step 8
                     <p class="truncate">Customer Setup</p>
                 </li> -->
-                <li ng-hide="settings.finish_status==true" class=" tooltipped li-9" data-position="top" data-delay="50" data-tooltip="Final" ng-click="nextStep(8, true)" ng-class="{'active': step==8 , 'done-li': (complete==8)}">Final
+                <li ng-hide="settings.finish_status==true" class=" tooltipped li-9" data-position="top" data-delay="50" data-tooltip="Final"
+                    ng-click="nextStep(8, true)" ng-class="{'active': step==8 , 'done-li': (complete==8)}">Final
                     <!-- <p class="truncate">Final</p> -->
                 </li>
             </ul>
@@ -472,17 +486,17 @@
                         <div class="errorTxt3"></div>
                     </div>
                     <div>
-                            <label for="cdcaddress" class="col m3 l2 s12">Address</label>
-                            <input id="cdcaddress" name="cdcaddress" type="text" ng-model="settings.primary_contact.address" class="col m9 l10 s12">
-                            <div class="errorTxt1012"></div>
-                        </div>
+                        <label for="cdcaddress" class="col m3 l2 s12">Address</label>
+                        <input id="cdcaddress" name="cdcaddress" type="text" ng-model="settings.primary_contact.address" class="col m9 l10 s12">
+                        <div class="errorTxt1012"></div>
+                    </div>
 
-                        <div>
-                            <label for="cdcurl" class="col m3 l2 s12">Website</label>
-                            <input id="cdcurl" type="url" name="cdcurl" placeholder="http://www.cleantech.com" data-error=".errorTxt1523" ng-model="settings.primary_contact.website"
-                                class="col m9 l10 s12">
-                            <div class="errorTxt1523"></div>
-                        </div>
+                    <div>
+                        <label for="cdcurl" class="col m3 l2 s12">Website</label>
+                        <input id="cdcurl" type="url" name="cdcurl" placeholder="http://www.cleantech.com" data-error=".errorTxt1523" ng-model="settings.primary_contact.website"
+                            class="col m9 l10 s12">
+                        <div class="errorTxt1523"></div>
+                    </div>
                     <div ng-if="man">
                         <div class="margin col s12 pl11">
                             <label for="manufacturs" class="col m3 l2 s12">Dealer​ ​OEM​ ​Association</label>
@@ -491,9 +505,9 @@
                                 <option ng-repeat="man in manufactureList" value="{{man._id}}">{{man.name}}</option>
                             </select>
                         </div>
-                        <div class="margin col s12 pl11" style="margin:7px 0 10px !important;"  ng-if="makesList.length">
+                        <div class="margin col s12 pl11" style="margin:7px 0 10px !important;" ng-if="makesList.length">
                             <label for="manufactur" class="col m3 l2 s12" style="padding-top:0 !important;">Makes</label>
-                           
+
                             <span class="col m9 l10 s12 step-1-check-outr">
                                 <span ng-repeat="make in makesList">
                                     <input type="checkbox" disabled class="filled-in" ng-click="changeMake(make)" id="test{{make._id}}" ng-checked="settings.make.indexOf(make._id) !== -1"
@@ -514,9 +528,9 @@
                                 <option ng-repeat="man in manufactureList" value="{{man._id}}">{{man.name}}</option>
                             </select>
                         </div>
-                        <div class="margin col s12 pl11" style="margin:7px 0 10px !important;"  ng-if="makesList.length && settings.manufactur " >
+                        <div class="margin col s12 pl11" style="margin:7px 0 10px !important;" ng-if="makesList.length && settings.manufactur ">
                             <label for="manufactur" style="padding-top:0 !important;" class="col m3 l2 s12">Makes</label>
-                            
+
                             <span class="col m9 l10 s12 step-1-check-outr">
                                 <span ng-repeat="make in makesList">
                                     <input type="checkbox" class="filled-in" ng-click="changeMake(make)" id="test{{make._id}}" />
@@ -526,7 +540,7 @@
                             </span>
                         </div>
                     </div>
-                  
+
                     <div class="row user-setting">
                         <p>Primary Contact
                             <i class="material-icons tiny blue-text tooltipped" data-position="right" data-delay="50" data-tooltip="Text here">help_outline</i>
@@ -569,7 +583,7 @@
                         </div>
                         <div>
                             <label for="pctitle" class="col m3 l2 s12">Title</label>
-                            <input id="pctitle" type="text"  class="browser-default selection-corrector col m9 l10 s12" name="pctitle" ng-model="settings.secondary_contact.title">
+                            <input id="pctitle" type="text" class="browser-default selection-corrector col m9 l10 s12" name="pctitle" ng-model="settings.secondary_contact.title">
                             <div class="errorTxt41"></div>
                         </div>
                         <div>
@@ -621,16 +635,17 @@
                             <i class="material-icons tiny blue-text tooltipped" data-position="right" data-delay="50" data-tooltip="Text here">help_outline</i>
                             &nbsp;&nbsp; &nbsp;
                             <span>
-                                <input type="checkbox" ng-disabled="secondCheck1" id="secondCheck1" ng-change="primeToSecondary1()" ng-model="secondCheck1"  class="col m9 l10 s12">
+                                <input type="checkbox" ng-disabled="secondCheck1" id="secondCheck1" ng-change="primeToSecondary1()" ng-model="secondCheck1"
+                                    class="col m9 l10 s12">
                                 <label for="secondCheck1">My all details is the same as my details to be displayed on invoice</label>
                             </span>
                         </p>
                         <div>
-                                <label for="cdcemail" class="col m3 l2 s12">Email </label>
-                                <input id="cdcemail" type="email" name="cdcemail" data-error=".errorTxt14" ng-model="settings.contact_to_show_customer.email"
-                                    class="col m9 l10 s12">
-                                <div class="errorTxt144"></div>
-                            </div>
+                            <label for="cdcemail" class="col m3 l2 s12">Email </label>
+                            <input id="cdcemail" type="email" name="cdcemail" data-error=".errorTxt14" ng-model="settings.contact_to_show_customer.email"
+                                class="col m9 l10 s12">
+                            <div class="errorTxt144"></div>
+                        </div>
                         <div>
                             <label for="cdcname" class="col m3 l2 s12">Name </label>
                             <input id="cdcname" name="cdcname" type="text" data-error=".errorTxt13" ng-model="settings.contact_to_show_customer.name"
@@ -643,7 +658,7 @@
                                 class="col m9 l10 s12">
                             <div class="errorTxt15"></div>
                         </div>
-                        
+
                     </div>
                     <div class="right-align">
                         <button type="submit" id="stepOne" class="btn waves-effect waves-light ul-1-btn camel-case">Next</button>
@@ -737,8 +752,8 @@
                                 </div>
                                 <div class="margin col s12">
                                     <label for="appointment_interval" class="label-2 col m4 s12">Service​ ​appointment​ ​interval​ ​for​ ​taking​ ​appointments(Minutes)*</label>
-                                    <select data-error=".errorTxt20" required class="browser-default col m7 s12" name="appointment_interval" id="appointment_interval"
-                                        ng-model="settings.appointment_interval">
+                                    <select ng-disabled="settings.steps_completed_in_wizard.indexOf(2) !== -1" data-error=".errorTxt20" required class="browser-default col m7 s12"
+                                        name="appointment_interval" id="appointment_interval" ng-model="settings.appointment_interval">
                                         <option ng-value="15">15 mins</option>
                                         <option ng-value="30">30 mins</option>
                                         <option ng-value="60">60 mins</option>
@@ -943,7 +958,7 @@
                             <u>
                                 <a ui-sref="serviceview" target="_blank" class="black-text">View / Edit Service Items</a>
                             </u>
-                        </b> -->
+                        </b> 
                     </p>
 
                 </div> -->
