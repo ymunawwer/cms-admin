@@ -67,14 +67,14 @@
                             <div class="errorTxt3"></div>
                         </div>
                         <div>
-                            <label for="cdcaddress" class="col m3 l2 s12">Address</label>
-                            <input id="cdcaddress" name="cdcaddress" type="text" ng-model="settings.primary_contact.address" class="col m9 l10 s12">
+                            <label for="cdcaddress" class="col m3 l2 s12">Address*</label>
+                            <input id="cdcaddress" name="cdcaddress"  required type="text" ng-model="settings.primary_contact.address" class="col m9 l10 s12">
                             <div class="errorTxt1012"></div>
                         </div>
 
                         <div>
-                            <label for="cdcurl" class="col m3 l2 s12">Website</label>
-                            <input id="cdcurl" type="url" name="cdcurl" placeholder="http://www.cleantech.com" data-error=".errorTxt1523" ng-model="settings.primary_contact.website"
+                            <label for="cdcurl" class="col m3 l2 s12">Website* </label>
+                            <input id="cdcurl" type="url" name="cdcurl" required placeholder="http://www.cleantech.com" data-error=".errorTxt1523" ng-model="settings.primary_contact.website"
                                 class="col m9 l10 s12">
                             <div class="errorTxt1523"></div>
                         </div>

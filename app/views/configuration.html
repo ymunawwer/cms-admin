@@ -82,7 +82,7 @@
 <!-- Dropdown Structure -->
 <ul id='dropdown1' class='dropdown-content'>
     <li>
-        <a href="#!">Logout</a>
+        <a href="javascript:void(0)" ng-click="logout()">Logout</a>
     </li>
 </ul>
 <div class="main-slide-outer">
@@ -228,7 +228,7 @@
     ul.stepper.horizontal p {
         padding-left: 11px;
         font-size: 15px;
-        text-transform: uppercase;
+        text-transform: none;
         font-weight: 500;
         margin-bottom: 1em;
     }
@@ -486,14 +486,14 @@
                         <div class="errorTxt3"></div>
                     </div>
                     <div>
-                        <label for="cdcaddress" class="col m3 l2 s12">Address</label>
-                        <input id="cdcaddress" name="cdcaddress" type="text" ng-model="settings.primary_contact.address" class="col m9 l10 s12">
+                        <label for="cdcaddress" class="col m3 l2 s12">Address*</label>
+                        <input id="cdcaddress" name="cdcaddress" required type="text" ng-model="settings.primary_contact.address" class="col m9 l10 s12">
                         <div class="errorTxt1012"></div>
                     </div>
 
                     <div>
-                        <label for="cdcurl" class="col m3 l2 s12">Website</label>
-                        <input id="cdcurl" type="url" name="cdcurl" placeholder="http://www.cleantech.com" data-error=".errorTxt1523" ng-model="settings.primary_contact.website"
+                        <label for="cdcurl" class="col m3 l2 s12">Website*</label>
+                        <input id="cdcurl" type="url"  required name="cdcurl" placeholder="http://www.cleantech.com" data-error=".errorTxt1523" ng-model="settings.primary_contact.website"
                             class="col m9 l10 s12">
                         <div class="errorTxt1523"></div>
                     </div>
@@ -738,11 +738,11 @@
                                     </div>
                                 </div>
                                 <div class="margin col s12">
-                                    <label for="is_mobile_app_needed" class="label-2 col m4 s12">Mobile App</label>
+                                    <label for="is_mobile_app_needed" class="label-2 col m4 s12">Enable app service access </label>
 
                                     <input type="checkbox" class="filled-in col m7 s12 " id="filled-in-box" ng-model="settings.is_mobile_app_needed" />
                                     <label for="filled-in-box" class="mbl_app" style="padding: 0px 0 0 35px !important;
-                                    margin-top: 20px;margin-bottom: 12px !important;">Mobile App</label>
+                                    margin-top: 20px;margin-bottom: 12px !important;"></label>
                                 </div>
                                 <div class="margin col s12">
                                     <label for="booking_before_time" class="label-2 col m4 s12">Earliest​ ​timeframe​ ​for​ ​online​ ​appointment​ ​setup​(Minutes)*</label>
@@ -788,9 +788,9 @@
                         <!-- <p>Select images to be used for marketing offers.</p> -->
                         <div class="col s6 m3 image-container" ng-repeat="image in imageList">
                             <img class="responsive-img z-depth-1 oml_img" src="{{ image.picture.url }}" alt="">
-                            <div class="close" ng-click="deleteRemove(image.id, $index)">
+                            <!-- <div class="close" ng-click="deleteRemove(image.id, $index)">
                                 <i class="material-icons dp48 oml_icon">close</i>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     <div class="" ng-show="imageList.length == 0">
@@ -900,7 +900,7 @@
             <div class="ul-main-six ulmc" ng-class="{'active': step==6}">
                 <div class="bulk-upload-otr">
                     <p>
-                        <b style="text-transform: uppercase;font-weight: 500;">Step 6: Enter Service Data</b>
+                        <b style="text-transform: none;font-weight: 500;">Step 6: Enter Service Data</b>
                         <!-- <b class="right">
                             <u>
                                 <a ui-sref="serviceview" target="_blank" class="black-text">View / Edit Service Items</a>
@@ -1035,7 +1035,7 @@
             <div class="ul-main-seven ulmc" ng-class="{'active': step==7}">
                 <div class="bulk-upload-otr">
                     <p>
-                        <b style="text-transform: uppercase;font-weight: 500;">Step 7: Enter System Users</b>
+                        <b style="text-transform: none;font-weight: 500;">Step 7: Enter System Users</b>
                         <!-- <b class="right">
                             <u>
                                 <a ui-sref="userview" target="_blank()" class="black-text">View / Edit Users</a>

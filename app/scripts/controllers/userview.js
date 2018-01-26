@@ -130,8 +130,10 @@ angular.module('dmsAdminApp')
     // $scope.userData.roles =[];
     $scope.userData = [];
     $scope.addUser = function () {
-      console.log($scope.userData)
+     
       if ($scope.addUsersForm.$valid) {
+        console.log($scope.userData)
+        return false
         userservice.addBulkUser({}, $scope.userData, function (data) {
           if (data.statusCode === 200) {
             // $scope.userList = data.body.result ? $scope.userList.concat(data.body.result) : $scope.userList;
@@ -232,5 +234,8 @@ angular.module('dmsAdminApp')
           }
         })
       }
+    }
+    $scope.checkBoxValid = function(roles, id){
+
     }
   });

@@ -3,68 +3,94 @@
         margin-left: 0 !important;
         margin-right: 0 !important;
     }
-    .p_style{
+
+    .p_style {
         font-size: 15px;
-    text-transform: none;
-    font-weight: 500;
-    margin-bottom: 1em;
+        text-transform: none;
+        font-weight: 500;
+        margin-bottom: 1em;
     }
+
     .decor-div {
-    padding: 1em 2em 2em 2em;
+        padding: 1em 2em 2em 2em;
     }
+
     .collapsible-body {
-    display: block !important;
+        display: block !important;
     }
+
     .ul-main-two .collapsible {
-    box-shadow: none;
-    border: 1px solid #ddd!important;
-    border-bottom: none!important;
-    margin: 1em 0;
-}
-.ul-main-two .collapsible-body div label {
-    left: 0!important;
-    display: inline-block;
-    text-align: center;
-    padding-top: 2em;
-    font-size: 13px;
-}
-.switch label input[type=checkbox]:checked+.lever {
-    background-color: #fdbe8e;
-}
-.switch label input[type=checkbox]:checked+.lever:after {
-    background-color: #f27617;
-}
-.s2 select {
-    border: 1px solid #ddd;
-    margin: 1em 0;
-}
-.ul-main-two .user-setting label {
-    font-size: 13px;
-    line-height: 25px;
-    padding: 20px 0 0!important;
-}
-#table-datatables td, #table-datatables th {
-    padding: 0;
-    border: none;
-    background: transparent;
-}
-.picker__date-display, .picker__day--selected, .picker__day--selected:hover, .picker--focused .picker__day--selected {
-    background-color: #f27518;
-}
-.picker__weekday-display {
-    background-color: #d05e09;
-    font-weight: 400;
-}
-.picker__select--year.browser-default, .picker__select--month.browser-default {
-    margin: 0 0 15px;
-    border: none;
-}
-.picker__day.picker__day--today, .picker__close, .picker__today {
-    color: #f27518;
-}
-.ul-main-two .chip {
-    margin: 4px;
-}
+        box-shadow: none;
+        border: 1px solid #ddd!important;
+        border-bottom: none!important;
+        margin: 1em 0;
+    }
+
+    .ul-main-two .collapsible-body div label {
+        left: 0!important;
+        display: inline-block;
+        text-align: center;
+        padding-top: 2em;
+        font-size: 13px;
+    }
+
+    .switch label input[type=checkbox]:checked+.lever {
+        background-color: #fdbe8e;
+    }
+
+    .switch label input[type=checkbox]:checked+.lever:after {
+        background-color: #f27617;
+    }
+
+    .s2 select {
+        border: 1px solid #ddd;
+        margin: 1em 0;
+    }
+
+    .ul-main-two .user-setting label {
+        font-size: 13px;
+        line-height: 25px;
+        padding: 20px 0 0!important;
+    }
+
+    #table-datatables td,
+    #table-datatables th {
+        padding: 0;
+        border: none;
+        background: transparent;
+    }
+
+    .picker__date-display,
+    .picker__day--selected,
+    .picker__day--selected:hover,
+    .picker--focused .picker__day--selected {
+        background-color: #f27518;
+    }
+
+    .picker__weekday-display {
+        background-color: #d05e09;
+        font-weight: 400;
+    }
+
+    .picker__select--year.browser-default,
+    .picker__select--month.browser-default {
+        margin: 0 0 15px;
+        border: none;
+    }
+
+    .picker__day.picker__day--today,
+    .picker__close,
+    .picker__today {
+        color: #f27518;
+    }
+
+    .ul-main-two .chip {
+        margin: 4px;
+    }
+
+    .collapsible-header:after {
+        display: none !important;
+    }
 </style>
 <div class="container">
     <div class="section">
@@ -144,11 +170,11 @@
                                         </div>
                                     </div>
                                     <div class="margin col s12">
-                                        <label for="is_mobile_app_needed" class="label-2 col m4 s12">Mobile App</label>
+                                        <label for="is_mobile_app_needed" class="label-2 col m4 s12">Enabling App Service Access </label>
 
                                         <input type="checkbox" class="filled-in col m7 s12 " id="filled-in-box" ng-model="settings.is_mobile_app_needed" />
                                         <label for="filled-in-box" class="mbl_app" style="padding: 0px 0 0 35px !important;
-                                            margin-top: 20px;margin-bottom: 12px !important;">Mobile App</label>
+                                            margin-top: 20px;margin-bottom: 12px !important;"></label>
                                     </div>
                                     <div class="margin col s12">
                                         <label for="booking_before_time" class="label-2 col m4 s12">Earliest​ ​timeframe​ ​for​ ​online​ ​appointment​ ​setup​(Minutes)*</label>
@@ -158,7 +184,7 @@
                                     </div>
                                     <div class="margin col s12">
                                         <label for="appointment_interval" class="label-2 col m4 s12">Service​ ​appointment​ ​interval​ ​for​ ​taking​ ​appointments(Minutes)*</label>
-                                        <select data-error=".errorTxt20" required class="browser-default col m7 s12" name="appointment_interval" id="appointment_interval"
+                                        <select data-error=".errorTxt20" ng-disabled="settings.steps_completed_in_wizard.indexOf(2) !== -1" required class="browser-default col m7 s12" name="appointment_interval" id="appointment_interval"
                                             ng-model="settings.appointment_interval">
                                             <option ng-value="15">15 mins</option>
                                             <option ng-value="30">30 mins</option>
@@ -186,101 +212,101 @@
 </div>
 
 <script>
-      
-        $("#formValidate").validate({
-            rules: {
-                cname: {
-                    required: true
-                },
-                cemail: {
-                    required: true,
-                    email: true
-                },
-                cphone: {
-                    required: true,
-                    minlength: 10,
-                    maxlength: 10,
-                    // number:true
-                }
+
+    $("#formValidate").validate({
+        rules: {
+            cname: {
+                required: true
             },
-            messages: {
-                cphone: {
-                    required: "Enter a Phonenumber",
-                    minlength: "Enter valid phone number",
-                    maxlength: "Enter valid phone number",
-                    number: "Enter valid phone number"
-                },
+            cemail: {
+                required: true,
+                email: true
             },
-            errorElement: 'div',
-            errorPlacement: function (error, element) {
-                var placement = $(element).data('error');
-                if (placement) {
-                    $(placement).append(error)
-                } else {
-                    error.insertAfter(element);
-                }
+            cphone: {
+                required: true,
+                minlength: 10,
+                maxlength: 10,
+                // number:true
             }
-        });
-    
-        $("#formValidate1").validate({
-            rules: {
-                auto_cancel_appointment_time: "required",
-                appointment_interval: "required",
-                booking_before_time: "required",
-                template_color: "required",
-                work_end_time: "required",
-                work_start_time: "required",
+        },
+        messages: {
+            cphone: {
+                required: "Enter a Phonenumber",
+                minlength: "Enter valid phone number",
+                maxlength: "Enter valid phone number",
+                number: "Enter valid phone number"
             },
-    
-            errorElement: 'div',
-            errorPlacement: function (error, element) {
-                var placement = $(element).data('error');
-                if (placement) {
-                    $(placement).append(error)
-                } else {
-                    error.insertAfter(element);
-                }
+        },
+        errorElement: 'div',
+        errorPlacement: function (error, element) {
+            var placement = $(element).data('error');
+            if (placement) {
+                $(placement).append(error)
+            } else {
+                error.insertAfter(element);
             }
-        });
-        $('.modal-trigger').leanModal();
-        $('.modal').leanModal();
-        $("#formValidates").validate({
-            rules: {
-                sname: {
-                    required: true
-                },
-                description: {
-                    required: true
-                },
-                amount: {
-                    required: true,
-                    number: true
-                }
-            },
-            //For custom messages
-            messages: {
-                sname: {
-                    required: "Enter a service name",
-                    minlength: "Enter at least 6 characters"
-                },
-                amount: {
-                    number: "Enter valid amount"
-                }
-            },
-            errorElement: 'div',
-            errorPlacement: function (error, element) {
-                var placement = $(element).data('error');
-                if (placement) {
-                    $(placement).append(error)
-                } else {
-                    error.insertAfter(element);
-                }
+        }
+    });
+
+    $("#formValidate1").validate({
+        rules: {
+            auto_cancel_appointment_time: "required",
+            appointment_interval: "required",
+            booking_before_time: "required",
+            template_color: "required",
+            work_end_time: "required",
+            work_start_time: "required",
+        },
+
+        errorElement: 'div',
+        errorPlacement: function (error, element) {
+            var placement = $(element).data('error');
+            if (placement) {
+                $(placement).append(error)
+            } else {
+                error.insertAfter(element);
             }
-        });
-    </script>
-    <script>
-       $(document).ready(function () {
-            $('.tooltipped').tooltip({ delay: 50 });    
-        });
-    
-    </script>   
+        }
+    });
+    $('.modal-trigger').leanModal();
+    $('.modal').leanModal();
+    $("#formValidates").validate({
+        rules: {
+            sname: {
+                required: true
+            },
+            description: {
+                required: true
+            },
+            amount: {
+                required: true,
+                number: true
+            }
+        },
+        //For custom messages
+        messages: {
+            sname: {
+                required: "Enter a service name",
+                minlength: "Enter at least 6 characters"
+            },
+            amount: {
+                number: "Enter valid amount"
+            }
+        },
+        errorElement: 'div',
+        errorPlacement: function (error, element) {
+            var placement = $(element).data('error');
+            if (placement) {
+                $(placement).append(error)
+            } else {
+                error.insertAfter(element);
+            }
+        }
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        $('.tooltipped').tooltip({ delay: 50 });
+    });
+
+</script>

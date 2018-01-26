@@ -144,7 +144,7 @@
                         </b> -->
                     </p>
                 </div>
-                <form class="formValidates" name="addUsersForm" id="addUsersForm" action="javascript:void(0);" ng-submit="addUser()">
+                <form class="formValidates"  name="addUsersForm" id="addUsersForm"  ng-submit="addUser()">
                     <div id="single_upload" ng-repeat="ser in  [].constructor(totalusr) track by $index">
                         <div class="s_u_content">
                             <div class="row">
@@ -174,11 +174,12 @@
                                 <div class="col m6 s12">
                                     <p>
                                         <span ng-repeat="r in roles" >
-                                            <input data-error=".filled-in-box{{$parent.$index}}" type="checkbox" class="filled-in" ng-model="userData[$parent.$index].roles[$index]"
-                                                ng-true-value="'{{r.name}}'" id="filled-in-box{{$index}}{{$parent.$index}}" name="uroles{{$parent.$index}}"
+                                            
+                                            <input  data-error=".filled-in-box{{$parent.$index}}"  type="checkbox" class="filled-in" ng-model="userData[$parent.$index].roles[$index]"  ng-true-value="'{{r.name}}'" ng-click="checkBoxValid(roles, $parent.$index)"
+                                                id="filled-in-box{{$index}}{{$parent.$index}}" name="uroles{{$parent.$index}}[]"
                                             />
                                             <label for="filled-in-box{{$index}}{{$parent.$index}}">{{r.role}}</label>
-                                            <span class="filled-in-box{{$parent.$index}}" ng-show="$index==5" style="font-size:8px"></span>
+                                            <span class="filled-in-box{{$parent.$index}}"  style="position:absolute;font-size:12px" ng-show="$index==0"></span>
                                         </span>
 
                                         <input type="button" id="upload_fileds{{$index}}" ng-click="adduserdiv();" class="btn btn-floating" value="+" />
@@ -255,4 +256,16 @@
             </div>
             </div>
             </div>
-            
+            <script>
+            $("#addUsersForm").validate({
+        errorElement: 'div',
+        errorPlacement: function (error, element) {
+            var placement = $(element).data('error');
+            if (placement) {
+                $(placement).append(error)
+            } else {
+                error.insertAfter(element);
+            }
+        }
+    });
+            </script>

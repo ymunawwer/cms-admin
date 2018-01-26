@@ -324,7 +324,7 @@ angular.module('dmsAdminApp')
           return;
         }
         if ($scope.settings.steps_completed_in_wizard.indexOf(2) === -1) {
-          Materialize.toast('<span>Please complete Step 1.</span>', 3000);
+          Materialize.toast('<span>Please complete Step 2.</span>', 3000);
           return;
         }
         $scope.updateSetting1();
@@ -577,11 +577,11 @@ angular.module('dmsAdminApp')
     $scope.primeToSecondary1 = function () {
       $scope.settings.contact_to_show_customer = {};
       if ($scope.secondCheck1) {
-        $scope.settings.contact_to_show_customer.name = $scope.settings.invoice_contact.name;
-        $scope.settings.contact_to_show_customer.address = $scope.settings.invoice_contact.address
-        $scope.settings.contact_to_show_customer.email = $scope.settings.invoice_contact.email
-        $scope.settings.contact_to_show_customer.phone = $scope.settings.invoice_contact.phone
-        $scope.settings.contact_to_show_customer.website = $scope.settings.invoice_contact.website
+        $scope.settings.contact_to_show_customer.name = $scope.settings.secondary_contact.name;
+        $scope.settings.contact_to_show_customer.address = $scope.settings.secondary_contact.address
+        $scope.settings.contact_to_show_customer.email = $scope.settings.secondary_contact.email
+        $scope.settings.contact_to_show_customer.phone = $scope.settings.secondary_contact.phone
+        $scope.settings.contact_to_show_customer.website = $scope.settings.secondary_contact.website
       }
       else {
         $scope.settings.contact_to_show_customer.name = $scope.settings.contact_to_show_customer.name
