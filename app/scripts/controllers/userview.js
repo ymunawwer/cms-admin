@@ -40,14 +40,7 @@ angular.module('dmsAdminApp')
       { name: "vehicle​_inspection​", role: "VI" }
     ];
 
-    $scope.totalusr = 1;
-    $scope.adduserdiv = function () {
-      $scope.totalusr = $scope.totalusr + 1;
-    }
-    $scope.removuserdiv = function ($index) {
-      $scope.totalusr = $scope.totalusr - 1;
-      $scope.userData.splice($index, 1);
-    }
+    
     $scope.userList = [];
     $scope.ulimit = 10;
     $scope.ustart = 0;
@@ -127,13 +120,43 @@ angular.module('dmsAdminApp')
       $scope.close();
     }
 
+    $scope.selectedroless = $scope.selectedroless || [];
+    $scope.selectRoles = function (role) {
+
+      if ($scope.selectedroless.indexOf(role) === -1) {
+        $scope.selectedroless.push(role);
+      } else {
+        var posO = $scope.selectedroless.indexOf(role);
+        $scope.selectedroless.splice(posO, 1)
+      }
+      console.log($scope.selectedroless)
+    }
+    $scope.totalusr = 1;
+    $scope.adduserdiv = function () {
+      $scope.totalusr = $scope.totalusr + 1;
+    }
+    $scope.removuserdiv = function ($index) {
+      $scope.totalusr = $scope.totalusr - 1;
+      $scope.userData.splice($index, 1);
+    }
+    $scope.checkRoles = [];
+    $scope.checkBoxValid = function(role, id){
+      // if ($scope.checkRoles+id.indexOf(role) === -1) {
+      //   $scope.checkRoles+id.push(role);
+      // } else {
+      //   var posO = $scope.checkRoles+id.indexOf(role);
+      //   $scope.checkRoles+id.splice(posO, 1)
+      // }
+      // console.log($scope.checkRoles+id)
+    }
+
     // $scope.userData.roles =[];
     $scope.userData = [];
     $scope.addUser = function () {
      
       if ($scope.addUsersForm.$valid) {
-        console.log($scope.userData)
-        return false
+        // console.log($scope.userData)
+        // return false
         userservice.addBulkUser({}, $scope.userData, function (data) {
           if (data.statusCode === 200) {
             // $scope.userList = data.body.result ? $scope.userList.concat(data.body.result) : $scope.userList;
@@ -166,16 +189,7 @@ angular.module('dmsAdminApp')
       }
     }
 
-    $scope.selectedroless = $scope.selectedroless || [];
-    $scope.selectRoles = function (role) {
-      if ($scope.selectedroless.indexOf(role) === -1) {
-        $scope.selectedroless.push(role);
-      } else {
-        var posO = $scope.selectedroless.indexOf(role);
-        $scope.selectedroless.splice(posO, 1)
-      }
-      console.log($scope.selectedroless)
-    }
+   
     $scope.uploadUserData = function (files) {
       var fd = new FormData();
       //Take the first selected file
@@ -235,7 +249,5 @@ angular.module('dmsAdminApp')
         })
       }
     }
-    $scope.checkBoxValid = function(roles, id){
-
-    }
+    
   });
