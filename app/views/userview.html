@@ -18,6 +18,20 @@
 .dataTables_paginate{
     float: none;
 }
+@media only screen and (max-width: 992px){
+  #userEdit .right.submit{
+    margin: 0 !important;
+  }
+  #userEdit .row.align{
+    position: static !important;
+  }
+  #userEdit .ui-a{
+    margin:0 !important;
+  }
+  .card-panel .row{
+    margin:0;
+  }
+}
 </style>
 
 <div id="modal1" class="modal">
@@ -26,8 +40,8 @@
   </div>
   <div class="row create_offer">
     <div class="right-align" style="margin-right: 1.5em;">
-      <button type="button" class="btn btn-theme waves-effect waves-light cancel modal-close">NO</button>
-      <button type="submit" class="btn btn-theme waves-effect waves-light" name="button" ng-click="deleteUser()">YES</button>
+      <button type="button" style="background-color: #9e9e9e !important;  text-transform: none !important;" class="btn btn-theme waves-effect waves-light cancel modal-close">No</button>
+      <button type="submit" style=" text-transform: none !important;" class="btn btn-theme waves-effect waves-light" name="button" ng-click="deleteUser()">Yes</button>
     </div>
   </div>
 </div>
@@ -60,19 +74,22 @@
                           <div class="filled-in-box"></div>
                       </p>
                   </div>
-                  
-                    <div class="input-field col s12">
-                      <button  ng-click="cancelEdit()" type="button" class="btn waves-effect waves-light grey modal-close" style="background: #747474 !important;">Cancel </button>
-                      <button class="btn waves-effect waves-light right submit" type="submit" name="action">
+                  <div class="row align" style="position: absolute;width: 100%;bottom: -4em;">
+                    <div class="input-field col s12" style="margin:0;">
+                      <button ng-click="cancelEdit()" type="button" class="btn waves-effect waves-light grey modal-close ui-a" style="background: #747474 !important;display: inline-block;
+                      margin-left: -2em;">Cancel </button>
+                      <button class="btn waves-effect waves-light right submit" type="submit" name="action" style="margin-right: .5em;">
                       Submit
-                      <i class="mdi-content-send right"></i>
+                    
                     </button>
+                    </div>
                     </div>
                   </div>
               </form>
               </div>
             </div>
     </div>
+    <div class="modal-footer"></div>
   </div>
 
 <div class="container">
