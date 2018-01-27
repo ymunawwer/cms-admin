@@ -1159,12 +1159,22 @@
                             <tr>
                                 <th>Name</th>
                                 <th>Email</th>
+                                <th>Roles</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr ng-repeat="user in users">
                                 <td>{{user.name}}</td>
                                 <td>{{user.email}}</td>
+                                <td>
+                                        <span ng-repeat="r in user.roles">
+                                          <span ng-if="r=='admin'">ADMIN,</span>
+                                          <span ng-if="r=='marketing_manager'">MM,</span>
+                                          <span ng-if="r=='used_car_manager'">UCM,</span>
+                                          <span ng-if="r=='service_scheduler'">SS,</span>
+                                          <span ng-if="r=='service_adviser'">SA,</span>
+                                          <span ng-if="r=='vehicle​_inspection​'">VI,</span>
+                                      </span></td>
                             </tr>
                             <tr ng-if="!users.length">
                                 <td colspan="2">No user data added.</td>
