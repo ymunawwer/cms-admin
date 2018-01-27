@@ -51,10 +51,9 @@
                    
                     <div class="col m12 s12">
                         <label for="uroles">Roles*</label>
-    
                       <p> 
                           <span ng-repeat="r in roles">
-                              <input data-error=".filled-in-box"  type="checkbox" class="filled-in"   ng-model="role" ng-checked="r.status==true" ng-click="selectRoles(r.name)"  id="filled-in-box{{$index}}"  name="uroles"    />
+                              <input data-error=".filled-in-box"  type="checkbox" class="filled-in" value="r.name" ng-checked="r.status" ng-model="roleCheck[$index]" ng-click="selectRoles(r)" id="filled-in-box{{$index}}"  name="uroles"    />
                               <label for="filled-in-box{{$index}}">{{r.role}} </label>
                               &nbsp;
                           </span>
@@ -63,7 +62,7 @@
                   </div>
                   
                     <div class="input-field col s12">
-                      <button  ng-click="getUsers()" type="button" class="btn waves-effect waves-light grey modal-close" style="background: #747474 !important;">Cancel </button>
+                      <button  ng-click="cancelEdit()" type="button" class="btn waves-effect waves-light grey modal-close" style="background: #747474 !important;">Cancel </button>
                       <button class="btn waves-effect waves-light right submit" type="submit" name="action">
                       Submit
                       <i class="mdi-content-send right"></i>
@@ -221,23 +220,17 @@
                                 <td>{{user.name}}</td>
                                 <td>{{user.email}}</td>
                                 <td>
-                                  <span ng-repeat="r in user.roles">
-                                    <span ng-if="r=='admin'">ADMIN,</span>
-                                    <span ng-if="r=='marketing_manager'">MM,</span>
-                                    <span ng-if="r=='used_car_manager'">UCM,</span>
-                                    <span ng-if="r=='service_scheduler'">SS,</span>
-                                    <span ng-if="r=='service_adviser'">SA,</span>
-                                    <span ng-if="r=='vehicle​_inspection​'">VI,</span>
-                                </span></td>
+                                       {{ printRoles(user.roles)}}
+                                  </td>
                                 <td class="center-align">
-                                  <a ng-click="userEdit(user)"><button class="waves-effect waves-light btn grey darken-1">Edit</button></a>
+                                  <a ng-click="userEdit(user)" ng-hide="user._id == currentUser._id"><button class="waves-effect waves-light btn grey darken-1">Edit</button></a>
                                 </td>
                                 <td class="center-align">
-                                  <button class="waves-effect waves-light btn" ng-click="userdelete(user.id, $index)">Delete</button>
+                                  <button ng-hide="user._id == currentUser._id" class="waves-effect waves-light btn" ng-click="userdelete(user.id, $index)">Delete</button>
                                 </td>
                             </tr>
                             <tr ng-if="!userList.length">
-                                <td colspan="2">No user data added.</td>
+                                <td colspan="4">No user data added.</td>
                             </tr>
                         </tbody>
                     </table>

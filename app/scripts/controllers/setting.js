@@ -71,7 +71,8 @@ angular.module('dmsAdminApp')
     angular.element(document.querySelector('#fileInput')).on('change', handleFileSelect);
     $scope.hours = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24];
     $scope.updateSetting = function () {
-
+      var validator = $("#formValidate").validate();
+      if (!validator.form()) return;
       if ($scope.formValidate.$valid) {
         var tempPhone = $scope.profileData.phone;
         tempPhone = tempPhone.split("-").join("");
@@ -557,40 +558,32 @@ angular.module('dmsAdminApp')
       Materialize.toast('<span>Congrats! your dealership is setup. </span>', 3000);
     }
 
+    var rolesLookup = {
+      'marketing_manager': 'MM',
+      'used_car_manager': 'UCM',
+      'service_scheduler': 'SS',
+      'service_adviser': 'SA',
+      'vehicle​_inspection​': 'VI',
+      'admin': 'ADMIN'
+    };
+    $scope.printRoles = function (roles) {
 
+      var rolesArray = [];
+      if (roles) {
+        roles.forEach(function (item) {
+          rolesArray.push(rolesLookup[item]);
+        });
+      }
+      rolesArray = rolesArray.filter(function (item) { return item != null && item != undefined && item != false })
+      return rolesArray.length === 0 ? 'N/A' : rolesArray.join(",");
+    }
     $scope.primeToSecondary = function () {
       $scope.settings.secondary_contact = {};
-      if ($scope.secondCheck) {
-        $scope.settings.secondary_contact.name = $scope.settings.primary_contact.name;
-        $scope.settings.secondary_contact.title = $scope.settings.primary_contact.title
-        $scope.settings.secondary_contact.email = $scope.settings.primary_contact.email
-        $scope.settings.secondary_contact.phone = $scope.settings.primary_contact.phone
-      }
-      else {
-        $scope.settings.secondary_contact.name = $scope.settings.secondary_contact.name
-        $scope.settings.secondary_contact.title = $scope.settings.secondary_contact.title
-        $scope.settings.secondary_contact.email = $scope.settings.secondary_contact.email
-        $scope.settings.secondary_contact.phone = $scope.settings.secondary_contact.phone
-      }
-
+      angular.copy($scope.settings.primary_contact, $scope.settings.secondary_contact);
     }
     $scope.primeToSecondary1 = function () {
       $scope.settings.contact_to_show_customer = {};
-      if ($scope.secondCheck1) {
-        $scope.settings.contact_to_show_customer.name = $scope.settings.secondary_contact.name;
-        $scope.settings.contact_to_show_customer.address = $scope.settings.secondary_contact.address
-        $scope.settings.contact_to_show_customer.email = $scope.settings.secondary_contact.email
-        $scope.settings.contact_to_show_customer.phone = $scope.settings.secondary_contact.phone
-        $scope.settings.contact_to_show_customer.website = $scope.settings.secondary_contact.website
-      }
-      else {
-        $scope.settings.contact_to_show_customer.name = $scope.settings.contact_to_show_customer.name
-        $scope.settings.contact_to_show_customer.address = $scope.settings.contact_to_show_customer.address
-        $scope.settings.contact_to_show_customer.email = $scope.settings.contact_to_show_customer.email
-        $scope.settings.contact_to_show_customer.phone = $scope.settings.contact_to_show_customer.phone;
-        $scope.settings.contact_to_show_customer.website = $scope.settings.contact_to_show_customer.website
-      }
-
+      angular.copy($scope.settings.secondary_contact, $scope.settings.contact_to_show_customer);
     }
     $scope.totalserve = 1;
     $scope.addservicediv = function () {

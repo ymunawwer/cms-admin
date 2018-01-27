@@ -8,7 +8,8 @@
  * Controller of the dmsAdminApp
  */
 angular.module('dmsAdminApp')
-  .controller('UserviewCtrl', function ($scope, userservice, $state, $timeout) {
+  .controller('UserviewCtrl', function ($scope, userservice, $state, $timeout, session) {
+    $scope.currentUser = session.get('admin');
     $scope.where = {};
     if ($state.current.name == "home.userview.user") {
       $scope.roles = "Users"
@@ -39,14 +40,32 @@ angular.module('dmsAdminApp')
       { name: "service_adviser", role: "SA" },
       { name: "vehicle​_inspection​", role: "VI" }
     ];
+    var rolesLookup = {
+      'marketing_manager': 'MM',
+      'used_car_manager': 'UCM',
+      'service_scheduler': 'SS',
+      'service_adviser': 'SA',
+      'vehicle​_inspection​': 'VI',
+      'admin': 'ADMIN'
+    };
+    $scope.printRoles = function (roles) {
 
-    
+      var rolesArray = [];
+      if (roles) {
+        roles.forEach(function (item) {
+          rolesArray.push(rolesLookup[item]);
+        });
+      }
+      rolesArray = rolesArray.filter(function (item) { return item != null && item != undefined && item != false })
+      return rolesArray.length === 0 ? 'N/A' : rolesArray.join(",");
+    }
     $scope.userList = [];
     $scope.ulimit = 10;
     $scope.ustart = 0;
     $scope.upage = 1;
     $scope.where['limit'] = $scope.ulimit
     $scope.where['skip'] = $scope.ustart
+    $scope.where['exclude_roles'] = 'user';
     $scope.getUsers = function () {
       userservice.getUserList($scope.where, {}, function (data) {
         if (data.statusCode == 200) {
@@ -119,17 +138,14 @@ angular.module('dmsAdminApp')
     function updateTime() {
       $scope.close();
     }
-
-    $scope.selectedroless = $scope.selectedroless || [];
     $scope.selectRoles = function (role) {
-
-      if ($scope.selectedroless.indexOf(role) === -1) {
-        $scope.selectedroless.push(role);
+      console.log("ROLE CHANGED = ", role)
+      if ($scope.userData.roles.indexOf(role.name) === -1) {
+        $scope.userData.roles.push(role.name);
       } else {
-        var posO = $scope.selectedroless.indexOf(role);
-        $scope.selectedroless.splice(posO, 1)
+        var posO = $scope.userData.roles.indexOf(role.name);
+        $scope.userData.roles.splice(posO, 1)
       }
-      console.log($scope.selectedroless)
     }
     $scope.totalusr = 1;
     $scope.adduserdiv = function () {
@@ -140,7 +156,7 @@ angular.module('dmsAdminApp')
       $scope.userData.splice($index, 1);
     }
     $scope.checkRoles = [];
-    $scope.checkBoxValid = function(role, id){
+    $scope.checkBoxValid = function (role, id) {
       // if ($scope.checkRoles+id.indexOf(role) === -1) {
       //   $scope.checkRoles+id.push(role);
       // } else {
@@ -153,7 +169,7 @@ angular.module('dmsAdminApp')
     // $scope.userData.roles =[];
     $scope.userData = [];
     $scope.addUser = function () {
-     
+
       if ($scope.addUsersForm.$valid) {
         // console.log($scope.userData)
         // return false
@@ -189,7 +205,7 @@ angular.module('dmsAdminApp')
       }
     }
 
-   
+
     $scope.uploadUserData = function (files) {
       var fd = new FormData();
       //Take the first selected file
@@ -219,35 +235,43 @@ angular.module('dmsAdminApp')
         }
       })
     };
-
+    var tempUser = {};
     $scope.userEdit = function (user) {
       $scope.userData = user;
-      $scope.selectedroless = $scope.userData.roles;
-      $scope.roles.forEach(function(li, i) {
-        if($scope.userData.roles.indexOf(li.name) !== -1){
-          $scope.roles[i].status=true;
-        }else{
-          $scope.roles[i].status=false;
+      angular.copy(user, tempUser);
+      console.log(tempUser.roles);
+      $scope.roles.forEach(function (li, i) {
+        if ($scope.userData.roles.indexOf(li.name) !== -1) {
+          $scope.roles[i].status = true;
+        } else {
+          $scope.roles[i].status = false;
         }
-      }); 
+      });
       $('#userEdit').openModal({});
     }
-    $scope.updateUser = function() {
-      if($scope.selectedroles.length==0){
+    $scope.cancelEdit = function () {
+      console.log(tempUser.roles);
+      $scope.userData = Object.assign($scope.userData, tempUser);
+      tempUser = {};
+    }
+    $scope.updateUser = function () {
+      if ($scope.userData.roles.length == 0) {
         Materialize.toast('<span>Please select atleast one roles</span>', 3000);
         return false;
       }
       if ($scope.userAddForm.$valid) {
-        $scope.userData.roles = $scope.selectedroless;
+        // $scope.userData.roles = $scope.selectedroless;
         userservice.updateUser({
           id: $scope.userData._id
-        }, $scope.userData, function(data) {
+        }, $scope.userData, function (data) {
           if (data.statusCode == 200) {
+            $scope.userData = data.body.user;
+            tempUser = {};
             $('#userEdit').closeModal({});
             Materialize.toast('<span>' + data.message + '</span>', 3000);
           }
         })
       }
     }
-    
+
   });
