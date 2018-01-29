@@ -238,8 +238,7 @@ angular.module('dmsAdminApp')
     var tempUser = {};
     $scope.userEdit = function (user) {
       $scope.userData = user;
-      angular.copy(user, tempUser);
-      console.log(tempUser.roles);
+      // angular.copy(user, tempUser);
       $scope.roles.forEach(function (li, i) {
         if ($scope.userData.roles.indexOf(li.name) !== -1) {
           $scope.roles[i].status = true;
@@ -250,9 +249,7 @@ angular.module('dmsAdminApp')
       $('#userEdit').openModal({});
     }
     $scope.cancelEdit = function () {
-      console.log(tempUser.roles);
-      $scope.userData = Object.assign($scope.userData, tempUser);
-      tempUser = {};
+      $scope.getUsers();
     }
     $scope.updateUser = function () {
       if ($scope.userData.roles.length == 0) {
