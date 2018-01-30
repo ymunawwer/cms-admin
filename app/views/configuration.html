@@ -434,12 +434,10 @@
         <div class="ul-outer z-depth-1 white center-align">
             <ul>
 
-                <li ng-click="nextStep(1)" data-position="top" data-delay="50" data-tooltip="Dealer Info" class="li-1 tooltipped"
-                    ng-class="{'active': (step==1 ), 'done-li': (settings.steps_completed_in_wizard.indexOf(1) !== -1)}">Step 1
+                <li ng-click="nextStep(1)" data-position="top" data-delay="50" data-tooltip="Dealer Info" class="li-1 tooltipped" ng-class="{'active': (step==1 ), 'done-li': (settings.steps_completed_in_wizard.indexOf(1) !== -1)}">Step 1
                     <p>Dealer Info</p>
                 </li>
-                <li ng-click="nextStep(2)" data-position="top" data-delay="50" data-tooltip="Scheduling" class="tooltipped li-2"
-                    ng-class="{'active': step==2 , 'done-li': (settings.steps_completed_in_wizard.indexOf(2) !== -1)}">Step 2
+                <li ng-click="nextStep(2)" data-position="top" data-delay="50" data-tooltip="Scheduling" class="tooltipped li-2" ng-class="{'active': step==2 , 'done-li': (settings.steps_completed_in_wizard.indexOf(2) !== -1)}">Step 2
                     <p class="truncate">Scheduling</p>
                 </li>
                 <li ng-click="nextStep(3)" data-position="top" data-delay="50" data-tooltip="Marketing" class="tooltipped li-3" ng-class="{'active': step==3, 'done-li': (settings.steps_completed_in_wizard.indexOf(3) !== -1)}">Step 3
@@ -498,7 +496,7 @@
 
                     <div>
                         <label for="cdcurl" class="col m3 l2 s12">Website*</label>
-                        <input id="cdcurl" type="url"  required name="cdcurl" placeholder="http://www.cleantech.com" data-error=".errorTxt1523" ng-model="settings.primary_contact.website"
+                        <input id="cdcurl" type="text" required name="cdcurl" placeholder="http://www.cleantech.com" data-error=".errorTxt1523" ng-model="settings.primary_contact.website"
                             class="col m9 l10 s12">
                         <div class="errorTxt1523"></div>
                     </div>
@@ -507,6 +505,7 @@
                             <label for="manufacturs" class="col m3 l2 s12">Dealer​ ​OEM​ ​Association</label>
                             <select id="manufacturs" ng-disabled="settings.manufactur" ng-change="changeManufacture()" class="browser-default selection-corrector col m9 l10 s12"
                                 name="manufacturs" ng-model="settings.manufactur" style="margin: 0 0 20px;">
+                                <option value="">Indepandant</option>
                                 <option ng-repeat="man in manufactureList" value="{{man._id}}">{{man.name}}</option>
                             </select>
                         </div>
@@ -529,7 +528,7 @@
                             <label for="manufacturs" class="col m3 l2 s12">Dealer​ ​OEM​ ​Association</label>
                             <select id="manufacturs" ng-change="changeManufacture()" class="browser-default selection-corrector col m9 l10 s12" name="manufacturs"
                                 ng-model="settings.manufactur" style="margin: 0 0 20px;">
-                                <option value="">Indepentant</option>
+                                <option value="">Indepandant</option>
                                 <option ng-repeat="man in manufactureList" value="{{man._id}}">{{man.name}}</option>
                             </select>
                         </div>
@@ -551,9 +550,16 @@
                             <i class="material-icons tiny blue-text tooltipped" data-position="right" data-delay="50" data-tooltip="Text here">help_outline</i>
                         </p>
                         <div>
-                            <label for="pcname" class="col m3 l2 s12">Name*</label>
-                            <input id="pcname" name="pcname" required type="text" data-error=".errorTxt4" ng-model="settings.primary_contact.name" class="col m9 l10 s12">
-                            <div class="errorTxt4"></div>
+                            <label for="pcfname" class="col m3 l2 s12">First Name*</label>
+                            <input id="pcfname" name="pcfname" required type="text" data-error=".pcfname" ng-model="settings.primary_contact.first_name"
+                                class="col m9 l10 s12">
+                            <div class="pcfname"></div>
+                        </div>
+                        <div>
+                            <label for="pclname" class="col m3 l2 s12">Last Name*</label>
+                            <input id="pclname" name="pclname" required type="text" data-error=".pclname" ng-model="settings.primary_contact.last_name"
+                                class="col m9 l10 s12">
+                            <div class="pclname"></div>
                         </div>
                         <div>
                             <label for="pctitle" class="col m3 l2 s12">Title*</label>
@@ -582,9 +588,16 @@
                             </span>
                         </p>
                         <div>
-                            <label for="scname" class="col m3 l2 s12">Name</label>
-                            <input id="scname" type="text" name="scname" data-error=".errorTxt8" ng-model="settings.secondary_contact.name" class="col m9 l10 s12">
-                            <div class="errorTxt7"></div>
+                            <label for="scfname" class="col m3 l2 s12">First Name*</label>
+                            <input id="scfname" name="scfname" required type="text" data-error=".scfname" ng-model="settings.secondary_contact.first_name"
+                                class="col m9 l10 s12">
+                            <div class="scfname"></div>
+                        </div>
+                        <div>
+                            <label for="sclname" class="col m3 l2 s12">Last Name*</label>
+                            <input id="sclname" name="sclname" required type="text" data-error=".sclname" ng-model="settings.secondary_contact.last_name"
+                                class="col m9 l10 s12">
+                            <div class="sclname"></div>
                         </div>
                         <div>
                             <label for="pctitle" class="col m3 l2 s12">Title</label>
@@ -646,16 +659,28 @@
                             </span>
                         </p>
                         <div>
+                            <label for="cdfname" class="col m3 l2 s12">First Name*</label>
+                            <input id="cdfname" name="cdfname" required type="text" data-error=".cdfname" ng-model="settings.contact_to_show_customer.first_name"
+                                class="col m9 l10 s12">
+                            <div class="cdfname"></div>
+                        </div>
+                        <div>
+                            <label for="cdlname" class="col m3 l2 s12">Last Name*</label>
+                            <input id="cdlname" name="cdlname" required type="text" data-error=".cdlname" ng-model="settings.contact_to_show_customer.last_name"
+                                class="col m9 l10 s12">
+                            <div class="cdlname"></div>
+                        </div>
+
+                        <div>
+                            <label for="cdtitle" class="col m3 l2 s12">Title</label>
+                            <input id="cdtitle" type="text" class="browser-default selection-corrector col m9 l10 s12" name="cdtitle" ng-model="settings.contact_to_show_customer.title">
+                            <div class="cdtitle"></div>
+                        </div>
+                        <div>
                             <label for="cdcemail" class="col m3 l2 s12">Email </label>
                             <input id="cdcemail" type="email" name="cdcemail" data-error=".errorTxt14" ng-model="settings.contact_to_show_customer.email"
                                 class="col m9 l10 s12">
                             <div class="errorTxt144"></div>
-                        </div>
-                        <div>
-                            <label for="cdcname" class="col m3 l2 s12">Name </label>
-                            <input id="cdcname" name="cdcname" type="text" data-error=".errorTxt13" ng-model="settings.contact_to_show_customer.name"
-                                class="col m9 l10 s12">
-                            <div class="errorTxt13"></div>
                         </div>
                         <div>
                             <label for="cdcphone" class="col m3 l2 s12">Phone </label>
@@ -737,9 +762,11 @@
                                                 color: transparent;
 
                                             }
-                                            input.datepickerholiday:
+
+                                            input.datepickerholiday :
                                         </style>
-                                        <!-- <input class="datepickerholiday" style="height: 35px;width: 35px;border:none;" /> --><label class="datepickerholiday" style="color: #000;font-weight: 500;cursor: pointer;text-decoration: underline;">Click to Select</label>
+                                        <!-- <input class="datepickerholiday" style="height: 35px;width: 35px;border:none;" /> -->
+                                        <label class="datepickerholiday" style="color: #000;font-weight: 500;cursor: pointer;text-decoration: underline;">Click to Select</label>
 
                                         <!-- <i  style="font-size:36px !important;position:static;" class="material-icons add_circle" ng-click="showCalender()">perm_contact_calendar</i> -->
                                     </div>
@@ -1171,18 +1198,10 @@
                             <tr ng-repeat="user in users">
                                 <td>{{user.name}}</td>
                                 <td>{{user.email}}</td>
-                                <td>
-                                        <span ng-repeat="r in user.roles">
-                                          <span ng-if="r=='admin'">ADMIN,</span>
-                                          <span ng-if="r=='marketing_manager'">MM,</span>
-                                          <span ng-if="r=='used_car_manager'">UCM,</span>
-                                          <span ng-if="r=='service_scheduler'">SS,</span>
-                                          <span ng-if="r=='service_adviser'">SA,</span>
-                                          <span ng-if="r=='vehicle​_inspection​'">VI,</span>
-                                      </span></td>
+                                <td>{{printRoles(user.roles)}}</td>
                             </tr>
                             <tr ng-if="!users.length">
-                                <td colspan="2">No user data added.</td>
+                                <td colspan="3">No user data added.</td>
                             </tr>
                         </tbody>
                     </table>
@@ -1304,7 +1323,7 @@
                             <p class="right-align" style="position: relative;
     bottom: -10em;right: -2.2em;display: inline-block;width: 100%;">
                                 <button type="button" style="background-color: #9e9e9e !important;" class="btn waves-effect waves-light camel-case" ng-click="nextStep(7, true)">Previous</button>
-                                <a href="http://cleanup.tech/" ng-click="setFlag();" target="_blank" class="btn waves-effect waves-light camel-case">Complete On-boarding.</a>
+                                <a href="#" ng-click="setFlag();" target="_blank" class="btn waves-effect waves-light camel-case">Complete On-boarding.</a>
                             </p>
                         </div>
                     </div>
@@ -1415,14 +1434,21 @@
             }
         }
     });
+    $.validator.addMethod("urlValidate", function (value, element) {
+        // allow any non-whitespace characters as the host part
+        return this.optional(element) || /^(?:(?:(?:https?|ftp):)?\/\/)(?:\S+(?::\S*)?@)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))(?::\d{2,5})?(?:[/?#]\S*)?$/i.test(value);
+    }, 'Please enter a valid url.');
     $("#formValidate").validate({
         rules: {
             cname: {
                 required: true
             },
-            cemail: {
+            cdcurl: {
                 required: true,
-                email: true
+                urlValidate: true
+            },
+            cemail: {
+                required: true
             },
             cphone: {
                 required: true,
