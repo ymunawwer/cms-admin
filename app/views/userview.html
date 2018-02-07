@@ -25,12 +25,12 @@
   #userEdit .row.align{
     position: static !important;
   }
-  #userEdit .ui-a{
-    margin:0 !important;
-  }
   .card-panel .row{
     margin:0;
   }
+  #table-datatables {
+    white-space: normal !important;
+}
 }
 </style>
 
@@ -74,10 +74,15 @@
                           <div class="filled-in-box"></div>
                       </p>
                   </div>
-                  <div class="row align" style="position: absolute;width: 100%;bottom: -4em;">
+                  <div class="row align" style="position: absolute;width: 100%;bottom: -4em;text-align: right;">
                     <div class="input-field col s12" style="margin:0;">
+<<<<<<< HEAD
+                      <button  ng-click="getUsers()" type="button" class="btn waves-effect waves-light grey modal-close ui-a" style="background: #747474 !important;display: inline-block;
+                      margin-right: 1em;">Cancel </button>
+=======
                       <button ng-click="cancelEdit()" type="button" class="btn waves-effect waves-light grey modal-close ui-a" style="background: #747474 !important;display: inline-block;
                       margin-left: -2em;">Cancel </button>
+>>>>>>> 1c725b80afb780dc925d1dea10fc7e41a4b668b1
                       <button class="btn waves-effect waves-light right submit" type="submit" name="action" style="margin-right: .5em;">
                       Submit
                     
