@@ -1155,7 +1155,7 @@
                                     <p>
                                         <span ng-repeat="r in roles">
                                             <input data-error=".filled-in-box{{$parent.$index}}" type="checkbox" class="filled-in" ng-model="userData[$parent.$index].roles[$index]"
-                                                ng-true-value="'{{r.name}}'" id="filled-in-box{{$index}}{{$parent.$index}}" name="uroles{{$parent.$index}}"
+                                                ng-true-value="{{r.name}}" id="filled-in-box{{$index}}{{$parent.$index}}" name="uroles{{$parent.$index}}"
                                             />
                                             <label for="filled-in-box{{$index}}{{$parent.$index}}">{{r.role}}</label>
                                             <span class="filled-in-box{{$parent.$index}}" ng-show="$index==5" style="font-size:8px"></span>
