@@ -49,10 +49,11 @@ angular.module('dmsAdminApp')
         }
         register.saveDealar({}, $scope.userData, function (data) {
           if(data.statusCode === 200){
-            session.set('accesstoken', data.body.accesstoken);
-            session.set('admin', data.body);
-            $state.go('configuration');
-            // Materialize.toast('<span>' + "Successfully register dealer information " + '</span>', 3000);
+            // session.set('accesstoken', data.body.accesstoken);
+            // session.set('admin', data.body);
+            // $state.go('configuration');
+            $scope.userData = {};
+            Materialize.toast('<span>' + "Successfully register dealer information " + '</span>', 3000);
           }
           else {
             Materialize.toast('<span>' + data.message + '</span>', 3000);
