@@ -53,7 +53,7 @@ angular.module('dmsAdminApp')
             // session.set('admin', data.body);
             // $state.go('configuration');
             $scope.userData = {};
-            Materialize.toast('<span>' + "Successfully register dealer information " + '</span>', 3000);
+            Materialize.toast('<span>' + "We have sent you an email in the email ID you just used. Please click on the verification link on the email to verify your account." + '</span>', 3000);
           }
           else {
             Materialize.toast('<span>' + data.message + '</span>', 3000);
