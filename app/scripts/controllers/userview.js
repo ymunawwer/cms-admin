@@ -135,6 +135,12 @@ angular.module('dmsAdminApp')
       $scope.alreadyc = null;
       $scope.alreadyu = null;
     }
+    $scope.closeVinAlert = function () {
+      // console.log('hi')
+      $scope.already = null;
+      $scope.alreadyc = null;
+      $scope.availableVinNum = null;
+    }
     function updateTime() {
       $scope.close();
     }
@@ -185,6 +191,13 @@ angular.module('dmsAdminApp')
               $scope.alreadyu = data.body.already;
 
 
+            } 
+             if(data.body.availableVin.length != 0){
+              var stringVin = '';
+              for (var i = 0; i < data.body.availableVin.length; i++) {
+                stringVin = data.body.availableVin[i] + ',' + stringVin;
+              }
+              $scope.availableVinNum = data.body.availableVin;
             }
             var add = 0;
             for (var i = 0; i < data.body.result.length; i++) {
@@ -220,6 +233,13 @@ angular.module('dmsAdminApp')
             }
             $scope.alreadyu = data.body.already;
 
+          }
+          if(data.body.availableVin.length != 0){
+            var stringVin = '';
+            for (var i = 0; i < data.body.availableVin.length; i++) {
+              stringVin = data.body.availableVin[i] + ',' + stringVin;
+            }
+            $scope.availableVinNum = data.body.availableVin;
           }
           $scope.getUsers();
           // $scope.userList = data.body.result ? $scope.userList.concat(data.body.result) : $scope.userList;
