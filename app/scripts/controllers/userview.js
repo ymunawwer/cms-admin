@@ -141,6 +141,12 @@ angular.module('dmsAdminApp')
       $scope.alreadyc = null;
       $scope.availableVinNum = null;
     }
+    $scope.closeInvalidVinAlert = function () {
+      // console.log('hi')
+      $scope.already = null;
+      $scope.alreadyc = null;
+      $scope.invalidVinNum = null;
+    }
     function updateTime() {
       $scope.close();
     }
@@ -199,6 +205,13 @@ angular.module('dmsAdminApp')
               }
               $scope.availableVinNum = data.body.availableVin;
             }
+            if(data.body.invalidVinNumbers.length != 0){
+              var stringVin = '';
+              for (var i = 0; i < data.body.invalidVinNumbers.length; i++) {
+                stringVin = data.body.invalidVinNumbers[i] + ',' + stringVin;
+              }
+              $scope.invalidVinNum = data.body.invalidVinNumbers;
+            }
             var add = 0;
             for (var i = 0; i < data.body.result.length; i++) {
               if (data.body.result[i] != null) add++;
@@ -207,7 +220,7 @@ angular.module('dmsAdminApp')
             // $timeout(updateTime, 10000);
             angular.element(document.querySelector('#addUsersForm'))[0].reset();
             $scope.userData = [];
-            Materialize.toast('<span>' + add + " Users have been uploaded successfully!" + '</span>', 3000);
+            Materialize.toast('<span>' + data.body.createdUsers.length + " Users and " + data.body.createdVehicles.length + " Vehicles have been uploaded successfully!"  + '</span>', 3000);
           }
           else {
             Materialize.toast('<span>' + data.message + '</span>', 3000);
@@ -249,7 +262,7 @@ angular.module('dmsAdminApp')
           }
           // $timeout(updateTime, 10000);
           angular.element(document.querySelector('#userUploadForm'))[0].reset();
-          Materialize.toast('<span>' + add + " Users have been uploaded successfully!" + '</span>', 3000);
+          Materialize.toast('<span>' + data.body.createdUsers.length + " Users and " + data.body.createdVehicles.length + " Vehicles have been uploaded successfully!"  + '</span>', 3000);
         } else {
           Materialize.toast('<span>' + 'User adding has been failed' + '</span>', 3000);
         }
