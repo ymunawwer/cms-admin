@@ -80,7 +80,7 @@
     /*.login_outer{
         display: inline-block;
         width: 100%;
-        
+
     }*/
 </style>
 
@@ -379,6 +379,26 @@
 
     .dealer-wizard-profile .ul-main-content p {
         text-transform: none !important
+    }
+    .sa-features{
+      font-size: 13px;
+      line-height: 25px;
+      display: inline-block;
+      color: #9e9e9e;
+    }
+    .sa-features .label-caption{
+      padding: 20px 0 0!important;
+    }
+    .sa-features select{
+      min-width: 100px;
+      color: #000;
+    }
+    .sa-features span{
+      display: inline-block;
+      padding: 0 5px 0 0;
+    }
+    .col.sa-features{
+      padding:0;
     }
 </style>
 <div class="container"></div>
@@ -763,7 +783,7 @@
 
                                             }
 
-                                            input.datepickerholiday :
+                                            input.datepickerholiday {}
                                         </style>
                                         <!-- <input class="datepickerholiday" style="height: 35px;width: 35px;border:none;" /> -->
                                         <label class="datepickerholiday" style="color: #000;font-weight: 500;cursor: pointer;text-decoration: underline;">Click to Select</label>
@@ -800,6 +820,55 @@
                                         ng-model="settings.auto_cancel_appointment_time" class="col m7 s12">
                                     <div class="errorTxt21"></div>
                                 </div>
+                                <div class="margin col s12 sa-features">
+                                    <div class="col m4 s12">
+                                        <span class="label-caption">Typical Service Interval : </span>
+                                    </div>
+                                    <div class="col m7 s12">
+                                      <span>
+                                      <span style="display:inline-block;">
+                                        <select class="form-control" style="display: inline-block;" ng-model="settings.appointment_interval_mile">
+                                          <option ng-value="">--Select Mile--</option>
+                                          <option ng-value="3000">3000</option>
+                                          <option ng-value="4000">4000</option>
+                                          <option ng-value="5000">5000</option>
+                                        </select>
+                                      </span>
+                                      <span>miles or</span>
+                                      <span style="display:inline-block;">
+                                        <select class="form-control" style="display: inline-block;" ng-model="settings.appointment_interval_month">
+                                          <option ng-value="">--Select Month--</option>
+                                          <option ng-value="3">3</option>
+                                          <option ng-value="6">6</option>
+                                          <option ng-value="9">9</option>
+                                          <option ng-value="12">12</option>
+                                        </select>
+                                      </span>
+                                      <span>months</span>
+                                    </span>
+                                    </div>
+                                </div>
+                                <!-- <div class="margin col s12">
+                                  <span class="sa-features">
+                                    <span class="col m4 s12">Next Service Date : </span>
+                                    <span class="col m7 s12 ">
+                                    <span style="display:inline-block;">
+                                      <select class="form-control" style="display: inline-block;">
+                                        <option>1</option>
+                                        <option>1</option>
+                                      </select>
+                                    </span>
+                                    <span>miles or</span>
+                                    <span style="display:inline-block;">
+                                      <select class="form-control" style="display: inline-block;">
+                                        <option>1</option>
+                                        <option>1</option>
+                                      </select>
+                                    </span>
+                                    <span>months</span>
+                                  </span>
+                                  </span>
+                                </div> -->
                             </div>
                         </div>
                     </div>
@@ -992,7 +1061,7 @@
                             <u>
                                 <a ui-sref="serviceview" target="_blank" class="black-text">View / Edit Service Items</a>
                             </u>
-                        </b> 
+                        </b>
                     </p>
 
                 </div> -->
@@ -1375,7 +1444,7 @@
             <a class=" modal-action modal-close waves-effect waves-green btn-flat">RESET</a>
           </div> -->
 </div>
-<script type="text/javascript"> 
+<script type="text/javascript">
     //   $('.timepicker').pickatime({
     // $('.timepicker').pickatime({});
     //   });
