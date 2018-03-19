@@ -62,10 +62,10 @@
                     <input id="cemail" type="email" required name="cemail" data-error=".errorTxt2" ng-model="userData.email">
                     <div class="errorTxt2"></div>
                     </div>
-                   
+
                     <div class="col m12 s12">
                         <label for="uroles">Roles*</label>
-                      <p> 
+                      <p>
                           <span ng-repeat="r in roles">
                               <input data-error=".filled-in-box"  type="checkbox" class="filled-in" value="r.name" ng-checked="r.status" ng-model="roleCheck[$index]" ng-click="selectRoles(r)" id="filled-in-box{{$index}}"  name="uroles"    />
                               <label for="filled-in-box{{$index}}">{{r.role}} </label>
@@ -80,7 +80,7 @@
                       margin-left: -2em;">Cancel </button>
                       <button class="btn waves-effect waves-light right submit" type="submit" name="action" style="margin-right: .5em;">
                       Submit
-                    
+
                     </button>
                     </div>
                     </div>
@@ -114,7 +114,7 @@
                     </p>
                     <p>- For bulk upload to happen, You would need upload the User data via. a Microsoft Excel file.</p>
                     <p>Step 1: Please download the MS Excel file format
-                        <a href="http://cleanup.tech/dsm-index/users.xls" targer="_blank" style="color: #000;">
+                        <a href="http://the-symbol.net/dsm-index/users.xls" targer="_blank" style="color: #000;">
                             <b>
                                 <u>HERE</u>
                             </b>
@@ -230,7 +230,7 @@
                                 <div class="col m6 s12">
                                     <p>
                                         <span ng-repeat="r in roles" >
-                                            
+
                                             <input  data-error=".filled-in-box{{$parent.$index}}"  type="checkbox" class="filled-in" ng-model="userData[$parent.$index].roles[$index]"  ng-true-value="'{{r.name}}'" ng-click="checkBoxValid(roles, $parent.$index)"
                                                 id="filled-in-box{{$index}}{{$parent.$index}}" name="uroles{{$parent.$index}}[]"
                                             />
