@@ -17,6 +17,8 @@ angular.module('dmsAdminApp')
     $scope.settings.invoice_contact = {};
     $scope.settings.contact_to_show_customer = {};
     $scope.settings.days_of_service = {};
+    $scope.isCheckecdServiceData = false;
+    $scope.isCheckedUserData == false;
     settings.getSetting({}, {}, function (data) {
       $scope.settings = data.body.setting || {};
       $scope.man = $scope.settings.manufactur;
@@ -300,17 +302,260 @@ angular.module('dmsAdminApp')
         }
       })
     };
+    $scope.saveServiceDetails = function () {
+      $('#modal2').closeModal({});
+      setTimeout(function () { $('.lean-overlay').hide(); }, 1000);
+      if ($scope.addServiceForm.$valid) {
+        $scope.serviceData.make = $scope.serviceData.make && $scope.serviceData.make.name != 'INDEPENDENT' ? $scope.serviceData.make.name : null;
+
+        serviceservice.addBulkService({}, $scope.serviceData, function (data) {
+          if (data.statusCode === 200) {
+            data.body.result = data.body.result && data.body.result.length ? data.body.result.filter(function (item) { return item != null }) : [];
+            $scope.services = data.body.result.length ? $scope.services.concat(data.body.result) : $scope.services;
+            if (data.body.already.length != 0) {
+              var string = '';
+              for (var i = 0; i < data.body.already.length; i++) {
+                string = data.body.already[i].name + ',' + string;
+              }
+              $scope.already = data.body.already;
+
+            }
+            var add = 0;
+            for (var i = 0; i < data.body.result.length; i++) {
+              if (data.body.result[i] != null) add++;
+            }
+            $scope.totalserve = 1;
+            // $timeout(updateTime, 10000);
+            angular.element(document.querySelector('#formValidates'))[0].reset();
+            $scope.serviceData = [];
+            $scope.isCheckecdServiceData = true;
+            Materialize.toast('<span>' + add + " Service items have been uploaded successfully!" + '</span>', 3000);
+            $scope.nextStep(7);
+            //if (continueStep) $scope.nextStep($scope.inCompletedStep);
+          } else {
+            Materialize.toast('<span>' + data.message + '</span>', 3000);
+          }
+        })
+      } else {
+        Materialize.toast('<span> Add all fields</span>', 3000);
+      }
+    };
+    $scope.cancelServiceDetails = function () {
+      $('#modal2').closeModal({});
+      setTimeout(function () { $('.lean-overlay').hide(); }, 1000);
+      $scope.serviceData = [];
+      //$scope.nextStep(7);
+    };
+    $scope.gotoPreviousPage1 = function (stage) {
+      $('#modal3').closeModal({});
+      setTimeout(function () { $('.lean-overlay').hide(); }, 1000);
+      $scope.serviceData = [];
+      $scope.userData = [];
+      $scope.step = stage;
+      $scope.complete = stage - 1;
+      $scope.updateSteps(true);
+    };
+    $scope.currentPage2 = function () {
+      $('#modal3').closeModal({});
+      setTimeout(function () { $('.lean-overlay').hide(); }, 1000);
+    };
+    $scope.gotoPreviousPage5 = function (stage) {
+      $('#modal5').closeModal({});
+      setTimeout(function () { $('.lean-overlay').hide(); }, 1000);
+      $scope.step = stage;
+      $scope.complete = stage - 1;
+      $scope.serviceData = [];
+      $scope.updateSteps();
+    };
+    $scope.currentPage6 = function () {
+      $('#modal5').closeModal({});
+      setTimeout(function () { $('.lean-overlay').hide(); }, 1000);
+    };
+    $scope.gotoPreviousPage6 = function (stage) {
+      $('#modal6').closeModal({});
+      setTimeout(function () { $('.lean-overlay').hide(); }, 1000);
+      $scope.step = stage;
+      $scope.complete = stage - 1;
+      $scope.userData = [];
+      $scope.updateSteps();
+    };
+    $scope.currentPage7 = function () {
+      $('#modal6').closeModal({});
+      setTimeout(function () { $('.lean-overlay').hide(); }, 1000);
+    };
+    $scope.saveUserData = function (stage) {
+      $('#modal7').closeModal({});
+      setTimeout(function () { $('.lean-overlay').hide(); }, 1000);
+      if ($scope.addUsersForm.$valid) {
+        userservice.addBulkUser({}, $scope.userData, function (data) {
+          if (data.statusCode === 200) {
+            data.body.result = data.body.result && data.body.result.length ? data.body.result.filter(function (item) { return item != null }) : [];
+            $scope.users = data.body.result.length ? $scope.users.concat(data.body.result) : $scope.users;
+            console.log($scope.users)
+            if (data.body.already.length != 0) {
+              var string = '';
+              for (var i = 0; i < data.body.already.length; i++) {
+                string = data.body.already[i].name + ',' + string;
+              }
+              $scope.alreadyu = data.body.already;
+
+
+            }
+            var add = 0;
+            for (var i = 0; i < data.body.result.length; i++) {
+              if (data.body.result[i] != null) add++;
+            }
+            $scope.totalusr = 1;
+            // $timeout(updateTime, 10000);
+            angular.element(document.querySelector('#addUsersForm'))[0].reset();
+            $scope.userData = [];
+            Materialize.toast('<span>' + add + " Users have been uploaded successfully!" + '</span>', 3000);
+            $scope.nextStep(8);
+            //if (continueStep) $scope.nextStep($scope.inCompletedStep);
+          }
+          else {
+            Materialize.toast('<span>' + data.message + '</span>', 3000);
+          }
+        })
+      } else {
+        Materialize.toast('<span> Add all fields</span>', 3000);
+      }
+    };
+    $scope.closeUserDataPopup = function () {
+      $('#modal7').closeModal({});
+      setTimeout(function () { $('.lean-overlay').hide(); }, 1000);
+    };
+    $scope.saveAndGoForAnotherPage = function (stage) {
+      $('#modal8').closeModal({});
+      setTimeout(function () { $('.lean-overlay').hide(); }, 1000);
+      if($scope.step == 6){
+        if ($scope.addServiceForm.$valid) {
+          $scope.serviceData.make = $scope.serviceData.make && $scope.serviceData.make.name != 'INDEPENDENT' ? $scope.serviceData.make.name : null;
+  
+          serviceservice.addBulkService({}, $scope.serviceData, function (data) {
+            if (data.statusCode === 200) {
+              data.body.result = data.body.result && data.body.result.length ? data.body.result.filter(function (item) { return item != null }) : [];
+              $scope.services = data.body.result.length ? $scope.services.concat(data.body.result) : $scope.services;
+              if (data.body.already.length != 0) {
+                var string = '';
+                for (var i = 0; i < data.body.already.length; i++) {
+                  string = data.body.already[i].name + ',' + string;
+                }
+                $scope.already = data.body.already;
+  
+              }
+              var add = 0;
+              for (var i = 0; i < data.body.result.length; i++) {
+                if (data.body.result[i] != null) add++;
+              }
+              $scope.totalserve = 1;
+              // $timeout(updateTime, 10000);
+              angular.element(document.querySelector('#formValidates'))[0].reset();
+              $scope.serviceData = [];
+              $scope.isCheckecdServiceData = true;
+              Materialize.toast('<span>' + add + " Service items have been uploaded successfully!" + '</span>', 3000);
+              $scope.step = $scope.dummyStage;
+              $scope.complete = $scope.dummyStage - 1;
+              $scope.userData = [];
+              $scope.updateSteps();
+              //if (continueStep) $scope.nextStep($scope.inCompletedStep);
+            } else {
+              Materialize.toast('<span>' + data.message + '</span>', 3000);
+            }
+          })
+        } else {
+          Materialize.toast('<span> Add all fields</span>', 3000);
+        }
+      }
+      if($scope.step == 7){
+        if ($scope.addUsersForm.$valid) {
+          userservice.addBulkUser({}, $scope.userData, function (data) {
+            if (data.statusCode === 200) {
+              data.body.result = data.body.result && data.body.result.length ? data.body.result.filter(function (item) { return item != null }) : [];
+              $scope.users = data.body.result.length ? $scope.users.concat(data.body.result) : $scope.users;
+              console.log($scope.users)
+              if (data.body.already.length != 0) {
+                var string = '';
+                for (var i = 0; i < data.body.already.length; i++) {
+                  string = data.body.already[i].name + ',' + string;
+                }
+                $scope.alreadyu = data.body.already;
+  
+  
+              }
+              var add = 0;
+              for (var i = 0; i < data.body.result.length; i++) {
+                if (data.body.result[i] != null) add++;
+              }
+              $scope.totalusr = 1;
+              // $timeout(updateTime, 10000);
+              angular.element(document.querySelector('#addUsersForm'))[0].reset();
+              $scope.userData = [];
+              Materialize.toast('<span>' + add + " Users have been uploaded successfully!" + '</span>', 3000);
+              $scope.step = $scope.dummyStage;
+              $scope.complete = $scope.dummyStage - 1;
+              $scope.updateSteps();
+              //if (continueStep) $scope.nextStep($scope.inCompletedStep);
+            }
+            else {
+              Materialize.toast('<span>' + data.message + '</span>', 3000);
+            }
+          })
+        } else {
+          Materialize.toast('<span> Add all fields</span>', 3000);
+        }
+      }
+
+    };
+    $scope.closeThePopup = function () {
+      $('#modal8').closeModal({});
+      setTimeout(function () { $('.lean-overlay').hide(); }, 1000);
+    };
     $scope.getServices();
     $scope.getUsers();
     $scope.nextStep = function (stage, skip) {
       console.log('STEPS COMPLETED =', $scope.settings.steps_completed_in_wizard)
       console.log('STEP  =', stage)
       $scope.isStarted = true;
+      $scope.dummyStage = stage;
       $scope.inCompletedStep = stage;//marking step as incomplete
       if (stage == 1) {
-        $scope.step = stage;
-        $scope.complete = stage - 1;
-        $scope.updateSteps();
+        if((stage == 1 && skip == true) || ($scope.step == 2 && stage == 1)){
+          if($scope.formValidate1.$pristine == false){
+            $('#modal3').openModal({}); 
+          } else {
+            $scope.step = stage;
+            $scope.complete = stage - 1;
+            $scope.updateSteps();
+          }
+        } else if(($scope.step == 3 && stage == 1) || ($scope.step == 4 && stage == 1) || ($scope.step == 5 && stage == 1)){
+          $scope.step = stage;
+          $scope.complete = stage - 1;
+          $scope.updateSteps();
+        } else if(($scope.step == 6 && stage == 1) || ($scope.step == 7 && stage == 1)){
+          if($scope.step == 6 && stage == 1){
+            if($scope.addServiceForm.$pristine == false){
+              $('#modal8').openModal({});
+            } else {
+              $scope.step = stage;
+              $scope.complete = stage - 1;
+              $scope.updateSteps();
+            }
+          }
+          if($scope.step == 7 && stage == 1){
+            if($scope.addUsersForm.$pristine == false){
+              $('#modal8').openModal({});
+            } else {
+              $scope.step = stage;
+              $scope.complete = stage - 1;
+              $scope.updateSteps();
+            }
+          }
+        } else {
+          $scope.step = stage;
+          $scope.complete = stage - 1;
+          $scope.updateSteps();
+        }
       }
       else if (stage == 2 && $scope.complete == 0) {
         if ($scope.settings.steps_completed_in_wizard.indexOf(1) === -1) {
@@ -331,58 +576,177 @@ angular.module('dmsAdminApp')
         $scope.updateSetting1();
       }
       else if (stage == 7) {
-        if ($scope.settings.steps_completed_in_wizard.indexOf(1) === -1) {
-          Materialize.toast('<span>Please complete Step 1.</span>', 3000);
-          return;
-        }
-        if ($scope.settings.steps_completed_in_wizard.indexOf(2) === -1) {
-          Materialize.toast('<span>Please complete Step 2.</span>', 3000);
-          return;
-        }
-        serviceservice.getServiceList({}, {}, function (data) {
-          if (data.statusCode == 200) {
-            $scope.serviceCount = data.body.count;
-            if ($scope.serviceCount == 0) {
-              Materialize.toast('<span>' + 'Please add at-least 1 service item to proceed.' + '</span>', 3000);
-              // $scope.confirmationText = 'The Service items you have added are not saved.';
-              // $('#next_confirmation_modal').openModal();
-              return;
-            }
-            // $('#next_confirmation_modal').closeModal({});
-            // setTimeout(function () { $('.lean-overlay').hide(); }, 1000);
-            $scope.inCompletedStep = null;
-            $scope.step = stage;
-            $scope.complete = stage - 1;
-            $scope.updateSteps();
+        if($scope.serviceData.length == 0){
+          if ($scope.settings.steps_completed_in_wizard.indexOf(1) === -1) {
+            Materialize.toast('<span>Please complete Step 1.</span>', 3000);
+            return;
           }
-        })
-
+          if ($scope.settings.steps_completed_in_wizard.indexOf(2) === -1) {
+            Materialize.toast('<span>Please complete Step 2.</span>', 3000);
+            return;
+          }
+          serviceservice.getServiceList({}, {}, function (data) {
+            if (data.statusCode == 200) {
+              $scope.serviceCount = data.body.count;
+              if ($scope.serviceCount == 0) {
+                Materialize.toast('<span>' + 'Please add at-least 1 service item to proceed.' + '</span>', 3000);
+                // $scope.confirmationText = 'The Service items you have added are not saved.';
+                // $('#next_confirmation_modal').openModal();
+                return;
+              }
+              // $('#next_confirmation_modal').closeModal({});
+              // setTimeout(function () { $('.lean-overlay').hide(); }, 1000);
+              $scope.inCompletedStep = null;
+              $scope.step = stage;
+              $scope.complete = stage - 1;
+              $scope.updateSteps();
+            }
+          })
+        } else {
+          $('#modal2').openModal({});
+        }
       }
       else if (stage == 8) {
-        if ($scope.settings.steps_completed_in_wizard.indexOf(1) === -1) {
-          Materialize.toast('<span>Please complete Step 1.</span>', 3000);
-          return;
-        }
-        if ($scope.settings.steps_completed_in_wizard.indexOf(2) === -1) {
-          Materialize.toast('<span>Please complete Step 2.</span>', 3000);
-          return;
-        }
-        userservice.getUserList({}, {}, function (data) {
-          if (data.statusCode == 200) {
-            $scope.userCount = data.body.count;
-            if ($scope.userCount == 0) {
-              Materialize.toast('<span>' + 'Please add at-least 1 user to proceed.' + '</span>', 3000);
-              return;
+        if($scope.userData.length == 0){
+          if ($scope.settings.steps_completed_in_wizard.indexOf(1) === -1) {
+            Materialize.toast('<span>Please complete Step 1.</span>', 3000);
+            return;
+          }
+          if ($scope.settings.steps_completed_in_wizard.indexOf(2) === -1) {
+            Materialize.toast('<span>Please complete Step 2.</span>', 3000);
+            return;
+          }
+          userservice.getUserList({}, {}, function (data) {
+            if (data.statusCode == 200) {
+              $scope.userCount = data.body.count;
+              if ($scope.userCount == 0) {
+                Materialize.toast('<span>' + 'Please add at-least 1 user to proceed.' + '</span>', 3000);
+                return;
+              }
+              // $('#next_confirmation_modal').closeModal({});
+              // setTimeout(function () { $('.lean-overlay').hide(); }, 1000);
+              $scope.inCompletedStep = null;
+              $scope.step = stage;
+              $scope.complete = stage - 1;
+              $scope.updateSteps();
             }
-            // $('#next_confirmation_modal').closeModal({});
-            // setTimeout(function () { $('.lean-overlay').hide(); }, 1000);
-            $scope.inCompletedStep = null;
+          })
+        } else {
+          if ($scope.addUsersForm.$valid){
+            $('#modal7').openModal({});
+          } else {
+            Materialize.toast('<span>' + 'Please fill the required field.' + '</span>', 3000);
+          }
+        }
+      }
+      else if((stage == 2 && $scope.step == 6) || (stage == 2 && $scope.step == 7)){
+        if($scope.step == 6 && stage == 2){
+          if($scope.addServiceForm.$pristine == false){
+            $('#modal8').openModal({});
+          } else {
             $scope.step = stage;
             $scope.complete = stage - 1;
             $scope.updateSteps();
           }
-        })
-
+        }
+        if($scope.step == 7 && stage == 2){
+          if($scope.addUsersForm.$pristine == false){
+            $('#modal8').openModal({});
+          } else {
+            $scope.step = stage;
+            $scope.complete = stage - 1;
+            $scope.updateSteps();
+          }
+        }
+      }
+      else if((stage == 3 && $scope.step == 6) || (stage == 3 && $scope.step == 7)){
+        if($scope.step == 6 && stage == 3){
+          if($scope.addServiceForm.$pristine == false){
+            $('#modal8').openModal({});
+          } else {
+            $scope.step = stage;
+            $scope.complete = stage - 1;
+            $scope.updateSteps();
+          }
+        }
+        if($scope.step == 7 && stage == 3){
+          if($scope.addUsersForm.$pristine == false){
+            $('#modal8').openModal({});
+          } else {
+            $scope.step = stage;
+            $scope.complete = stage - 1;
+            $scope.updateSteps();
+          }
+        }
+      }
+      else if((stage == 4 && $scope.step == 6) || (stage == 4 && $scope.step == 7)){
+        if($scope.step == 6 && stage == 4){
+          if($scope.addServiceForm.$pristine == false){
+            $('#modal8').openModal({});
+          } else {
+            $scope.step = stage;
+            $scope.complete = stage - 1;
+            $scope.updateSteps();
+          }
+        }
+        if($scope.step == 7 && stage == 4){
+          if($scope.addUsersForm.$pristine == false){
+            $('#modal8').openModal({});
+          } else {
+            $scope.step = stage;
+            $scope.complete = stage - 1;
+            $scope.updateSteps();
+          }
+        }
+      }
+      else if((stage == 5 && $scope.step == 6 && skip == undefined) || (stage == 5 && $scope.step == 7 && skip == undefined)){
+        if($scope.step == 6 && stage == 5 && skip == undefined){
+          if($scope.addServiceForm.$pristine == false){
+            $('#modal8').openModal({});
+          } else {
+            $scope.step = stage;
+            $scope.complete = stage - 1;
+            $scope.updateSteps();
+          }
+        }
+        if($scope.step == 7 && stage == 5 && skip == undefined){
+          if($scope.addUsersForm.$pristine == false){
+            $('#modal8').openModal({});
+          } else {
+            $scope.step = stage;
+            $scope.complete = stage - 1;
+            $scope.updateSteps();
+          }
+        }
+      }
+      else if((stage == 6 && skip == true) || (stage == 6 && $scope.step == 7 && skip == undefined)){
+          if($scope.step == 7 && stage == 6 && skip == undefined){
+            if($scope.addUsersForm.$pristine == false){
+              $('#modal8').openModal({});
+            } else {
+              $scope.step = stage;
+              $scope.complete = stage - 1;
+              $scope.updateSteps();
+            }
+          } 
+          if(stage == 6 && skip == true){
+            if($scope.addUsersForm.$pristine == false){
+              $('#modal6').openModal({});
+            } else {
+              $scope.step = stage;
+              $scope.complete = stage - 1;
+              $scope.updateSteps();
+            }
+        }
+      } 
+      else if(stage == 5 && skip == true){
+        if($scope.addServiceForm.$pristine == false){
+          $('#modal5').openModal({});
+        } else {
+          $scope.step = stage;
+          $scope.complete = stage - 1;
+          $scope.updateSteps();
+        }
       }
       // else if (stage == 9) {
       //   console.log('Customer DATA', stage, $scope.userData.length, skip);
@@ -618,12 +982,15 @@ angular.module('dmsAdminApp')
             // $timeout(updateTime, 10000);
             angular.element(document.querySelector('#formValidates'))[0].reset();
             $scope.serviceData = [];
+            $scope.isCheckecdServiceData = true;
             Materialize.toast('<span>' + add + " Service items have been uploaded successfully!" + '</span>', 3000);
             if (continueStep) $scope.nextStep($scope.inCompletedStep);
           } else {
             Materialize.toast('<span>' + data.message + '</span>', 3000);
           }
         })
+      } else {
+        Materialize.toast('<span> Add all fields</span>', 3000);
       }
     }
 
@@ -688,7 +1055,8 @@ angular.module('dmsAdminApp')
             $scope.totalusr = 1;
             // $timeout(updateTime, 10000);
             angular.element(document.querySelector('#addUsersForm'))[0].reset();
-            $scope.userData = [];
+              $scope.userData = [];
+              $scope.isCheckedUserData = true;
             Materialize.toast('<span>' + add + " Users have been uploaded successfully!" + '</span>', 3000);
             if (continueStep) $scope.nextStep($scope.inCompletedStep);
           }
@@ -810,7 +1178,7 @@ angular.module('dmsAdminApp')
       });
     }
 
-    $scope.updateSteps = function () {
+    $scope.updateSteps = function (checkedBoolean) {
       var completedSteps = Array.from({ length: ($scope.complete + 1) }, (x, i) => i);;
       settings.updateSetting({}, {
         completed_step: completedSteps,
@@ -820,7 +1188,13 @@ angular.module('dmsAdminApp')
       }, function (data) {
         if (data.statusCode == 200) {
           console.log('STEPS UPDATED')
-          $scope.settings.steps_completed_in_wizard = data.body.setting.steps_completed_in_wizard;
+          if(checkedBoolean == undefined){
+            $scope.settings.steps_completed_in_wizard = data.body.setting.steps_completed_in_wizard;
+            $scope.tempSettings = JSON.parse(JSON.stringify($scope.settings));
+          } else {
+            $scope.settings = $scope.tempSettings;
+          }
+          
         }
       });
     };
