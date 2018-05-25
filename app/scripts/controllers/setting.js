@@ -1179,7 +1179,7 @@ angular.module('dmsAdminApp')
     }
 
     $scope.updateSteps = function (checkedBoolean) {
-      var completedSteps = Array.from({ length: ($scope.complete + 1) }, (x, i) => i);;
+      var completedSteps = Array.from({ length: ($scope.complete + 1) }, function(x, i){ return i});
       settings.updateSetting({}, {
         completed_step: completedSteps,
         incomplete_step: $scope.step,
