@@ -3,11 +3,11 @@ git pull
 npm install
 bower install
 grunt build --force
-if ! [ -d "/var/www/html/myautoiq-admin" ]; then
- mkdir /var/www/html/myautoiq-admin;
+if ! [ -d "/var/www/html/admin" ]; then
+ mkdir /var/www/html/admin;
  echo "directory not exist; creating directory"
 else
-  rm -rf /var/www/html/myautoiq-admin/*;
+  rm -rf /var/www/html/admin/*;
   echo "exist";
 fi;
-mv dist/* /var/www/html/myautoiq-admin/
+mv dist/* /var/www/html/admin/
