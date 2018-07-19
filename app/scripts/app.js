@@ -266,7 +266,8 @@ angular.module('dmsAdminApp', ['ngCookies', 'ui.materialize', 'ui.router', 'ngCo
   }  
 ])
 .constant({
-  "endpoint": "http://165.227.104.212:3000/api/v1"
+  //"endpoint": "http://165.227.104.212:3000/api/v1",
+  'endpoint': window.location.hostname == "the-symbol.net" ? 'http://165.227.104.212:3000/api/v1' : 'http://myautoiq-env.8xmman5mb3.us-east-2.elasticbeanstalk.com/api/v1',
   // "endpoint": "http://localhost:3000/api/v1"
 })
 .run(
