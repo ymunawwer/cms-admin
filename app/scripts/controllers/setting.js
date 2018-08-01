@@ -1039,7 +1039,6 @@ angular.module('dmsAdminApp')
           if (data.statusCode === 200) {
             data.body.result = data.body.result && data.body.result.length ? data.body.result.filter(function (item) { return item != null }) : [];
             $scope.users = data.body.result.length ? $scope.users.concat(data.body.result) : $scope.users;
-            console.log($scope.users)
             if (data.body.already.length != 0) {
               var string = '';
               for (var i = 0; i < data.body.already.length; i++) {
