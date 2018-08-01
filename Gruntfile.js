@@ -15,6 +15,7 @@ module.exports = function (grunt) {
   // Automatically load required Grunt tasks
   require('jit-grunt')(grunt, {
     useminPrepare: 'grunt-usemin',
+    ngtemplates: 'grunt-angular-templates',
     cdnify: 'grunt-google-cdn'
   });
 
@@ -371,18 +372,18 @@ module.exports = function (grunt) {
       }
     },
 
-    // ngtemplates: {
-    //   dist: {
-    //     options: {
-    //       module: 'dmsAdminApp',
-    //       htmlmin: '<%= htmlmin.dist.options %>',
-    //       usemin: 'scripts/scripts.js'
-    //     },
-    //     cwd: '<%= yeoman.app %>',
-    //     src: 'views/{,*/}*.html',
-    //     dest: '.tmp/templateCache.js'
-    //   }
-    // },
+    ngtemplates: {
+      dist: {
+        options: {
+          module: 'dmsAdminApp',
+          htmlmin: '<%= htmlmin.dist.options %>',
+          usemin: 'scripts/scripts.js'
+        },
+        cwd: '<%= yeoman.app %>',
+        src: 'views/{,*/}*.html',
+        dest: '.tmp/templateCache.js'
+      }
+    },
 
     // ng-annotate tries to make the code safe for minification automatically
     // by using the Angular long form for dependency injection.
@@ -509,6 +510,7 @@ module.exports = function (grunt) {
     'useminPrepare',
     'concurrent:dist',
     'postcss',
+    'ngtemplates',
     'concat',
     'ngAnnotate',
     'copy:dist',

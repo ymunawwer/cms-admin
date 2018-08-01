@@ -928,8 +928,7 @@ angular.module('dmsAdminApp')
       'service_scheduler': 'SS',
       'service_adviser': 'SA',
       'vehicle​_inspection​': 'VI',
-      'admin': 'ADMIN',
-      'user': 'USER'
+      'admin': 'ADMIN'
     };
     $scope.printRoles = function (roles) {
 
