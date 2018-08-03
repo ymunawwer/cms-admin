@@ -528,7 +528,7 @@
                             <label for="manufacturs" class="col m3 l2 s12">Dealer​ ​OEM​ ​Association</label>
                             <select id="manufacturs" ng-change="changeManufacture()" class="browser-default selection-corrector col m9 l10 s12" name="manufacturs"
                                 ng-model="settings.manufactur" style="margin: 0 0 20px;">
-                                <option value="">Independent</option>
+                                <option value="" disabled selected>Select your option</option>
                                 <option ng-repeat="man in manufactureList" value="{{man._id}}">{{man.name}}</option>
                             </select>
                         </div>

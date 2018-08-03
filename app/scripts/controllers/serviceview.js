@@ -14,6 +14,7 @@ angular.module('dmsAdminApp')
     $scope.servicelimit = 10;
     $scope.servicestart = 0;
     $scope.servicepage = 1;
+    $scope.editServiceData;
 
     $scope.getService = function () {
       serviceservice.getServiceList({
@@ -160,7 +161,13 @@ angular.module('dmsAdminApp')
 
     $scope.serviceEdit = function (service) {
       $scope.serviceData = service;
+      $scope.editServiceData = Object.assign({}, $scope.serviceData);
       $('#modalEdit').openModal({});
+    }
+    $scope.closeServiceItem = function () {
+      $scope.serviceData.price = $scope.editServiceData.price;
+      $scope.serviceData.name = $scope.editServiceData.name;
+      $scope.serviceData.description = $scope.editServiceData.description;
     }
     $scope.updateService = function(){
       if($scope.editServiceForm.$valid){
