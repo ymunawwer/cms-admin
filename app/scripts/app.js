@@ -268,10 +268,11 @@ angular.module('dmsAdminApp', ['ngCookies', 'ui.materialize', 'ui.router', 'ngCo
 .constant({
   //"endpoint": "http://165.227.104.212:3000/api/v1",
   'endpoint': window.location.hostname == "the-symbol.net" ? 'http://165.227.104.212:3000/api/v1' : 'http://myautoiq-env.8xmman5mb3.us-east-2.elasticbeanstalk.com/api/v1',
-  // "endpoint": "http://localhost:3000/api/v1"
+   //"endpoint": "http://localhost:3000/api/v1"
 })
 .run(
   function($rootScope, $http, $state, $location, $templateCache, session) {
+  $rootScope.baseurl = 'http://the-symbol.net',
   $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {
     $http.defaults.headers.common['Authorization'] = session.get('accesstoken');
     console.log(session.get('accesstoken'));
