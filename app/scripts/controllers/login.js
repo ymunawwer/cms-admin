@@ -45,33 +45,42 @@ angular.module('dmsAdminApp')
       }
     }
 
-    $scope.forgetPassword = function(){
-      if($scope.sendLinkForm.$valid){
-        authservice.forgetPassword({}, $scope.userData, function(data){
-          if(data.statusCode === 200){
-            $scope.userData.email='';
-            $state.go('login');
-            Materialize.toast('<span>'+data.message+'</span>', 3000);
-          }
-          else{
-            $scope.userData.email='';
-            Materialize.toast('<span>'+data.message+'</span>', 3000);
-          }
-        })
 
-      }
-    }
-    $scope.resetPassword = function(){
-      if($scope.resetPasswordForm.$valid){
-        authservice.resetPassword({}, $scope.userData, function(data){
-          if(data.statusCode === 200){
-            $state.go('login');
-          }
-          else{
-            $scope.userData.email='';
-            $scope.error = data.message;
-          }
-        })
-      }
-    }
+
+ $scope.forgetPassword = function () {
+   if ($scope.sendLinkForm.$valid) {
+     console.log($scope.userData);
+     authservice.forgetPassword({}, $scope.userData, function (data) {
+       if (data.statusCode === 200) {
+         $scope.userData.email = '';
+         $state.go('login');
+         Materialize.toast('<span>' + data.message + '</span>', 3000);
+       } else {
+         $scope.userData.email = '';
+         Materialize.toast('<span>' + data.message + '</span>', 3000);
+       }
+     })
+
+   }
+ }
+ $scope.resetPassword = function () {
+   if ($scope.resetPasswordForm.$valid) {
+     console.log($location.$$search.url);
+     if ($location.$$search.url) {
+       authservice.resetPassword({
+         token: $location.$$search.url
+       }, $scope.userData, function (data) {
+         if (data.statusCode === 200) {
+           Materialize.toast('<span>' + data.message + '</span>', 3000);
+           $state.go('login');
+         } else {
+           Materialize.toast('<span>' + data.message + '</span>', 3000);
+         }
+       })
+     } else {
+       Materialize.toast('<span>' + "Sorry something went wrong please try again letter." + '</span>', 3000);
+     }
+   }
+ }
+
   });

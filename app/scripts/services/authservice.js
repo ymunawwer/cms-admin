@@ -22,6 +22,9 @@ angular.module('dmsAdminApp')
       resetPassword:{
         url : endpoint+'/admin/reset/password',
         method: 'POST',
+        params: {
+          token: "@token"
+        },
       }
     })
   });
