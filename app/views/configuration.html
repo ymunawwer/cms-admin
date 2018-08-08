@@ -82,6 +82,28 @@
         width: 100%;
         
     }*/
+    #dountFormValidate label{
+        position: relative;
+        left: 0 !important;
+        padding-top: 25px;
+        font-size: 12px;
+    }
+    #donutFormValidate .input-field label.active{
+        transform: none !important;
+        font-size: inherit !important;
+    }
+    #dountFormValidate div.right-align{
+        text-align: right !important;
+        transform: translateY(6em) !important;
+        position: static;
+        display: inline-block;
+        width: 100%;
+        margin-bottom: 6px;
+        margin-top: 0;
+    }
+    #dountFormValidate div.right-align .btn{
+        float:none;
+    }
 </style>
 
 <!-- Dropdown Structure -->
@@ -921,15 +943,61 @@
                 </div>
             </div>
             <div class="ul-main-five ulmc" ng-class="{'active': step==5}">
-                <div class="file-field input-field col s12">
+                <div class="file-field  col s12">
                     <p>Step 5: Service Advisor Configuration</p>
-                    Currently no configuration is required for Service Advisor profile.
-                    <br> If we add things here in future, You will be notified via. email.
+                    <form class="formValidate row" name="dountFormValidate" id="dountFormValidate" ng-submit="updateDonutValues()">
+                        <p>Donut Information
+                            <i class="material-icons tiny blue-text tooltipped" data-position="right" data-delay="50" data-tooltip="Text here">help_outline</i>
+                        </p>
+                        <div class="col s12 pl11">
+                            <label for="averageVisit"  class="col m3 l2 s12">Average Visit*</label>
+                            <input  type="number" id="averageVisit" name="averageVisit" ng-model="donutValues.averageVisit" required class="col m9 l10 s12">
+                        </div>
+                        <div class="col s12 pl11">
+                            <label for="averageSpend" class="col m3 l2 s12">Average Spend*</label>
+                            <input id="averageSpend" type="number" name="averageSpend" required ng-model="donutValues.averageSpend" class="col m9 l10 s12">
+                        </div>
+                        <div class="col s12 pl11">
+                            <label for="averageLifeSpan" class="col m3 l2 s12">Average Life Span*</label>
+                            <input id="averageLifeSpan" type="number" name="averageLifeSpan" required ng-model="donutValues.averageLifeSpan"
+                                class="col m9 l10 s12">
+                        </div>
+                        <div class="col s12 pl11">
+                            <label for="rententionRate" class="col m3 l2 s12">Rentention Rate*</label>
+                            <input id="rententionRate" name="rententionRate" required type="number" ng-model="donutValues.rententionRate" class="col m9 l10 s12">
+                        </div>
+    
+                        <div class="col s12 pl11">
+                            <label for="profitMargin" class="col m3 l2 s12">Profit Margin*</label>
+                            <input id="profitMargin" type="number" required name="profitMargin" ng-model="donutValues.profitMargin"
+                                class="col m9 l10 s12">
+                        </div>
+                        <div class="col s12 pl11">
+                            <label for="discountRate" class="col m3 l2 s12">Discount Rate*</label>
+                            <input id="discountRate" type="number" name="discountRate" required ng-model="donutValues.discountRate" class="col m9 l10 s12">
+                        </div>
+                        <div class="col s12 pl11">
+                            <label for="customerValue" class="col m3 l2 s12">Customer Value*</label>
+                            <input id="customerValue" type="number" name="customerValue" required ng-model="donutValues.customerValue"
+                                class="col m9 l10 s12">
+                        </div>
+                        <div class="col s12 pl11">
+                            <label for="customerSpanValue" class="col m3 l2 s12">Customer Span Value*</label>
+                            <input id="customerSpanValue" name="customerSpanValue" required type="number" ng-model="donutValues.customerSpanValue" class="col m9 l10 s12">
+                        </div>
+    
+                        <div class="col s12 pl11">
+                            <label for="lifeTimeValue" class="col m3 l2 s12">Life Time Value*</label>
+                            <input id="lifeTimeValue" type="number" required name="lifeTimeValue" ng-model="donutValues.lifeTimeValue"
+                                class="col m9 l10 s12">
+                        </div>
+                        <div class="right-align">
+                                <button type="button" style="background-color: #9e9e9e !important;" class="btn waves-effect waves-light camel-case " ng-click="nextStep(4)">Previous</button>
+                                <button type="submit" class="btn waves-effect waves-light ul-2-btn camel-case">Next</button>
+                            </div>
+                    </form>
                 </div>
-                <div class="right-align">
-                    <button type="button" style="background-color: #9e9e9e !important;" class="btn waves-effect waves-light camel-case " ng-click="nextStep(4)">Previous</button>
-                    <button type="button" ng-click="nextStep(6)" class="btn waves-effect waves-light ul-2-btn camel-case">Next</button>
-                </div>
+                
             </div>
             <div class="ul-main-six ulmc" ng-class="{'active': step==6}">
                 <div class="bulk-upload-otr">
@@ -1438,7 +1506,18 @@
             </div>
             <div class="modal-footer">
                 <button type="button" ng-click="saveAndGoForAnotherPage()" class="btn waves-effect waves-light ul-2-btn camel-case">Save</button>
-                <button type="button" ng-click="closeThePopup()" style="background-color: #9e9e9e !important;" class="btn waves-effect waves-light camel-case ">No</button>
+                <button type="button" ng-click="closeThePopup(8)" style="background-color: #9e9e9e !important;" class="btn waves-effect waves-light camel-case ">No</button>
+            </div>
+        </div>
+
+        <div id="modal9" class="modal">
+            <div class="modal-content">
+                <h4>Confirmation</h4>
+                <p>If you want to go to previous page, you will lose your new data.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" ng-click="deleteDountValues()" class="btn waves-effect waves-light ul-2-btn camel-case">Ok</button>
+                <button type="button" ng-click="closeThePopup(9)" style="background-color: #9e9e9e !important;" class="btn waves-effect waves-light camel-case ">No</button>
             </div>
         </div>
 <script type="text/javascript"> 

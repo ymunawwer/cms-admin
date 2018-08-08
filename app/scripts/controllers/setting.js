@@ -19,6 +19,7 @@ angular.module('dmsAdminApp')
     $scope.settings.days_of_service = {};
     $scope.isCheckecdServiceData = false;
     $scope.isCheckedUserData == false;
+    $scope.donutValues = {};
     settings.getSetting({}, {}, function (data) {
       $scope.settings = data.body.setting || {};
       $scope.man = $scope.settings.manufactur;
@@ -28,6 +29,8 @@ angular.module('dmsAdminApp')
       //   $scope.complete = 1 - 1;
       // }
       $scope.selectmake = $scope.settings.make;
+      $scope.donutValues = $scope.settings.donut_values;
+      $scope.serverDountValues = Object.assign({}, $scope.settings.donut_values);
       $scope.settings.holidays = $scope.settings.holidays && $scope.settings.holidays.filter(onlyUnique);
       $scope.settings.steps_completed_in_wizard = $scope.settings.steps_completed_in_wizard || [];
       console.log("CURRENT STEP IN  WIZARD = ", $scope.settings.current_step_in_wizard)
@@ -166,6 +169,36 @@ angular.module('dmsAdminApp')
         // Materialize.toast('<span> Please enter all fields.</span>', 3000);
       }
     }
+    $scope.updateDonutValues = function () {
+      if ($scope.dountFormValidate.$valid) {
+        $scope.settings.donut_values = $scope.donutValues;
+        console.log($scope.settings);
+        settings.updateSetting({}, $scope.settings, function (data) {
+          if (data.statusText == 'success') {
+            // $scope.site.site_title = $scope.settings.site_title;
+            var message = data.message;
+            $scope.isStarted = true;
+            $scope.complete = 5;
+            $scope.step = 6;
+            $scope.updateSteps();
+            // Materialize.toast('<span>' + message + '</span>', 3000);
+          } else {
+            var message = data.statusMessage;
+            Materialize.toast('<span>' + message + '</span>', 3000);
+          }
+        });
+      }
+    }
+
+    $scope.deleteDountValues = function () {
+      $scope.donutValues = $scope.serverDountValues;
+      $scope.step = $scope.dummyStage;
+      $scope.complete = $scope.dummyStage - 1;
+      $scope.updateSteps();
+      $('#modal9').closeModal({});
+      setTimeout(function () { $('.lean-overlay').hide(); }, 1000);
+    }
+
     serviceservice.getManufactureList({}, {}, function (data) {
       if (data.statusCode == 200) {
         $scope.manufactureList = data.body.manufacture;
@@ -507,9 +540,14 @@ angular.module('dmsAdminApp')
       }
 
     };
-    $scope.closeThePopup = function () {
-      $('#modal8').closeModal({});
-      setTimeout(function () { $('.lean-overlay').hide(); }, 1000);
+    $scope.closeThePopup = function (num) {
+      if(num == 8){
+        $('#modal8').closeModal({});
+        setTimeout(function () { $('.lean-overlay').hide(); }, 1000);
+      } else {
+        $('#modal9').closeModal({});
+        setTimeout(function () { $('.lean-overlay').hide(); }, 1000);
+      }
     };
     $scope.getServices();
     $scope.getUsers();
@@ -528,7 +566,7 @@ angular.module('dmsAdminApp')
             $scope.complete = stage - 1;
             $scope.updateSteps();
           }
-        } else if(($scope.step == 3 && stage == 1) || ($scope.step == 4 && stage == 1) || ($scope.step == 5 && stage == 1)){
+        } else if(($scope.step == 3 && stage == 1) || ($scope.step == 4 && stage == 1)){
           $scope.step = stage;
           $scope.complete = stage - 1;
           $scope.updateSteps();
@@ -550,6 +588,14 @@ angular.module('dmsAdminApp')
               $scope.complete = stage - 1;
               $scope.updateSteps();
             }
+          }
+        } else if(stage == 1 && $scope.step == 5){
+          if($scope.dountFormValidate.$pristine == false){
+            $('#modal9').openModal({});
+          } else {
+            $scope.step = stage;
+            $scope.complete = stage - 1;
+            $scope.updateSteps();
           }
         } else {
           $scope.step = stage;
@@ -737,6 +783,15 @@ angular.module('dmsAdminApp')
               $scope.complete = stage - 1;
               $scope.updateSteps();
             }
+        }
+      }
+      else if((stage == 4 && $scope.step == 5) || (stage == 3 && $scope.step == 5) || (stage == 2 && $scope.step == 5) || (stage == 1 && $scope.step == 5)){
+        if($scope.dountFormValidate.$pristine == false){
+          $('#modal9').openModal({});
+        } else {
+          $scope.step = stage;
+          $scope.complete = stage - 1;
+          $scope.updateSteps();
         }
       } 
       else if(stage == 5 && skip == true){
@@ -1189,6 +1244,7 @@ angular.module('dmsAdminApp')
         if (data.statusCode == 200) {
           console.log('STEPS UPDATED')
           if(checkedBoolean == undefined){
+            $scope.serverDountValues = Object.assign({}, data.body.setting.donut_values);
             $scope.settings.steps_completed_in_wizard = data.body.setting.steps_completed_in_wizard;
             $scope.tempSettings = JSON.parse(JSON.stringify($scope.settings));
           } else {
