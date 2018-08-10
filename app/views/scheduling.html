@@ -44,7 +44,7 @@
 
     .s2 select {
         border: 1px solid #ddd;
-        margin: 1em 0;
+        margin: 3em 0 1em 0;
     }
 
     .ul-main-two .user-setting label {
@@ -93,6 +93,14 @@
     }
     .ul-main-two .collapsible-body div label {
     white-space: nowrap;
+    }
+    .label-header{
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: .2px;
+    }
+    .admin-head-caption input{
+        margin-top: 2em;
     }
      @media only screen and (max-width: 992px){
           #table-datatables {
@@ -154,13 +162,16 @@
                                         <input id="template_color" type="color" name="template_color" data-error=".errorTxt18" ng-model="settings.template_color">
                                         <div class="errorTxt18"></div>
                                     </div> -->
-                                <div class="row user-setting">
+                                <div class="row user-setting admin-head-caption">
                                     <p class="p_style">Set Appointment Parameters
                                         <i class="material-icons tiny blue-text tooltipped" data-position="right" data-delay="50" data-tooltip="Text here">help_outline</i>
                                     </p>
                                     <div class="margin col s12">
-                                        <label for="holidays" class="label-2 col m4 s12">Holidays</label>
-                                        <div class="holiday_box col m8 offset-m4" style="position: relative;top:-1.7em;">
+                                        <label for="holidays" class="label-2 col m4 s12">
+                                            <span class="black-text label-header">Holidays</span>
+                                            <p>Select dates on which the dealership/service center will be closed due to holiday</p>
+                                        </label>
+                                        <div class="holiday_box col m8" style="position: relative;top:19px;left:-15px;">
                                             <div class="chip" ng-hide="settings.holidays.length">Select Date</div>
                                             <div class="chip" ng-repeat="dateT in settings.holidays">
                                                 {{dateT | date:format:'Y-m-d'}}&nbsp;&nbsp;
@@ -183,20 +194,30 @@
                                         </div>
                                     </div>
                                     <div class="margin col s12">
-                                        <label for="is_mobile_app_needed" class="label-2 col m4 s12">Enabling App Service Access </label>
+                                        <label for="is_mobile_app_needed" class="label-2 col m4 s12">
+                                                <span class="black-text label-header">Enabling App Service Access</span>
+                                                <p>Would you like to enable service scheduling via the myautoIQ app?</p> 
+                                        </label>
 
                                         <input type="checkbox" class="filled-in col m7 s12 " id="filled-in-box" ng-model="settings.is_mobile_app_needed" />
                                         <label for="filled-in-box" class="mbl_app" style="padding: 0px 0 0 35px !important;
-                                            margin-top: 20px;margin-bottom: 12px !important;"></label>
+                                            margin-top: 4em;margin-bottom: 12px !important;"></label>
                                     </div>
                                     <div class="margin col s12">
-                                        <label for="booking_before_time" class="label-2 col m4 s12">Earliest​ ​timeframe​ ​for​ ​online​ ​appointment​ ​setup​(Minutes)*</label>
+                                        <label for="booking_before_time" class="label-2 col m4 s12">
+                                                <span class="black-text label-header">Timeframe for online appointment setup
+                                                    </span>
+                                                <p>How much time in advance (in minutes) must a customer book a service appointment online</p>
+                                        </label>
                                         <input id="booking_before_time" type="number" required name="booking_before_time" data-error=".errorTxt19" ng-model="settings.booking_before_time"
                                             class="col m7 s12">
                                         <div class="errorTxt19"></div>
                                     </div>
                                     <div class="margin col s12">
-                                        <label for="appointment_interval" class="label-2 col m4 s12">Service​ ​appointment​ ​interval​ ​for​ ​taking​ ​appointments(Minutes)*</label>
+                                        <label for="appointment_interval" class="label-2 col m4 s12">
+                                                <span class="black-text label-header">Appointment slots</span>
+                                                <p>Select how long would you like your appointment slots to be (in minutes)</p>
+                                        </label>
                                         <select data-error=".errorTxt20" ng-disabled="settings.steps_completed_in_wizard.indexOf(2) !== -1" required class="browser-default col m7 s12" name="appointment_interval" id="appointment_interval"
                                             ng-model="settings.appointment_interval">
                                             <option ng-value="15">15 mins</option>
@@ -206,7 +227,10 @@
                                         <div class="errorTxt20"></div>
                                     </div>
                                     <div class="margin col s12">
-                                        <label for="auto_cancel_appointment_time" class="label-2 col m4 s12">Auto​ ​cancel​ ​service​ ​appts​ ​for​ ​no​ ​shows​ ​after​ ​x​ Minutes*</label>
+                                        <label for="auto_cancel_appointment_time" class="label-2 col m4 s12">
+                                                <span class="black-text label-header">Auto cancel Set-up</span>
+                                                <p>Select the duration after which an appointment is cancelled if the customer has not shown up</p>
+                                        </label>
                                         <input required id="auto_cancel_appointment_time" type="text" name="auto_cancel_appointment_time" data-error=".errorTxt21"
                                             ng-model="settings.auto_cancel_appointment_time" class="col m7 s12">
                                         <div class="errorTxt21"></div>

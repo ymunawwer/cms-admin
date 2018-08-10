@@ -278,7 +278,7 @@
 
     .s2 select {
         border: 1px solid #ddd;
-        margin: 1em 0;
+        margin: 3em 0 1em 0;
     }
 
     .admin-day-slot span {
@@ -319,6 +319,15 @@
         top: 5px;
         right: 10px;
         color: #ff0000;
+    }
+
+    .label-header{
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: .2px;
+    }
+    .admin-head-caption input{
+        margin-top: 2em;
     }
 
     .tiny.blue-text {
@@ -400,13 +409,16 @@
     }
 
     .dealer-wizard-profile .ul-main-content p {
-        text-transform: none !important
+        text-transform: none !important;
+        font-weight: 400;
+        padding-left:0;
+        font-size: 13px;
     }
 </style>
 <div class="container"></div>
 <div class="dealer-wizard z-depth-1 white" ng-show="!isStarted && !settings.current_step_in_wizard">
     <p class="flow-text center-align">Dealer SetUp Wizard</p>
-    <p class="center-align black-text">Welcome to dealer account setup wizard. Follow these steps and we can have you setup and ready in no time.</p>
+    <p class="center-align black-text">Welcome to dealer account setup wizard. The Dealer Setup Wizard will help you onboard your dealership into our system in 8 easy steps:</p>
     <div class="row">
         <div class="col m5 s12">
             <div class="wizard-img">
@@ -416,23 +428,14 @@
         </div>
         <div class="col m7 s12">
             <div class="wizard-content">
-                <p>Step 1: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean
-                    massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam
-                    felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis</p>
-                <p>Step 2: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean
-                    massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam
-                    felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis</p>
-                <p>Step 3: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean
-                    massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam
-                    felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis</p>
-                <p>Step 4: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean
-                    massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam
-                    felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis</p>
-                <p>
-                    Step 5: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis
-                    natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies
-                    nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis.
-                </p>
+                <p><b>Step 1 - Dealership Information:</b>  Enter your dealership information including main details such as email, phone, address, your primary contact, contact for invoicing, and contact details for customers.</p>
+                <p><b>Step 2 - Scheduling:</b> Set your dealerships weekly working hours as well as parameters for the service appointments.</p>
+                <p><b>Step 3 - Marketing:</b> Add and remove pictures you would like to use in offers and email campaigns you send out through the Marketing Manager.</p>
+                <p><b>Step 4 - Sales Lead Generator:</b> Currently there is no configuration required by the user for the Sales Lead Generator, but if we add anything, you will be notified via email.</p>
+                <p><b>Step 5 - Service Advisor:</b> Currently there is no configuration required by the user for the Service Advisor, but if we add anything, you will be notified via email.</p>
+                <p><b>Step 6 - Service Data:</b> Enter the service data for your dealership (e.g. the service items you offer, their cost, and their description). For bulk data upload, you can download the pre-formatted Excel sheet we offer and enter the data there, then upload to the setup wizard.</p>
+                <p><b>Step 7 - Add New Users:</b> Enter your employees including their name, email, and their role in your dealership. Similar to the service data upload, you can upload bulk data through an excel sheet.</p>
+                <p><b>Step 8 - Launch:</b> In this step, you complete the on-boarding process and save anything you have added or changed.</p>
                 <p class="right-align">
                     <button type="button" class="btn waves-effect waves-light camel-case" ng-click="nextStep(1)">
                         Start
@@ -761,13 +764,16 @@
                                 <input id="template_color" type="color" name="template_color" data-error=".errorTxt18" ng-model="settings.template_color">
                                 <div class="errorTxt18"></div>
                             </div> -->
-                            <div class="row user-setting">
+                            <div class="row user-setting admin-head-caption">
                                 <p>Set Appointment Parameters
                                     <i class="material-icons tiny blue-text tooltipped" data-position="right" data-delay="50" data-tooltip="Text here">help_outline</i>
                                 </p>
                                 <div class="margin col s12">
-                                    <label for="holidays" class="label-2 col m4 s12">Holidays</label>
-                                    <div class="holiday_box col m8 offset-m4" style="position: relative;top:-1.7em;padding-left:0;">
+                                    <label for="holidays" class="label-2 col m4 s12">
+                                            <span class="black-text label-header">Holidays</span>
+                                            <p>Select dates on which the dealership/service center will be closed due to holiday</p>
+                                    </label>
+                                    <div class="holiday_box col m7" style="position: relative;top:57px;left:-15px;">
                                         <div class="chip" ng-hide="settings.holidays.length">Select Date</div>
                                         <div class="chip" ng-repeat="dateT in settings.holidays">
                                             {{dateT | date:format:'Y-m-d'}}&nbsp;&nbsp;
@@ -784,8 +790,6 @@
                                                 color: transparent;
 
                                             }
-
-                                            input.datepickerholiday :
                                         </style>
                                         <!-- <input class="datepickerholiday" style="height: 35px;width: 35px;border:none;" /> -->
                                         <label class="datepickerholiday" style="color: #000;font-weight: 500;cursor: pointer;text-decoration: underline;">Click to Select</label>
@@ -794,20 +798,30 @@
                                     </div>
                                 </div>
                                 <div class="margin col s12">
-                                    <label for="is_mobile_app_needed" class="label-2 col m4 s12">Enable app service access </label>
+                                    <label for="is_mobile_app_needed" class="label-2 col m4 s12">
+                                            <span class="black-text label-header">Enabling App Service Access</span>
+                                            <p>Would you like to enable service scheduling via the myautoIQ app?</p> 
+                                    </label>
 
                                     <input type="checkbox" class="filled-in col m7 s12 " id="filled-in-box" ng-model="settings.is_mobile_app_needed" />
                                     <label for="filled-in-box" class="mbl_app" style="padding: 0px 0 0 35px !important;
-                                    margin-top: 20px;margin-bottom: 12px !important;"></label>
+                                            margin-top: 4em;margin-bottom: 12px !important;"></label>
                                 </div>
                                 <div class="margin col s12">
-                                    <label for="booking_before_time" class="label-2 col m4 s12">Earliest​ ​timeframe​ ​for​ ​online​ ​appointment​ ​setup​(Minutes)*</label>
+                                    <label for="booking_before_time" class="label-2 col m4 s12">
+                                            <span class="black-text label-header">Timeframe for online appointment setup
+                                                    </span>
+                                                <p>How much time in advance (in minutes) must a customer book a service appointment online</p>
+                                    </label>
                                     <input id="booking_before_time" type="number" required name="booking_before_time" data-error=".errorTxt19" ng-model="settings.booking_before_time"
                                         class="col m7 s12">
                                     <div class="errorTxt19"></div>
                                 </div>
                                 <div class="margin col s12">
-                                    <label for="appointment_interval" class="label-2 col m4 s12">Service​ ​appointment​ ​interval​ ​for​ ​taking​ ​appointments(Minutes)*</label>
+                                    <label for="appointment_interval" class="label-2 col m4 s12">
+                                            <span class="black-text label-header">Appointment slots</span>
+                                                <p>Select how long would you like your appointment slots to be (in minutes)</p>
+                                    </label>
                                     <select ng-disabled="settings.steps_completed_in_wizard.indexOf(2) !== -1" data-error=".errorTxt20" required class="browser-default col m7 s12"
                                         name="appointment_interval" id="appointment_interval" ng-model="settings.appointment_interval">
                                         <option ng-value="15">15 mins</option>
@@ -817,7 +831,9 @@
                                     <div class="errorTxt20"></div>
                                 </div>
                                 <div class="margin col s12">
-                                    <label for="auto_cancel_appointment_time" class="label-2 col m4 s12">Auto​ ​cancel​ ​service​ ​appts​ ​for​ ​no​ ​shows​ ​after​ ​x​ Minutes*</label>
+                                    <label for="auto_cancel_appointment_time" class="label-2 col m4 s12">
+                                    <span class="black-text label-header">Auto cancel Set-up</span>
+                                                <p>Select the duration after which an appointment is cancelled if the customer has not shown up</p></label>
                                     <input required id="auto_cancel_appointment_time" type="text" name="auto_cancel_appointment_time" data-error=".errorTxt21"
                                         ng-model="settings.auto_cancel_appointment_time" class="col m7 s12">
                                     <div class="errorTxt21"></div>
