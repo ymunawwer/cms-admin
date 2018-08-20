@@ -1,0 +1,96 @@
+<style>
+    #dountFormValidate label {
+        position: relative;
+        left: 0 !important;
+        padding-top: 25px;
+        font-size: 12px;
+    }
+
+    #donutFormValidate .input-field label.active {
+        transform: none !important;
+        font-size: inherit !important;
+    }
+    .decor-div {
+        padding: 1em 2em 2em 2em;
+    }
+    .ml7{
+        margin-left: 7px !important;
+    }
+    .col.s12.ml7{
+        margin: 0 0 0 7px !important;
+    }
+    /* #dountFormValidate div.right-align {
+        text-align: right !important;
+        transform: translateY(6em) !important;
+        position: static;
+        display: inline-block;
+        width: 100%;
+        margin-bottom: 6px;
+        margin-top: 0;
+    }
+
+    #dountFormValidate div.right-align .btn {
+        float: none;
+    } */
+</style>
+<div class="container">
+    <div class="section">
+        <div class="decor-div white z-depth-1">
+            <!-- <p class="caption">USER LIST<br></p> -->
+            <div id="table-datatables">
+                <div class="ul-main-five ulmc" ng-class="{'active': step==5}">
+                    <div class="file-field  col s12">
+                        <p class="ml7"><b>Service Advisor Configuration</b></p>
+                        <form class="formValidate row" name="dountFormValidate" id="dountFormValidate" ng-submit="updateDonutValues()">
+                            <p class="col s12 ml7">Donut Information
+                                <i class="material-icons tiny blue-text tooltipped" data-position="right" data-delay="50" data-tooltip="Text here">help_outline</i>
+                            </p>
+                            <div class="col s12 pl11">
+                                <label for="averageVisit" class="col m3 l2 s12">Average Visit*</label>
+                                <input type="number" id="averageVisit" name="averageVisit" ng-model="donutValues.averageVisit" required class="col m9 l10 s12">
+                            </div>
+                            <div class="col s12 pl11">
+                                <label for="averageSpend" class="col m3 l2 s12">Average Spend*</label>
+                                <input id="averageSpend" type="number" name="averageSpend" required ng-model="donutValues.averageSpend" class="col m9 l10 s12">
+                            </div>
+                            <div class="col s12 pl11">
+                                <label for="averageLifeSpan" class="col m3 l2 s12">Average Life Span*</label>
+                                <input id="averageLifeSpan" type="number" name="averageLifeSpan" required ng-model="donutValues.averageLifeSpan" class="col m9 l10 s12">
+                            </div>
+                            <div class="col s12 pl11">
+                                <label for="rententionRate" class="col m3 l2 s12">Rentention Rate*</label>
+                                <input id="rententionRate" name="rententionRate" required type="number" ng-model="donutValues.rententionRate" class="col m9 l10 s12">
+                            </div>
+
+                            <div class="col s12 pl11">
+                                <label for="profitMargin" class="col m3 l2 s12">Profit Margin*</label>
+                                <input id="profitMargin" type="number" required name="profitMargin" ng-model="donutValues.profitMargin" class="col m9 l10 s12">
+                            </div>
+                            <div class="col s12 pl11">
+                                <label for="discountRate" class="col m3 l2 s12">Discount Rate*</label>
+                                <input id="discountRate" type="number" name="discountRate" required ng-model="donutValues.discountRate" class="col m9 l10 s12">
+                            </div>
+                            <div class="col s12 pl11">
+                                <label for="customerValue" class="col m3 l2 s12">Customer Value*</label>
+                                <input id="customerValue" type="number" name="customerValue" required ng-model="donutValues.customerValue" class="col m9 l10 s12">
+                            </div>
+                            <div class="col s12 pl11">
+                                <label for="customerSpanValue" class="col m3 l2 s12">Customer Span Value*</label>
+                                <input id="customerSpanValue" name="customerSpanValue" required type="number" ng-model="donutValues.customerSpanValue" class="col m9 l10 s12">
+                            </div>
+
+                            <div class="col s12 pl11">
+                                <label for="lifeTimeValue" class="col m3 l2 s12">Life Time Value*</label>
+                                <input id="lifeTimeValue" type="number" required name="lifeTimeValue" ng-model="donutValues.lifeTimeValue" class="col m9 l10 s12">
+                            </div>
+                            <div class="col m12">
+                                <button type="submit" class="btn waves-effect right waves-light ul-2-btn camel-case">Update</button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

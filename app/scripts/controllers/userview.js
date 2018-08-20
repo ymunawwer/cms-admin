@@ -61,6 +61,7 @@ angular.module('dmsAdminApp')
       return rolesArray.length === 0 ? 'N/A' : rolesArray.join(",");
     }
     $scope.userList = [];
+    $scope.customerList = [];
     $scope.ulimit = 10;
     $scope.ustart = 0;
     $scope.upage = 1;
@@ -71,6 +72,8 @@ angular.module('dmsAdminApp')
       userservice.getUserList($scope.where, {}, function (data) {
         if (data.statusCode == 200) {
           $scope.userList = data.body.users;
+          $scope.customerList = data.body.customers;
+          $scope.customerCount = data.body.customerCount;
           $scope.userCount = data.body.count;
           $scope.utotalPages = Math.ceil($scope.userCount / $scope.ulimit);
         }
@@ -90,6 +93,8 @@ angular.module('dmsAdminApp')
       }, {}, function (data) {
         if (data.statusCode == 200) {
           $scope.userList = data.body.users;
+          $scope.customerList = data.body.customers;
+          $scope.customerCount = data.body.customerCount;
           $scope.userCount = data.body.count;
           $scope.utotalPages = Math.ceil($scope.userCount / $scope.ulimit);
         }
@@ -182,51 +187,63 @@ angular.module('dmsAdminApp')
     // $scope.userData.roles =[];
     $scope.userData = [];
     $scope.addUser = function () {
-
       if ($scope.addUsersForm.$valid) {
-        // console.log($scope.userData)
-        // return false
-        userservice.addBulkUser({}, $scope.userData, function (data) {
-          if (data.statusCode === 200) {
-            // $scope.userList = data.body.result ? $scope.userList.concat(data.body.result) : $scope.userList;
-            $scope.getUsers();
-            if (data.body.already.length != 0) {
-              var string = '';
-              for (var i = 0; i < data.body.already.length; i++) {
-                string = data.body.already[i].name + ',' + string;
-              }
-              $scope.alreadyu = data.body.already;
-
-
-            } 
-             if(data.body.availableVin.length != 0){
-              var stringVin = '';
-              for (var i = 0; i < data.body.availableVin.length; i++) {
-                stringVin = data.body.availableVin[i] + ',' + stringVin;
-              }
-              $scope.availableVinNum = data.body.availableVin;
-            }
-            if(data.body.invalidVinNumbers.length != 0){
-              var stringVin = '';
-              for (var i = 0; i < data.body.invalidVinNumbers.length; i++) {
-                stringVin = data.body.invalidVinNumbers[i] + ',' + stringVin;
-              }
-              $scope.invalidVinNum = data.body.invalidVinNumbers;
-            }
-            var add = 0;
-            for (var i = 0; i < data.body.result.length; i++) {
-              if (data.body.result[i] != null) add++;
-            }
-            $scope.totalusr = 1;
-            // $timeout(updateTime, 10000);
-            angular.element(document.querySelector('#addUsersForm'))[0].reset();
-            $scope.userData = [];
-            Materialize.toast('<span>' + data.body.createdUsers.length + " Users and " + data.body.createdVehicles.length + " Vehicles have been uploaded successfully!"  + '</span>', 3000);
+        var isRoles = [];
+        $scope.userData.map(function (item) {
+          if (item.vin) {
+            return;
+          } else if (item.roles == undefined) {
+            isRoles.push(item);
           }
-          else {
-            Materialize.toast('<span>' + data.message + '</span>', 3000);
-          }
-        })
+        });
+        if (isRoles.length == 0) {
+          userservice.addBulkUser({}, $scope.userData, function (data) {
+            if (data.statusCode === 200) {
+              isRoles = [];
+              // $scope.userList = data.body.result ? $scope.userList.concat(data.body.result) : $scope.userList;
+              $scope.getUsers();
+              if (data.body.already.length != 0) {
+                var string = '';
+                for (var i = 0; i < data.body.already.length; i++) {
+                  string = data.body.already[i].name + ',' + string;
+                }
+                $scope.alreadyu = data.body.already;
+              }
+              if (data.body.availableVin.length != 0) {
+                var stringVin = '';
+                for (var i = 0; i < data.body.availableVin.length; i++) {
+                  stringVin = data.body.availableVin[i] + ',' + stringVin;
+                }
+                $scope.availableVinNum = data.body.availableVin;
+              }
+              if (data.body.invalidVinNumbers.length != 0) {
+                var stringVin = '';
+                for (var i = 0; i < data.body.invalidVinNumbers.length; i++) {
+                  stringVin = data.body.invalidVinNumbers[i] + ',' + stringVin;
+                }
+                $scope.invalidVinNum = data.body.invalidVinNumbers;
+              }
+              var add = 0;
+              for (var i = 0; i < data.body.result.length; i++) {
+                if (data.body.result[i] != null) add++;
+              }
+              $scope.totalusr = 1;
+              // $timeout(updateTime, 10000);
+              angular.element(document.querySelector('#addUsersForm'))[0].reset();
+              $scope.userData = [];
+              if(data.body.isCustomer){
+                Materialize.toast('<span>' + data.body.createdUsers.length + " Users and " + data.body.createdVehicles.length + " Vehicles have been uploaded successfully!" + '</span>', 3000);
+              } else {
+                Materialize.toast('<span>' + data.body.createdUsers.length + " Users have been uploaded successfully!" + '</span>', 3000);
+              }
+            }
+            else {
+              Materialize.toast('<span>' + data.message + '</span>', 3000);
+            }
+          })
+        } else {
+          Materialize.toast('<span> Please enter roles.</span>', 3000);
+        }
       } else {
         Materialize.toast('<span> Add all fields</span>', 3000);
       }
@@ -248,7 +265,7 @@ angular.module('dmsAdminApp')
             $scope.alreadyu = data.body.already;
 
           }
-          if(data.body.availableVin.length != 0){
+          if (data.body.availableVin.length != 0) {
             var stringVin = '';
             for (var i = 0; i < data.body.availableVin.length; i++) {
               stringVin = data.body.availableVin[i] + ',' + stringVin;
@@ -263,7 +280,7 @@ angular.module('dmsAdminApp')
           }
           // $timeout(updateTime, 10000);
           angular.element(document.querySelector('#userUploadForm'))[0].reset();
-          Materialize.toast('<span>' + data.body.createdUsers.length + " Users and " + data.body.createdVehicles.length + " Vehicles have been uploaded successfully!"  + '</span>', 3000);
+          Materialize.toast('<span>' + data.body.createdUsers.length + " Users and " + data.body.createdVehicles.length + " Vehicles have been uploaded successfully!" + '</span>', 3000);
         } else {
           Materialize.toast('<span>' + 'User adding has been failed' + '</span>', 3000);
         }

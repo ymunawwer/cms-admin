@@ -262,6 +262,18 @@ angular.module('dmsAdminApp', ['ngCookies', 'ui.materialize', 'ui.router', 'ngCo
         controller: 'ConfigurationCtrl',
         authenticate: true
       })
+      .state('home.advisor', {
+        url: 'advisor',
+        templateUrl: 'views/advisor.html',
+        controller: 'SettingCtrl',
+        authenticate: true
+      })
+      .state('home.customer', {
+        url: 'customer',
+        templateUrl: 'views/customerview.html',
+        controller: 'UserviewCtrl',
+        authenticate: true
+      })
 
   }  
 ])

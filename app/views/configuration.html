@@ -84,9 +84,10 @@
     }*/
     #dountFormValidate label{
         position: relative;
-        left: 0 !important;
+        left: -19px !important;
         padding-top: 25px;
         font-size: 12px;
+        font-weight: 400;
     }
     #donutFormValidate .input-field label.active{
         transform: none !important;
@@ -104,6 +105,12 @@
     #dountFormValidate div.right-align .btn{
         float:none;
     }
+    .adduser-btn{
+        display: inline-block;
+        width: 100%;
+        margin: 0 0 10px;
+    }
+    
 </style>
 
 <!-- Dropdown Structure -->
@@ -177,13 +184,13 @@
                 </a>
             </li>
         </ul>
-        <ul>
+        <!-- <ul>
             <li class="bold" ui-sref-active="active">
                 <a href="javascript:void(0)" ui-sref="configuration" class=" waves-effect waves-cyan slide-last-a">
                     <i class="mdi-action-settings-applications"></i> Wizard
                 </a>
             </li>
-        </ul>
+        </ul> -->
 
     </ul>
     <a href="javascript:void(0)" ng-show="settings.finish_status==true" data-activates="slide-out" class="button-collapse">
@@ -279,6 +286,7 @@
     .s2 select {
         border: 1px solid #ddd;
         margin: 3em 0 1em 0;
+        font-weight: 400;
     }
 
     .admin-day-slot span {
@@ -328,12 +336,16 @@
     }
     .admin-head-caption input{
         margin-top: 2em;
+        font-weight: 400;
     }
 
     .tiny.blue-text {
         cursor: pointer;
     }
-
+    .mb0{
+        margin-bottom: 0 !important;
+        letter-spacing: .2px;
+    }
     .selection-corrector {
         margin: 10px 0 20px 10px;
         border-radius: 0;
@@ -341,7 +353,7 @@
     }
 
     .pl11 {
-        padding-left: 11px;
+        padding-left: 11px !important;
     }
 
     .picker__weekday-display {
@@ -413,8 +425,22 @@
     }
     .admin-head-caption p{
         font-weight: 400 !important;
-        padding-left:0 !important;
-        font-size: 13px !important;
+        /* padding-left:0 !important;
+        font-size: 13px !important; */
+    }
+    table, input, .modal h4 + p{
+        font-weight: 400;
+    }
+    .rmvfld, .uplfld{
+        width: 44px;
+        height: 44px !important;
+    }
+    .uplfld{
+        margin: 0 10px 0 0;
+    }
+    .modal .modal-footer .btn
+    {
+        margin-left: 5px;
     }
 </style>
 <div class="container"></div>
@@ -464,14 +490,14 @@
                 <li ng-click="nextStep(1)" data-position="top" data-delay="50" data-tooltip="Dealer Info" class="li-1 tooltipped" ng-class="{'active': (step==1 ), 'done-li': (settings.steps_completed_in_wizard.indexOf(1) !== -1)}">Step 1
                     <p>Dealer Info</p>
                 </li>
-                <li ng-click="nextStep(2)" data-position="top" data-delay="50" data-tooltip="Scheduling" class="tooltipped li-2" ng-class="{'active': step==2 , 'done-li': (settings.steps_completed_in_wizard.indexOf(2) !== -1)}">Step 2
+                <li class="tooltipped li-2" data-position="top" data-delay="50" data-tooltip="Users" ng-click="nextStep(2, true)" ng-class="{'active': step==2 , 'done-li': (settings.steps_completed_in_wizard.indexOf(2) !== -1)}">Step 2
+                    <p class="truncate">Users</p>
+                </li>
+                <li ng-click="nextStep(3, true)" data-position="top" data-delay="50" data-tooltip="Scheduling" class="tooltipped li-3" ng-class="{'active': step==3 , 'done-li': (settings.steps_completed_in_wizard.indexOf(3) !== -1)}">Step 3
                     <p class="truncate">Scheduling</p>
                 </li>
-                <li ng-click="nextStep(3)" data-position="top" data-delay="50" data-tooltip="Marketing" class="tooltipped li-3" ng-class="{'active': step==3, 'done-li': (settings.steps_completed_in_wizard.indexOf(3) !== -1)}">Step 3
+                <li ng-click="nextStep(4)" data-position="top" data-delay="50" data-tooltip="Marketing" class="tooltipped li-4" ng-class="{'active': step==4, 'done-li': (settings.steps_completed_in_wizard.indexOf(4) !== -1)}">Step 4
                     <p class="truncate">Marketing</p>
-                </li>
-                <li ng-click="nextStep(4)" data-position="top" data-delay="50" data-tooltip="Trade-In" class="tooltipped li-4" ng-class="{'active': step==4 , 'done-li': (settings.steps_completed_in_wizard.indexOf(4) !== -1)}">Step 4
-                    <p class="truncate">Trade-In</p>
                 </li>
                 <li ng-click="nextStep(5)" data-position="top" data-delay="50" data-tooltip="Advisor" class="tooltipped li-5" ng-class="{'active': step==5 , 'done-li': (settings.steps_completed_in_wizard.indexOf(5) !== -1)}">Step 5
                     <p class="truncate">Advisor</p>
@@ -479,8 +505,8 @@
                 <li class="tooltipped li-6" data-position="top" data-delay="50" data-tooltip="Service Data" ng-click="nextStep(6)" ng-class="{'active': step==6 , 'done-li': (settings.steps_completed_in_wizard.indexOf(6) !== -1)}">Step 6
                     <p class="truncate">Service Data</p>
                 </li>
-                <li class="tooltipped li-7" data-position="top" data-delay="50" data-tooltip="Users" ng-click="nextStep(7, true)" ng-class="{'active': step==7 , 'done-li': (settings.steps_completed_in_wizard.indexOf(7) !== -1)}">Step 7
-                    <p class="truncate">Users</p>
+                <li ng-click="nextStep(7)" data-position="top" data-delay="50" data-tooltip="Customers" class="tooltipped li-7" ng-class="{'active': step==7 , 'done-li': (settings.steps_completed_in_wizard.indexOf(7) !== -1)}">Step 7
+                    <p class="truncate">Customers</p>
                 </li>
                 <!-- <li class="li-8" ng-click="nextStep(8, true)" ng-class="{'active': step==8 , 'done-li': (complete==8)}">Step 8
                     <p class="truncate">Customer Setup</p>
@@ -499,40 +525,40 @@
                     <p>Dealership Information
                         <i class="material-icons tiny blue-text tooltipped" data-position="right" data-delay="50" data-tooltip="Text here">help_outline</i>
                     </p>
-                    <div class="col s12 pl11">
+                    <div class="col s12 ">
                         <label for="cname" class="col m3 l2 s12">Dealer Name*</label>
                         <input id="cname" name="cname" type="text" required data-error=".errorTxt1" ng-model="profileData.name" class="col m9 l10 s12">
                         <div class="errorTxt1"></div>
                     </div>
-                    <div class="col s12 pl11">
+                    <div class="col s12 ">
                         <label for="cemail" class="col m3 l2 s12">Email*</label>
                         <input id="cemail" type="email" name="cemail" required data-error=".errorTxt2" ng-model="profileData.email" class="col m9 l10 s12">
                         <div class="errorTxt2"></div>
                     </div>
-                    <div class="col s12 pl11">
+                    <div class="col s12 ">
                         <label for="cphone" class="col m3 l2 s12">Phone*</label>
                         <input id="cphone" type="text" name="cephone" max-length="10" min-length="10" required data-error=".errorTxt3" ng-model="profileData.phone"
                             class="col m9 l10 s12">
                         <div class="errorTxt3"></div>
                     </div>
-                    <div>
+                    <div class="col s12 ">
                         <label for="cdcaddress" class="col m3 l2 s12">Address*</label>
                         <input id="cdcaddress" name="cdcaddress" required type="text" ng-model="settings.primary_contact.address" class="col m9 l10 s12">
                         <div class="errorTxt1012"></div>
                     </div>
 
-                    <div>
+                    <div class="col s12 ">
                         <label for="cdcurl" class="col m3 l2 s12">Website*</label>
                         <input id="cdcurl" type="text" required name="cdcurl" placeholder="http://www.cleantech.com" data-error=".errorTxt1523" ng-model="settings.primary_contact.website"
                             class="col m9 l10 s12">
                         <div class="errorTxt1523"></div>
                     </div>
                     <div ng-if="man">
-                        <div class="margin col s12 pl11">
+                        <div class="margin col s12 ">
                             <label for="manufacturs" class="col m3 l2 s12">Dealer​ ​OEM​ ​Association</label>
                             <select id="manufacturs" ng-disabled="settings.manufactur" ng-change="changeManufacture()" class="browser-default selection-corrector col m9 l10 s12"
                                 name="manufacturs" ng-model="settings.manufactur" style="margin: 0 0 20px;">
-                                <option value="">Indepandant</option>
+                                <option value="" disabled selected>Select your option</option>
                                 <option ng-repeat="man in manufactureList" value="{{man._id}}">{{man.name}}</option>
                             </select>
                         </div>
@@ -551,7 +577,7 @@
                         </div>
                     </div>
                     <div ng-if="!man">
-                        <div class="margin col s12 pl11">
+                        <div class="margin col s12 ">
                             <label for="manufacturs" class="col m3 l2 s12">Dealer​ ​OEM​ ​Association</label>
                             <select id="manufacturs" ng-change="changeManufacture()" class="browser-default selection-corrector col m9 l10 s12" name="manufacturs"
                                 ng-model="settings.manufactur" style="margin: 0 0 20px;">
@@ -722,8 +748,158 @@
                     </div>
                 </form>
             </div>
-            <div class="ul-main-two ulmc" ng-class="{'active': step==2}">
-                <p style="padding:0;">Step 2: Appointment Scheduling Configuration</p>
+            <div class="ul-main-four ulmc" ng-class="{'active': step==2}">
+                <div class="bulk-upload-otr">
+                    <p>
+                        <b style="text-transform: none;font-weight: 500;">Step 2: Enter System Users</b>
+                        <!-- <b class="right">
+                            <u>
+                                <a ui-sref="userview" target="_blank()" class="black-text">View / Edit Users</a>
+                            </u>
+                        </b> -->
+                    </p>
+                    <p>Use this option to upload all the Users in your Dealership in bulk ( ie. Service Advisors, Schedulers,
+                        Technicians etc. ).</p>
+                    <p>
+                        <b>Note:</b>
+                    </p>
+                    <p>- For bulk upload to happen, You would need upload the User data via. a Microsoft Excel file.</p>
+                    <p>Step 1: Please download the MS Excel file format
+                        <a href="http://the-symbol.net/dsm-index/users.xls" targer="_blank" style="color: #000;">
+                            <b>
+                                <u>HERE</u>
+                            </b>
+                        </a>
+                    </p>
+                    <p>Step 2: Please DONT change the format. Just fill in the User's data in the provided MS Excel file.
+                    </p>
+                    <p>Step 3: Save the file in a folder on your computer.</p>
+                    <p>Step 4: Tap on the "Select file" button below > Browse to the folder that contains the MS Excel file
+                        you saved previously > Select the file and submit.</p>
+                </div>
+                <div class="file-field input-field col s12">
+                    <form id="userUploadForm" name="userUploadForm">
+                        <div class="btn">
+                            <span>Select file </span>
+                            <input type="file" name="user" onchange="angular.element(this).scope().uploadUserData(this.files)">
+                        </div>
+                        <div class="file-path-wrapper">
+                            <input class="file-path validate" disabled type="text">
+                        </div>
+                    </form>
+                    <div id="card-alert" class="card red lighten-5" ng-if="alreadyu">
+                        <div class="card-content red-text">
+                            <p ng-if="alreadyu.length!=0" style="color:#000">
+                                The following Users items has been omitted ( as a User item with the same EMAIL exists for your dealership ) :
+                                <br>
+                            </p>
+                            <p ng-repeat="all in alreadyu" style="text-transform:none !important">
+                                {{all.name}} ({{all.email}})</p>
+                        </div>
+                        <button type="button" ng-click="close()" class="close red-text" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+
+                </div>
+                <div class="center">
+                    <p>OR you can add Users manually here
+                        <!-- <b class="right cap_txt">
+                            <u>
+                                <a ui-sref="userview" target="_blank()" class="black-text">View / Edit Users</a>
+                            </u>
+                        </b> -->
+                    </p>
+                </div>
+                <form class="formValidates" name="addUsersForm" id="addUsersForm" action="javascript:void(0);" ng-submit="addUser()">
+                    <div id="single_upload" ng-repeat="ser in  [].constructor(totalusr) track by $index">
+                        <div class="s_u_content">
+                            <div class="row">
+                                <div class="col m2 s12">
+                                    <div class="input-field">
+                                        <input type="text" placeholder="First Name*" required name="uname{{$index}}" id="uname{{$index}}" ng-model="userData[$index].first_name"
+                                        />
+                                    </div>
+                                </div>
+                                <div class="col m2 s12">
+                                    <div class="input-field">
+                                        <input type="text" placeholder="Last Name*" required name="lname{{$index}}" id="lname{{$index}}" ng-model="userData[$index].last_name"
+                                        />
+                                    </div>
+                                </div>
+                                <div class="col m2 s12">
+                                    <div class="input-field">
+                                        <input type="email" name="uemail{{$index}}" required id="uemail{{$index}}" placeholder="Email*" ng-model="userData[$index].email"
+                                        />
+                                    </div>
+                                </div>
+                                <div class="col m2 s12">
+                                    <div class="input-field">
+                                        <input type="text" placeholder="Phone*" required name="uphone{{$index}}" id="uphone{{$index}}" ng-model="userData[$index].phone"/>
+                                    </div>
+                                </div>
+                                <div class="col m6 s12">
+                                    <p>
+                                        <span ng-repeat="r in roles">
+                                            <input data-error=".filled-in-box{{$parent.$index}}" type="checkbox" class="filled-in" ng-model="userData[$parent.$index].roles[$index]"
+                                                ng-true-value="'{{r.name}}'" id="filled-in-box{{$index}}{{$parent.$index}}" name="uroles{{$parent.$index}}"
+                                            />
+                                            <label for="filled-in-box{{$index}}{{$parent.$index}}">{{r.role}}</label>
+                                            <span class="filled-in-box{{$parent.$index}}" ng-show="$index==5" style="font-size:8px"></span>
+                                        </span>
+
+                                        <input type="button" id="upload_fileds{{$index}}" ng-click="adduserdiv();" class="btn btn-floating" value="+" />
+                                        <input type="button" ng-hide="$index===0" id="upload_fileds{{$index}}{{$index}}" ng-click="removuserdiv($index);" class="btn btn-floating"
+                                            value="-" />
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="right-align" style="    position: static;margin: 0 0 1em;">
+                        <button type="submit" class="btn waves-effect waves-light">Add above Users</button>
+                    </div>
+                </form>
+                <div class="bulk-upload-otr">
+                    <p>
+                        <span>
+                            <b>SA</b> = Service Advisor</span>
+                        <span>
+                            <b>SS</b> = Service Scheduler </span>
+                        <span>
+                            <b>MM</b> = Marketing Manager</span>
+                        <span>
+                            <b>VI</b> = Vehicle Inspector</span>
+                        <span>
+                            <b>UCM</b> = Used Car Manager</span>
+                    </p>
+                    <table id="table-datatables" class="responsive-table display" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Roles</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="user in users">
+                                <td>{{user.name}}</td>
+                                <td>{{user.email}}</td>
+                                <td>{{printRoles(user.roles)}}</td>
+                            </tr>
+                            <tr ng-if="!users.length">
+                                <td colspan="3">No user data added.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="right-align">
+                    <button type="button" style="background-color: #9e9e9e !important;" class="btn waves-effect waves-light camel-case" ng-click="nextStep(1, true)">Previous</button>
+                    <button type="button" ng-click="nextStep(3, true)" class="btn waves-effect waves-light ul-2-btn camel-case">Next</button>
+                </div>
+            </div>
+            <div class="ul-main-two ulmc" ng-class="{'active': step==3}">
+                <p style="padding:0;">Step 3: Appointment Scheduling Configuration</p>
                 <form class="formValidate1" name="formValidate1" id="formValidate1" ng-submit="updateSetting1()">
                     <div class="row s2">
                         <div class="row if-label">
@@ -767,7 +943,7 @@
                                 <div class="errorTxt18"></div>
                             </div> -->
                             <div class="row user-setting admin-head-caption">
-                                <p><b>Set Appointment Parameters<b>
+                                <p class="mb0"><b>Set Appointment Parameters<b>
                                     <i class="material-icons tiny blue-text tooltipped" data-position="right" data-delay="50" data-tooltip="Text here">help_outline</i>
                                 </p>
                                 <div class="margin col s12">
@@ -844,13 +1020,13 @@
                         </div>
                     </div>
                     <div class="right-align">
-                        <button type="button" style="background-color: #9e9e9e !important;" ng-click="nextStep(1, true)" class="btn waves-effect waves-light camel-case">Previous</button>
+                        <button type="button" style="background-color: #9e9e9e !important;" ng-click="nextStep(2)" class="btn waves-effect waves-light camel-case">Previous</button>
                         <button type="submit" id="stepTwo" class="btn waves-effect waves-light ul-2-btn camel-case">Next</button>
                     </div>
                 </form>
             </div>
-            <div class="ul-main-three ulmc" ng-class="{'active': step==3}">
-                <p>Step 3: Marketing</p>
+            <div class="ul-main-three ulmc" ng-class="{'active': step==4}">
+                <p>Step 4: Marketing</p>
                 <div class="right-align" style="margin-bottom: 2em;" ng-show="addImg">
                     <button type="button" ng-click="viewImage()" class="btn waves-effect waves-light ul-2-btn">GO Back</button>
                 </div>
@@ -872,8 +1048,8 @@
                     </div>
                     <br>
                     <div class="right-align">
-                        <button type="button" style="background-color: #9e9e9e !important;" ng-click="nextStep(2)" class="btn waves-effect waves-light camel-case">Previous</button>
-                        <button type="button" ng-click="nextStep(4)" class="btn waves-effect waves-light ul-2-btn camel-case">Next</button>
+                        <button type="button" style="background-color: #9e9e9e !important;" ng-click="nextStep(3)" class="btn waves-effect waves-light camel-case">Previous</button>
+                        <button type="button" ng-click="nextStep(5)" class="btn waves-effect waves-light ul-2-btn camel-case">Next</button>
                     </div>
                 </div>
                 <div ng-show="addImg">
@@ -943,21 +1119,10 @@
                         </div>
                         <br>
                         <div class="right-align">
-                            <button type="button" style="background-color: #9e9e9e !important;" ng-click="nextStep(2)" class="btn waves-effect waves-light camel-case">Previous</button>
-                            <button type="button" ng-click="nextStep(4)" class="btn waves-effect waves-light ul-2-btn camel-case">Next</button>
+                            <button type="button" style="background-color: #9e9e9e !important;" ng-click="nextStep(3)" class="btn waves-effect waves-light camel-case">Previous</button>
+                            <button type="button" ng-click="nextStep(5)" class="btn waves-effect waves-light ul-2-btn camel-case">Next</button>
                         </div>
                     </form>
-                </div>
-            </div>
-            <div class="ul-main-four ulmc" ng-class="{'active': step==4}">
-                <div class="file-field input-field col s12">
-                    <p>Step 4: Trade-In Configuration</p>
-                    Currently no configuration is required for Used Car Manager profile.
-                    <br> If we add things here in future, You will be notified via. email.
-                </div>
-                <div class="right-align">
-                    <button type="button" style="background-color: #9e9e9e !important;" class="btn waves-effect waves-light camel-case" ng-click="nextStep(3)">Previous</button>
-                    <button type="button" ng-click="nextStep(5)" class="btn waves-effect waves-light ul-2-btn camel-case">Next</button>
                 </div>
             </div>
             <div class="ul-main-five ulmc" ng-class="{'active': step==5}">
@@ -1148,152 +1313,221 @@
                     </div>
                 </div>
                 <div class="right-align">
-                    <button type="button" style="background-color: #9e9e9e !important;" class="btn waves-effect waves-light camel-case" ng-click="nextStep(5, true)">Previous</button>
+                    <button type="button" style="background-color: #9e9e9e !important;" class="btn waves-effect waves-light camel-case" ng-click="nextStep(5)">Previous</button>
                     <button type="button" ng-click="nextStep(7)" class="btn waves-effect waves-light ul-2-btn camel-case">Next</button>
                 </div>
             </div>
             <div class="ul-main-seven ulmc" ng-class="{'active': step==7}">
-                <div class="bulk-upload-otr">
-                    <p>
-                        <b style="text-transform: none;font-weight: 500;">Step 7: Enter System Users</b>
-                        <!-- <b class="right">
-                            <u>
-                                <a ui-sref="userview" target="_blank()" class="black-text">View / Edit Users</a>
-                            </u>
-                        </b> -->
-                    </p>
-                    <p>Use this option to upload all the Users in your Dealership in bulk ( ie. Service Advisors, Schedulers,
-                        Technicians etc. ).</p>
-                    <p>
-                        <b>Note:</b>
-                    </p>
-                    <p>- For bulk upload to happen, You would need upload the User data via. a Microsoft Excel file.</p>
-                    <p>Step 1: Please download the MS Excel file format
-                        <a href="http://the-symbol.net/dsm-index/users.xls" targer="_blank" style="color: #000;">
-                            <b>
-                                <u>HERE</u>
-                            </b>
-                        </a>
-                    </p>
-                    <p>Step 2: Please DONT change the format. Just fill in the User's data in the provided MS Excel file.
-                    </p>
-                    <p>Step 3: Save the file in a folder on your computer.</p>
-                    <p>Step 4: Tap on the "Select file" button below > Browse to the folder that contains the MS Excel file
-                        you saved previously > Select the file and submit.</p>
-                </div>
                 <div class="file-field input-field col s12">
-                    <form id="userUploadForm" name="userUploadForm">
-                        <div class="btn">
-                            <span>Select file </span>
-                            <input type="file" name="user" onchange="angular.element(this).scope().uploadUserData(this.files)">
-                        </div>
-                        <div class="file-path-wrapper">
-                            <input class="file-path validate" disabled type="text">
-                        </div>
-                    </form>
-                    <div id="card-alert" class="card red lighten-5" ng-if="alreadyu">
-                        <div class="card-content red-text">
-                            <p ng-if="alreadyu.length!=0" style="color:#000">
-                                The following Users items has been omitted ( as a User item with the same EMAIL exists for your dealership ) :
-                                <br>
-                            </p>
-                            <p ng-repeat="all in alreadyu" style="text-transform:none !important">
-                                {{all.name}} ({{all.email}})</p>
-                        </div>
-                        <button type="button" ng-click="close()" class="close red-text" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">×</span>
-                        </button>
-                    </div>
-
-                </div>
-                <div class="center">
-                    <p>OR you can add Users manually here
-                        <!-- <b class="right cap_txt">
-                            <u>
-                                <a ui-sref="userview" target="_blank()" class="black-text">View / Edit Users</a>
-                            </u>
-                        </b> -->
-                    </p>
-                </div>
-                <form class="formValidates" name="addUsersForm" id="addUsersForm" action="javascript:void(0);" ng-submit="addUser()">
-                    <div id="single_upload" ng-repeat="ser in  [].constructor(totalusr) track by $index">
-                        <div class="s_u_content">
-                            <div class="row">
-                                <div class="col m2 s12">
-                                    <div class="input-field">
-                                        <input type="text" placeholder="First Name*" required name="uname{{$index}}" id="uname{{$index}}" ng-model="userData[$index].first_name"
-                                        />
+                    <!-- <div class="decor-div white z-depth-1">
+       
+                        <div id="table-datatables">
+                    <div class="ul-main-seven ulmc" > -->
+                                    <div class="bulk-upload-otr">
+                                        <p>
+                                            <b style="text-transform: none;font-weight: 500;">Step 7: Enter System Customers</b>
+                                            <!-- <b class="right">
+                                                <u>
+                                                    <a ui-sref="userview" target="_blank()" class="black-text">View / Edit Users</a>
+                                                </u>
+                                            </b> -->
+                                        </p>
+                                        <p>Use this option to upload all the Users in your Dealership in bulk ( ie. Service Advisors, Schedulers,
+                                            Technicians etc. ).</p>
+                                        <p>
+                                            <b>Note:</b>
+                                        </p>
+                                        <p>- For bulk upload to happen, You would need upload the User data via. a Microsoft Excel file.</p>
+                                        <p>Step 1: Please download the MS Excel file format
+                                            <a href="http://the-symbol.net/dsm-index/users.xls" targer="_blank" style="color: #000;">
+                                                <b>
+                                                    <u>HERE</u>
+                                                </b>
+                                            </a>
+                                        </p>
+                                        <p>Step 2: Please DONT change the format. Just fill in the User's data in the provided MS Excel file.
+                                        </p>
+                                        <p>Step 3: Save the file in a folder on your computer.</p>
+                                        <p>Step 4: Tap on the "Select file" button below > Browse to the folder that contains the MS Excel file
+                                            you saved previously > Select the file and submit.</p>
                                     </div>
-                                </div>
-                                <div class="col m2 s12">
-                                    <div class="input-field">
-                                        <input type="text" placeholder="Last Name*" required name="lname{{$index}}" id="lname{{$index}}" ng-model="userData[$index].last_name"
-                                        />
+                                    <div class="file-field input-field col s12">
+                                        <form id="userUploadForm" name="userUploadForm">
+                                            <div class="btn">
+                                                <span>Select file </span>
+                                                <input type="file" name="user" onchange="angular.element(this).scope().uploadUserData(this.files)">
+                                            </div>
+                                            <div class="file-path-wrapper">
+                                                <input class="file-path validate" disabled type="text">
+                                            </div>
+                                        </form>
+                                        <div id="card-alert" class="card red lighten-5" ng-if="alreadyu">
+                                            <div class="card-content red-text">
+                                                <p ng-if="alreadyu.length!=0" style="color:#000">
+                                                    The following Users items has been omitted ( as a User item with the same EMAIL exists for your dealership ) :
+                                                    <br>
+                                                </p>
+                                                <p ng-repeat="all in alreadyu" style="text-transform:none !important">
+                                                    {{all.name}} ({{all.email}})</p>
+                                            </div>
+                                            <button type="button" ng-click="close()" class="close red-text" data-dismiss="alert" aria-label="Close">
+                                                <span aria-hidden="true">×</span>
+                                            </button>
+                                        </div>
+                                        <div id="card-alert" class="card red lighten-5" ng-if="availableVinNum">
+                                            <div class="card-content red-text">
+                                                <p ng-if="availableVinNum.length!=0" style="color:#000">
+                                                    The following Vehicle items has been omitted ( as a Vehicle item with the same vin exists for your dealership ) :
+                                                    <br>
+                                                </p>
+                                                <p ng-repeat="all in availableVinNum" style="text-transform:none !important">
+                                                    {{all}}</p>
+                                            </div>
+                                            <button type="button" ng-click="closeVinAlert()" class="close red-text" data-dismiss="alert" aria-label="Close">
+                                                <span aria-hidden="true">×</span>
+                                            </button>
+                                        </div>
+                                        <div id="card-alert" class="card red lighten-5" ng-if="invalidVinNum">
+                                            <div class="card-content red-text">
+                                                <p ng-if="invalidVinNum.length!=0" style="color:#000">
+                                                    The following Vehicle items has been omitted ( as a Vin number is not valid for your dealership ) :
+                                                    <br>
+                                                </p>
+                                                <p ng-repeat="all in invalidVinNum" style="text-transform:none !important">
+                                                    {{all}}</p>
+                                            </div>
+                                            <button type="button" ng-click="closeInvalidVinAlert()" class="close red-text" data-dismiss="alert" aria-label="Close">
+                                                <span aria-hidden="true">×</span>
+                                            </button>
+                                        </div>
+                    
                                     </div>
-                                </div>
-                                <div class="col m2 s12">
-                                    <div class="input-field">
-                                        <input type="email" name="uemail{{$index}}" required id="uemail{{$index}}" placeholder="Email*" ng-model="userData[$index].email"
-                                        />
+                                    <div class="center">
+                                        <p>OR you can add Users manually here
+                                            <!-- <b class="right cap_txt">
+                                                <u>
+                                                    <a ui-sref="userview" target="_blank()" class="black-text">View / Edit Users</a>
+                                                </u>
+                                            </b> -->
+                                        </p>
                                     </div>
+                                    <form class="formValidates"  name="addCustomerForm" id="addCustomerForm"  ng-submit="addUser()">
+                                        <div id="single_upload" ng-repeat="ser in  [].constructor(totalusr) track by $index">
+                                            <div class="s_u_content">
+                                                <div class="row">
+                                                    <div class="col m2 s12">
+                                                        <div class="input-field">
+                                                            <input type="text" placeholder="First Name*" required name="uname{{$index}}" id="uname{{$index}}" ng-model="customerData[$index].first_name"/>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col m2 s12">
+                                                        <div class="input-field">
+                                                            <input type="text" placeholder="Last Name*" required name="lname{{$index}}" id="lname{{$index}}" ng-model="customerData[$index].last_name"
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col m2 s12">
+                                                        <div class="input-field">
+                                                            <input type="email" name="uemail{{$index}}" required id="uemail{{$index}}" placeholder="Email*" ng-model="customerData[$index].email"
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col m2 s12">
+                                                        <div class="input-field">
+                                                            <input type="text" placeholder="Address*" required name="address{{$index}}" id="address{{$index}}" ng-model="customerData[$index].address"/>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col m2 s12">
+                                                        <div class="input-field">
+                                                            <input type="text" placeholder="Phone*" required name="phone{{$index}}" id="phone{{$index}}" ng-model="customerData[$index].phone"/>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col m2 s12">
+                                                        <div class="input-field">
+                                                            <input type="text" placeholder="VIN*" required name="vin{{$index}}" id="vin{{$index}}" ng-model="customerData[$index].vin"/>
+                                                        </div>
+                                                    </div>
+                                                    <!-- <div class="col m2 s12">
+                                                        <div class="input-field">
+                                                            <input type="password" name="upassword{{$index}}" required id="upassword{{$index}}" placeholder=" Password*" ng-model="userData[$index].password">
+                                                        </div>
+                                                    </div> -->
+                                                    <div class="col m6 s12">
+                                                        <p>
+                                                            <!-- <span ng-repeat="r in roles" >
+                    
+                                                                <input  data-error=".filled-in-box{{$parent.$index}}"  type="checkbox" class="filled-in" ng-model="userData[$parent.$index].roles[$index]"  ng-true-value="'{{r.name}}'" ng-click="checkBoxValid(roles, $parent.$index)"
+                                                                    id="filled-in-box{{$index}}{{$parent.$index}}" name="uroles{{$parent.$index}}[]"
+                                                                />
+                                                                <label for="filled-in-box{{$index}}{{$parent.$index}}">{{r.role}}</label>
+                                                                <span class="filled-in-box{{$parent.$index}}"  style="position:absolute;font-size:12px" ng-show="$index==0"></span>
+                                                            </span> -->
+                    
+                                                            <input type="button" id="upload_fileds{{$index}}" ng-click="addcustomerdiv();" class="btn btn-floating uplfld" value="+" />
+                                                            <input type="button" ng-hide="$index===0" id="upload_fileds{{$index}}{{$index}}" ng-click="removcustomerdiv($index);" class="btn btn-floating rmvfld"
+                                                                value="-" />
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col m12 adduser-btn">
+                                            <button type="submit" class="btn right waves-effect waves-light right">Add above Customers</button>
+                                        </div>
+                                    </form>
+                                    <div class="bulk-upload-otr">
+                                        <!-- <p>
+                                            <span>
+                                                <b>SA</b> = Service Advisor</span>
+                                            <span>
+                                                <b>SS</b> = Service Scheduler </span>
+                                            <span>
+                                                <b>MM</b> = Marketing Manager</span>
+                                            <span>
+                                                <b>VI</b> = Vehicle Inspector</span>
+                                            <span>
+                                                <b>UCM</b> = Used Car Manager</span>
+                                        </p> -->
+                                        <table id="table-datatables" class="responsive-table display" cellspacing="0">
+                                            <thead>
+                                                <tr>
+                                                    <th>Name</th>
+                                                    <th>Email</th>
+                                                    <th>Roles</th>
+                                                    <!-- <th>Roles</th> -->
+                                                    
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr ng-repeat="user in customerList">
+                                                    <td>{{user.name}}</td>
+                                                    <td>{{user.email}}</td>
+                                                    <td>
+                                                           {{ printRoles(user.roles)}}
+                                                      </td>
+                                                    
+                                                </tr>
+                                                <tr ng-if="!customerList.length">
+                                                    <td colspan="4">No user data added.</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div ng-if="customerCount>ulimit" class="dataTables_info" id="data-table-simple_info" role="status" aria-live="polite">Showing {{ustart + 1}}-{{ulimit}} of {{customerCount}} entries</div>
+                                    <div ng-if="customerCount>ulimit" class="dataTables_paginate paging_simple_numbers" id="data-table-simple_paginate">
+                                      <a class="paginate_button previous disabled" aria-controls="data-table-simple" ng-class="{'disabled' : (upage==1)}" ng-click="userpaginate(upage-1)" data-dt-idx="0" tabindex="0" id="data-table-simple_previous">Previous</a>
+                                      <span>
+                                        <a class="paginate_button " ng-repeat="n in userrange()" ng-click="userpaginate(n)" ng-class="{'current':(n==upage)}" aria-controls="data-table-simple" data-dt-idx="1" tabindex="0">{{n}}</a>
+                                      </span>
+                                      <a class="paginate_button next" ng-class="{'disabled' : (upage==utotalPages)}" ng-click="userpaginate(upage+1)" aria-controls="data-table-simple" data-dt-idx="7" tabindex="0" id="data-table-simple_next">Next</a>
+                                    </div>
+                                <!-- </div>
+                    
                                 </div>
-                                <div class="col m6 s12">
-                                    <p>
-                                        <span ng-repeat="r in roles">
-                                            <input data-error=".filled-in-box{{$parent.$index}}" type="checkbox" class="filled-in" ng-model="userData[$parent.$index].roles[$index]"
-                                                ng-true-value="'{{r.name}}'" id="filled-in-box{{$index}}{{$parent.$index}}" name="uroles{{$parent.$index}}"
-                                            />
-                                            <label for="filled-in-box{{$index}}{{$parent.$index}}">{{r.role}}</label>
-                                            <span class="filled-in-box{{$parent.$index}}" ng-show="$index==5" style="font-size:8px"></span>
-                                        </span>
-
-                                        <input type="button" id="upload_fileds{{$index}}" ng-click="adduserdiv();" class="btn btn-floating" value="+" />
-                                        <input type="button" ng-hide="$index===0" id="upload_fileds{{$index}}{{$index}}" ng-click="removuserdiv($index);" class="btn btn-floating"
-                                            value="-" />
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="right-align" style="    position: static;margin: 0 0 1em;">
-                        <button type="submit" class="btn waves-effect waves-light">Add above Users</button>
-                    </div>
-                </form>
-                <div class="bulk-upload-otr">
-                    <p>
-                        <span>
-                            <b>SA</b> = Service Advisor</span>
-                        <span>
-                            <b>SS</b> = Service Scheduler </span>
-                        <span>
-                            <b>MM</b> = Marketing Manager</span>
-                        <span>
-                            <b>VI</b> = Vehicle Inspector</span>
-                        <span>
-                            <b>UCM</b> = Used Car Manager</span>
-                    </p>
-                    <table id="table-datatables" class="responsive-table display" cellspacing="0">
-                        <thead>
-                            <tr>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Roles</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr ng-repeat="user in users">
-                                <td>{{user.name}}</td>
-                                <td>{{user.email}}</td>
-                                <td>{{printRoles(user.roles)}}</td>
-                            </tr>
-                            <tr ng-if="!users.length">
-                                <td colspan="3">No user data added.</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                                </div> -->
                 </div>
                 <div class="right-align">
-                    <button type="button" style="background-color: #9e9e9e !important;" class="btn waves-effect waves-light camel-case" ng-click="nextStep(6, true)">Previous</button>
+                    <button type="button" style="background-color: #9e9e9e !important;" class="btn waves-effect waves-light camel-case" ng-click="nextStep(6)">Previous</button>
                     <button type="button" ng-if="settings.finish_status==false" ng-click="nextStep(8)" class="btn waves-effect waves-light ul-2-btn camel-case">Next</button>
                 </div>
             </div>
@@ -1472,6 +1706,51 @@
             <button type="button" ng-click="cancelServiceDetails()" style="background-color: #9e9e9e !important;" class="btn waves-effect waves-light camel-case ">Cancel</button>
         </div>
 </div>
+<div id="userEdit" class="modal">
+    <div class="modal-content">
+        <div class="card-panel">
+            <div class="row">
+              <form class="formValidate" name="userAddForm" id="formValidate" ng-submit="updateUser()">
+                <div class="row">
+                  <div class="input-field col s12">
+                    <label for="uname">Username*</label>
+                    <input id="uname" name="uname" required type="text" data-error=".errorTxt1" ng-model="userData.name">
+                    <div class="errorTxt1"></div>
+                  </div>
+                  <div class="input-field col s12">
+                    <label for="cemail">E-Mail *</label>
+                    <input id="cemail" type="email" required name="cemail" data-error=".errorTxt2" ng-model="userData.email">
+                    <div class="errorTxt2"></div>
+                    </div>
+
+                    <!-- <div class="col m12 s12">
+                        <label for="uroles">Roles*</label>
+                      <p>
+                          <span ng-repeat="r in roles">
+                              <input data-error=".filled-in-box"  type="checkbox" class="filled-in" value="r.name" ng-checked="r.status" ng-model="roleCheck[$index]" ng-click="selectRoles(r)" id="filled-in-box{{$index}}"  name="uroles"    />
+                              <label for="filled-in-box{{$index}}">{{r.role}} </label>
+                              &nbsp;
+                          </span>
+                          <div class="filled-in-box"></div>
+                      </p>
+                  </div> -->
+                  <div class="row align" style="position: absolute;width: 100%;bottom: -4em;text-align: right;">
+                    <div class="input-field col s12" style="margin:0;">
+                      <button ng-click="cancelEdit()" type="button" class="btn waves-effect waves-light grey modal-close ui-a" style="background: #747474 !important;display: inline-block;
+                      margin-left: -2em;">Cancel </button>
+                      <button class="btn waves-effect waves-light right submit" type="submit" name="action" style="margin-right: .5em;">
+                      Submit
+
+                    </button>
+                    </div>
+                    </div>
+                  </div>
+              </form>
+              </div>
+            </div>
+    </div>
+    <div class="modal-footer"></div>
+  </div>
     <!-- Modal Structure -->
 <div id="modal3" class="modal">
         <div class="modal-content">
@@ -1482,6 +1761,17 @@
             <button type="button" ng-click="gotoPreviousPage1(1)" class="btn waves-effect waves-light ul-2-btn camel-case">Ok</button>
             <button type="button" ng-click="currentPage2()" style="background-color: #9e9e9e !important;" class="btn waves-effect waves-light camel-case ">No</button>
         </div>
+</div>
+
+<div id="modal15" class="modal">
+    <div class="modal-content">
+        <h4>Confirmation</h4>
+        <p>If you want to go to previous page, you will lose your new data.</p>
+    </div>
+    <div class="modal-footer">
+        <button type="button" ng-click="gotoPreviousPage2(2)" class="btn waves-effect waves-light ul-2-btn camel-case">Ok</button>
+        <button type="button" ng-click="currentPage3()" style="background-color: #9e9e9e !important;" class="btn waves-effect waves-light camel-case ">No</button>
+    </div>
 </div>
     <!-- Modal Structure -->
     <div id="modal5" class="modal">
@@ -1505,6 +1795,16 @@
             <button type="button" ng-click="currentPage7()" style="background-color: #9e9e9e !important;" class="btn waves-effect waves-light camel-case ">No</button>
         </div>
     </div>
+    <div id="modal16" class="modal">
+        <div class="modal-content">
+            <h4>Confirmation</h4>
+            <p>If you want to go to previous page, you will lose your new data.</p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" ng-click="gotoAdviser(5)" class="btn waves-effect waves-light ul-2-btn camel-case">Ok</button>
+            <button type="button" ng-click="currentServicePage()" style="background-color: #9e9e9e !important;" class="btn waves-effect waves-light camel-case ">No</button>
+        </div>
+    </div>
     <!-- Modal Structure -->
     <div id="modal7" class="modal">
         <div class="modal-content">
@@ -1520,11 +1820,44 @@
         <div id="modal8" class="modal">
             <div class="modal-content">
                 <h4>Confirmation</h4>
-                <p>If you want to go to another page, first you will save the service details.</p>
+                <p>If you want to go to previous page, you will lose your new data.</p>
             </div>
             <div class="modal-footer">
-                <button type="button" ng-click="saveAndGoForAnotherPage()" class="btn waves-effect waves-light ul-2-btn camel-case">Save</button>
-                <button type="button" ng-click="closeThePopup(8)" style="background-color: #9e9e9e !important;" class="btn waves-effect waves-light camel-case ">No</button>
+                <button type="button" ng-click="gotoPreviousPage5(6)" class="btn waves-effect waves-light ul-2-btn camel-case">Ok</button>
+                <button type="button" ng-click="currentPage7(8)" style="background-color: #9e9e9e !important;" class="btn waves-effect waves-light camel-case ">No</button>
+            </div>
+        </div>
+        <!-- Modal Structure -->
+        <div id="modalSD" class="modal">
+            <div class="modal-content">
+                <h4>Confirmation</h4>
+                <p>If you want to go to previous page, you will lose your new data.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" ng-click="gotoDelaerInfo(1)" class="btn waves-effect waves-light ul-2-btn camel-case">Ok</button>
+                <button type="button" ng-click="currentServiceData()" style="background-color: #9e9e9e !important;" class="btn waves-effect waves-light camel-case ">No</button>
+            </div>
+        </div>
+        <!-- Modal Structure -->
+        <div id="modal17" class="modal">
+            <div class="modal-content">
+                <h4>Confirmation</h4>
+                <p>If you want to go to previous page, you will lose your new data.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" ng-click="gotoUserPage()" class="btn waves-effect waves-light ul-2-btn camel-case">Ok</button>
+                <button type="button" ng-click="currentPage567(6)" style="background-color: #9e9e9e !important;" class="btn waves-effect waves-light camel-case ">No</button>
+            </div>
+        </div>
+         <!-- Modal Structure -->
+         <div id="modal18" class="modal">
+            <div class="modal-content">
+                <h4>Confirmation</h4>
+                <p>If you want to go to previous page, you will lose your new data.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" ng-click="gotoUserPage()" class="btn waves-effect waves-light ul-2-btn camel-case">Ok</button>
+                <button type="button" ng-click="currentPage567(7)" style="background-color: #9e9e9e !important;" class="btn waves-effect waves-light camel-case ">No</button>
             </div>
         </div>
 
@@ -1586,6 +1919,17 @@
             }
         }
     });
+    // $("#addUsersForm").validate({
+    //     errorElement: 'div',
+    //     errorPlacement: function (error, element) {
+    //         var placement = $(element).data('error');
+    //         if (placement) {
+    //             $(placement).append(error)
+    //         } else {
+    //             error.insertAfter(element);
+    //         }
+    //     }
+    // });
     $("#addCustomerForm").validate({
         errorElement: 'div',
         errorPlacement: function (error, element) {

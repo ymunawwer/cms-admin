@@ -28,9 +28,10 @@
           <div class="card">
             <a ui-sref="home.serviceview">
               <div class="card-content cyan darken-1 white-text">
-                <h4 class="card-stats-number">{{serviceCount}}</h4>
+                <!-- <h4 class="card-stats-number">{{serviceCount}}</h4> -->
                 <i class="material-icons right">keyboard_tab</i>
-                <p class="card-stats-title">Service items</p>
+                <p class="card-stats-title">Services</p>
+                <!-- <p class="card-stats-title">Service items</p> -->
                 <!-- <p class="card-stats-compare"><i class="mdi-hardware-keyboard-arrow-up"></i> 15% <span class="green-text text-lighten-5">from yesterday</span> -->
                 </p>
               </div>
@@ -42,11 +43,13 @@
         </div>
         <div class="col s12 m6 l4">
           <div class="card">
-            <a ui-sref="home.userview.user">
+            <a ui-sref="home.userview">
+                <!-- <a ui-sref="home.userview.user"> -->
               <div class="card-content pink darken-2 white-text">
-                <h4 class="card-stats-number">{{userCount}}</h4>
+                <!-- <h4 class="card-stats-number">{{userCount}}</h4> -->
                 <i class="material-icons right">people_outline</i>
-                <p class="card-stats-title"> Total number of Users</p>
+                <p class="card-stats-title"> Users</p>
+                <!-- <p class="card-stats-title"> Total number of Users</p> -->
                 <!-- <p class="card-stats-compare"><i class="mdi-hardware-keyboard-arrow-down"></i> 3% <span class="deep-purple-text text-lighten-5">from last month</span> -->
                 </p>
               </div>
@@ -58,9 +61,10 @@
         </div>
         <div class="col s12 m6 l4">
           <div class="card">
-            <a ui-sref="home.userview.marketingmanager">
+            <a ui-sref="home.list-image">
+                <!--<a ui-sref="home.userview.marketingmanager"></a> -->
               <div class="card-content teal darken-2  white-text">
-                <h4 class="card-stats-number">{{mmCount}}</h4>
+                <!-- <h4 class="card-stats-number">{{mmCount}}</h4> -->
                 <i class="material-icons right">card_travel</i>
                 <p class="card-stats-title"> Marketing Managers</p>
                 <!-- <p class="card-stats-compare"><i class="mdi-hardware-keyboard-arrow-up"></i> 80% <span class="blue-grey-text text-lighten-5">from yesterday</span> -->
@@ -74,9 +78,10 @@
         </div>
         <div class="col s12 m6 l4">
           <div class="card">
-            <a ui-sref="home.userview.usercarmanager">
+              <!-- <a ui-sref="home.userview.usercarmanager"> -->
+            <a>
               <div class="card-content black darken-1 white-text">
-                <h4 class="card-stats-number">{{ucCount}}</h4>
+                <!-- <h4 class="card-stats-number">{{ucCount}}</h4> -->
                 <i class="material-icons right">directions_car</i>
                 <p class="card-stats-title">Used Car Managers
 
@@ -92,9 +97,10 @@
         </div>
         <div class="col s12 m6 l4">
           <div class="card">
-            <a ui-sref="home.userview.serviceschedulers">
+              <!-- <a ui-sref="home.userview.serviceschedulers"> -->
+            <a>
               <div class="card-content deep-purple darken-4 white-text">
-                <h4 class="card-stats-number">{{ssCount}}</h4>
+                <!-- <h4 class="card-stats-number">{{ssCount}}</h4> -->
                 <i class="material-icons right">tab</i>
                 <p class="card-stats-title"> Service Schedulers
                 </p>
@@ -108,10 +114,11 @@
           </div>
         </div>
         <div class="col s12 m6 l4">
-          <a ui-sref="home.userview.serviceadviser">
+          <a ui-sref="home.advisor">
+              <!-- <a ui-sref="home.userview.serviceadviser"> -->
             <div class="card">
               <div class="card-content red darken-4 white-text">
-                <h4 class="card-stats-number">{{saCount}}</h4>
+                <!-- <h4 class="card-stats-number">{{saCount}}</h4> -->
                 <i class="material-icons right">streetview</i>
                 <p class="card-stats-title"> Service Advisers
                 </p>
@@ -124,6 +131,24 @@
           </a>
           </div>
         </div>
+        <div class="col s12 m6 l4">
+            <a ui-sref="home.customer">
+                <!-- <a ui-sref="home.userview.serviceadviser"> -->
+              <div class="card">
+                <div class="card-content light-green darken-1 white-text">
+                  <!-- <h4 class="card-stats-number">{{saCount}}</h4> -->
+                  <i class="material-icons right">person_outline</i>
+                  <p class="card-stats-title"> Customers
+                  </p>
+                  <!-- <p class="card-stats-compare"><i class="mdi-hardware-keyboard-arrow-down"></i> 3% <span class="deep-purple-text text-lighten-5">from last month</span> -->
+                  </p>
+                </div>
+                <!-- <div class="card-action  pink darken-2">
+                  <div id="invoice-line" class="center-align"></div>
+                </div> -->
+            </a>
+            </div>
+          </div>
       </div>
     </div>
     <!--card stats end-->
