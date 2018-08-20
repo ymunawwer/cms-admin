@@ -62,8 +62,19 @@ angular.module('dmsAdminApp')
         });
       }
     });
+    $scope.selectmake = $scope.selectmake || [];
+   
+     $scope.changeMake = function (make) {
+       console.log(make)
+       if ($scope.selectmake.indexOf(make._id) === -1) {
+         $scope.selectmake.push(make._id);
+       } else {
+         var posO = $scope.selectmake.indexOf(make._id);
+         $scope.selectmake.splice(posO, 1)
+       }
+       console.log($scope.selectmake)
+     }
     $scope.updateSetting = function () {
-
       if ($scope.formValidate.$valid) {
         var tempPhone = $scope.profileData.phone;
         tempPhone = tempPhone.split("-").join("");
@@ -72,8 +83,8 @@ angular.module('dmsAdminApp')
           Materialize.toast('<span> Please enter a valid phone no.</span>', 3000);
           return;
         }
-        if ($scope.settings.manufactur) {
-          if ($scope.selectmake.length == 0) {
+        if ($scope.settings.manufactur !="5a3cbeb785b38502cad21b69") {
+          if ($scope.selectmake.length == 0 ) {
             Materialize.toast('<span> Please select make.</span>', 3000);
             return;
           }
