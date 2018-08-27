@@ -289,6 +289,7 @@ angular.module('dmsAdminApp')
     var tempUser = {};
     $scope.userEdit = function (user) {
       $scope.userData = user;
+      $scope.editUserData = Object.assign({}, $scope.userData);
       // angular.copy(user, tempUser);
       $scope.roles.forEach(function (li, i) {
         if ($scope.userData.roles.indexOf(li.name) !== -1) {
@@ -300,7 +301,13 @@ angular.module('dmsAdminApp')
       $('#userEdit').openModal({});
     }
     $scope.cancelEdit = function () {
-      $scope.getUsers();
+      $scope.userData.name = $scope.editUserData.name;
+      $scope.userData.email = $scope.editUserData.email;
+      $scope.userData.address = $scope.editUserData.address;
+      $scope.userData.phone = $scope.editUserData.phone;
+      $scope.userData = [];
+      //$scope.userData.roles = $scope.editUserData.roles;
+      //$scope.getUsers();
     }
     $scope.updateUser = function () {
       if ($scope.userData.roles.length == 0) {
@@ -313,7 +320,8 @@ angular.module('dmsAdminApp')
           id: $scope.userData._id
         }, $scope.userData, function (data) {
           if (data.statusCode == 200) {
-            $scope.userData = data.body.user;
+            //$scope.userData = data.body.user;
+            $scope.userData = [];
             tempUser = {};
             $('#userEdit').closeModal({});
             Materialize.toast('<span>' + data.message + '</span>', 3000);
