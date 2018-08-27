@@ -27,6 +27,7 @@ module.exports = function(config) {
       'bower_components/waves/dist/waves.min.js',
       'bower_components/ng-materialize/dist/ng-materialize.js',
       'bower_components/angular-cookies/angular-cookies.js',
+      'bower_components/angular-recaptcha/release/angular-recaptcha.js',
       'bower_components/ng-img-crop/compile/minified/ng-img-crop.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower

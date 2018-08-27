@@ -8,7 +8,7 @@
  *
  * Main module of the application.
  */
-angular.module('dmsAdminApp', ['ngCookies', 'ui.materialize', 'ui.router', 'ngCookies','ngResource', 'ngImgCrop'])
+angular.module('dmsAdminApp', ['vcRecaptcha', 'ngCookies', 'ui.materialize', 'ui.router', 'ngCookies','ngResource', 'ngImgCrop'])
 .config([
   '$stateProvider',
   '$urlRouterProvider',
@@ -280,6 +280,7 @@ angular.module('dmsAdminApp', ['ngCookies', 'ui.materialize', 'ui.router', 'ngCo
 .constant({
   //"endpoint": "http://165.227.104.212:3000/api/v1",
   'endpoint': window.location.hostname == "the-symbol.net" ? 'http://165.227.104.212:3000/api/v1' : 'http://myautoiq-env.8xmman5mb3.us-east-2.elasticbeanstalk.com/api/v1',
+  'recaptcha_id': window.location.hostname == "the-symbol.net" ? '6LcMFzgUAAAAAJFWyvOiT4SJO6AlsY6dTm12lDzH' : '6Ldo_VkUAAAAADZi7iXIcaTPDS5X54y3BFpCcv5i',
    //"endpoint": "http://localhost:3000/api/v1"
 })
 .run(

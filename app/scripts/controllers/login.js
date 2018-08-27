@@ -8,9 +8,10 @@
  * Controller of the dmsAdminApp
  */
 angular.module('dmsAdminApp')
-  .controller('LoginCtrl', function ($scope, $state, session, authservice, $location) {
+  .controller('LoginCtrl', function ($scope, $state, session, authservice, $location, vcRecaptchaService, recaptcha_id) {
     var verify_token = null;
     var verification_link = $location.search().verify;
+    $scope.recapPublicKey = recaptcha_id;
     if (typeof verification_link != "undefined") {
       if (verification_link == "true") {
         $scope.success_notification = "Successfully Verified."
@@ -27,6 +28,11 @@ angular.module('dmsAdminApp')
       $scope.success = '';
     }
     $scope.loginUser = function () {
+      $scope.loginForm.captchaResponse = vcRecaptchaService.getResponse();
+      if (!$scope.loginForm.captchaResponse) {
+        Materialize.toast('<span>' + "Fill the captcha." + '</span>', 3000);
+        return;
+      }
       if ($scope.loginForm.$valid) {
         authservice.login({}, $scope.userData, function (data) {
           if (data.statusCode === 200) {
