@@ -65,6 +65,8 @@ angular.module('dmsAdminApp')
     $scope.ulimit = 10;
     $scope.ustart = 0;
     $scope.upage = 1;
+    $scope.isLoder = false;
+    $scope.isAddUser = true;
     $scope.where['limit'] = $scope.ulimit
     $scope.where['skip'] = $scope.ustart
     $scope.where['exclude_roles'] = 'user';
@@ -187,6 +189,8 @@ angular.module('dmsAdminApp')
     // $scope.userData.roles =[];
     $scope.userData = [];
     $scope.addUser = function () {
+      $scope.isLoder = true;
+      $scope.isAddUser = false;
       if ($scope.addUsersForm.$valid) {
         var isRoles = [];
         $scope.userData.map(function (item) {
@@ -236,15 +240,23 @@ angular.module('dmsAdminApp')
               } else {
                 Materialize.toast('<span>' + data.body.createdUsers.length + " Users have been uploaded successfully!" + '</span>', 3000);
               }
+              $scope.isLoder = false;
+              $scope.isAddUser = true;
             }
             else {
+              $scope.isLoder = false;
+              $scope.isAddUser = true;
               Materialize.toast('<span>' + data.message + '</span>', 3000);
             }
           })
         } else {
+          $scope.isLoder = false;
+          $scope.isAddUser = true;
           Materialize.toast('<span> Please enter roles.</span>', 3000);
         }
       } else {
+        $scope.isLoder = false;
+        $scope.isAddUser = true;
         Materialize.toast('<span> Add all fields</span>', 3000);
       }
     }

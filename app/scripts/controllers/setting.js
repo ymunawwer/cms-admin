@@ -20,6 +20,8 @@ angular.module('dmsAdminApp')
     $scope.settings.days_of_service = {};
     $scope.isCheckecdServiceData = false;
     $scope.isCheckedUserData == false;
+    $scope.isLoder = false;
+    $scope.isAddUser = true;
     $scope.donutValues = {};
     settings.getSetting({}, {}, function (data) {
       $scope.settings = data.body.setting || {};
@@ -1209,6 +1211,8 @@ angular.module('dmsAdminApp')
     $scope.userData = [];
     $scope.customerData = [];
     $scope.addUser = function (continueStep) {
+      $scope.isLoder = true;
+      $scope.isAddUser = false;
       if ($scope.addUsersForm.$valid || $scope.addCustomerForm.$valid) {
         var isRoles = [];
         if ($scope.userData.length > 0) {
@@ -1260,16 +1264,24 @@ angular.module('dmsAdminApp')
               } else {
                 Materialize.toast('<span>' + data.body.createdUsers.length + " Users have been uploaded successfully!" + '</span>', 3000);
               }
+              $scope.isLoder = false;
+              $scope.isAddUser = true;
               if (continueStep) $scope.nextStep($scope.inCompletedStep);
             }
             else {
+              $scope.isLoder = false;
+              $scope.isAddUser = true;
               Materialize.toast('<span>' + data.message + '</span>', 3000);
             }
           });
         } else {
+          $scope.isLoder = false;
+          $scope.isAddUser = true;
           Materialize.toast('<span> Please enter roles.</span>', 3000);
         }
       } else {
+        $scope.isLoder = false;
+        $scope.isAddUser = true;
         Materialize.toast('<span> Add all fields</span>', 3000);
       }
     }

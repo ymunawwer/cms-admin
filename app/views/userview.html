@@ -28,6 +28,10 @@
   .card-panel .row{
     margin:0;
   }
+  .priceloader{
+        position: relative;
+        top:20px;
+   }
   #table-datatables {
     white-space: normal !important;
 }
@@ -251,7 +255,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="right-align" style="    position: static;margin: 0 0 1em;">
+                    <div ng-show="isLoder" class="right-align" style="    position: static;margin: 0 0 1em;">
+                        <img width="70" height="70" class="priceloader" src="assets/images/priceloading.gif">
+                    </div>
+                    <div ng-show="isAddUser" class="right-align" style="    position: static;margin: 0 0 1em;">
                         <button type="submit" class="btn waves-effect waves-light">Add above Users</button>
                     </div>
                 </form>
