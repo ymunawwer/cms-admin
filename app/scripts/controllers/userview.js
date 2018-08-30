@@ -155,6 +155,12 @@ angular.module('dmsAdminApp')
       $scope.alreadyc = null;
       $scope.invalidVinNum = null;
     }
+    $scope.closeInvalidPhoneAlert = function () {
+      // console.log('hi')
+      $scope.already = null;
+      $scope.alreadyc = null;
+      $scope.invalidPhoneNum = null;
+    }
     function updateTime() {
       $scope.close();
     }
@@ -226,6 +232,13 @@ angular.module('dmsAdminApp')
                   stringVin = data.body.invalidVinNumbers[i] + ',' + stringVin;
                 }
                 $scope.invalidVinNum = data.body.invalidVinNumbers;
+              }
+              if (data.body.invalidPhoneNumbers.length != 0) {
+                var stringPhone = '';
+                for (var i = 0; i < data.body.invalidPhoneNumbers.length; i++) {
+                  stringPhone = data.body.invalidPhoneNumbers[i] + ',' + stringPhone;
+                }
+                $scope.invalidPhoneNum = data.body.invalidPhoneNumbers;
               }
               var add = 0;
               for (var i = 0; i < data.body.result.length; i++) {
