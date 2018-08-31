@@ -181,6 +181,10 @@ angular.module('dmsAdminApp')
       getMakesLists: {
         url: endpoint + '/admin/makes',
         method: 'GET'
-      }
+      },
+      getNewManufactureList: {
+        url: endpoint + '/admin/manufacturers/newmanufacturers',
+        method: 'GET'
+      },
     })
   });

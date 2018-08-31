@@ -1,5 +1,5 @@
 <style>
-    .main-slide-outer {
+  .main-slide-outer {
         position: static;
         background: transparent;
         margin: 0 1.55em;
@@ -119,76 +119,76 @@
 
 <!-- Dropdown Structure -->
 <ul id='dropdown1' class='dropdown-content'>
-    <li>
-        <a href="javascript:void(0)" ng-click="logout()">Logout</a>
-    </li>
+  <li>
+    <a href="javascript:void(0)" ng-click="logout()">Logout</a>
+  </li>
 </ul>
 <div class="main-slide-outer">
-    <!-- END HnEADER -->
-    <ul id="slide-out" class="side-nav">
-        <li class="user-details cyan darken-2">
-            <div class="row">
-                <div class="col col s4 m4 l4">
-                    <img src="{{admin.icon}}" alt="" class="circle responsive-img valign profile-image" style="height:53px;width:53px;" />
-                </div>
-                <div class="col col s8 m8 l8">
-                    <a class='btn-flat dropdown-button waves-effect waves-light white-text profile-btn' href='javascript:void(0);'>
-                        {{admin.name}}
-                    </a>
-                    <p class="user-roal">Adminstrator</p>
-                </div>
-            </div>
-        </li>
-        <ui>
-            <li class="bold" ui-sref-active="active">
-                <a ui-sref="home.dashboard" class="waves-effect waves-cyan slide-last-a">
-                    <i class="mdi-action-dashboard"></i> Dashboard
-                </a>
-            </li>
-        </ui>
-        <ui>
-            <li class="bold" ui-sref-active="active">
-                <a ui-sref="home.dealership" class="waves-effect waves-cyan slide-last-a">
-                    <i class="mdi-action-query-builder"></i> Dealership Information
-                </a>
-            </li>
-        </ui>
-        <ui>
-            <li class="bold" ui-sref-active="active">
-                <a ui-sref="home.scheduling" class="waves-effect waves-cyan slide-last-a">
-                    <i class="mdi-action-assignment-ind"></i> Appointment Scheduling
-                </a>
-            </li>
-        </ui>
-        <ui>
-            <li class="bold" ui-sref-active="active">
-                <a ui-sref="home.list-image" class="waves-effect waves-cyan slide-last-a">
-                    <i class="mdi-action-loyalty"></i> Marketing
-                </a>
-            </li>
-        </ui>
-        <ui>
-            <li class="bold" ui-sref-active="active">
-                <a ui-sref="home.serviceview" class="waves-effect waves-cyan slide-last-a">
-                    <i class="mdi-action-account-box"></i> Service Data
-                </a>
-            </li>
-        </ui>
-        <ui>
-            <li class="bold" ui-sref-active="active">
-                <a ui-sref="home.userview" class="waves-effect waves-cyan slide-last-a">
-                    <i class="mdi-social-people"></i> Users
-                </a>
-            </li>
-        </ui>
-        <ul>
-            <li class="bold" ui-sref-active="active">
-                <a ui-sref="home.list-offer" class="waves-effect waves-cyan slide-last-a">
-                    <i class="mdi-maps-local-offer"></i> Maintenance Schedule Offer
-                </a>
-            </li>
-        </ul>
-        <!-- <ul>
+  <!-- END HnEADER -->
+  <ul id="slide-out" class="side-nav">
+    <li class="user-details cyan darken-2">
+      <div class="row">
+        <div class="col col s4 m4 l4">
+          <img src="{{admin.icon}}" alt="" class="circle responsive-img valign profile-image" style="height:53px;width:53px;" />
+        </div>
+        <div class="col col s8 m8 l8">
+          <a class='btn-flat dropdown-button waves-effect waves-light white-text profile-btn' href='javascript:void(0);'>
+            {{admin.name}}
+          </a>
+          <p class="user-roal">Adminstrator</p>
+        </div>
+      </div>
+    </li>
+    <ui>
+      <li class="bold" ui-sref-active="active">
+        <a ui-sref="home.dashboard" class="waves-effect waves-cyan slide-last-a">
+          <i class="mdi-action-dashboard"></i> Dashboard
+        </a>
+      </li>
+    </ui>
+    <ui>
+      <li class="bold" ui-sref-active="active">
+        <a ui-sref="home.dealership" class="waves-effect waves-cyan slide-last-a">
+          <i class="mdi-action-query-builder"></i> Dealership Information
+        </a>
+      </li>
+    </ui>
+    <ui>
+      <li class="bold" ui-sref-active="active">
+        <a ui-sref="home.scheduling" class="waves-effect waves-cyan slide-last-a">
+          <i class="mdi-action-assignment-ind"></i> Appointment Scheduling
+        </a>
+      </li>
+    </ui>
+    <ui>
+      <li class="bold" ui-sref-active="active">
+        <a ui-sref="home.list-image" class="waves-effect waves-cyan slide-last-a">
+          <i class="mdi-action-loyalty"></i> Marketing
+        </a>
+      </li>
+    </ui>
+    <ui>
+      <li class="bold" ui-sref-active="active">
+        <a ui-sref="home.serviceview" class="waves-effect waves-cyan slide-last-a">
+          <i class="mdi-action-account-box"></i> Service Data
+        </a>
+      </li>
+    </ui>
+    <ui>
+      <li class="bold" ui-sref-active="active">
+        <a ui-sref="home.userview" class="waves-effect waves-cyan slide-last-a">
+          <i class="mdi-social-people"></i> Users
+        </a>
+      </li>
+    </ui>
+    <ul>
+      <li class="bold" ui-sref-active="active">
+        <a ui-sref="home.list-offer" class="waves-effect waves-cyan slide-last-a">
+          <i class="mdi-maps-local-offer"></i> Maintenance Schedule Offer
+        </a>
+      </li>
+    </ul>
+    <!-- <ul>
             <li class="bold" ui-sref-active="active">
                 <a href="javascript:void(0)" ui-sref="configuration" class=" waves-effect waves-cyan slide-last-a">
                     <i class="mdi-action-settings-applications"></i> Wizard
@@ -196,26 +196,26 @@
             </li>
         </ul> -->
 
-    </ul>
-    <a href="javascript:void(0)" ng-show="settings.finish_status==true" data-activates="slide-out" class="button-collapse">
-        <i class="material-icons small" style="position:relative;">menu</i>
-    </a>
-    <span class="right">
-        <!--  <a href="javascript:void(0)" ng-click="logout()" style="position:relative;right: 3.1em;top: 7px;" class="black-text">
+  </ul>
+  <a href="javascript:void(0)" ng-show="settings.finish_status==true" data-activates="slide-out" class="button-collapse">
+    <i class="material-icons small" style="position:relative;">menu</i>
+  </a>
+  <span class="right">
+    <!--  <a href="javascript:void(0)" ng-click="logout()" style="position:relative;right: 3.1em;top: 7px;" class="black-text">
             <i class="material-icons">power_settings_new</i>
         </a> -->
-        <a class='dropdown-button' href='javascript:void(0)' data-activates='dropdown1' style="position:relative;right: 3.1em;top: 7px;">
-            <img src="assets/images/shape_1.png" width="25" alt="img">
-        </a>
-        <ul id='dropdown1' class='dropdown-content'>
-            <li>
-                <a href="javascript:void(0)" ng-click="logout()">Logout</a>
-            </li>
-        </ul>
-    </span>
+    <a class='dropdown-button' href='javascript:void(0)' data-activates='dropdown1' style="position:relative;right: 3.1em;top: 7px;">
+      <img src="assets/images/shape_1.png" width="25" alt="img">
+    </a>
+    <ul id='dropdown1' class='dropdown-content'>
+      <li>
+        <a href="javascript:void(0)" ng-click="logout()">Logout</a>
+      </li>
+    </ul>
+  </span>
 </div>
 <style>
-    .dealer-wizard {
+  .dealer-wizard {
         margin: 1em 3em 3em;
         padding: 1em;
         display: inline-block;
@@ -449,115 +449,137 @@
 </style>
 <div class="container"></div>
 <div class="dealer-wizard z-depth-1 white" ng-show="!isStarted && !settings.current_step_in_wizard">
-    <p class="flow-text center-align">Dealer SetUp Wizard</p>
-    <p class="center-align black-text">Welcome to dealer account setup wizard. The Dealer Setup Wizard will help you onboard your dealership into our system in 8 easy steps:</p>
-    <div class="row">
-        <div class="col m5 s12">
-            <div class="wizard-img">
-                <img src="https://media.istockphoto.com/photos/auto-mechanic-with-customer-picture-id172421050?k=6&m=172421050&s=612x612&w=0&h=DqkhSe2UlMZF91QrH5yHznHygzmVTR_2Q_37pRafNrI="
-                    alt="image" style="width: 100%;" />
-            </div>
-        </div>
-        <div class="col m7 s12">
-            <div class="wizard-content">
-                <p><b>Step 1 - Dealership Information:</b>  Enter your dealership information including main details such as email, phone, address, your primary contact, contact for invoicing, and contact details for customers.</p>
-                <p><b>Step 2 - Scheduling:</b> Set your dealerships weekly working hours as well as parameters for the service appointments.</p>
-                <p><b>Step 3 - Marketing:</b> Add and remove pictures you would like to use in offers and email campaigns you send out through the Marketing Manager.</p>
-                <p><b>Step 4 - Sales Lead Generator:</b> Currently there is no configuration required by the user for the Sales Lead Generator, but if we add anything, you will be notified via email.</p>
-                <p><b>Step 5 - Service Advisor:</b> Currently there is no configuration required by the user for the Service Advisor, but if we add anything, you will be notified via email.</p>
-                <p><b>Step 6 - Service Data:</b> Enter the service data for your dealership (e.g. the service items you offer, their cost, and their description). For bulk data upload, you can download the pre-formatted Excel sheet we offer and enter the data there, then upload to the setup wizard.</p>
-                <p><b>Step 7 - Add New Users:</b> Enter your employees including their name, email, and their role in your dealership. Similar to the service data upload, you can upload bulk data through an excel sheet.</p>
-                <p><b>Step 8 - Launch:</b> In this step, you complete the on-boarding process and save anything you have added or changed.</p>
-                <p class="right-align">
-                    <button type="button" class="btn waves-effect waves-light camel-case" ng-click="nextStep(1)">
-                        Start
-                    </button>
-                </p>
-            </div>
-        </div>
+  <p class="flow-text center-align">Dealer SetUp Wizard</p>
+  <p class="center-align black-text">Welcome to dealer account setup wizard. The Dealer Setup Wizard will help you
+    onboard your dealership into our system in 8 easy steps:</p>
+  <div class="row">
+    <div class="col m5 s12">
+      <div class="wizard-img">
+        <img src="https://media.istockphoto.com/photos/auto-mechanic-with-customer-picture-id172421050?k=6&m=172421050&s=612x612&w=0&h=DqkhSe2UlMZF91QrH5yHznHygzmVTR_2Q_37pRafNrI="
+          alt="image" style="width: 100%;" />
+      </div>
     </div>
+    <div class="col m7 s12">
+      <div class="wizard-content">
+        <p><b>Step 1 - Dealership Information:</b> Enter your dealership information including main details such as
+          email, phone, address, your primary contact, contact for invoicing, and contact details for customers.</p>
+        <p><b>Step 2 - Scheduling:</b> Set your dealerships weekly working hours as well as parameters for the service
+          appointments.</p>
+        <p><b>Step 3 - Marketing:</b> Add and remove pictures you would like to use in offers and email campaigns you
+          send out through the Marketing Manager.</p>
+        <p><b>Step 4 - Sales Lead Generator:</b> Currently there is no configuration required by the user for the Sales
+          Lead Generator, but if we add anything, you will be notified via email.</p>
+        <p><b>Step 5 - Service Advisor:</b> Currently there is no configuration required by the user for the Service
+          Advisor, but if we add anything, you will be notified via email.</p>
+        <p><b>Step 6 - Service Data:</b> Enter the service data for your dealership (e.g. the service items you offer,
+          their cost, and their description). For bulk data upload, you can download the pre-formatted Excel sheet we
+          offer and enter the data there, then upload to the setup wizard.</p>
+        <p><b>Step 7 - Add New Users:</b> Enter your employees including their name, email, and their role in your
+          dealership. Similar to the service data upload, you can upload bulk data through an excel sheet.</p>
+        <p><b>Step 8 - Launch:</b> In this step, you complete the on-boarding process and save anything you have added
+          or changed.</p>
+        <p class="right-align">
+          <button type="button" class="btn waves-effect waves-light camel-case" ng-click="nextStep(1)">
+            Start
+          </button>
+        </p>
+      </div>
+    </div>
+  </div>
 </div>
 </div>
 <div>
-    <div class="dealer-wizard-profile" ng-show="isStarted || settings.current_step_in_wizard">
-        <div class="dealer-wizard dw_sh" ng-if="settings.finish_status==true" style="padding:0em !important">
-            <p class="flow-text center-align">Dealer SetUp Wizard </p>
-            <p class="center-align black-text">Welcome to dealer account setup wizard. Follow these steps and we can have you setup and ready in no time.</p>
-        </div>
-        <div class="dealer-wizard dw_sh" ng-if="settings.finish_status==false">
-            <p class="flow-text center-align">Dealer SetUp Wizard </p>
-            <p class="center-align black-text">Welcome to dealer account setup wizard. Follow these steps and we can have you setup and ready in no time.</p>
-        </div>
-        <div class="ul-outer z-depth-1 white center-align">
-            <ul>
+  <div class="dealer-wizard-profile" ng-show="isStarted || settings.current_step_in_wizard">
+    <div class="dealer-wizard dw_sh" ng-if="settings.finish_status==true" style="padding:0em !important">
+      <p class="flow-text center-align">Dealer SetUp Wizard </p>
+      <p class="center-align black-text">Welcome to dealer account setup wizard. Follow these steps and we can have you
+        setup and ready in no time.</p>
+    </div>
+    <div class="dealer-wizard dw_sh" ng-if="settings.finish_status==false">
+      <p class="flow-text center-align">Dealer SetUp Wizard </p>
+      <p class="center-align black-text">Welcome to dealer account setup wizard. Follow these steps and we can have you
+        setup and ready in no time.</p>
+    </div>
+    <div class="ul-outer z-depth-1 white center-align">
+      <ul>
 
-                <li ng-click="nextStep(1)" data-position="top" data-delay="50" data-tooltip="Dealer Info" class="li-1 tooltipped" ng-class="{'active': (step==1 ), 'done-li': (settings.steps_completed_in_wizard.indexOf(1) !== -1)}">Step 1
-                    <p>Dealer Info</p>
-                </li>
-                <li class="tooltipped li-2" data-position="top" data-delay="50" data-tooltip="Users" ng-click="nextStep(2, true)" ng-class="{'active': step==2 , 'done-li': (settings.steps_completed_in_wizard.indexOf(2) !== -1)}">Step 2
-                    <p class="truncate">Users</p>
-                </li>
-                <li ng-click="nextStep(3, true)" data-position="top" data-delay="50" data-tooltip="Scheduling" class="tooltipped li-3" ng-class="{'active': step==3 , 'done-li': (settings.steps_completed_in_wizard.indexOf(3) !== -1)}">Step 3
-                    <p class="truncate">Scheduling</p>
-                </li>
-                <li ng-click="nextStep(4)" data-position="top" data-delay="50" data-tooltip="Marketing" class="tooltipped li-4" ng-class="{'active': step==4, 'done-li': (settings.steps_completed_in_wizard.indexOf(4) !== -1)}">Step 4
-                    <p class="truncate">Marketing</p>
-                </li>
-                <li ng-click="nextStep(5)" data-position="top" data-delay="50" data-tooltip="Advisor" class="tooltipped li-5" ng-class="{'active': step==5 , 'done-li': (settings.steps_completed_in_wizard.indexOf(5) !== -1)}">Step 5
-                    <p class="truncate">Advisor</p>
-                </li>
-                <li class="tooltipped li-6" data-position="top" data-delay="50" data-tooltip="Service Data" ng-click="nextStep(6)" ng-class="{'active': step==6 , 'done-li': (settings.steps_completed_in_wizard.indexOf(6) !== -1)}">Step 6
-                    <p class="truncate">Service Data</p>
-                </li>
-                <li ng-click="nextStep(7)" data-position="top" data-delay="50" data-tooltip="Customers" class="tooltipped li-7" ng-class="{'active': step==7 , 'done-li': (settings.steps_completed_in_wizard.indexOf(7) !== -1)}">Step 7
-                    <p class="truncate">Customers</p>
-                </li>
-                <!-- <li class="li-8" ng-click="nextStep(8, true)" ng-class="{'active': step==8 , 'done-li': (complete==8)}">Step 8
+        <li ng-click="nextStep(1)" data-position="top" data-delay="50" data-tooltip="Dealer Info" class="li-1 tooltipped"
+          ng-class="{'active': (step==1 ), 'done-li': (settings.steps_completed_in_wizard.indexOf(1) !== -1)}">Step 1
+          <p>Dealer Info</p>
+        </li>
+        <li class="tooltipped li-2" data-position="top" data-delay="50" data-tooltip="Users" ng-click="nextStep(2, true)"
+          ng-class="{'active': step==2 , 'done-li': (settings.steps_completed_in_wizard.indexOf(2) !== -1)}">Step 2
+          <p class="truncate">Users</p>
+        </li>
+        <li ng-click="nextStep(3, true)" data-position="top" data-delay="50" data-tooltip="Scheduling" class="tooltipped li-3"
+          ng-class="{'active': step==3 , 'done-li': (settings.steps_completed_in_wizard.indexOf(3) !== -1)}">Step 3
+          <p class="truncate">Scheduling</p>
+        </li>
+        <li ng-click="nextStep(4)" data-position="top" data-delay="50" data-tooltip="Marketing" class="tooltipped li-4"
+          ng-class="{'active': step==4, 'done-li': (settings.steps_completed_in_wizard.indexOf(4) !== -1)}">Step 4
+          <p class="truncate">Marketing</p>
+        </li>
+        <li ng-click="nextStep(5)" data-position="top" data-delay="50" data-tooltip="Advisor" class="tooltipped li-5"
+          ng-class="{'active': step==5 , 'done-li': (settings.steps_completed_in_wizard.indexOf(5) !== -1)}">Step 5
+          <p class="truncate">Advisor</p>
+        </li>
+        <li class="tooltipped li-6" data-position="top" data-delay="50" data-tooltip="Service Data" ng-click="nextStep(6)"
+          ng-class="{'active': step==6 , 'done-li': (settings.steps_completed_in_wizard.indexOf(6) !== -1)}">Step 6
+          <p class="truncate">Service Data</p>
+        </li>
+        <li ng-click="nextStep(7)" data-position="top" data-delay="50" data-tooltip="Customers" class="tooltipped li-7"
+          ng-class="{'active': step==7 , 'done-li': (settings.steps_completed_in_wizard.indexOf(7) !== -1)}">Step 7
+          <p class="truncate">Customers</p>
+        </li>
+        <!-- <li class="li-8" ng-click="nextStep(8, true)" ng-class="{'active': step==8 , 'done-li': (complete==8)}">Step 8
                     <p class="truncate">Customer Setup</p>
                 </li> -->
-                <li ng-hide="settings.finish_status==true" class=" tooltipped li-9" data-position="top" data-delay="50" data-tooltip="Final"
-                    ng-click="nextStep(8, true)" ng-class="{'active': step==8 , 'done-li': (complete==8)}">Final
-                    <!-- <p class="truncate">Final</p> -->
-                </li>
-            </ul>
-        </div>
-        <!--ul-outer-->
-        <div class="ul-main-content white z-depth-1">
-            <div class="ul-main-one ulmc" ng-class="{'active': step==1}">
-                <p>Step 1: Enter Dealership Information</p>
-                <form class="formValidate row" name="formValidate" id="formValidate" ng-submit="updateSetting()">
-                    <p>Dealership Information
-                        <i class="material-icons tiny blue-text tooltipped" data-position="right" data-delay="50" data-tooltip="Text here">help_outline</i>
-                    </p>
-                    <div class="col s12 ">
-                        <label for="cname" class="col m3 l2 s12">Dealer Name*</label>
-                        <input id="cname" name="cname" type="text" required data-error=".errorTxt1" ng-model="profileData.name" class="col m9 l10 s12">
-                        <div class="errorTxt1"></div>
-                    </div>
-                    <div class="col s12 ">
-                        <label for="cemail" class="col m3 l2 s12">Email*</label>
-                        <input id="cemail" type="email" name="cemail" required data-error=".errorTxt2" ng-model="profileData.email" class="col m9 l10 s12">
-                        <div class="errorTxt2"></div>
-                    </div>
-                    <div class="col s12 ">
-                        <label for="cphone" class="col m3 l2 s12">Phone*</label>
-                        <input id="cphone" type="text" name="cephone" max-length="10" min-length="10" required data-error=".errorTxt3" ng-model="profileData.phone"
-                            class="col m9 l10 s12">
-                        <div class="errorTxt3"></div>
-                    </div>
-                    <div class="col s12 ">
-                        <label for="cdcaddress" class="col m3 l2 s12">Address*</label>
-                        <input id="cdcaddress" name="cdcaddress" required type="text" ng-model="settings.primary_contact.address" class="col m9 l10 s12">
-                        <div class="errorTxt1012"></div>
-                    </div>
+        <li ng-hide="settings.finish_status==true" class=" tooltipped li-9" data-position="top" data-delay="50"
+          data-tooltip="Final" ng-click="nextStep(8, true)" ng-class="{'active': step==8 , 'done-li': (complete==8)}">Final
+          <!-- <p class="truncate">Final</p> -->
+        </li>
+      </ul>
+    </div>
+    <!--ul-outer-->
+    <div class="ul-main-content white z-depth-1">
+      <div class="ul-main-one ulmc" ng-class="{'active': step==1}">
+        <p>Step 1: Enter Dealership Information</p>
+        <form class="formValidate row" name="formValidate" id="formValidate" ng-submit="updateSetting()">
+          <p>Dealership Information
+            <i class="material-icons tiny blue-text tooltipped" data-position="right" data-delay="50" data-tooltip="Text here">help_outline</i>
+          </p>
+          <div class="col s12 ">
+            <label for="cname" class="col m3 l2 s12">Dealer Name*</label>
+            <input id="cname" name="cname" type="text" required data-error=".errorTxt1" ng-model="profileData.name"
+              class="col m9 l10 s12">
+            <div class="errorTxt1"></div>
+          </div>
+          <div class="col s12 ">
+            <label for="cemail" class="col m3 l2 s12">Email*</label>
+            <input id="cemail" type="email" name="cemail" required data-error=".errorTxt2" ng-model="profileData.email"
+              class="col m9 l10 s12">
+            <div class="errorTxt2"></div>
+          </div>
+          <div class="col s12 ">
+            <label for="cphone" class="col m3 l2 s12">Phone*</label>
+            <input id="cphone" type="text" name="cephone" max-length="10" min-length="10" required data-error=".errorTxt3"
+              ng-model="profileData.phone" class="col m9 l10 s12">
+            <div class="errorTxt3"></div>
+          </div>
+          <div class="col s12 ">
+            <label for="cdcaddress" class="col m3 l2 s12">Address*</label>
+            <input id="cdcaddress" name="cdcaddress" required type="text" ng-model="settings.primary_contact.address"
+              class="col m9 l10 s12">
+            <div class="errorTxt1012"></div>
+          </div>
 
-                    <div class="col s12 ">
-                        <label for="cdcurl" class="col m3 l2 s12">Website*</label>
-                        <input id="cdcurl" type="text" required name="cdcurl" placeholder="http://www.cleantech.com" data-error=".errorTxt1523" ng-model="settings.primary_contact.website"
-                            class="col m9 l10 s12">
-                        <div class="errorTxt1523"></div>
-                    </div>
-                    <div ng-if="man">
+          <div class="col s12 ">
+            <label for="cdcurl" class="col m3 l2 s12">Website*</label>
+            <input id="cdcurl" type="text" required name="cdcurl" placeholder="http://www.cleantech.com" data-error=".errorTxt1523"
+              ng-model="settings.primary_contact.website" class="col m9 l10 s12">
+            <div class="errorTxt1523"></div>
+          </div>
+          <!-- <div ng-if="man">
                         <div class="margin col s12 ">
                             <label for="manufacturs" class="col m3 l2 s12">Dealer​ ​OEM​ ​Association</label>
                             <select id="manufacturs" ng-disabled="settings.manufactur" ng-change="changeManufacture()" class="browser-default selection-corrector col m9 l10 s12"
@@ -600,79 +622,134 @@
 
                             </span>
                         </div>
-                    </div>
+                    </div> -->
 
-                    <div class="row user-setting">
-                        <p>Primary Contact
-                            <i class="material-icons tiny blue-text tooltipped" data-position="right" data-delay="50" data-tooltip="Text here">help_outline</i>
-                        </p>
-                        <div>
-                            <label for="pcfname" class="col m3 l2 s12">First Name*</label>
-                            <input id="pcfname" name="pcfname" required type="text" data-error=".pcfname" ng-model="settings.primary_contact.first_name"
-                                class="col m9 l10 s12">
-                            <div class="pcfname"></div>
-                        </div>
-                        <div>
-                            <label for="pclname" class="col m3 l2 s12">Last Name*</label>
-                            <input id="pclname" name="pclname" required type="text" data-error=".pclname" ng-model="settings.primary_contact.last_name"
-                                class="col m9 l10 s12">
-                            <div class="pclname"></div>
-                        </div>
-                        <div>
-                            <label for="pctitle" class="col m3 l2 s12">Title*</label>
-                            <input id="pctitle" type="text" required class="browser-default selection-corrector col m9 l10 s12" name="pctitle" ng-model="settings.primary_contact.title">
-                            <div class="errorTxt41"></div>
-                        </div>
-                        <div>
-                            <label for="pcemail" class="col m3 l2 s12">Email *</label>
-                            <input id="pcemail" type="email" required name="pcemail" data-error=".errorTxt5" ng-model="settings.primary_contact.email"
-                                class="col m9 l10 s12">
-                            <div class="errorTxt5"></div>
-                        </div>
-                        <div>
-                            <label for="pcphone" class="col m3 l2 s12">Phone *</label>
-                            <input id="pcphone" type="text" required name="pcphone" data-error=".errorTxt6" ng-model="settings.primary_contact.phone"
-                                class="col m9 l10 s12">
-                            <div class="errorTxt6"></div>
-                        </div>
-                    </div>
-                    <div class="row user-setting">
-                        <p>Contact for Invoicing
-                            <i class="material-icons tiny blue-text tooltipped" data-position="right" data-delay="50" data-tooltip="Text here">help_outline</i>&nbsp;&nbsp; &nbsp;
-                            <span>
-                                <input type="checkbox" id="secondCheck" ng-disabled="secondCheck" ng-change="primeToSecondary()" ng-model="secondCheck" />
-                                <label for="secondCheck">My all contact is the same as my primary contact</label>
-                            </span>
-                        </p>
-                        <div>
-                            <label for="scfname" class="col m3 l2 s12">First Name*</label>
-                            <input id="scfname" name="scfname" required type="text" data-error=".scfname" ng-model="settings.secondary_contact.first_name"
-                                class="col m9 l10 s12">
-                            <div class="scfname"></div>
-                        </div>
-                        <div>
-                            <label for="sclname" class="col m3 l2 s12">Last Name*</label>
-                            <input id="sclname" name="sclname" required type="text" data-error=".sclname" ng-model="settings.secondary_contact.last_name"
-                                class="col m9 l10 s12">
-                            <div class="sclname"></div>
-                        </div>
-                        <div>
-                            <label for="pctitle" class="col m3 l2 s12">Title</label>
-                            <input id="pctitle" type="text" class="browser-default selection-corrector col m9 l10 s12" name="pctitle" ng-model="settings.secondary_contact.title">
-                            <div class="errorTxt41"></div>
-                        </div>
-                        <div>
-                            <label for="scemail" class="col m3 l2 s12">Email </label>
-                            <input id="scemail" type="email" name="scemail" data-error=".errorTxt8" ng-model="settings.secondary_contact.email" class="col m9 l10 s12">
-                            <div class="errorTxt8"></div>
-                        </div>
-                        <div>
-                            <label for="scphone" class="col m3 l2 s12">Phone </label>
-                            <input id="scphone" type="text" name="scphone" data-error=".errorTxt9" ng-model="settings.secondary_contact.phone" class="col m9 l10 s12">
-                            <div class="errorTxt9"></div>
-                        </div>
-                    </div>
-                    <!-- <div class="row user-setting">
+
+          <!-- // here we are doing new changes for manu and makesList -->
+          <div ng-if="man">
+            <div class="margin col s12 ">
+              <label for="manufacturs" class="col m3 l2 s12">Dealer​ ​OEM​ ​Association</label>
+              <select id="manufacturs" ng-disabled="settings.manufactur" ng-change="changeManufacture(settings.manufactur)"
+                class="browser-default selection-corrector col m9 l10 s12" name="manufacturs" ng-model="settings.manufactur"
+                style="margin: 0 0 20px;">
+                <option value="" disabled selected>Select your option</option>
+                <option ng-repeat="man in manufactureList" value="{{man._id}}">{{man.man_name}}</option>
+              </select>
+            </div>
+            <div class="margin col s12 pl11" style="margin:7px 0 10px !important;" ng-if="makesList.length">
+              <label for="manufactur" class="col m3 l2 s12" style="padding-top:0 !important;">Makes</label>
+
+              <span class="col m9 l10 s12 step-1-check-outr">
+                <span ng-repeat="make in makesList">
+                  <input type="checkbox" disabled class="filled-in" ng-click="changeMake(make)" id="test{{make._id}}"
+                    ng-checked="settings.make.indexOf(make._id) !== -1" />
+                  <label for="test{{make._id}}">{{make.make_name}}</label>
+                </span>
+
+              </span>
+
+            </div>
+          </div>
+          <div ng-if="!man">
+            <div class="margin col s12 ">
+              <label for="manufacturs" class="col m3 l2 s12">Dealer​ ​OEM​ ​Association1</label>
+              <select id="manufacturs" ng-change="changeManufacture(settings.manufactur)" class="browser-default selection-corrector col m9 l10 s12"
+                name="manufacturs" ng-model="settings.manufactur" style="margin: 0 0 20px;">
+                <option value="" disabled selected>Select your option</option>
+                <option ng-repeat="man in manufactureList" value="{{man._id}}">{{man.man_name}}</option>
+              </select>
+            </div>
+            <div class="margin col s12 pl11" style="margin:7px 0 10px !important;" ng-if="makesList.length && settings.manufactur ">
+              <label for="manufactur" style="padding-top:0 !important;" class="col m3 l2 s12">Makes</label>
+
+              <span class="col m9 l10 s12 step-1-check-outr">
+                <span ng-repeat="make in makesList">
+                  <input type="checkbox" class="filled-in" ng-click="changeMake(make)" id="test{{make._id}}" />
+                  <label for="test{{make._id}}">{{make.make_name}}</label>
+                </span>
+
+              </span>
+            </div>
+          </div>
+
+
+          <div class="row user-setting">
+            <p>Primary Contact
+              <i class="material-icons tiny blue-text tooltipped" data-position="right" data-delay="50" data-tooltip="Text here">help_outline</i>
+            </p>
+            <div>
+              <label for="pcfname" class="col m3 l2 s12">First Name*</label>
+              <input id="pcfname" name="pcfname" required type="text" data-error=".pcfname" ng-model="settings.primary_contact.first_name"
+                class="col m9 l10 s12">
+              <div class="pcfname"></div>
+            </div>
+            <div>
+              <label for="pclname" class="col m3 l2 s12">Last Name*</label>
+              <input id="pclname" name="pclname" required type="text" data-error=".pclname" ng-model="settings.primary_contact.last_name"
+                class="col m9 l10 s12">
+              <div class="pclname"></div>
+            </div>
+            <div>
+              <label for="pctitle" class="col m3 l2 s12">Title*</label>
+              <input id="pctitle" type="text" required class="browser-default selection-corrector col m9 l10 s12" name="pctitle"
+                ng-model="settings.primary_contact.title">
+              <div class="errorTxt41"></div>
+            </div>
+            <div>
+              <label for="pcemail" class="col m3 l2 s12">Email *</label>
+              <input id="pcemail" type="email" required name="pcemail" data-error=".errorTxt5" ng-model="settings.primary_contact.email"
+                class="col m9 l10 s12">
+              <div class="errorTxt5"></div>
+            </div>
+            <div>
+              <label for="pcphone" class="col m3 l2 s12">Phone *</label>
+              <input id="pcphone" type="text" required name="pcphone" data-error=".errorTxt6" ng-model="settings.primary_contact.phone"
+                class="col m9 l10 s12">
+              <div class="errorTxt6"></div>
+            </div>
+          </div>
+          <div class="row user-setting">
+            <p>Contact for Invoicing
+              <i class="material-icons tiny blue-text tooltipped" data-position="right" data-delay="50" data-tooltip="Text here">help_outline</i>&nbsp;&nbsp;
+              &nbsp;
+              <span>
+                <input type="checkbox" id="secondCheck" ng-disabled="secondCheck" ng-change="primeToSecondary()"
+                  ng-model="secondCheck" />
+                <label for="secondCheck">My all contact is the same as my primary contact</label>
+              </span>
+            </p>
+            <div>
+              <label for="scfname" class="col m3 l2 s12">First Name*</label>
+              <input id="scfname" name="scfname" required type="text" data-error=".scfname" ng-model="settings.secondary_contact.first_name"
+                class="col m9 l10 s12">
+              <div class="scfname"></div>
+            </div>
+            <div>
+              <label for="sclname" class="col m3 l2 s12">Last Name*</label>
+              <input id="sclname" name="sclname" required type="text" data-error=".sclname" ng-model="settings.secondary_contact.last_name"
+                class="col m9 l10 s12">
+              <div class="sclname"></div>
+            </div>
+            <div>
+              <label for="pctitle" class="col m3 l2 s12">Title</label>
+              <input id="pctitle" type="text" class="browser-default selection-corrector col m9 l10 s12" name="pctitle"
+                ng-model="settings.secondary_contact.title">
+              <div class="errorTxt41"></div>
+            </div>
+            <div>
+              <label for="scemail" class="col m3 l2 s12">Email </label>
+              <input id="scemail" type="email" name="scemail" data-error=".errorTxt8" ng-model="settings.secondary_contact.email"
+                class="col m9 l10 s12">
+              <div class="errorTxt8"></div>
+            </div>
+            <div>
+              <label for="scphone" class="col m3 l2 s12">Phone </label>
+              <input id="scphone" type="text" name="scphone" data-error=".errorTxt9" ng-model="settings.secondary_contact.phone"
+                class="col m9 l10 s12">
+              <div class="errorTxt9"></div>
+            </div>
+          </div>
+          <!-- <div class="row user-setting">
                         <p>Details to be displayed on invoice
                             <i class="material-icons tiny blue-text tooltipped" data-position="right" data-delay="50" data-tooltip="Text here">help_outline</i>
                         </p>
@@ -705,307 +782,317 @@
                             <div class="errorTxt11"></div>
                         </div>
                     </div> -->
-                    <div class="row user-setting">
-                        <p>Contact details for customers
-                            <i class="material-icons tiny blue-text tooltipped" data-position="right" data-delay="50" data-tooltip="Text here">help_outline</i>
-                            &nbsp;&nbsp; &nbsp;
-                            <span>
-                                <input type="checkbox" ng-disabled="secondCheck1" id="secondCheck1" ng-change="primeToSecondary1()" ng-model="secondCheck1"
-                                    class="col m9 l10 s12">
-                                <label for="secondCheck1">My all details is the same as my details to be displayed on invoice</label>
-                            </span>
-                        </p>
-                        <div>
-                            <label for="cdfname" class="col m3 l2 s12">First Name*</label>
-                            <input id="cdfname" name="cdfname" required type="text" data-error=".cdfname" ng-model="settings.contact_to_show_customer.first_name"
-                                class="col m9 l10 s12">
-                            <div class="cdfname"></div>
-                        </div>
-                        <div>
-                            <label for="cdlname" class="col m3 l2 s12">Last Name*</label>
-                            <input id="cdlname" name="cdlname" required type="text" data-error=".cdlname" ng-model="settings.contact_to_show_customer.last_name"
-                                class="col m9 l10 s12">
-                            <div class="cdlname"></div>
-                        </div>
-
-                        <div>
-                            <label for="cdtitle" class="col m3 l2 s12">Title</label>
-                            <input id="cdtitle" type="text" class="browser-default selection-corrector col m9 l10 s12" name="cdtitle" ng-model="settings.contact_to_show_customer.title">
-                            <div class="cdtitle"></div>
-                        </div>
-                        <div>
-                            <label for="cdcemail" class="col m3 l2 s12">Email </label>
-                            <input id="cdcemail" type="email" name="cdcemail" data-error=".errorTxt14" ng-model="settings.contact_to_show_customer.email"
-                                class="col m9 l10 s12">
-                            <div class="errorTxt144"></div>
-                        </div>
-                        <div>
-                            <label for="cdcphone" class="col m3 l2 s12">Phone </label>
-                            <input id="cdcphone" type="text" name="cdcphone" data-error=".errorTxt15" ng-model="settings.contact_to_show_customer.phone"
-                                class="col m9 l10 s12">
-                            <div class="errorTxt15"></div>
-                        </div>
-
-                    </div>
-                    <div class="right-align">
-                        <button type="submit" id="stepOne" class="btn waves-effect waves-light ul-1-btn camel-case">Next</button>
-                    </div>
-                </form>
+          <div class="row user-setting">
+            <p>Contact details for customers
+              <i class="material-icons tiny blue-text tooltipped" data-position="right" data-delay="50" data-tooltip="Text here">help_outline</i>
+              &nbsp;&nbsp; &nbsp;
+              <span>
+                <input type="checkbox" ng-disabled="secondCheck1" id="secondCheck1" ng-change="primeToSecondary1()"
+                  ng-model="secondCheck1" class="col m9 l10 s12">
+                <label for="secondCheck1">My all details is the same as my details to be displayed on invoice</label>
+              </span>
+            </p>
+            <div>
+              <label for="cdfname" class="col m3 l2 s12">First Name*</label>
+              <input id="cdfname" name="cdfname" required type="text" data-error=".cdfname" ng-model="settings.contact_to_show_customer.first_name"
+                class="col m9 l10 s12">
+              <div class="cdfname"></div>
             </div>
-            <div class="ul-main-four ulmc" ng-class="{'active': step==2}">
-                <div class="bulk-upload-otr">
-                    <p>
-                        <b style="text-transform: none;font-weight: 500;">Step 2: Enter System Users</b>
-                        <!-- <b class="right">
+            <div>
+              <label for="cdlname" class="col m3 l2 s12">Last Name*</label>
+              <input id="cdlname" name="cdlname" required type="text" data-error=".cdlname" ng-model="settings.contact_to_show_customer.last_name"
+                class="col m9 l10 s12">
+              <div class="cdlname"></div>
+            </div>
+
+            <div>
+              <label for="cdtitle" class="col m3 l2 s12">Title</label>
+              <input id="cdtitle" type="text" class="browser-default selection-corrector col m9 l10 s12" name="cdtitle"
+                ng-model="settings.contact_to_show_customer.title">
+              <div class="cdtitle"></div>
+            </div>
+            <div>
+              <label for="cdcemail" class="col m3 l2 s12">Email </label>
+              <input id="cdcemail" type="email" name="cdcemail" data-error=".errorTxt14" ng-model="settings.contact_to_show_customer.email"
+                class="col m9 l10 s12">
+              <div class="errorTxt144"></div>
+            </div>
+            <div>
+              <label for="cdcphone" class="col m3 l2 s12">Phone </label>
+              <input id="cdcphone" type="text" name="cdcphone" data-error=".errorTxt15" ng-model="settings.contact_to_show_customer.phone"
+                class="col m9 l10 s12">
+              <div class="errorTxt15"></div>
+            </div>
+
+          </div>
+          <div class="right-align">
+            <button type="submit" id="stepOne" class="btn waves-effect waves-light ul-1-btn camel-case">Next</button>
+          </div>
+        </form>
+      </div>
+      <div class="ul-main-four ulmc" ng-class="{'active': step==2}">
+        <div class="bulk-upload-otr">
+          <p>
+            <b style="text-transform: none;font-weight: 500;">Step 2: Enter System Users</b>
+            <!-- <b class="right">
                             <u>
                                 <a ui-sref="userview" target="_blank()" class="black-text">View / Edit Users</a>
                             </u>
                         </b> -->
-                    </p>
-                    <p>Use this option to upload all the Users in your Dealership in bulk ( ie. Service Advisors, Schedulers,
-                        Technicians etc. ).</p>
-                    <p>
-                        <b>Note:</b>
-                    </p>
-                    <p>- For bulk upload to happen, You would need upload the User data via. a Microsoft Excel file.</p>
-                    <p>Step 1: Please download the MS Excel file format
-                        <a href="http://the-symbol.net/dsm-index/users.xls" targer="_blank" style="color: #000;">
-                            <b>
-                                <u>HERE</u>
-                            </b>
-                        </a>
-                    </p>
-                    <p>Step 2: Please DONT change the format. Just fill in the User's data in the provided MS Excel file.
-                    </p>
-                    <p>Step 3: Save the file in a folder on your computer.</p>
-                    <p>Step 4: Tap on the "Select file" button below > Browse to the folder that contains the MS Excel file
-                        you saved previously > Select the file and submit.</p>
-                </div>
-                <div class="file-field input-field col s12">
-                    <form id="userUploadForm" name="userUploadForm">
-                        <div class="btn">
-                            <span>Select file </span>
-                            <input type="file" name="user" onchange="angular.element(this).scope().uploadUserData(this.files)">
-                        </div>
-                        <div class="file-path-wrapper">
-                            <input class="file-path validate" disabled type="text">
-                        </div>
-                    </form>
-                    <div id="card-alert" class="card red lighten-5" ng-if="alreadyu">
-                        <div class="card-content red-text">
-                            <p ng-if="alreadyu.length!=0" style="color:#000">
-                                The following Users items has been omitted ( as a User item with the same EMAIL exists for your dealership ) :
-                                <br>
-                            </p>
-                            <p ng-repeat="all in alreadyu" style="text-transform:none !important">
-                                {{all.name}} ({{all.email}})</p>
-                        </div>
-                        <button type="button" ng-click="close()" class="close red-text" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">×</span>
-                        </button>
-                    </div>
-                    <div id="card-alert" class="card red lighten-5" ng-if="availableVinNum">
-                        <div class="card-content red-text">
-                            <p ng-if="availableVinNum.length!=0" style="color:#000">
-                                The following Vehicle items has been omitted ( as a Vehicle item with the same vin exists for your dealership ) :
-                                <br>
-                            </p>
-                            <p ng-repeat="all in availableVinNum" style="text-transform:none !important">
-                                {{all}}</p>
-                        </div>
-                        <button type="button" ng-click="closeVinAlert()" class="close red-text" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">×</span>
-                        </button>
-                    </div>
-                    <div id="card-alert" class="card red lighten-5" ng-if="invalidVinNum">
-                        <div class="card-content red-text">
-                            <p ng-if="invalidVinNum.length!=0" style="color:#000">
-                                The following Vehicle items has been omitted ( as a Vin number is not valid for your dealership ) :
-                                <br>
-                            </p>
-                            <p ng-repeat="all in invalidVinNum" style="text-transform:none !important">
-                                {{all}}</p>
-                        </div>
-                        <button type="button" ng-click="closeInvalidVinAlert()" class="close red-text" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">×</span>
-                        </button>
-                    </div>
-                    <div id="card-alert" class="card red lighten-5" ng-if="invalidPhoneNum">
-                        <div class="card-content red-text">
-                            <p ng-if="invalidPhoneNum.length!=0" style="color:#000">
-                                The following Users items has been omitted ( as a User item with the same Phone exists for your dealership ) :
-                                <br>
-                            </p>
-                            <p ng-repeat="all in invalidPhoneNum" style="text-transform:none !important">
-                                {{all.phone}}</p>
-                        </div>
-                        <button type="button" ng-click="closeInvalidPhoneAlert()" class="close red-text" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">×</span>
-                        </button>
-                    </div>
+          </p>
+          <p>Use this option to upload all the Users in your Dealership in bulk ( ie. Service Advisors, Schedulers,
+            Technicians etc. ).</p>
+          <p>
+            <b>Note:</b>
+          </p>
+          <p>- For bulk upload to happen, You would need upload the User data via. a Microsoft Excel file.</p>
+          <p>Step 1: Please download the MS Excel file format
+            <a href="http://the-symbol.net/dsm-index/users.xls" targer="_blank" style="color: #000;">
+              <b>
+                <u>HERE</u>
+              </b>
+            </a>
+          </p>
+          <p>Step 2: Please DONT change the format. Just fill in the User's data in the provided MS Excel file.
+          </p>
+          <p>Step 3: Save the file in a folder on your computer.</p>
+          <p>Step 4: Tap on the "Select file" button below > Browse to the folder that contains the MS Excel file
+            you saved previously > Select the file and submit.</p>
+        </div>
+        <div class="file-field input-field col s12">
+          <form id="userUploadForm" name="userUploadForm">
+            <div class="btn">
+              <span>Select file </span>
+              <input type="file" name="user" onchange="angular.element(this).scope().uploadUserData(this.files)">
+            </div>
+            <div class="file-path-wrapper">
+              <input class="file-path validate" disabled type="text">
+            </div>
+          </form>
+          <div id="card-alert" class="card red lighten-5" ng-if="alreadyu">
+            <div class="card-content red-text">
+              <p ng-if="alreadyu.length!=0" style="color:#000">
+                The following Users items has been omitted ( as a User item with the same EMAIL exists for your
+                dealership ) :
+                <br>
+              </p>
+              <p ng-repeat="all in alreadyu" style="text-transform:none !important">
+                {{all.name}} ({{all.email}})</p>
+            </div>
+            <button type="button" ng-click="close()" class="close red-text" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div id="card-alert" class="card red lighten-5" ng-if="availableVinNum">
+            <div class="card-content red-text">
+              <p ng-if="availableVinNum.length!=0" style="color:#000">
+                The following Vehicle items has been omitted ( as a Vehicle item with the same vin exists for your
+                dealership ) :
+                <br>
+              </p>
+              <p ng-repeat="all in availableVinNum" style="text-transform:none !important">
+                {{all}}</p>
+            </div>
+            <button type="button" ng-click="closeVinAlert()" class="close red-text" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div id="card-alert" class="card red lighten-5" ng-if="invalidVinNum">
+            <div class="card-content red-text">
+              <p ng-if="invalidVinNum.length!=0" style="color:#000">
+                The following Vehicle items has been omitted ( as a Vin number is not valid for your dealership ) :
+                <br>
+              </p>
+              <p ng-repeat="all in invalidVinNum" style="text-transform:none !important">
+                {{all}}</p>
+            </div>
+            <button type="button" ng-click="closeInvalidVinAlert()" class="close red-text" data-dismiss="alert"
+              aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div id="card-alert" class="card red lighten-5" ng-if="invalidPhoneNum">
+            <div class="card-content red-text">
+              <p ng-if="invalidPhoneNum.length!=0" style="color:#000">
+                The following Users items has been omitted ( as a User item with the same Phone exists for your
+                dealership ) :
+                <br>
+              </p>
+              <p ng-repeat="all in invalidPhoneNum" style="text-transform:none !important">
+                {{all.phone}}</p>
+            </div>
+            <button type="button" ng-click="closeInvalidPhoneAlert()" class="close red-text" data-dismiss="alert"
+              aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
 
-                </div>
-                <div class="center">
-                    <p>OR you can add Users manually here
-                        <!-- <b class="right cap_txt">
+        </div>
+        <div class="center">
+          <p>OR you can add Users manually here
+            <!-- <b class="right cap_txt">
                             <u>
                                 <a ui-sref="userview" target="_blank()" class="black-text">View / Edit Users</a>
                             </u>
                         </b> -->
-                    </p>
+          </p>
+        </div>
+        <form class="formValidates" name="addUsersForm" id="addUsersForm" action="javascript:void(0);" ng-submit="addUser()">
+          <div id="single_upload" ng-repeat="ser in  [].constructor(totalusr) track by $index">
+            <div class="s_u_content">
+              <div class="row">
+                <div class="col m2 s12">
+                  <div class="input-field">
+                    <input type="text" placeholder="First Name*" required name="uname{{$index}}" id="uname{{$index}}"
+                      ng-model="userData[$index].first_name" />
+                  </div>
                 </div>
-                <form class="formValidates" name="addUsersForm" id="addUsersForm" action="javascript:void(0);" ng-submit="addUser()">
-                    <div id="single_upload" ng-repeat="ser in  [].constructor(totalusr) track by $index">
-                        <div class="s_u_content">
-                            <div class="row">
-                                <div class="col m2 s12">
-                                    <div class="input-field">
-                                        <input type="text" placeholder="First Name*" required name="uname{{$index}}" id="uname{{$index}}" ng-model="userData[$index].first_name"
-                                        />
-                                    </div>
-                                </div>
-                                <div class="col m2 s12">
-                                    <div class="input-field">
-                                        <input type="text" placeholder="Last Name*" required name="lname{{$index}}" id="lname{{$index}}" ng-model="userData[$index].last_name"
-                                        />
-                                    </div>
-                                </div>
-                                <div class="col m2 s12">
-                                    <div class="input-field">
-                                        <input type="email" name="uemail{{$index}}" required id="uemail{{$index}}" placeholder="Email*" ng-model="userData[$index].email"
-                                        />
-                                    </div>
-                                </div>
-                                <div class="col m2 s12">
-                                    <div class="input-field">
-                                        <input type="text" placeholder="Phone*" required name="uphone{{$index}}" id="uphone{{$index}}" ng-model="userData[$index].phone"/>
-                                    </div>
-                                </div>
-                                <div class="col m6 s12">
-                                    <p>
-                                        <span ng-repeat="r in roles">
-                                            <input data-error=".filled-in-box{{$parent.$index}}" type="checkbox" class="filled-in" ng-model="userData[$parent.$index].roles[$index]"
-                                                ng-true-value="'{{r.name}}'" id="filled-in-box{{$index}}{{$parent.$index}}" name="uroles{{$parent.$index}}"
-                                            />
-                                            <label for="filled-in-box{{$index}}{{$parent.$index}}">{{r.role}}</label>
-                                            <span class="filled-in-box{{$parent.$index}}" ng-show="$index==5" style="font-size:8px"></span>
-                                        </span>
+                <div class="col m2 s12">
+                  <div class="input-field">
+                    <input type="text" placeholder="Last Name*" required name="lname{{$index}}" id="lname{{$index}}"
+                      ng-model="userData[$index].last_name" />
+                  </div>
+                </div>
+                <div class="col m2 s12">
+                  <div class="input-field">
+                    <input type="email" name="uemail{{$index}}" required id="uemail{{$index}}" placeholder="Email*"
+                      ng-model="userData[$index].email" />
+                  </div>
+                </div>
+                <div class="col m2 s12">
+                  <div class="input-field">
+                    <input type="text" placeholder="Phone*" required name="uphone{{$index}}" id="uphone{{$index}}"
+                      ng-model="userData[$index].phone" />
+                  </div>
+                </div>
+                <div class="col m6 s12">
+                  <p>
+                    <span ng-repeat="r in roles">
+                      <input data-error=".filled-in-box{{$parent.$index}}" type="checkbox" class="filled-in" ng-model="userData[$parent.$index].roles[$index]"
+                        ng-true-value="'{{r.name}}'" id="filled-in-box{{$index}}{{$parent.$index}}" name="uroles{{$parent.$index}}" />
+                      <label for="filled-in-box{{$index}}{{$parent.$index}}">{{r.role}}</label>
+                      <span class="filled-in-box{{$parent.$index}}" ng-show="$index==5" style="font-size:8px"></span>
+                    </span>
 
-                                        <input type="button" id="upload_fileds{{$index}}" ng-click="adduserdiv();" class="btn btn-floating" value="+" />
-                                        <input type="button" ng-hide="$index===0" id="upload_fileds{{$index}}{{$index}}" ng-click="removuserdiv($index);" class="btn btn-floating"
-                                            value="-" />
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div ng-show="isLoder" class="right-align" style="    position: static;margin: 0 0 1em;">
-                        <img width="70" height="70" class="priceloader" src="assets/images/priceloading.gif">
-                      </div>
-                    <div ng-show="isAddUser" class="right-align" style="    position: static;margin: 0 0 1em;">
-                        <button type="submit" class="btn waves-effect waves-light">Add above Users</button>
-                    </div>
-                </form>
-                <div class="bulk-upload-otr">
-                    <p>
-                        <span>
-                            <b>SA</b> = Service Advisor</span>
-                        <span>
-                            <b>SS</b> = Service Scheduler </span>
-                        <span>
-                            <b>MM</b> = Marketing Manager</span>
-                        <span>
-                            <b>VI</b> = Vehicle Inspector</span>
-                        <span>
-                            <b>UCM</b> = Used Car Manager</span>
-                    </p>
-                    <table id="table-datatables" class="responsive-table display" cellspacing="0">
-                        <thead>
-                            <tr>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Roles</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr ng-repeat="user in users">
-                                <td>{{user.name}}</td>
-                                <td>{{user.email}}</td>
-                                <td>{{printRoles(user.roles)}}</td>
-                            </tr>
-                            <tr ng-if="!users.length">
-                                <td colspan="3">No user data added.</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <input type="button" id="upload_fileds{{$index}}" ng-click="adduserdiv();" class="btn btn-floating"
+                      value="+" />
+                    <input type="button" ng-hide="$index===0" id="upload_fileds{{$index}}{{$index}}" ng-click="removuserdiv($index);"
+                      class="btn btn-floating" value="-" />
+                  </p>
                 </div>
-                <div class="right-align">
-                    <button type="button" style="background-color: #9e9e9e !important;" class="btn waves-effect waves-light camel-case" ng-click="nextStep(1, true)">Previous</button>
-                    <button type="button" ng-click="nextStep(3, true)" class="btn waves-effect waves-light ul-2-btn camel-case">Next</button>
-                </div>
+              </div>
             </div>
-            <div class="ul-main-two ulmc" ng-class="{'active': step==3}">
-                <p style="padding:0;">Step 3: Appointment Scheduling Configuration</p>
-                <form class="formValidate1" name="formValidate1" id="formValidate1" ng-submit="updateSetting1()">
-                    <div class="row s2">
-                        <div class="row if-label">
-                            <div class="margin m_b_25">
-                                <label for="days_of_service">
-                                    <p style="padding:0;">
-                                        <b class="black-text" style="font-weight:500">Set Weekly Working Hours*</b>
-                                        <i class="material-icons tiny blue-text tooltipped" data-position="right" data-delay="50" data-tooltip="Text here">help_outline</i>
-                                    </p>
-                                </label>
-                                <ul class="collapsible">
-                                    <li>
-                                        <day-box day="settings.days_of_service.sunday" hours="hours" label="Sunday"></day-box>
-                                    </li>
-                                    <li>
-                                        <day-box day="settings.days_of_service.monday" hours="hours" label="Monday"></day-box>
-                                    </li>
-                                    <li>
-                                        <day-box day="settings.days_of_service.tuesday" hours="hours" label="Tuesday"></day-box>
-                                    </li>
-                                    <li>
-                                        <day-box day="settings.days_of_service.wednesday" hours="hours" label="Wedneday"></day-box>
-                                    </li>
-                                    <li>
-                                        <day-box day="settings.days_of_service.thursday" hours="hours" label="Thursday"></day-box>
-                                    </li>
-                                    <li>
-                                        <day-box day="settings.days_of_service.friday" hours="hours" label="Friday"></day-box>
-                                    </li>
-                                    <li>
-                                        <day-box day="settings.days_of_service.saturday" hours="hours" label="Saturday"></day-box>
-                                    </li>
+          </div>
+          <div ng-show="isLoder" class="right-align" style="    position: static;margin: 0 0 1em;">
+            <img width="70" height="70" class="priceloader" src="assets/images/priceloading.gif">
+          </div>
+          <div ng-show="isAddUser" class="right-align" style="    position: static;margin: 0 0 1em;">
+            <button type="submit" class="btn waves-effect waves-light">Add above Users</button>
+          </div>
+        </form>
+        <div class="bulk-upload-otr">
+          <p>
+            <span>
+              <b>SA</b> = Service Advisor</span>
+            <span>
+              <b>SS</b> = Service Scheduler </span>
+            <span>
+              <b>MM</b> = Marketing Manager</span>
+            <span>
+              <b>VI</b> = Vehicle Inspector</span>
+            <span>
+              <b>UCM</b> = Used Car Manager</span>
+          </p>
+          <table id="table-datatables" class="responsive-table display" cellspacing="0">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Roles</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="user in users">
+                <td>{{user.name}}</td>
+                <td>{{user.email}}</td>
+                <td>{{printRoles(user.roles)}}</td>
+              </tr>
+              <tr ng-if="!users.length">
+                <td colspan="3">No user data added.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="right-align">
+          <button type="button" style="background-color: #9e9e9e !important;" class="btn waves-effect waves-light camel-case"
+            ng-click="nextStep(1, true)">Previous</button>
+          <button type="button" ng-click="nextStep(3, true)" class="btn waves-effect waves-light ul-2-btn camel-case">Next</button>
+        </div>
+      </div>
+      <div class="ul-main-two ulmc" ng-class="{'active': step==3}">
+        <p style="padding:0;">Step 3: Appointment Scheduling Configuration</p>
+        <form class="formValidate1" name="formValidate1" id="formValidate1" ng-submit="updateSetting1()">
+          <div class="row s2">
+            <div class="row if-label">
+              <div class="margin m_b_25">
+                <label for="days_of_service">
+                  <p style="padding:0;">
+                    <b class="black-text" style="font-weight:500">Set Weekly Working Hours*</b>
+                    <i class="material-icons tiny blue-text tooltipped" data-position="right" data-delay="50"
+                      data-tooltip="Text here">help_outline</i>
+                  </p>
+                </label>
+                <ul class="collapsible">
+                  <li>
+                    <day-box day="settings.days_of_service.sunday" hours="hours" label="Sunday"></day-box>
+                  </li>
+                  <li>
+                    <day-box day="settings.days_of_service.monday" hours="hours" label="Monday"></day-box>
+                  </li>
+                  <li>
+                    <day-box day="settings.days_of_service.tuesday" hours="hours" label="Tuesday"></day-box>
+                  </li>
+                  <li>
+                    <day-box day="settings.days_of_service.wednesday" hours="hours" label="Wedneday"></day-box>
+                  </li>
+                  <li>
+                    <day-box day="settings.days_of_service.thursday" hours="hours" label="Thursday"></day-box>
+                  </li>
+                  <li>
+                    <day-box day="settings.days_of_service.friday" hours="hours" label="Friday"></day-box>
+                  </li>
+                  <li>
+                    <day-box day="settings.days_of_service.saturday" hours="hours" label="Saturday"></day-box>
+                  </li>
 
-                                </ul>
-                            </div>
-                            <!-- <div class="margin col s12 temp_color">
+                </ul>
+              </div>
+              <!-- <div class="margin col s12 temp_color">
                                 <label for="template_color">
                                     <p class="black-text" style="padding:0 5px 0 1px ;">Template Color*</p>
                                 </label>
                                 <input id="template_color" type="color" name="template_color" data-error=".errorTxt18" ng-model="settings.template_color">
                                 <div class="errorTxt18"></div>
                             </div> -->
-                            <div class="row user-setting admin-head-caption">
-                                <p class="mb0"><b>Set Appointment Parameters<b>
-                                    <i class="material-icons tiny blue-text tooltipped" data-position="right" data-delay="50" data-tooltip="Text here">help_outline</i>
-                                </p>
-                                <div class="margin col s12">
-                                    <label for="holidays" class="label-2 col m4 s12">
-                                            <span class="black-text label-header">Holidays</span>
-                                            <p>Select dates on which the dealership/service center will be closed due to holiday</p>
-                                    </label>
-                                    <div class="holiday_box col m7" style="position: relative;top:57px;left:-15px;">
-                                        <div class="chip" ng-hide="settings.holidays.length">Select Date</div>
-                                        <div class="chip" ng-repeat="dateT in settings.holidays">
-                                            {{dateT | date:format:'Y-m-d'}}&nbsp;&nbsp;
-                                            <i ng-click="settings.holidays.splice($index, 1)" class="material-icons">close</i>
-                                        </div>
-                                        <!-- <i class="datepickerholiday material-icons" >perm_contact_calendar</i> -->
-                                        <style>
-                                            input.datepickerholiday {
+              <div class="row user-setting admin-head-caption">
+                <p class="mb0"><b>Set Appointment Parameters<b>
+                      <i class="material-icons tiny blue-text tooltipped" data-position="right" data-delay="50"
+                        data-tooltip="Text here">help_outline</i>
+                </p>
+                <div class="margin col s12">
+                  <label for="holidays" class="label-2 col m4 s12">
+                    <span class="black-text label-header">Holidays</span>
+                    <p>Select dates on which the dealership/service center will be closed due to holiday</p>
+                  </label>
+                  <div class="holiday_box col m7" style="position: relative;top:57px;left:-15px;">
+                    <div class="chip" ng-hide="settings.holidays.length">Select Date</div>
+                    <div class="chip" ng-repeat="dateT in settings.holidays">
+                      {{dateT | date:format:'Y-m-d'}}&nbsp;&nbsp;
+                      <i ng-click="settings.holidays.splice($index, 1)" class="material-icons">close</i>
+                    </div>
+                    <!-- <i class="datepickerholiday material-icons" >perm_contact_calendar</i> -->
+                    <style>
+                      input.datepickerholiday {
                                                 background-image: url(https://image.flaticon.com/icons/svg/34/34389.svg);
                                                 background-position: 0px -1px;
                                                 background-repeat: no-repeat;
@@ -1015,101 +1102,104 @@
 
                                             }
                                         </style>
-                                        <!-- <input class="datepickerholiday" style="height: 35px;width: 35px;border:none;" /> -->
-                                        <label class="datepickerholiday" style="color: #000;font-weight: 500;cursor: pointer;text-decoration: underline;">Click to Select</label>
+                    <!-- <input class="datepickerholiday" style="height: 35px;width: 35px;border:none;" /> -->
+                    <label class="datepickerholiday" style="color: #000;font-weight: 500;cursor: pointer;text-decoration: underline;">Click
+                      to Select</label>
 
-                                        <!-- <i  style="font-size:36px !important;position:static;" class="material-icons add_circle" ng-click="showCalender()">perm_contact_calendar</i> -->
-                                    </div>
-                                </div>
-                                <div class="margin col s12">
-                                    <label for="is_mobile_app_needed" class="label-2 col m4 s12">
-                                            <span class="black-text label-header">Enabling App Service Access</span>
-                                            <p>Would you like to enable service scheduling via the myautoIQ app?</p> 
-                                    </label>
-
-                                    <input type="checkbox" class="filled-in col m7 s12 " id="filled-in-box" ng-model="settings.is_mobile_app_needed" />
-                                    <label for="filled-in-box" class="mbl_app" style="padding: 0px 0 0 35px !important;
-                                            margin-top: 4em;margin-bottom: 12px !important;"></label>
-                                </div>
-                                <div class="margin col s12">
-                                    <label for="booking_before_time" class="label-2 col m4 s12">
-                                            <span class="black-text label-header">Timeframe for online appointment setup
-                                                    </span>
-                                                <p>How much time in advance (in minutes) must a customer book a service appointment online</p>
-                                    </label>
-                                    <input id="booking_before_time" type="number" required name="booking_before_time" data-error=".errorTxt19" ng-model="settings.booking_before_time"
-                                        class="col m7 s12">
-                                    <div class="errorTxt19"></div>
-                                </div>
-                                <div class="margin col s12">
-                                    <label for="appointment_interval" class="label-2 col m4 s12">
-                                            <span class="black-text label-header">Appointment slots</span>
-                                                <p>Select how long would you like your appointment slots to be (in minutes)</p>
-                                    </label>
-                                    <select ng-disabled="settings.steps_completed_in_wizard.indexOf(2) !== -1" data-error=".errorTxt20" required class="browser-default col m7 s12"
-                                        name="appointment_interval" id="appointment_interval" ng-model="settings.appointment_interval">
-                                        <option ng-value="15">15 mins</option>
-                                        <option ng-value="30">30 mins</option>
-                                        <option ng-value="60">60 mins</option>
-                                    </select>
-                                    <div class="errorTxt20"></div>
-                                </div>
-                                <div class="margin col s12">
-                                    <label for="auto_cancel_appointment_time" class="label-2 col m4 s12">
-                                    <span class="black-text label-header">Auto cancel Set-up</span>
-                                                <p>Select the duration after which an appointment is cancelled if the customer has not shown up</p></label>
-                                    <input required id="auto_cancel_appointment_time" type="text" name="auto_cancel_appointment_time" data-error=".errorTxt21"
-                                        ng-model="settings.auto_cancel_appointment_time" class="col m7 s12">
-                                    <div class="errorTxt21"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="right-align">
-                        <button type="button" style="background-color: #9e9e9e !important;" ng-click="nextStep(2)" class="btn waves-effect waves-light camel-case">Previous</button>
-                        <button type="submit" id="stepTwo" class="btn waves-effect waves-light ul-2-btn camel-case">Next</button>
-                    </div>
-                </form>
-            </div>
-            <div class="ul-main-three ulmc" ng-class="{'active': step==4}">
-                <p>Step 4: Marketing</p>
-                <div class="right-align" style="margin-bottom: 2em;" ng-show="addImg">
-                    <button type="button" ng-click="viewImage()" class="btn waves-effect waves-light ul-2-btn">GO Back</button>
+                    <!-- <i  style="font-size:36px !important;position:static;" class="material-icons add_circle" ng-click="showCalender()">perm_contact_calendar</i> -->
+                  </div>
                 </div>
-                <!--    <div class="right-align" style="margin-bottom: 2em;" ng-show="viewImg">
+                <div class="margin col s12">
+                  <label for="is_mobile_app_needed" class="label-2 col m4 s12">
+                    <span class="black-text label-header">Enabling App Service Access</span>
+                    <p>Would you like to enable service scheduling via the myautoIQ app?</p>
+                  </label>
+
+                  <input type="checkbox" class="filled-in col m7 s12 " id="filled-in-box" ng-model="settings.is_mobile_app_needed" />
+                  <label for="filled-in-box" class="mbl_app" style="padding: 0px 0 0 35px !important;
+                                            margin-top: 4em;margin-bottom: 12px !important;"></label>
+                </div>
+                <div class="margin col s12">
+                  <label for="booking_before_time" class="label-2 col m4 s12">
+                    <span class="black-text label-header">Timeframe for online appointment setup
+                    </span>
+                    <p>How much time in advance (in minutes) must a customer book a service appointment online</p>
+                  </label>
+                  <input id="booking_before_time" type="number" required name="booking_before_time" data-error=".errorTxt19"
+                    ng-model="settings.booking_before_time" class="col m7 s12">
+                  <div class="errorTxt19"></div>
+                </div>
+                <div class="margin col s12">
+                  <label for="appointment_interval" class="label-2 col m4 s12">
+                    <span class="black-text label-header">Appointment slots</span>
+                    <p>Select how long would you like your appointment slots to be (in minutes)</p>
+                  </label>
+                  <select ng-disabled="settings.steps_completed_in_wizard.indexOf(2) !== -1" data-error=".errorTxt20"
+                    required class="browser-default col m7 s12" name="appointment_interval" id="appointment_interval"
+                    ng-model="settings.appointment_interval">
+                    <option ng-value="15">15 mins</option>
+                    <option ng-value="30">30 mins</option>
+                    <option ng-value="60">60 mins</option>
+                  </select>
+                  <div class="errorTxt20"></div>
+                </div>
+                <div class="margin col s12">
+                  <label for="auto_cancel_appointment_time" class="label-2 col m4 s12">
+                    <span class="black-text label-header">Auto cancel Set-up</span>
+                    <p>Select the duration after which an appointment is cancelled if the customer has not shown up</p>
+                  </label>
+                  <input required id="auto_cancel_appointment_time" type="text" name="auto_cancel_appointment_time"
+                    data-error=".errorTxt21" ng-model="settings.auto_cancel_appointment_time" class="col m7 s12">
+                  <div class="errorTxt21"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="right-align">
+            <button type="button" style="background-color: #9e9e9e !important;" ng-click="nextStep(2)" class="btn waves-effect waves-light camel-case">Previous</button>
+            <button type="submit" id="stepTwo" class="btn waves-effect waves-light ul-2-btn camel-case">Next</button>
+          </div>
+        </form>
+      </div>
+      <div class="ul-main-three ulmc" ng-class="{'active': step==4}">
+        <p>Step 4: Marketing</p>
+        <div class="right-align" style="margin-bottom: 2em;" ng-show="addImg">
+          <button type="button" ng-click="viewImage()" class="btn waves-effect waves-light ul-2-btn">GO Back</button>
+        </div>
+        <!--    <div class="right-align" style="margin-bottom: 2em;" ng-show="viewImg">
                     <button type="button" ng-click="addImage()" class="btn waves-effect waves-light ul-2-btn">Add Image</button>
                 </div> -->
-                <div ng-show="viewImg">
-                    <div class="row">
-                        <!-- <p>Select images to be used for marketing offers.</p> -->
-                        <div class="col s6 m3 image-container" ng-repeat="image in imageList">
-                            <img class="responsive-img z-depth-1 oml_img" src="{{ image.picture.url }}" alt="">
-                            <div class="close" ng-click="deleteRemove(image.id, $index)">
-                                <i class="material-icons dp48 oml_icon">close</i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="" ng-show="imageList.length == 0">
-                        <h4>No Images</h4>
-                    </div>
-                    <br>
-                    <div class="right-align">
-                        <button type="button" style="background-color: #9e9e9e !important;" ng-click="nextStep(3)" class="btn waves-effect waves-light camel-case">Previous</button>
-                        <button type="button" ng-click="nextStep(5)" class="btn waves-effect waves-light ul-2-btn camel-case">Next</button>
-                    </div>
-                </div>
-                <div ng-show="addImg">
-                    <form class="" name="imageForm" id="imageForm" ng-submit="addImages()">
-                        <div class="offer-section-otr white z-depth-1">
-                            <div class="panel panel-default">
-                                <!-- <div class="panel-heading">
+        <div ng-show="viewImg">
+          <div class="row">
+            <!-- <p>Select images to be used for marketing offers.</p> -->
+            <div class="col s6 m3 image-container" ng-repeat="image in imageList">
+              <img class="responsive-img z-depth-1 oml_img" src="{{ image.picture.url }}" alt="">
+              <div class="close" ng-click="deleteRemove(image.id, $index)">
+                <i class="material-icons dp48 oml_icon">close</i>
+              </div>
+            </div>
+          </div>
+          <div class="" ng-show="imageList.length == 0">
+            <h4>No Images</h4>
+          </div>
+          <br>
+          <div class="right-align">
+            <button type="button" style="background-color: #9e9e9e !important;" ng-click="nextStep(3)" class="btn waves-effect waves-light camel-case">Previous</button>
+            <button type="button" ng-click="nextStep(5)" class="btn waves-effect waves-light ul-2-btn camel-case">Next</button>
+          </div>
+        </div>
+        <div ng-show="addImg">
+          <form class="" name="imageForm" id="imageForm" ng-submit="addImages()">
+            <div class="offer-section-otr white z-depth-1">
+              <div class="panel panel-default">
+                <!-- <div class="panel-heading">
                                     <div class="panel-title m_b_25">
                                         <b class="required flow-text ">Images</b>
                                     </div>
                                 </div> -->
-                                <div>
-                                    <style>
-                                        .cropArea {
+                <div>
+                  <style>
+                    .cropArea {
                                             margin: 30px auto;
                                             background: #E4E4E4;
                                             overflow: hidden;
@@ -1117,173 +1207,183 @@
                                             height: 350px;
                                         }
                                     </style>
-                                </div>
-                                <span class="add_image" ng-show="image_message">Please Add Images.Image Types Allowed: png, jpeg, jpg, gif</span>
-                                <div class="panel-body" style="padding-top: 0px;">
-                                    <div class="form-group" ng-show="!showCroppedImg">
-                                        <div class="select_img">
-                                            <b>Tap the button below to choose an image from your computer.</b>
-                                            <div class="">
-                                                <input type="file" id="fileInput" name="image" data-error=".errorTxt5" required/>
-                                                <div class="file-field input-field">
-                                                    <div class="btn waves-effect waves-light">
-                                                        <span>Select</span>
-                                                        <input type="file" id="fileInput" capture="filesystem">
-                                                    </div>
-                                                    <div class="file-path-wrapper">
-                                                        <input class="file-path validate" name="image" data-error=".errorTxt5" type="text">
-                                                    </div>
-                                                </div>
-                                                <div class="errorTxt5"></div>
-                                                <div class="image_type_error" id="image_type">
-                                                    Invalid image type
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="cropArea">
-                                            <img-crop result-image-size="640" ngf-pattern="'image/*'" ngf-accept="'image/*'" image="myImage" area-type="square" result-image="myCroppedImage">
-                                            </img-crop>
-                                        </div>
-                                        <div class="center-align ">
-                                            <input type="button" id="cropped" class="btn btn-warning image_cropped" value="Crop Image" ng-click="crop()">
-                                            <input type="button" id="ccropped" ng-click="clearImage()" class="btn  image_cropped" value="Cancel">
-                                            <div id="cropImage" class="errorImage">Crop offer banner</div>
-                                        </div>
-                                    </div>
-                                    <div class="image_wrapper" ng-show="showCroppedImg">
-                                        <div class="clear" ng-click="clearImage()">
-                                            <i class="material-icons dp48">clear</i>
-                                        </div>
-                                        <img ng-src="{{ blobUrl }}" alt="">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="right-align">
+                </div>
+                <span class="add_image" ng-show="image_message">Please Add Images.Image Types Allowed: png, jpeg, jpg,
+                  gif</span>
+                <div class="panel-body" style="padding-top: 0px;">
+                  <div class="form-group" ng-show="!showCroppedImg">
+                    <div class="select_img">
+                      <b>Tap the button below to choose an image from your computer.</b>
+                      <div class="">
+                        <input type="file" id="fileInput" name="image" data-error=".errorTxt5" required />
+                        <div class="file-field input-field">
+                          <div class="btn waves-effect waves-light">
+                            <span>Select</span>
+                            <input type="file" id="fileInput" capture="filesystem">
+                          </div>
+                          <div class="file-path-wrapper">
+                            <input class="file-path validate" name="image" data-error=".errorTxt5" type="text">
+                          </div>
+                        </div>
+                        <div class="errorTxt5"></div>
+                        <div class="image_type_error" id="image_type">
+                          Invalid image type
+                        </div>
+                      </div>
+                    </div>
+                    <div class="cropArea">
+                      <img-crop result-image-size="640" ngf-pattern="'image/*'" ngf-accept="'image/*'" image="myImage"
+                        area-type="square" result-image="myCroppedImage">
+                      </img-crop>
+                    </div>
+                    <div class="center-align ">
+                      <input type="button" id="cropped" class="btn btn-warning image_cropped" value="Crop Image"
+                        ng-click="crop()">
+                      <input type="button" id="ccropped" ng-click="clearImage()" class="btn  image_cropped" value="Cancel">
+                      <div id="cropImage" class="errorImage">Crop offer banner</div>
+                    </div>
+                  </div>
+                  <div class="image_wrapper" ng-show="showCroppedImg">
+                    <div class="clear" ng-click="clearImage()">
+                      <i class="material-icons dp48">clear</i>
+                    </div>
+                    <img ng-src="{{ blobUrl }}" alt="">
+                  </div>
+                </div>
+              </div>
+              <div class="right-align">
 
-                                <button type="submit" class="btn waves-effect waves-light ul-2-btn camel-case">Submit</button>
-                            </div>
-                        </div>
-                        <br>
-                        <div class="right-align">
-                            <button type="button" style="background-color: #9e9e9e !important;" ng-click="nextStep(3)" class="btn waves-effect waves-light camel-case">Previous</button>
-                            <button type="button" ng-click="nextStep(5)" class="btn waves-effect waves-light ul-2-btn camel-case">Next</button>
-                        </div>
-                    </form>
-                </div>
+                <button type="submit" class="btn waves-effect waves-light ul-2-btn camel-case">Submit</button>
+              </div>
             </div>
-            <div class="ul-main-five ulmc" ng-class="{'active': step==5}">
-                <div class="file-field  col s12">
-                    <p>Step 5: Service Advisor Configuration</p>
-                    <form class="formValidate row" name="dountFormValidate" id="dountFormValidate" ng-submit="updateDonutValues()">
-                        <p>Donut Information
-                            <i class="material-icons tiny blue-text tooltipped" data-position="right" data-delay="50" data-tooltip="Text here">help_outline</i>
-                        </p>
-                        <div class="col s12 pl11">
-                            <label for="averageVisit"  class="col m3 l2 s12">Average Visit*</label>
-                            <input  type="number" id="averageVisit" name="averageVisit" ng-model="donutValues.averageVisit" required class="col m9 l10 s12">
-                        </div>
-                        <div class="col s12 pl11">
-                            <label for="averageSpend" class="col m3 l2 s12">Average Spend*</label>
-                            <input id="averageSpend" type="number" name="averageSpend" required ng-model="donutValues.averageSpend" class="col m9 l10 s12">
-                        </div>
-                        <div class="col s12 pl11">
-                            <label for="averageLifeSpan" class="col m3 l2 s12">Average Life Span*</label>
-                            <input id="averageLifeSpan" type="number" name="averageLifeSpan" required ng-model="donutValues.averageLifeSpan"
-                                class="col m9 l10 s12">
-                        </div>
-                        <div class="col s12 pl11">
-                            <label for="rententionRate" class="col m3 l2 s12">Rentention Rate*</label>
-                            <input id="rententionRate" name="rententionRate" required type="number" ng-model="donutValues.rententionRate" class="col m9 l10 s12">
-                        </div>
-    
-                        <div class="col s12 pl11">
-                            <label for="profitMargin" class="col m3 l2 s12">Profit Margin*</label>
-                            <input id="profitMargin" type="number" required name="profitMargin" ng-model="donutValues.profitMargin"
-                                class="col m9 l10 s12">
-                        </div>
-                        <div class="col s12 pl11">
-                            <label for="discountRate" class="col m3 l2 s12">Discount Rate*</label>
-                            <input id="discountRate" type="number" name="discountRate" required ng-model="donutValues.discountRate" class="col m9 l10 s12">
-                        </div>
-                        <div class="col s12 pl11">
-                            <label for="customerValue" class="col m3 l2 s12">Customer Value*</label>
-                            <input id="customerValue" type="number" name="customerValue" required ng-model="donutValues.customerValue"
-                                class="col m9 l10 s12">
-                        </div>
-                        <div class="col s12 pl11">
-                            <label for="customerSpanValue" class="col m3 l2 s12">Customer Span Value*</label>
-                            <input id="customerSpanValue" name="customerSpanValue" required type="number" ng-model="donutValues.customerSpanValue" class="col m9 l10 s12">
-                        </div>
-    
-                        <div class="col s12 pl11">
-                            <label for="lifeTimeValue" class="col m3 l2 s12">Life Time Value*</label>
-                            <input id="lifeTimeValue" type="number" required name="lifeTimeValue" ng-model="donutValues.lifeTimeValue"
-                                class="col m9 l10 s12">
-                        </div>
-                        <div class="right-align">
-                                <button type="button" style="background-color: #9e9e9e !important;" class="btn waves-effect waves-light camel-case " ng-click="nextStep(4)">Previous</button>
-                                <button type="submit" class="btn waves-effect waves-light ul-2-btn camel-case">Next</button>
-                            </div>
-                    </form>
-                </div>
-                
+            <br>
+            <div class="right-align">
+              <button type="button" style="background-color: #9e9e9e !important;" ng-click="nextStep(3)" class="btn waves-effect waves-light camel-case">Previous</button>
+              <button type="button" ng-click="nextStep(5)" class="btn waves-effect waves-light ul-2-btn camel-case">Next</button>
             </div>
-            <div class="ul-main-six ulmc" ng-class="{'active': step==6}">
-                <div class="bulk-upload-otr">
-                    <p>
-                        <b style="text-transform: none;font-weight: 500;">Step 6: Enter Service Data</b>
-                        <!-- <b class="right">
+          </form>
+        </div>
+      </div>
+      <div class="ul-main-five ulmc" ng-class="{'active': step==5}">
+        <div class="file-field  col s12">
+          <p>Step 5: Service Advisor Configuration</p>
+          <form class="formValidate row" name="dountFormValidate" id="dountFormValidate" ng-submit="updateDonutValues()">
+            <p>Donut Information
+              <i class="material-icons tiny blue-text tooltipped" data-position="right" data-delay="50" data-tooltip="Text here">help_outline</i>
+            </p>
+            <div class="col s12 pl11">
+              <label for="averageVisit" class="col m3 l2 s12">Average Visit*</label>
+              <input type="number" id="averageVisit" name="averageVisit" ng-model="donutValues.averageVisit" required
+                class="col m9 l10 s12">
+            </div>
+            <div class="col s12 pl11">
+              <label for="averageSpend" class="col m3 l2 s12">Average Spend*</label>
+              <input id="averageSpend" type="number" name="averageSpend" required ng-model="donutValues.averageSpend"
+                class="col m9 l10 s12">
+            </div>
+            <div class="col s12 pl11">
+              <label for="averageLifeSpan" class="col m3 l2 s12">Average Life Span*</label>
+              <input id="averageLifeSpan" type="number" name="averageLifeSpan" required ng-model="donutValues.averageLifeSpan"
+                class="col m9 l10 s12">
+            </div>
+            <div class="col s12 pl11">
+              <label for="rententionRate" class="col m3 l2 s12">Rentention Rate*</label>
+              <input id="rententionRate" name="rententionRate" required type="number" ng-model="donutValues.rententionRate"
+                class="col m9 l10 s12">
+            </div>
+
+            <div class="col s12 pl11">
+              <label for="profitMargin" class="col m3 l2 s12">Profit Margin*</label>
+              <input id="profitMargin" type="number" required name="profitMargin" ng-model="donutValues.profitMargin"
+                class="col m9 l10 s12">
+            </div>
+            <div class="col s12 pl11">
+              <label for="discountRate" class="col m3 l2 s12">Discount Rate*</label>
+              <input id="discountRate" type="number" name="discountRate" required ng-model="donutValues.discountRate"
+                class="col m9 l10 s12">
+            </div>
+            <div class="col s12 pl11">
+              <label for="customerValue" class="col m3 l2 s12">Customer Value*</label>
+              <input id="customerValue" type="number" name="customerValue" required ng-model="donutValues.customerValue"
+                class="col m9 l10 s12">
+            </div>
+            <div class="col s12 pl11">
+              <label for="customerSpanValue" class="col m3 l2 s12">Customer Span Value*</label>
+              <input id="customerSpanValue" name="customerSpanValue" required type="number" ng-model="donutValues.customerSpanValue"
+                class="col m9 l10 s12">
+            </div>
+
+            <div class="col s12 pl11">
+              <label for="lifeTimeValue" class="col m3 l2 s12">Life Time Value*</label>
+              <input id="lifeTimeValue" type="number" required name="lifeTimeValue" ng-model="donutValues.lifeTimeValue"
+                class="col m9 l10 s12">
+            </div>
+            <div class="right-align">
+              <button type="button" style="background-color: #9e9e9e !important;" class="btn waves-effect waves-light camel-case "
+                ng-click="nextStep(4)">Previous</button>
+              <button type="submit" class="btn waves-effect waves-light ul-2-btn camel-case">Next</button>
+            </div>
+          </form>
+        </div>
+
+      </div>
+      <div class="ul-main-six ulmc" ng-class="{'active': step==6}">
+        <div class="bulk-upload-otr">
+          <p>
+            <b style="text-transform: none;font-weight: 500;">Step 6: Enter Service Data</b>
+            <!-- <b class="right">
                             <u>
                                 <a ui-sref="serviceview" target="_blank" class="black-text">View / Edit Service Items</a>
                             </u>
                         </b> -->
-                    </p>
-                    <p>Use this option to upload data in bulk.</p>
-                    <p>
-                        <b>Note:</b>
-                    </p>
-                    <p>- For bulk upload to happen, You would need upload the service items data via. a Microsoft Excel file.</p>
-                    <p>Step 1: Please download the MS Excel file format
-                        <a href="{{baseurl}}/dsm-index/Service_items.xls" targer="_blank" style="color: #000;">
-                            <b>
-                                <u>HERE</u>
-                            </b>
-                        </a>
-                    </p>
-                    <p>Step 2: Please DONT change the format. Just fill in the service items data in the provided MS Excel file.
-                    </p>
-                    <p>Step 3: Save the file in a folder on your computer.</p>
-                    <p>Step 4: Tap on the "Select file" button below > Browse to the folder that contains the MS Excel file
-                        you saved previously > Select the file and submit.</p>
-                </div>
-                <form ng-submit="uploadServiceFile()" name="serviceUploadForm" id="serviceUploadForm">
+          </p>
+          <p>Use this option to upload data in bulk.</p>
+          <p>
+            <b>Note:</b>
+          </p>
+          <p>- For bulk upload to happen, You would need upload the service items data via. a Microsoft Excel file.</p>
+          <p>Step 1: Please download the MS Excel file format
+            <a href="{{baseurl}}/dsm-index/Service_items.xls" targer="_blank" style="color: #000;">
+              <b>
+                <u>HERE</u>
+              </b>
+            </a>
+          </p>
+          <p>Step 2: Please DONT change the format. Just fill in the service items data in the provided MS Excel file.
+          </p>
+          <p>Step 3: Save the file in a folder on your computer.</p>
+          <p>Step 4: Tap on the "Select file" button below > Browse to the folder that contains the MS Excel file
+            you saved previously > Select the file and submit.</p>
+        </div>
+        <form ng-submit="uploadServiceFile()" name="serviceUploadForm" id="serviceUploadForm">
 
-                    <div class="file-field input-field">
-                        <div class="btn">
-                            <span>Select file</span>
-                            <input type="file" onchange="angular.element(this).scope().uploadServiceData(this.files)">
-                        </div>
-                        <div class="file-path-wrapper">
-                            <input class="file-path validate" type="text">
-                        </div>
+          <div class="file-field input-field">
+            <div class="btn">
+              <span>Select file</span>
+              <input type="file" onchange="angular.element(this).scope().uploadServiceData(this.files)">
+            </div>
+            <div class="file-path-wrapper">
+              <input class="file-path validate" type="text">
+            </div>
 
 
-                        <div id="card-alert" class="card red lighten-5" ng-if="already">
-                            <div class="card-content red-text">
-                                <p ng-if="already.length!=0" style="color:#000">
-                                    The following service items has been omitted ( as a service item with the same name exists for your dealership ) :
-                                    <br>
-                                </p>
-                                <p ng-repeat="all in already">
-                                    {{all.name}}</p>
-                            </div>
-                            <button type="button" ng-click="close()" class="close red-text" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">×</span>
-                            </button>
-                        </div>
-                    </div>
-                </form>
-                <!-- <div class="center">
+            <div id="card-alert" class="card red lighten-5" ng-if="already">
+              <div class="card-content red-text">
+                <p ng-if="already.length!=0" style="color:#000">
+                  The following service items has been omitted ( as a service item with the same name exists for your
+                  dealership ) :
+                  <br>
+                </p>
+                <p ng-repeat="all in already">
+                  {{all.name}}</p>
+              </div>
+              <button type="button" ng-click="close()" class="close red-text" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+          </div>
+        </form>
+        <!-- <div class="center">
                     <p>OR you can add Service manually here
                         <!-- <b class="right cap_txt">
                             <u>
@@ -1294,226 +1394,235 @@
 
                 </div> -->
 
-                <div class="file-field input-field col s12">
-                    <form class="formValidates" name="addServiceForm" id="formValidates" action="javascript:void(0);" ng-submit="addService()">
-                        <div id="room_fileds" ng-repeat="ser in  [].constructor(totalserve) track by $index">
-                            <div class="content">
-                                <div class="row">
-                                    <div class="col m4 s12">
-                                        <div class="input-field">
-                                            <input type="text" id="name{{$index}}" name="name{{$index}}" required placeholder="Service item Name* " ng-model="serviceData[$index].name"
-                                            />
-                                        </div>
-                                    </div>
-                                    <div class="col m4 s12">
-                                        <div class="input-field">
-                                            <input type="text" id="des{{$index}}" name="des{{$index}}" required placeholder="Description" ng-model="serviceData[$index].description"
-                                            />
-                                        </div>
-                                    </div>
-                                    <div class="col m4 s12">
-                                        <div class="row">
-                                            <div class="col m8 s12 input-field">
-                                                <input type="number" name="amount{{$index}}" id="amount{{$index}}" required min="0" placeholder="Price*" ng-model="serviceData[$index].amount"
-                                                />
-                                            </div>
-                                            <div class="col m4 s12 center-align">
-                                                <input type="button" id="more_fields{{$index}}" ng-click="addservicediv();" class="btn btn-floating" value="+" style="margin-top: 15px;width: 45px;"
-                                                />
-                                                <input type="button" ng-hide="$index===0" id="more_fields{{$index}}{{$index}}" ng-click="removeservicediv($index);" class="btn btn-floating"
-                                                    value="-" style="margin-top: 15px;width: 45px;" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="right-align" style="    position: static;margin: 0 0 3em;">
-                            <button type="submit" class="btn waves-light waves-effect" style="margin-top: 10px;">Add above items</button>
-                        </div>
-                    </form>
-                </div>
-                <div id="table-datatables" style="margin-top:1em;display: inline-block;width: 100%;">
-                    <div class="row">
-                        <div>
-                            <table id="data-table-simple" class="responsive-table display" cellspacing="0">
-                                <thead>
-                                    <tr>
-                                        <th>Service Item Name</th>
-                                        <th>Description</th>
-                                        <th>Price</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr ng-repeat="service in services">
-                                        <td>{{service.name}}</td>
-                                        <td>{{service.description}}</td>
-                                        <td>{{service.price | currency}}</td>
-                                    </tr>
-                                    <tr ng-if="!services.length">
-                                        <td colspan="3">No service data added.</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+        <div class="file-field input-field col s12">
+          <form class="formValidates" name="addServiceForm" id="formValidates" action="javascript:void(0);" ng-submit="addService()">
+            <div id="room_fileds" ng-repeat="ser in  [].constructor(totalserve) track by $index">
+              <div class="content">
+                <div class="row">
+                  <div class="col m4 s12">
+                    <div class="input-field">
+                      <input type="text" id="name{{$index}}" name="name{{$index}}" required placeholder="Service item Name* "
+                        ng-model="serviceData[$index].name" />
                     </div>
+                  </div>
+                  <div class="col m4 s12">
+                    <div class="input-field">
+                      <input type="text" id="des{{$index}}" name="des{{$index}}" required placeholder="Description"
+                        ng-model="serviceData[$index].description" />
+                    </div>
+                  </div>
+                  <div class="col m4 s12">
+                    <div class="row">
+                      <div class="col m8 s12 input-field">
+                        <input type="number" name="amount{{$index}}" id="amount{{$index}}" required min="0" placeholder="Price*"
+                          ng-model="serviceData[$index].amount" />
+                      </div>
+                      <div class="col m4 s12 center-align">
+                        <input type="button" id="more_fields{{$index}}" ng-click="addservicediv();" class="btn btn-floating"
+                          value="+" style="margin-top: 15px;width: 45px;" />
+                        <input type="button" ng-hide="$index===0" id="more_fields{{$index}}{{$index}}" ng-click="removeservicediv($index);"
+                          class="btn btn-floating" value="-" style="margin-top: 15px;width: 45px;" />
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div class="right-align">
-                    <button type="button" style="background-color: #9e9e9e !important;" class="btn waves-effect waves-light camel-case" ng-click="nextStep(5)">Previous</button>
-                    <button type="button" ng-click="nextStep(7)" class="btn waves-effect waves-light ul-2-btn camel-case">Next</button>
-                </div>
+              </div>
             </div>
-            <div class="ul-main-seven ulmc" ng-class="{'active': step==7}">
-                <div class="file-field input-field col s12">
-                    <!-- <div class="decor-div white z-depth-1">
+            <div class="right-align" style="    position: static;margin: 0 0 3em;">
+              <button type="submit" class="btn waves-light waves-effect" style="margin-top: 10px;">Add above items</button>
+            </div>
+          </form>
+        </div>
+        <div id="table-datatables" style="margin-top:1em;display: inline-block;width: 100%;">
+          <div class="row">
+            <div>
+              <table id="data-table-simple" class="responsive-table display" cellspacing="0">
+                <thead>
+                  <tr>
+                    <th>Service Item Name</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="service in services">
+                    <td>{{service.name}}</td>
+                    <td>{{service.description}}</td>
+                    <td>{{service.price | currency}}</td>
+                  </tr>
+                  <tr ng-if="!services.length">
+                    <td colspan="3">No service data added.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="right-align">
+          <button type="button" style="background-color: #9e9e9e !important;" class="btn waves-effect waves-light camel-case"
+            ng-click="nextStep(5)">Previous</button>
+          <button type="button" ng-click="nextStep(7)" class="btn waves-effect waves-light ul-2-btn camel-case">Next</button>
+        </div>
+      </div>
+      <div class="ul-main-seven ulmc" ng-class="{'active': step==7}">
+        <div class="file-field input-field col s12">
+          <!-- <div class="decor-div white z-depth-1">
        
                         <div id="table-datatables">
                     <div class="ul-main-seven ulmc" > -->
-                                    <div class="bulk-upload-otr">
-                                        <p>
-                                            <b style="text-transform: none;font-weight: 500;">Step 7: Enter System Customers</b>
-                                            <!-- <b class="right">
+          <div class="bulk-upload-otr">
+            <p>
+              <b style="text-transform: none;font-weight: 500;">Step 7: Enter System Customers</b>
+              <!-- <b class="right">
                                                 <u>
                                                     <a ui-sref="userview" target="_blank()" class="black-text">View / Edit Users</a>
                                                 </u>
                                             </b> -->
-                                        </p>
-                                        <p>Use this option to upload all the Users in your Dealership in bulk ( ie. Service Advisors, Schedulers,
-                                            Technicians etc. ).</p>
-                                        <p>
-                                            <b>Note:</b>
-                                        </p>
-                                        <p>- For bulk upload to happen, You would need upload the User data via. a Microsoft Excel file.</p>
-                                        <p>Step 1: Please download the MS Excel file format
-                                            <a href="http://the-symbol.net/dsm-index/users.xls" targer="_blank" style="color: #000;">
-                                                <b>
-                                                    <u>HERE</u>
-                                                </b>
-                                            </a>
-                                        </p>
-                                        <p>Step 2: Please DONT change the format. Just fill in the User's data in the provided MS Excel file.
-                                        </p>
-                                        <p>Step 3: Save the file in a folder on your computer.</p>
-                                        <p>Step 4: Tap on the "Select file" button below > Browse to the folder that contains the MS Excel file
-                                            you saved previously > Select the file and submit.</p>
-                                    </div>
-                                    <div class="file-field input-field col s12">
-                                        <form id="userUploadForm" name="userUploadForm">
-                                            <div class="btn">
-                                                <span>Select file </span>
-                                                <input type="file" name="user" onchange="angular.element(this).scope().uploadUserData(this.files)">
-                                            </div>
-                                            <div class="file-path-wrapper">
-                                                <input class="file-path validate" disabled type="text">
-                                            </div>
-                                        </form>
-                                        <div id="card-alert" class="card red lighten-5" ng-if="alreadyu">
-                                            <div class="card-content red-text">
-                                                <p ng-if="alreadyu.length!=0" style="color:#000">
-                                                    The following Users items has been omitted ( as a User item with the same EMAIL exists for your dealership ) :
-                                                    <br>
-                                                </p>
-                                                <p ng-repeat="all in alreadyu" style="text-transform:none !important">
-                                                    {{all.name}} ({{all.email}})</p>
-                                            </div>
-                                            <button type="button" ng-click="close()" class="close red-text" data-dismiss="alert" aria-label="Close">
-                                                <span aria-hidden="true">×</span>
-                                            </button>
-                                        </div>
-                                        <div id="card-alert" class="card red lighten-5" ng-if="availableVinNum">
-                                            <div class="card-content red-text">
-                                                <p ng-if="availableVinNum.length!=0" style="color:#000">
-                                                    The following Vehicle items has been omitted ( as a Vehicle item with the same vin exists for your dealership ) :
-                                                    <br>
-                                                </p>
-                                                <p ng-repeat="all in availableVinNum" style="text-transform:none !important">
-                                                    {{all}}</p>
-                                            </div>
-                                            <button type="button" ng-click="closeVinAlert()" class="close red-text" data-dismiss="alert" aria-label="Close">
-                                                <span aria-hidden="true">×</span>
-                                            </button>
-                                        </div>
-                                        <div id="card-alert" class="card red lighten-5" ng-if="invalidVinNum">
-                                            <div class="card-content red-text">
-                                                <p ng-if="invalidVinNum.length!=0" style="color:#000">
-                                                    The following Vehicle items has been omitted ( as a Vin number is not valid for your dealership ) :
-                                                    <br>
-                                                </p>
-                                                <p ng-repeat="all in invalidVinNum" style="text-transform:none !important">
-                                                    {{all}}</p>
-                                            </div>
-                                            <button type="button" ng-click="closeInvalidVinAlert()" class="close red-text" data-dismiss="alert" aria-label="Close">
-                                                <span aria-hidden="true">×</span>
-                                            </button>
-                                        </div>
-                                        <div id="card-alert" class="card red lighten-5" ng-if="invalidPhoneNum">
-                                            <div class="card-content red-text">
-                                                <p ng-if="invalidPhoneNum.length!=0" style="color:#000">
-                                                    The following Users items has been omitted ( as a User item with the same Phone exists for your dealership ) :
-                                                    <br>
-                                                </p>
-                                                <p ng-repeat="all in invalidPhoneNum" style="text-transform:none !important">
-                                                    {{all.phone}}</p>
-                                            </div>
-                                            <button type="button" ng-click="closeInvalidPhoneAlert()" class="close red-text" data-dismiss="alert" aria-label="Close">
-                                                <span aria-hidden="true">×</span>
-                                            </button>
-                                        </div>
-                    
-                                    </div>
-                                    <div class="center">
-                                        <p>OR you can add Users manually here
-                                            <!-- <b class="right cap_txt">
+            </p>
+            <p>Use this option to upload all the Users in your Dealership in bulk ( ie. Service Advisors, Schedulers,
+              Technicians etc. ).</p>
+            <p>
+              <b>Note:</b>
+            </p>
+            <p>- For bulk upload to happen, You would need upload the User data via. a Microsoft Excel file.</p>
+            <p>Step 1: Please download the MS Excel file format
+              <a href="http://the-symbol.net/dsm-index/users.xls" targer="_blank" style="color: #000;">
+                <b>
+                  <u>HERE</u>
+                </b>
+              </a>
+            </p>
+            <p>Step 2: Please DONT change the format. Just fill in the User's data in the provided MS Excel file.
+            </p>
+            <p>Step 3: Save the file in a folder on your computer.</p>
+            <p>Step 4: Tap on the "Select file" button below > Browse to the folder that contains the MS Excel file
+              you saved previously > Select the file and submit.</p>
+          </div>
+          <div class="file-field input-field col s12">
+            <form id="userUploadForm" name="userUploadForm">
+              <div class="btn">
+                <span>Select file </span>
+                <input type="file" name="user" onchange="angular.element(this).scope().uploadUserData(this.files)">
+              </div>
+              <div class="file-path-wrapper">
+                <input class="file-path validate" disabled type="text">
+              </div>
+            </form>
+            <div id="card-alert" class="card red lighten-5" ng-if="alreadyu">
+              <div class="card-content red-text">
+                <p ng-if="alreadyu.length!=0" style="color:#000">
+                  The following Users items has been omitted ( as a User item with the same EMAIL exists for your
+                  dealership ) :
+                  <br>
+                </p>
+                <p ng-repeat="all in alreadyu" style="text-transform:none !important">
+                  {{all.name}} ({{all.email}})</p>
+              </div>
+              <button type="button" ng-click="close()" class="close red-text" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+            <div id="card-alert" class="card red lighten-5" ng-if="availableVinNum">
+              <div class="card-content red-text">
+                <p ng-if="availableVinNum.length!=0" style="color:#000">
+                  The following Vehicle items has been omitted ( as a Vehicle item with the same vin exists for your
+                  dealership ) :
+                  <br>
+                </p>
+                <p ng-repeat="all in availableVinNum" style="text-transform:none !important">
+                  {{all}}</p>
+              </div>
+              <button type="button" ng-click="closeVinAlert()" class="close red-text" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+            <div id="card-alert" class="card red lighten-5" ng-if="invalidVinNum">
+              <div class="card-content red-text">
+                <p ng-if="invalidVinNum.length!=0" style="color:#000">
+                  The following Vehicle items has been omitted ( as a Vin number is not valid for your dealership ) :
+                  <br>
+                </p>
+                <p ng-repeat="all in invalidVinNum" style="text-transform:none !important">
+                  {{all}}</p>
+              </div>
+              <button type="button" ng-click="closeInvalidVinAlert()" class="close red-text" data-dismiss="alert"
+                aria-label="Close">
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+            <div id="card-alert" class="card red lighten-5" ng-if="invalidPhoneNum">
+              <div class="card-content red-text">
+                <p ng-if="invalidPhoneNum.length!=0" style="color:#000">
+                  The following Users items has been omitted ( as a User item with the same Phone exists for your
+                  dealership ) :
+                  <br>
+                </p>
+                <p ng-repeat="all in invalidPhoneNum" style="text-transform:none !important">
+                  {{all.phone}}</p>
+              </div>
+              <button type="button" ng-click="closeInvalidPhoneAlert()" class="close red-text" data-dismiss="alert"
+                aria-label="Close">
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+
+          </div>
+          <div class="center">
+            <p>OR you can add Users manually here
+              <!-- <b class="right cap_txt">
                                                 <u>
                                                     <a ui-sref="userview" target="_blank()" class="black-text">View / Edit Users</a>
                                                 </u>
                                             </b> -->
-                                        </p>
-                                    </div>
-                                    <form class="formValidates"  name="addCustomerForm" id="addCustomerForm"  ng-submit="addUser()">
-                                        <div id="single_upload" ng-repeat="ser in  [].constructor(totalusr) track by $index">
-                                            <div class="s_u_content">
-                                                <div class="row">
-                                                    <div class="col m2 s12">
-                                                        <div class="input-field">
-                                                            <input type="text" placeholder="First Name*" required name="uname{{$index}}" id="uname{{$index}}" ng-model="customerData[$index].first_name"/>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col m2 s12">
-                                                        <div class="input-field">
-                                                            <input type="text" placeholder="Last Name*" required name="lname{{$index}}" id="lname{{$index}}" ng-model="customerData[$index].last_name"
-                                                            />
-                                                        </div>
-                                                    </div>
-                                                    <div class="col m2 s12">
-                                                        <div class="input-field">
-                                                            <input type="email" name="uemail{{$index}}" required id="uemail{{$index}}" placeholder="Email*" ng-model="customerData[$index].email"
-                                                            />
-                                                        </div>
-                                                    </div>
-                                                    <div class="col m2 s12">
-                                                        <div class="input-field">
-                                                            <input type="text" placeholder="Address*" required name="address{{$index}}" id="address{{$index}}" ng-model="customerData[$index].address"/>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col m2 s12">
-                                                        <div class="input-field">
-                                                            <input type="text" placeholder="Phone*" required name="phone{{$index}}" id="phone{{$index}}" ng-model="customerData[$index].phone"/>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col m2 s12">
-                                                        <div class="input-field">
-                                                            <input type="text" placeholder="VIN*" required name="vin{{$index}}" id="vin{{$index}}" ng-model="customerData[$index].vin"/>
-                                                        </div>
-                                                    </div>
-                                                    <!-- <div class="col m2 s12">
+            </p>
+          </div>
+          <form class="formValidates" name="addCustomerForm" id="addCustomerForm" ng-submit="addUser()">
+            <div id="single_upload" ng-repeat="ser in  [].constructor(totalusr) track by $index">
+              <div class="s_u_content">
+                <div class="row">
+                  <div class="col m2 s12">
+                    <div class="input-field">
+                      <input type="text" placeholder="First Name*" required name="uname{{$index}}" id="uname{{$index}}"
+                        ng-model="customerData[$index].first_name" />
+                    </div>
+                  </div>
+                  <div class="col m2 s12">
+                    <div class="input-field">
+                      <input type="text" placeholder="Last Name*" required name="lname{{$index}}" id="lname{{$index}}"
+                        ng-model="customerData[$index].last_name" />
+                    </div>
+                  </div>
+                  <div class="col m2 s12">
+                    <div class="input-field">
+                      <input type="email" name="uemail{{$index}}" required id="uemail{{$index}}" placeholder="Email*"
+                        ng-model="customerData[$index].email" />
+                    </div>
+                  </div>
+                  <div class="col m2 s12">
+                    <div class="input-field">
+                      <input type="text" placeholder="Address*" required name="address{{$index}}" id="address{{$index}}"
+                        ng-model="customerData[$index].address" />
+                    </div>
+                  </div>
+                  <div class="col m2 s12">
+                    <div class="input-field">
+                      <input type="text" placeholder="Phone*" required name="phone{{$index}}" id="phone{{$index}}"
+                        ng-model="customerData[$index].phone" />
+                    </div>
+                  </div>
+                  <div class="col m2 s12">
+                    <div class="input-field">
+                      <input type="text" placeholder="VIN*" required name="vin{{$index}}" id="vin{{$index}}" ng-model="customerData[$index].vin" />
+                    </div>
+                  </div>
+                  <!-- <div class="col m2 s12">
                                                         <div class="input-field">
                                                             <input type="password" name="upassword{{$index}}" required id="upassword{{$index}}" placeholder=" Password*" ng-model="userData[$index].password">
                                                         </div>
                                                     </div> -->
-                                                    <div class="col m6 s12">
-                                                        <p>
-                                                            <!-- <span ng-repeat="r in roles" >
+                  <div class="col m6 s12">
+                    <p>
+                      <!-- <span ng-repeat="r in roles" >
                     
                                                                 <input  data-error=".filled-in-box{{$parent.$index}}"  type="checkbox" class="filled-in" ng-model="userData[$parent.$index].roles[$index]"  ng-true-value="'{{r.name}}'" ng-click="checkBoxValid(roles, $parent.$index)"
                                                                     id="filled-in-box{{$index}}{{$parent.$index}}" name="uroles{{$parent.$index}}[]"
@@ -1521,24 +1630,25 @@
                                                                 <label for="filled-in-box{{$index}}{{$parent.$index}}">{{r.role}}</label>
                                                                 <span class="filled-in-box{{$parent.$index}}"  style="position:absolute;font-size:12px" ng-show="$index==0"></span>
                                                             </span> -->
-                    
-                                                            <input type="button" id="upload_fileds{{$index}}" ng-click="addcustomerdiv();" class="btn btn-floating uplfld" value="+" />
-                                                            <input type="button" ng-hide="$index===0" id="upload_fileds{{$index}}{{$index}}" ng-click="removcustomerdiv($index);" class="btn btn-floating rmvfld"
-                                                                value="-" />
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div ng-show="isLoder" class="right-align" style="    position: static;margin: 0 0 1em;">
-                                            <img width="70" height="70" class="priceloader" src="assets/images/priceloading.gif">
-                                          </div>
-                                        <div ng-show="isAddUser" class="col m12 adduser-btn">
-                                            <button type="submit" class="btn right waves-effect waves-light right">Add above Customers</button>
-                                        </div>
-                                    </form>
-                                    <div class="bulk-upload-otr">
-                                        <!-- <p>
+
+                      <input type="button" id="upload_fileds{{$index}}" ng-click="addcustomerdiv();" class="btn btn-floating uplfld"
+                        value="+" />
+                      <input type="button" ng-hide="$index===0" id="upload_fileds{{$index}}{{$index}}" ng-click="removcustomerdiv($index);"
+                        class="btn btn-floating rmvfld" value="-" />
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div ng-show="isLoder" class="right-align" style="    position: static;margin: 0 0 1em;">
+              <img width="70" height="70" class="priceloader" src="assets/images/priceloading.gif">
+            </div>
+            <div ng-show="isAddUser" class="col m12 adduser-btn">
+              <button type="submit" class="btn right waves-effect waves-light right">Add above Customers</button>
+            </div>
+          </form>
+          <div class="bulk-upload-otr">
+            <!-- <p>
                                             <span>
                                                 <b>SA</b> = Service Advisor</span>
                                             <span>
@@ -1550,50 +1660,55 @@
                                             <span>
                                                 <b>UCM</b> = Used Car Manager</span>
                                         </p> -->
-                                        <table id="table-datatables" class="responsive-table display" cellspacing="0">
-                                            <thead>
-                                                <tr>
-                                                    <th>Name</th>
-                                                    <th>Email</th>
-                                                    <th>Roles</th>
-                                                    <!-- <th>Roles</th> -->
-                                                    
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr ng-repeat="user in customerList">
-                                                    <td>{{user.name}}</td>
-                                                    <td>{{user.email}}</td>
-                                                    <td>
-                                                           {{ printRoles(user.roles)}}
-                                                      </td>
-                                                    
-                                                </tr>
-                                                <tr ng-if="!customerList.length">
-                                                    <td colspan="4">No user data added.</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <div ng-if="customerCount>ulimit" class="dataTables_info" id="data-table-simple_info" role="status" aria-live="polite">Showing {{ustart + 1}}-{{ulimit}} of {{customerCount}} entries</div>
-                                    <div ng-if="customerCount>ulimit" class="dataTables_paginate paging_simple_numbers" id="data-table-simple_paginate">
-                                      <a class="paginate_button previous disabled" aria-controls="data-table-simple" ng-class="{'disabled' : (upage==1)}" ng-click="userpaginate(upage-1)" data-dt-idx="0" tabindex="0" id="data-table-simple_previous">Previous</a>
-                                      <span>
-                                        <a class="paginate_button " ng-repeat="n in userrange()" ng-click="userpaginate(n)" ng-class="{'current':(n==upage)}" aria-controls="data-table-simple" data-dt-idx="1" tabindex="0">{{n}}</a>
-                                      </span>
-                                      <a class="paginate_button next" ng-class="{'disabled' : (upage==utotalPages)}" ng-click="userpaginate(upage+1)" aria-controls="data-table-simple" data-dt-idx="7" tabindex="0" id="data-table-simple_next">Next</a>
-                                    </div>
-                                <!-- </div>
+            <table id="table-datatables" class="responsive-table display" cellspacing="0">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Roles</th>
+                  <!-- <th>Roles</th> -->
+
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="user in customerList">
+                  <td>{{user.name}}</td>
+                  <td>{{user.email}}</td>
+                  <td>
+                    {{ printRoles(user.roles)}}
+                  </td>
+
+                </tr>
+                <tr ng-if="!customerList.length">
+                  <td colspan="4">No user data added.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div ng-if="customerCount>ulimit" class="dataTables_info" id="data-table-simple_info" role="status" aria-live="polite">Showing
+            {{ustart + 1}}-{{ulimit}} of {{customerCount}} entries</div>
+          <div ng-if="customerCount>ulimit" class="dataTables_paginate paging_simple_numbers" id="data-table-simple_paginate">
+            <a class="paginate_button previous disabled" aria-controls="data-table-simple" ng-class="{'disabled' : (upage==1)}"
+              ng-click="userpaginate(upage-1)" data-dt-idx="0" tabindex="0" id="data-table-simple_previous">Previous</a>
+            <span>
+              <a class="paginate_button " ng-repeat="n in userrange()" ng-click="userpaginate(n)" ng-class="{'current':(n==upage)}"
+                aria-controls="data-table-simple" data-dt-idx="1" tabindex="0">{{n}}</a>
+            </span>
+            <a class="paginate_button next" ng-class="{'disabled' : (upage==utotalPages)}" ng-click="userpaginate(upage+1)"
+              aria-controls="data-table-simple" data-dt-idx="7" tabindex="0" id="data-table-simple_next">Next</a>
+          </div>
+          <!-- </div>
                     
                                 </div>
                                 </div> -->
-                </div>
-                <div class="right-align">
-                    <button type="button" style="background-color: #9e9e9e !important;" class="btn waves-effect waves-light camel-case" ng-click="nextStep(6)">Previous</button>
-                    <button type="button" ng-if="settings.finish_status==false" ng-click="nextStep(8)" class="btn waves-effect waves-light ul-2-btn camel-case">Next</button>
-                </div>
-            </div>
-            <!-- <div class="ul-main-eight ulmc" ng-class="{'active': step==8}">
+        </div>
+        <div class="right-align">
+          <button type="button" style="background-color: #9e9e9e !important;" class="btn waves-effect waves-light camel-case"
+            ng-click="nextStep(6)">Previous</button>
+          <button type="button" ng-if="settings.finish_status==false" ng-click="nextStep(8)" class="btn waves-effect waves-light ul-2-btn camel-case">Next</button>
+        </div>
+      </div>
+      <!-- <div class="ul-main-eight ulmc" ng-class="{'active': step==8}">
                 <div class="bulk-upload-otr">
                     <p><b>Step 8: Bulk Upload Customer Data</b>
                          <b class="right"><u><a href="#" class="black-text">Link</a></u></b>
@@ -1686,106 +1801,110 @@
                     <button type="button" ng-click="nextStep(9)" class="btn waves-effect waves-light ul-2-btn camel-case">Next</button>
                 </div>
             </div> -->
-            <div class="ul-main-four ulmc" ng-if="settings.finish_status==false" ng-class="{'active': step==8}">
-                <div class="row">
-                    <div class="col m5 s12">
-                        <div class="wizard-img">
-                            <img src="https://media.istockphoto.com/photos/auto-mechanic-with-customer-picture-id172421050?k=6&m=172421050&s=612x612&w=0&h=DqkhSe2UlMZF91QrH5yHznHygzmVTR_2Q_37pRafNrI="
-                                alt="image" style="width: 100%;" />
-                        </div>
-                    </div>
-                    <div class="col m7 s12">
-                        <div class="wizard-content bulk-upload-otr">
-                            <p>Congratualtions! you completing setting up the dealer management platform for Dealership Name!</p>
-                            <p>when you are ready to start using the system, click on the Make system live button below for
-                                your customers and dealership to start using the system.</p>
-                            <p>
-                                you can always come back to the admin panel and make any changes as needed to the system.
-                            </p>
-                            <p class="right-align" style="position: relative;
-    bottom: -10em;right: -2.2em;display: inline-block;width: 100%;">
-                                <button type="button" style="background-color: #9e9e9e !important;" class="btn waves-effect waves-light camel-case" ng-click="nextStep(7, true)">Previous</button>
-                                <a href="#" ng-click="setFlag();" target="_blank" class="btn waves-effect waves-light camel-case">Complete On-boarding.</a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
+      <div class="ul-main-four ulmc" ng-if="settings.finish_status==false" ng-class="{'active': step==8}">
+        <div class="row">
+          <div class="col m5 s12">
+            <div class="wizard-img">
+              <img src="https://media.istockphoto.com/photos/auto-mechanic-with-customer-picture-id172421050?k=6&m=172421050&s=612x612&w=0&h=DqkhSe2UlMZF91QrH5yHznHygzmVTR_2Q_37pRafNrI="
+                alt="image" style="width: 100%;" />
             </div>
+          </div>
+          <div class="col m7 s12">
+            <div class="wizard-content bulk-upload-otr">
+              <p>Congratualtions! you completing setting up the dealer management platform for Dealership Name!</p>
+              <p>when you are ready to start using the system, click on the Make system live button below for
+                your customers and dealership to start using the system.</p>
+              <p>
+                you can always come back to the admin panel and make any changes as needed to the system.
+              </p>
+              <p class="right-align" style="position: relative;
+    bottom: -10em;right: -2.2em;display: inline-block;width: 100%;">
+                <button type="button" style="background-color: #9e9e9e !important;" class="btn waves-effect waves-light camel-case"
+                  ng-click="nextStep(7, true)">Previous</button>
+                <a href="#" ng-click="setFlag();" target="_blank" class="btn waves-effect waves-light camel-case">Complete
+                  On-boarding.</a>
+              </p>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </div>
 <div id="next_confirmation_modal" class="modal">
-    <div class="modal-content">
-        <h5>{{confirmationText}}</h5>
+  <div class="modal-content">
+    <h5>{{confirmationText}}</h5>
+  </div>
+  <div class="row create_offer">
+    <div class="right-align" style="margin-right: 1.5em;">
+      <button type="button" class="btn btn-theme waves-effect waves-light cancel modal-close" ng-click="nextStep(inCompletedStep, true);">Continue
+        without saving</button>
+      <button type="submit" class="btn btn-theme waves-effect waves-light modal-close" name="button" ng-click="saveAndContinue();">Save
+        & Continue</button>
     </div>
-    <div class="row create_offer">
-        <div class="right-align" style="margin-right: 1.5em;">
-            <button type="button" class="btn btn-theme waves-effect waves-light cancel modal-close" ng-click="nextStep(inCompletedStep, true);">Continue without saving</button>
-            <button type="submit" class="btn btn-theme waves-effect waves-light modal-close" name="button" ng-click="saveAndContinue();">Save & Continue</button>
-        </div>
-    </div>
+  </div>
 </div>
 <div id="modal1" class="modal">
-    <div class="modal-content">
-        <form class="" autocomplete="off" ng-submit="changePassword()">
-            <div class="row">
-                <div class="input-field col s12">
-                    <label for="password">Current Password *</label>
-                    <input id="password" type="password" name="password" data-error=".errorTxt3" ng-model="changepassword.old_password">
-                    <div class="errorTxt3"></div>
-                </div>
-                <div class="input-field col s12">
-                    <label for="password1">New Password *</label>
-                    <input id="password1" type="password" name="password" data-error=".errorTxt3" ng-model="changepassword.password">
-                    <div class="errorTxt3"></div>
-                </div>
-                <div class="input-field col s12">
-                    <label for="cpassword">Confirm Password *</label>
-                    <input id="cpassword" type="password" name="cpassword" data-error=".errorTxt4" ng-model="changepassword.cpassword">
-                    <div class="errorTxt4"></div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s12">
-                    <!-- <a class=""></a> -->
-                    <button class="btn waves-effect waves-light col s12" type="submit" name="button">RESET PASSWORD</button>
-                </div>
-            </div>
-        </form>
-    </div>
-    <!-- <div class="modal-footer">
+  <div class="modal-content">
+    <form class="" autocomplete="off" ng-submit="changePassword()">
+      <div class="row">
+        <div class="input-field col s12">
+          <label for="password">Current Password *</label>
+          <input id="password" type="password" name="password" data-error=".errorTxt3" ng-model="changepassword.old_password">
+          <div class="errorTxt3"></div>
+        </div>
+        <div class="input-field col s12">
+          <label for="password1">New Password *</label>
+          <input id="password1" type="password" name="password" data-error=".errorTxt3" ng-model="changepassword.password">
+          <div class="errorTxt3"></div>
+        </div>
+        <div class="input-field col s12">
+          <label for="cpassword">Confirm Password *</label>
+          <input id="cpassword" type="password" name="cpassword" data-error=".errorTxt4" ng-model="changepassword.cpassword">
+          <div class="errorTxt4"></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <!-- <a class=""></a> -->
+          <button class="btn waves-effect waves-light col s12" type="submit" name="button">RESET PASSWORD</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <!-- <div class="modal-footer">
             <a class=" modal-action modal-close waves-effect waves-green btn-flat">RESET</a>
           </div> -->
 </div>
 <!-- Modal Structure -->
 <div id="modal2" class="modal">
-        <div class="modal-content">
-            <h4>Confirmation</h4>
-            <p>Do you want to save service details?</p>
-        </div>
-        <div class="modal-footer">
-            <button type="button" ng-click="saveServiceDetails()" class="btn waves-effect waves-light ul-2-btn camel-case">Save</button>
-            <button type="button" ng-click="cancelServiceDetails()" style="background-color: #9e9e9e !important;" class="btn waves-effect waves-light camel-case ">Cancel</button>
-        </div>
+  <div class="modal-content">
+    <h4>Confirmation</h4>
+    <p>Do you want to save service details?</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" ng-click="saveServiceDetails()" class="btn waves-effect waves-light ul-2-btn camel-case">Save</button>
+    <button type="button" ng-click="cancelServiceDetails()" style="background-color: #9e9e9e !important;" class="btn waves-effect waves-light camel-case ">Cancel</button>
+  </div>
 </div>
 <div id="userEdit" class="modal">
-    <div class="modal-content">
-        <div class="card-panel">
-            <div class="row">
-              <form class="formValidate" name="userAddForm" id="formValidate" ng-submit="updateUser()">
-                <div class="row">
-                  <div class="input-field col s12">
-                    <label for="uname">Username*</label>
-                    <input id="uname" name="uname" required type="text" data-error=".errorTxt1" ng-model="userData.name">
-                    <div class="errorTxt1"></div>
-                  </div>
-                  <div class="input-field col s12">
-                    <label for="cemail">E-Mail *</label>
-                    <input id="cemail" type="email" required name="cemail" data-error=".errorTxt2" ng-model="userData.email">
-                    <div class="errorTxt2"></div>
-                    </div>
+  <div class="modal-content">
+    <div class="card-panel">
+      <div class="row">
+        <form class="formValidate" name="userAddForm" id="formValidate" ng-submit="updateUser()">
+          <div class="row">
+            <div class="input-field col s12">
+              <label for="uname">Username*</label>
+              <input id="uname" name="uname" required type="text" data-error=".errorTxt1" ng-model="userData.name">
+              <div class="errorTxt1"></div>
+            </div>
+            <div class="input-field col s12">
+              <label for="cemail">E-Mail *</label>
+              <input id="cemail" type="email" required name="cemail" data-error=".errorTxt2" ng-model="userData.email">
+              <div class="errorTxt2"></div>
+            </div>
 
-                    <!-- <div class="col m12 s12">
+            <!-- <div class="col m12 s12">
                         <label for="uroles">Roles*</label>
                       <p>
                           <span ng-repeat="r in roles">
@@ -1796,327 +1915,336 @@
                           <div class="filled-in-box"></div>
                       </p>
                   </div> -->
-                  <div class="row align" style="position: absolute;width: 100%;bottom: -4em;text-align: right;">
-                    <div class="input-field col s12" style="margin:0;">
-                      <button ng-click="cancelEdit()" type="button" class="btn waves-effect waves-light grey modal-close ui-a" style="background: #747474 !important;display: inline-block;
-                      margin-left: -2em;">Cancel </button>
-                      <button class="btn waves-effect waves-light right submit" type="submit" name="action" style="margin-right: .5em;">
-                      Submit
+            <div class="row align" style="position: absolute;width: 100%;bottom: -4em;text-align: right;">
+              <div class="input-field col s12" style="margin:0;">
+                <button ng-click="cancelEdit()" type="button" class="btn waves-effect waves-light grey modal-close ui-a"
+                  style="background: #747474 !important;display: inline-block;
+                      margin-left: -2em;">Cancel
+                </button>
+                <button class="btn waves-effect waves-light right submit" type="submit" name="action" style="margin-right: .5em;">
+                  Submit
 
-                    </button>
-                    </div>
-                    </div>
-                  </div>
-              </form>
+                </button>
               </div>
             </div>
+          </div>
+        </form>
+      </div>
     </div>
-    <div class="modal-footer"></div>
   </div>
-    <!-- Modal Structure -->
+  <div class="modal-footer"></div>
+</div>
+<!-- Modal Structure -->
 <div id="modal3" class="modal">
-        <div class="modal-content">
-            <h4>Confirmation</h4>
-            <p>If you want to go to previous page, you will lose your new data.</p>
-        </div>
-        <div class="modal-footer">
-            <button type="button" ng-click="gotoPreviousPage1(1)" class="btn waves-effect waves-light ul-2-btn camel-case">Ok</button>
-            <button type="button" ng-click="currentPage2()" style="background-color: #9e9e9e !important;" class="btn waves-effect waves-light camel-case ">No</button>
-        </div>
+  <div class="modal-content">
+    <h4>Confirmation</h4>
+    <p>If you want to go to previous page, you will lose your new data.</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" ng-click="gotoPreviousPage1(1)" class="btn waves-effect waves-light ul-2-btn camel-case">Ok</button>
+    <button type="button" ng-click="currentPage2()" style="background-color: #9e9e9e !important;" class="btn waves-effect waves-light camel-case ">No</button>
+  </div>
 </div>
 
 <div id="modal15" class="modal">
-    <div class="modal-content">
-        <h4>Confirmation</h4>
-        <p>If you want to go to previous page, you will lose your new data.</p>
-    </div>
-    <div class="modal-footer">
-        <button type="button" ng-click="gotoPreviousPage2(2)" class="btn waves-effect waves-light ul-2-btn camel-case">Ok</button>
-        <button type="button" ng-click="currentPage3()" style="background-color: #9e9e9e !important;" class="btn waves-effect waves-light camel-case ">No</button>
-    </div>
+  <div class="modal-content">
+    <h4>Confirmation</h4>
+    <p>If you want to go to previous page, you will lose your new data.</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" ng-click="gotoPreviousPage2(2)" class="btn waves-effect waves-light ul-2-btn camel-case">Ok</button>
+    <button type="button" ng-click="currentPage3()" style="background-color: #9e9e9e !important;" class="btn waves-effect waves-light camel-case ">No</button>
+  </div>
 </div>
-    <!-- Modal Structure -->
-    <div id="modal5" class="modal">
-            <div class="modal-content">
-                <h4>Confirmation</h4>
-                <p>If you want to go to previous page, you will lose your new data.</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" ng-click="gotoPreviousPage5(5)" class="btn waves-effect waves-light ul-2-btn camel-case">Ok</button>
-                <button type="button" ng-click="currentPage6()" style="background-color: #9e9e9e !important;" class="btn waves-effect waves-light camel-case ">No</button>
-            </div>
-        </div>
-    <!-- Modal Structure -->
-    <div id="modal6" class="modal">
-        <div class="modal-content">
-            <h4>Confirmation</h4>
-            <p>If you want to go to previous page, you will lose your new data.</p>
-        </div>
-        <div class="modal-footer">
-            <button type="button" ng-click="gotoPreviousPage6(6)" class="btn waves-effect waves-light ul-2-btn camel-case">Ok</button>
-            <button type="button" ng-click="currentPage7()" style="background-color: #9e9e9e !important;" class="btn waves-effect waves-light camel-case ">No</button>
-        </div>
-    </div>
-    <div id="modal16" class="modal">
-        <div class="modal-content">
-            <h4>Confirmation</h4>
-            <p>If you want to go to previous page, you will lose your new data.</p>
-        </div>
-        <div class="modal-footer">
-            <button type="button" ng-click="gotoAdviser(5)" class="btn waves-effect waves-light ul-2-btn camel-case">Ok</button>
-            <button type="button" ng-click="currentServicePage()" style="background-color: #9e9e9e !important;" class="btn waves-effect waves-light camel-case ">No</button>
-        </div>
-    </div>
-    <!-- Modal Structure -->
-    <div id="modal7" class="modal">
-        <div class="modal-content">
-            <h4>Confirmation</h4>
-            <p>Do you want to save user data details?</p>
-        </div>
-        <div class="modal-footer">
-            <button type="button" ng-click="saveUserData(8)" class="btn waves-effect waves-light ul-2-btn camel-case">Save</button>
-            <button type="button" ng-click="closeUserDataPopup()" style="background-color: #9e9e9e !important;" class="btn waves-effect waves-light camel-case ">No</button>
-        </div>
-    </div>
-        <!-- Modal Structure -->
-        <div id="modal8" class="modal">
-            <div class="modal-content">
-                <h4>Confirmation</h4>
-                <p>If you want to go to previous page, you will lose your new data.</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" ng-click="gotoPreviousPage5(6)" class="btn waves-effect waves-light ul-2-btn camel-case">Ok</button>
-                <button type="button" ng-click="currentPage7(8)" style="background-color: #9e9e9e !important;" class="btn waves-effect waves-light camel-case ">No</button>
-            </div>
-        </div>
-        <!-- Modal Structure -->
-        <div id="modalSD" class="modal">
-            <div class="modal-content">
-                <h4>Confirmation</h4>
-                <p>If you want to go to previous page, you will lose your new data.</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" ng-click="gotoDelaerInfo(1)" class="btn waves-effect waves-light ul-2-btn camel-case">Ok</button>
-                <button type="button" ng-click="currentServiceData()" style="background-color: #9e9e9e !important;" class="btn waves-effect waves-light camel-case ">No</button>
-            </div>
-        </div>
-        <!-- Modal Structure -->
-        <div id="modal17" class="modal">
-            <div class="modal-content">
-                <h4>Confirmation</h4>
-                <p>If you want to go to previous page, you will lose your new data.</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" ng-click="gotoUserPage()" class="btn waves-effect waves-light ul-2-btn camel-case">Ok</button>
-                <button type="button" ng-click="currentPage567(6)" style="background-color: #9e9e9e !important;" class="btn waves-effect waves-light camel-case ">No</button>
-            </div>
-        </div>
-         <!-- Modal Structure -->
-         <div id="modal18" class="modal">
-            <div class="modal-content">
-                <h4>Confirmation</h4>
-                <p>If you want to go to previous page, you will lose your new data.</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" ng-click="gotoUserPage()" class="btn waves-effect waves-light ul-2-btn camel-case">Ok</button>
-                <button type="button" ng-click="currentPage567(7)" style="background-color: #9e9e9e !important;" class="btn waves-effect waves-light camel-case ">No</button>
-            </div>
-        </div>
+<!-- Modal Structure -->
+<div id="modal5" class="modal">
+  <div class="modal-content">
+    <h4>Confirmation</h4>
+    <p>If you want to go to previous page, you will lose your new data.</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" ng-click="gotoPreviousPage5(5)" class="btn waves-effect waves-light ul-2-btn camel-case">Ok</button>
+    <button type="button" ng-click="currentPage6()" style="background-color: #9e9e9e !important;" class="btn waves-effect waves-light camel-case ">No</button>
+  </div>
+</div>
+<!-- Modal Structure -->
+<div id="modal6" class="modal">
+  <div class="modal-content">
+    <h4>Confirmation</h4>
+    <p>If you want to go to previous page, you will lose your new data.</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" ng-click="gotoPreviousPage6(6)" class="btn waves-effect waves-light ul-2-btn camel-case">Ok</button>
+    <button type="button" ng-click="currentPage7()" style="background-color: #9e9e9e !important;" class="btn waves-effect waves-light camel-case ">No</button>
+  </div>
+</div>
+<div id="modal16" class="modal">
+  <div class="modal-content">
+    <h4>Confirmation</h4>
+    <p>If you want to go to previous page, you will lose your new data.</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" ng-click="gotoAdviser(5)" class="btn waves-effect waves-light ul-2-btn camel-case">Ok</button>
+    <button type="button" ng-click="currentServicePage()" style="background-color: #9e9e9e !important;" class="btn waves-effect waves-light camel-case ">No</button>
+  </div>
+</div>
+<!-- Modal Structure -->
+<div id="modal7" class="modal">
+  <div class="modal-content">
+    <h4>Confirmation</h4>
+    <p>Do you want to save user data details?</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" ng-click="saveUserData(8)" class="btn waves-effect waves-light ul-2-btn camel-case">Save</button>
+    <button type="button" ng-click="closeUserDataPopup()" style="background-color: #9e9e9e !important;" class="btn waves-effect waves-light camel-case ">No</button>
+  </div>
+</div>
+<!-- Modal Structure -->
+<div id="modal8" class="modal">
+  <div class="modal-content">
+    <h4>Confirmation</h4>
+    <p>If you want to go to previous page, you will lose your new data.</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" ng-click="gotoPreviousPage5(6)" class="btn waves-effect waves-light ul-2-btn camel-case">Ok</button>
+    <button type="button" ng-click="currentPage7(8)" style="background-color: #9e9e9e !important;" class="btn waves-effect waves-light camel-case ">No</button>
+  </div>
+</div>
+<!-- Modal Structure -->
+<div id="modalSD" class="modal">
+  <div class="modal-content">
+    <h4>Confirmation</h4>
+    <p>If you want to go to previous page, you will lose your new data.</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" ng-click="gotoDelaerInfo(1)" class="btn waves-effect waves-light ul-2-btn camel-case">Ok</button>
+    <button type="button" ng-click="currentServiceData()" style="background-color: #9e9e9e !important;" class="btn waves-effect waves-light camel-case ">No</button>
+  </div>
+</div>
+<!-- Modal Structure -->
+<div id="modal17" class="modal">
+  <div class="modal-content">
+    <h4>Confirmation</h4>
+    <p>If you want to go to previous page, you will lose your new data.</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" ng-click="gotoUserPage()" class="btn waves-effect waves-light ul-2-btn camel-case">Ok</button>
+    <button type="button" ng-click="currentPage567(6)" style="background-color: #9e9e9e !important;" class="btn waves-effect waves-light camel-case ">No</button>
+  </div>
+</div>
+<!-- Modal Structure -->
+<div id="modal18" class="modal">
+  <div class="modal-content">
+    <h4>Confirmation</h4>
+    <p>If you want to go to previous page, you will lose your new data.</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" ng-click="gotoUserPage()" class="btn waves-effect waves-light ul-2-btn camel-case">Ok</button>
+    <button type="button" ng-click="currentPage567(7)" style="background-color: #9e9e9e !important;" class="btn waves-effect waves-light camel-case ">No</button>
+  </div>
+</div>
 
-        <div id="modal9" class="modal">
-            <div class="modal-content">
-                <h4>Confirmation</h4>
-                <p>If you want to go to previous page, you will lose your new data.</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" ng-click="deleteDountValues()" class="btn waves-effect waves-light ul-2-btn camel-case">Ok</button>
-                <button type="button" ng-click="closeThePopup(9)" style="background-color: #9e9e9e !important;" class="btn waves-effect waves-light camel-case ">No</button>
-            </div>
-        </div>
-<script type="text/javascript"> 
-    //   $('.timepicker').pickatime({
-    // $('.timepicker').pickatime({});
-    //   });
+<div id="modal9" class="modal">
+  <div class="modal-content">
+    <h4>Confirmation</h4>
+    <p>If you want to go to previous page, you will lose your new data.</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" ng-click="deleteDountValues()" class="btn waves-effect waves-light ul-2-btn camel-case">Ok</button>
+    <button type="button" ng-click="closeThePopup(9)" style="background-color: #9e9e9e !important;" class="btn waves-effect waves-light camel-case ">No</button>
+  </div>
+</div>
+<script type="text/javascript">
+  //   $('.timepicker').pickatime({
+  // $('.timepicker').pickatime({});
+  //   });
 
 
-    function anyThing() {
+  function anyThing() {
 
-        setTimeout(function () { $('.stepper').nextStep(); }, 1500);
+    setTimeout(function () {
+      $('.stepper').nextStep();
+    }, 1500);
+  }
+  $(function () {
+    $('.stepper').activateStepper();
+  })
+</script>
+<script>
+  // $(document).ready(function(){
+  //     $('.ul-1-btn').click(function(){
+  //         $('.ul-main-one').hide();
+  //         $('.ul-main-two').show();
+  //     })
+  //     $('.ul-2-btn').click(function(){
+  //         $('.ul-main-two').hide();
+  //         $('.ul-main-three').show();
+  //     })
+  //     $('.li-1').click(function(){
+  //         $('.ulmc').hide();
+  //         $('.ul-main-one').show();
+  //     })
+  //     $('.li-2').click(function(){
+  //         $('.ulmc').hide();
+  //         $('.ul-main-two').show();
+  //     })
+  //     $('.li-3').click(function(){
+  //         $('.ulmc').hide();
+  //         $('.ul-main-three').show();
+  //     })
+
+  // });
+
+  $("#addUsersForm").validate({
+    errorElement: 'div',
+    errorPlacement: function (error, element) {
+      var placement = $(element).data('error');
+      if (placement) {
+        $(placement).append(error)
+      } else {
+        error.insertAfter(element);
+      }
     }
-    $(function () { $('.stepper').activateStepper(); })
+  });
+  // $("#addUsersForm").validate({
+  //     errorElement: 'div',
+  //     errorPlacement: function (error, element) {
+  //         var placement = $(element).data('error');
+  //         if (placement) {
+  //             $(placement).append(error)
+  //         } else {
+  //             error.insertAfter(element);
+  //         }
+  //     }
+  // });
+  $("#addCustomerForm").validate({
+    errorElement: 'div',
+    errorPlacement: function (error, element) {
+      var placement = $(element).data('error');
+      if (placement) {
+        $(placement).append(error)
+      } else {
+        error.insertAfter(element);
+      }
+    }
+  });
+  $.validator.addMethod("urlValidate", function (value, element) {
+    // allow any non-whitespace characters as the host part
+    return this.optional(element) ||
+      /^(?:(?:(?:https?|ftp):)?\/\/)(?:\S+(?::\S*)?@)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))(?::\d{2,5})?(?:[/?#]\S*)?$/i
+      .test(value);
+  }, 'Please enter a valid url.');
+  $("#formValidate").validate({
+    rules: {
+      cname: {
+        required: true
+      },
+      cdcurl: {
+        required: true,
+        urlValidate: true
+      },
+      cemail: {
+        required: true
+      },
+      cphone: {
+        required: true,
+        minlength: 10,
+        maxlength: 10,
+        // number:true
+      }
+    },
+    messages: {
+      cphone: {
+        required: "Enter a Phonenumber",
+        minlength: "Enter valid phone number",
+        maxlength: "Enter valid phone number",
+        number: "Enter valid phone number"
+      },
+    },
+    errorElement: 'div',
+    errorPlacement: function (error, element) {
+      var placement = $(element).data('error');
+      if (placement) {
+        $(placement).append(error)
+      } else {
+        error.insertAfter(element);
+      }
+    }
+  });
+
+  $("#formValidate1").validate({
+    rules: {
+      auto_cancel_appointment_time: "required",
+      appointment_interval: "required",
+      booking_before_time: "required",
+      template_color: "required",
+      work_end_time: "required",
+      work_start_time: "required",
+    },
+
+    errorElement: 'div',
+    errorPlacement: function (error, element) {
+      var placement = $(element).data('error');
+      if (placement) {
+        $(placement).append(error)
+      } else {
+        error.insertAfter(element);
+      }
+    }
+  });
+  $('.modal-trigger').leanModal();
+  $('.modal').leanModal();
+  $("#formValidates").validate({
+    rules: {
+      sname: {
+        required: true
+      },
+      description: {
+        required: true
+      },
+      amount: {
+        required: true,
+        number: true
+      }
+    },
+    //For custom messages
+    messages: {
+      sname: {
+        required: "Enter a service name",
+        minlength: "Enter at least 6 characters"
+      },
+      amount: {
+        number: "Enter valid amount"
+      }
+    },
+    errorElement: 'div',
+    errorPlacement: function (error, element) {
+      var placement = $(element).data('error');
+      if (placement) {
+        $(placement).append(error)
+      } else {
+        error.insertAfter(element);
+      }
+    }
+  });
 </script>
 <script>
-    // $(document).ready(function(){
-    //     $('.ul-1-btn').click(function(){
-    //         $('.ul-main-one').hide();
-    //         $('.ul-main-two').show();
-    //     })
-    //     $('.ul-2-btn').click(function(){
-    //         $('.ul-main-two').hide();
-    //         $('.ul-main-three').show();
-    //     })
-    //     $('.li-1').click(function(){
-    //         $('.ulmc').hide();
-    //         $('.ul-main-one').show();
-    //     })
-    //     $('.li-2').click(function(){
-    //         $('.ulmc').hide();
-    //         $('.ul-main-two').show();
-    //     })
-    //     $('.li-3').click(function(){
-    //         $('.ulmc').hide();
-    //         $('.ul-main-three').show();
-    //     })
-
-    // });
-
-    $("#addUsersForm").validate({
-        errorElement: 'div',
-        errorPlacement: function (error, element) {
-            var placement = $(element).data('error');
-            if (placement) {
-                $(placement).append(error)
-            } else {
-                error.insertAfter(element);
-            }
-        }
+  $(document).ready(function () {
+    $('.tooltipped').tooltip({
+      delay: 50
     });
-    // $("#addUsersForm").validate({
-    //     errorElement: 'div',
-    //     errorPlacement: function (error, element) {
-    //         var placement = $(element).data('error');
-    //         if (placement) {
-    //             $(placement).append(error)
-    //         } else {
-    //             error.insertAfter(element);
-    //         }
-    //     }
-    // });
-    $("#addCustomerForm").validate({
-        errorElement: 'div',
-        errorPlacement: function (error, element) {
-            var placement = $(element).data('error');
-            if (placement) {
-                $(placement).append(error)
-            } else {
-                error.insertAfter(element);
-            }
-        }
-    });
-    $.validator.addMethod("urlValidate", function (value, element) {
-        // allow any non-whitespace characters as the host part
-        return this.optional(element) || /^(?:(?:(?:https?|ftp):)?\/\/)(?:\S+(?::\S*)?@)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))(?::\d{2,5})?(?:[/?#]\S*)?$/i.test(value);
-    }, 'Please enter a valid url.');
-    $("#formValidate").validate({
-        rules: {
-            cname: {
-                required: true
-            },
-            cdcurl: {
-                required: true,
-                urlValidate: true
-            },
-            cemail: {
-                required: true
-            },
-            cphone: {
-                required: true,
-                minlength: 10,
-                maxlength: 10,
-                // number:true
-            }
-        },
-        messages: {
-            cphone: {
-                required: "Enter a Phonenumber",
-                minlength: "Enter valid phone number",
-                maxlength: "Enter valid phone number",
-                number: "Enter valid phone number"
-            },
-        },
-        errorElement: 'div',
-        errorPlacement: function (error, element) {
-            var placement = $(element).data('error');
-            if (placement) {
-                $(placement).append(error)
-            } else {
-                error.insertAfter(element);
-            }
-        }
-    });
-
-    $("#formValidate1").validate({
-        rules: {
-            auto_cancel_appointment_time: "required",
-            appointment_interval: "required",
-            booking_before_time: "required",
-            template_color: "required",
-            work_end_time: "required",
-            work_start_time: "required",
-        },
-
-        errorElement: 'div',
-        errorPlacement: function (error, element) {
-            var placement = $(element).data('error');
-            if (placement) {
-                $(placement).append(error)
-            } else {
-                error.insertAfter(element);
-            }
-        }
-    });
-    $('.modal-trigger').leanModal();
-    $('.modal').leanModal();
-    $("#formValidates").validate({
-        rules: {
-            sname: {
-                required: true
-            },
-            description: {
-                required: true
-            },
-            amount: {
-                required: true,
-                number: true
-            }
-        },
-        //For custom messages
-        messages: {
-            sname: {
-                required: "Enter a service name",
-                minlength: "Enter at least 6 characters"
-            },
-            amount: {
-                number: "Enter valid amount"
-            }
-        },
-        errorElement: 'div',
-        errorPlacement: function (error, element) {
-            var placement = $(element).data('error');
-            if (placement) {
-                $(placement).append(error)
-            } else {
-                error.insertAfter(element);
-            }
-        }
-    });
-</script>
-<script>
-    $(document).ready(function () {
-        $('.tooltipped').tooltip({ delay: 50 });
-        $(".button-collapse").sideNav();
+    $(".button-collapse").sideNav();
 
 
-    });
-    $('.dropdown-button').dropdown({
-        inDuration: 300,
-        outDuration: 225,
-        constrainWidth: false, // Does not change width of dropdown to that of the activator
-        hover: true, // Activate on hover
-        gutter: 0, // Spacing from edge
-        belowOrigin: false, // Displays dropdown below the button
-        alignment: 'left', // Displays dropdown with edge aligned to the left of button
-        stopPropagation: false // Stops event propagation
-    });
-
+  });
+  $('.dropdown-button').dropdown({
+    inDuration: 300,
+    outDuration: 225,
+    constrainWidth: false, // Does not change width of dropdown to that of the activator
+    hover: true, // Activate on hover
+    gutter: 0, // Spacing from edge
+    belowOrigin: false, // Displays dropdown below the button
+    alignment: 'left', // Displays dropdown with edge aligned to the left of button
+    stopPropagation: false // Stops event propagation
+  });
 </script>

@@ -23,18 +23,33 @@ angular.module('dmsAdminApp')
     $scope.settings.invoice_contact = {};
     $scope.settings.contact_to_show_customer = {};
     $scope.settings.days_of_service = {};
-    serviceservice.getManufactureList({}, {}, function (data) {
+   
+    serviceservice.getNewManufactureList({}, {}, function (data) {
       if (data.statusCode == 200) {
-        $scope.manufactureList = data.body.manufacture;
+        $scope.manufactureList = data.body.carlistDetails;
+        $scope.changeManufacture = function (opt) {
+          console.log(opt);
+          $scope.tempMakesList = $scope.manufactureList.find(function (element) {
+            if (element._id == opt) {
+              return element.make;
+            }
+          });
+          $scope.makesList = $scope.tempMakesList.make;
+          console.log($scope.makesList);
+        }
       }
     });
-    $scope.changeManufacture = function () {
-      console.log($scope.settings.manufactur)
-      serviceservice.getMakesList({ id: $scope.settings.manufactur }, {}, function (data) {
-        if (data.statusCode == 200) {
-          $scope.makesList = data.body.makes;
-        }
-      });
+
+    $scope.selectmake = $scope.selectmake || [];
+    $scope.changeMake = function (make) {
+      console.log(make)
+      if ($scope.selectmake.indexOf(make._id) === -1) {
+        $scope.selectmake.push(make._id);
+      } else {
+        var posO = $scope.selectmake.indexOf(make._id);
+        $scope.selectmake.splice(posO, 1)
+      }
+      console.log($scope.selectmake)
     }
 
     $scope.profileData = {};
@@ -62,18 +77,7 @@ angular.module('dmsAdminApp')
         });
       }
     });
-    $scope.selectmake = $scope.selectmake || [];
    
-     $scope.changeMake = function (make) {
-       console.log(make)
-       if ($scope.selectmake.indexOf(make._id) === -1) {
-         $scope.selectmake.push(make._id);
-       } else {
-         var posO = $scope.selectmake.indexOf(make._id);
-         $scope.selectmake.splice(posO, 1)
-       }
-       console.log($scope.selectmake)
-     }
     $scope.updateSetting = function () {
       if ($scope.formValidate.$valid) {
         var tempPhone = $scope.profileData.phone;

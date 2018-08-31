@@ -215,19 +215,49 @@ angular.module('dmsAdminApp')
       setTimeout(function () { $('.lean-overlay').hide(); }, 1000);
     }
 
-    serviceservice.getManufactureList({}, {}, function (data) {
-      if (data.statusCode == 200) {
-        $scope.manufactureList = data.body.manufacture;
+    //here we need to do new manafacture and make logic
+    // serviceservice.getManufactureList({}, {}, function (data) {
+    //   if (data.statusCode == 200) {
+    //     $scope.manufactureList = data.body.manufacture;
+    //   }
+    // });
+    // $scope.changeManufacture = function () {
+    //   console.log($scope.settings.manufactur)
+    //   serviceservice.getMakesList({ id: $scope.settings.manufactur }, {}, function (data) {
+    //     if (data.statusCode == 200) {
+    //       $scope.makesList = data.body.makes;
+    //     }
+    //   });
+    // }
+
+  serviceservice.getNewManufactureList({}, {}, function (data) {
+    if (data.statusCode == 200) {
+      $scope.manufactureList = data.body.carlistDetails;
+      $scope.changeManufacture = function (opt) {
+        console.log(opt);
+        $scope.tempMakesList = $scope.manufactureList.find(function (element) {
+          if (element._id == opt) {
+            return element.make;
+          }
+        });
+        $scope.makesList = $scope.tempMakesList.make;
+        console.log($scope.makesList);
       }
-    });
-    $scope.changeManufacture = function () {
-      console.log($scope.settings.manufactur)
-      serviceservice.getMakesList({ id: $scope.settings.manufactur }, {}, function (data) {
-        if (data.statusCode == 200) {
-          $scope.makesList = data.body.makes;
-        }
-      });
     }
+  });
+
+   $scope.selectmake = $scope.selectmake || [];
+   $scope.changeMake = function (make) {
+     console.log(make)
+     if ($scope.selectmake.indexOf(make._id) === -1) {
+       $scope.selectmake.push(make._id);
+     } else {
+       var posO = $scope.selectmake.indexOf(make._id);
+       $scope.selectmake.splice(posO, 1)
+     }
+     console.log($scope.selectmake)
+   }
+
     $scope.uploadFile = function (files) {
       var fd = new FormData();
       //Take the first selected file
@@ -1482,17 +1512,17 @@ angular.module('dmsAdminApp')
     $scope.logout = function () { session.destroy('accesstoken'); $state.go('login'); };
 
 
-    $scope.selectmake = $scope.selectmake || [];
-    $scope.changeMake = function (make) {
-      console.log(make)
-      if ($scope.selectmake.indexOf(make._id) === -1) {
-        $scope.selectmake.push(make._id);
-      } else {
-        var posO = $scope.selectmake.indexOf(make._id);
-        $scope.selectmake.splice(posO, 1)
-      }
-      console.log($scope.selectmake)
-    }
+    // $scope.selectmake = $scope.selectmake || [];
+    // $scope.changeMake = function (make) {
+    //   console.log(make)
+    //   if ($scope.selectmake.indexOf(make._id) === -1) {
+    //     $scope.selectmake.push(make._id);
+    //   } else {
+    //     var posO = $scope.selectmake.indexOf(make._id);
+    //     $scope.selectmake.splice(posO, 1)
+    //   }
+    //   console.log($scope.selectmake)
+    // }
     $scope.setFlag = function () {
       $scope.settings.finish_status = true;
       settings.updateSetting({}, $scope.settings, function (data) {
