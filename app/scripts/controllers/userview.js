@@ -355,4 +355,31 @@ angular.module('dmsAdminApp')
       }
     }
 
+  })  
+  .directive("myNumber", function () {
+    return {
+      restrict: "EA",
+      template: "<input type='text'  />",
+      replace: true,
+      scope: {
+        model: "="
+      },
+      link: function (scope, e, attrs) {
+        e.bind("keydown", function (e) {
+          // Special request from @endless for all these keys to be exempted
+          //
+          if (e.ctrlKey || e.altKey || e.keyCode >= 0 && e.keyCode <= 31 || e.keyCode >= 33 && e.keyCode <= 40 || e.keyCode == 46) {
+            return;
+          } else if (!(e.ctrlKey || (e.keyCode >= 48 && e.keyCode <= 57 && !e.shiftKey))) {
+            e.preventDefault();
+          }
+        }).bind("change", function () {
+          var e = angular.element(this);
+          if (isNaN(parseInt(e.val())) || e.val().indexOf(".") >= 0) {
+            // alert("incorrect number value entered1");
+            e.val("");
+          }
+        });
+      }
+    };
   });

@@ -1577,4 +1577,4 @@ angular.module('dmsAdminApp')
       link: function (scope, elem, attr) {
       }
     };
-  })
+  });

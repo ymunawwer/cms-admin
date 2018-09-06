@@ -959,11 +959,17 @@
                       ng-model="userData[$index].email" />
                   </div>
                 </div>
-                <div class="col m2 s12">
+                <!-- <div class="col m2 s12">
                   <div class="input-field">
                     <input type="text" placeholder="Phone*" required name="uphone{{$index}}" id="uphone{{$index}}"
                       ng-model="userData[$index].phone" />
                   </div>
+                </div> -->
+                <div class="col m2 s12">
+                    <div class="input-field">
+                        <my-number ng-model="userData[$index].phone" placeholder="Phone(Exclude dial code)*" required name="uphone{{$index}}" id="uphone{{$index}}" maxlength="10" size="10">
+                        <my-number>
+                    </div>
                 </div>
                 <div class="col m6 s12">
                   <p>
@@ -1604,11 +1610,17 @@
                         ng-model="customerData[$index].address" />
                     </div>
                   </div>
-                  <div class="col m2 s12">
+                  <!-- <div class="col m2 s12">
                     <div class="input-field">
                       <input type="text" placeholder="Phone*" required name="phone{{$index}}" id="phone{{$index}}"
                         ng-model="customerData[$index].phone" />
                     </div>
+                  </div> -->
+                  <div class="col m2 s12">
+                      <div class="input-field">
+                          <my-number ng-model="customerData[$index].phone" placeholder="Phone(Exclude dial code)*" required name="uphone{{$index}}" id="uphone{{$index}}" maxlength="10" size="10">
+                          <my-number>
+                      </div>
                   </div>
                   <div class="col m2 s12">
                     <div class="input-field">

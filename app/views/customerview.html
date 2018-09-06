@@ -73,7 +73,8 @@
                         </div>
                         <div class="input-field col s12">
                             <label for="cphone">Phone *</label>
-                            <input id="cphone" type="text" required name="cphone" data-error=".errorTxt4" ng-model="userData.phone">
+                            <my-number ng-model="userData.phone" id="cphone" name="cphone" placeholder="Phone(Exclude dial code)*" required  maxlength="10" size="10"></my-number>
+                            <!-- <input id="cphone" type="text" required name="cphone" data-error=".errorTxt4" ng-model="userData.phone"> -->
                             <div class="errorTxt4"></div>
                         </div>
     
@@ -236,12 +237,18 @@
                                     </div>
                                     <div class="col m2 s12">
                                         <div class="input-field">
-                                            <input type="text" placeholder="Address*" required name="address{{$index}}" id="address{{$index}}" ng-model="userData[$index].address"/>
+                                            <input type="text" placeholder="Address*" required name="uaddress{{$index}}" id="uaddress{{$index}}" ng-model="userData[$index].address"/>
                                         </div>
                                     </div>
-                                    <div class="col m2 s12">
+                                    <!-- <div class="col m2 s12">
                                         <div class="input-field">
                                             <input type="text" placeholder="Phone*" required name="phone{{$index}}" id="phone{{$index}}" ng-model="userData[$index].phone"/>
+                                        </div>
+                                    </div> -->
+                                    <div class="col m2 s12">
+                                        <div class="input-field">
+                                            <my-number ng-model="userData[$index].phone" placeholder="Phone(Exclude dial code)*" required name="uphone{{$index}}" id="uphone{{$index}}" maxlength="10" size="10">
+                                            <my-number>
                                         </div>
                                     </div>
                                     <div class="col m2 s12">
