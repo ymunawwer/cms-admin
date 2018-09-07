@@ -768,7 +768,7 @@ angular.module('dmsAdminApp')
           }
           if ($scope.step == 7 && stage == 1) {
             if (($scope.addCustomerForm.uname0.$valid || $scope.addCustomerForm.lname0.$valid || $scope.addCustomerForm.uemail0.$valid || $scope.addCustomerForm.address0.$valid
-              || $scope.addCustomerForm.phone0.$valid || $scope.addCustomerForm.vin0.$valid)) {
+              || $scope.addCustomerForm.uphone0.$valid || $scope.addCustomerForm.vin0.$valid)) {
               $('#modalSD').openModal({});
             } else {
               $scope.step = stage;
@@ -907,7 +907,7 @@ angular.module('dmsAdminApp')
         }
         if ($scope.step == 7 && stage == 2) {
           if (($scope.addCustomerForm.uname0.$valid || $scope.addCustomerForm.lname0.$valid || $scope.addCustomerForm.uemail0.$valid || $scope.addCustomerForm.address0.$valid
-            || $scope.addCustomerForm.phone0.$valid || $scope.addCustomerForm.vin0.$valid)) {
+            || $scope.addCustomerForm.uphone0.$valid || $scope.addCustomerForm.vin0.$valid)) {
             $('#modal18').openModal({});
           } else {
             $scope.step = stage;
@@ -928,7 +928,7 @@ angular.module('dmsAdminApp')
         }
         if ($scope.step == 7 && stage == 3) {
           if (($scope.addCustomerForm.uname0.$valid || $scope.addCustomerForm.lname0.$valid || $scope.addCustomerForm.uemail0.$valid || $scope.addCustomerForm.address0.$valid
-            || $scope.addCustomerForm.phone0.$valid || $scope.addCustomerForm.vin0.$valid)) {
+            || $scope.addCustomerForm.uphone0.$valid || $scope.addCustomerForm.vin0.$valid)) {
             $('#modalSD').openModal({});
           } else {
             $scope.step = stage;
@@ -949,7 +949,7 @@ angular.module('dmsAdminApp')
         }
         if ($scope.step == 7 && stage == 4) {
           if (($scope.addCustomerForm.uname0.$valid || $scope.addCustomerForm.lname0.$valid || $scope.addCustomerForm.uemail0.$valid || $scope.addCustomerForm.address0.$valid
-            || $scope.addCustomerForm.phone0.$valid || $scope.addCustomerForm.vin0.$valid)) {
+            || $scope.addCustomerForm.uphone0.$valid || $scope.addCustomerForm.vin0.$valid)) {
             $('#modalSD').openModal({});
           } else {
             $scope.step = stage;
@@ -970,7 +970,7 @@ angular.module('dmsAdminApp')
         }
         if ($scope.step == 7 && stage == 5 && skip == undefined) {
           if (($scope.addCustomerForm.uname0.$valid || $scope.addCustomerForm.lname0.$valid || $scope.addCustomerForm.uemail0.$valid || $scope.addCustomerForm.address0.$valid
-            || $scope.addCustomerForm.phone0.$valid || $scope.addCustomerForm.vin0.$valid)) {
+            || $scope.addCustomerForm.uphone0.$valid || $scope.addCustomerForm.vin0.$valid)) {
             $('#modalSD').openModal({});
           } else {
             $scope.step = stage;
@@ -982,7 +982,7 @@ angular.module('dmsAdminApp')
       else if ((stage == 6 && skip == true) || (stage == 6 && $scope.step == 7)) {
         if ($scope.step == 7 && stage == 6) {
           if (($scope.addCustomerForm.uname0.$valid || $scope.addCustomerForm.lname0.$valid || $scope.addCustomerForm.uemail0.$valid || $scope.addCustomerForm.address0.$valid
-            || $scope.addCustomerForm.phone0.$valid || $scope.addCustomerForm.vin0.$valid)) {
+            || $scope.addCustomerForm.uphone0.$valid || $scope.addCustomerForm.vin0.$valid)) {
             $('#modalSD').openModal({});
           } else {
             $scope.step = stage;
@@ -992,7 +992,7 @@ angular.module('dmsAdminApp')
         }
         if (stage == 6 && skip == true) {
           if (($scope.addCustomerForm.uname0.$valid || $scope.addCustomerForm.lname0.$valid || $scope.addCustomerForm.uemail0.$valid || $scope.addCustomerForm.address0.$valid
-            || $scope.addCustomerForm.phone0.$valid || $scope.addCustomerForm.vin0.$valid)) {
+            || $scope.addCustomerForm.uphone0.$valid || $scope.addCustomerForm.vin0.$valid)) {
             $('#modal6').openModal({});
           } else {
             $scope.step = stage;
