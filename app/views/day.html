@@ -20,7 +20,7 @@
                         <option ng-if="h<=12" ng-disabled="day.end_time<=h" ng-selected="day.start_time==h"
                             value="{{h}}" ng-repeat="h in hours">{{h}}:00 AM </option>
                         <option ng-if="h>12" ng-disabled="day.end_time<=h" ng-selected="day.start_time==h"
-                            value="{{h}}" ng-repeat="h in hours">{{h}}:00 PM </option>
+                            value="{{h}}" ng-repeat="h in hours">{{h-12}}:00 PM </option>
                     </select>
                     <!--  -->
                 </div>
@@ -34,7 +34,7 @@
                         <option ng-if="h<=12" ng-disabled="day.start_time>=h" ng-selected="day.end_time==h"
                             value="{{h}}" ng-repeat="h in hours">{{h}}:00 AM</option>
                         <option ng-if="h>12" ng-disabled="day.start_time>=h" ng-selected="day.end_time==h"
-                            value="{{h}}" ng-repeat="h in hours">{{h}}:00 PM</option>
+                            value="{{h}}" ng-repeat="h in hours">{{h-12}}:00 PM</option>
                     </select>
 
                 </div>

@@ -122,20 +122,19 @@
                                 </u>
                             </b> -->
                         </p>
-                        <p>Use this option to upload all the Users in your Dealership in bulk ( ie. Service Advisors, Schedulers,
-                            Technicians etc. ).</p>
+                        <p>Use this option to upload all the Customers in your Dealership in bulk. </p>
                         <p>
                             <b>Note:</b>
                         </p>
                         <p>- For bulk upload to happen, You would need upload the User data via. a Microsoft Excel file.</p>
                         <p>Step 1: Please download the MS Excel file format
-                            <a href="http://the-symbol.net/dsm-index/users.xls" targer="_blank" style="color: #000;">
+                            <a href="http://the-symbol.net/dsm-index/customers.xls" targer="_blank" style="color: #000;">
                                 <b>
                                     <u>HERE</u>
                                 </b>
                             </a>
                         </p>
-                        <p>Step 2: Please DONT change the format. Just fill in the User's data in the provided MS Excel file.
+                        <p>Step 2: Please DONT change the format. Just fill in the Customer's data in the provided MS Excel file.
                         </p>
                         <p>Step 3: Save the file in a folder on your computer.</p>
                         <p>Step 4: Tap on the "Select file" button below > Browse to the folder that contains the MS Excel file
@@ -154,7 +153,7 @@
                         <div id="card-alert" class="card red lighten-5" ng-if="alreadyu">
                             <div class="card-content red-text">
                                 <p ng-if="alreadyu.length!=0" style="color:#000">
-                                    The following Users items has been omitted ( as a User item with the same EMAIL exists for your dealership ) :
+The following Customers items has been omitted ( as a Customer item with the same EMAIL exists for your dealership ) :
                                     <br>
                                 </p>
                                 <p ng-repeat="all in alreadyu" style="text-transform:none !important">
@@ -193,7 +192,7 @@
                         <div id="card-alert" class="card red lighten-5" ng-if="invalidPhoneNum">
                             <div class="card-content red-text">
                                 <p ng-if="invalidPhoneNum.length!=0" style="color:#000">
-                                    The following Users items has been omitted ( as a User item with the same Phone exists for your dealership ) :
+The following Customers items has been omitted ( as a Customer item with the same Phone exists for your dealership ) :
                                     <br>
                                 </p>
                                 <p ng-repeat="all in invalidPhoneNum" style="text-transform:none !important">
@@ -206,7 +205,7 @@
     
                     </div>
                     <div class="center">
-                        <p>OR you can add Users manually here
+                        <p>OR you can add Customers manually here
                             <!-- <b class="right cap_txt">
                                 <u>
                                     <a ui-sref="userview" target="_blank()" class="black-text">View / Edit Users</a>

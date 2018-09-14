@@ -297,6 +297,20 @@ angular.module('dmsAdminApp')
             }
             $scope.availableVinNum = data.body.availableVin;
           }
+          if (data.body.invalidVinNumbers.length != 0) {
+            var stringVin = '';
+            for (var i = 0; i < data.body.invalidVinNumbers.length; i++) {
+              stringVin = data.body.invalidVinNumbers[i] + ',' + stringVin;
+            }
+            $scope.invalidVinNum = data.body.invalidVinNumbers;
+          }
+          if (data.body.invalidPhoneNumbers.length != 0) {
+            var stringPhone = '';
+            for (var i = 0; i < data.body.invalidPhoneNumbers.length; i++) {
+              stringPhone = data.body.invalidPhoneNumbers[i] + ',' + stringPhone;
+            }
+            $scope.invalidPhoneNum = data.body.invalidPhoneNumbers;
+          }
           $scope.getUsers();
           // $scope.userList = data.body.result ? $scope.userList.concat(data.body.result) : $scope.userList;
           var add = 0;
@@ -305,7 +319,7 @@ angular.module('dmsAdminApp')
           }
           // $timeout(updateTime, 10000);
           angular.element(document.querySelector('#userUploadForm'))[0].reset();
-          Materialize.toast('<span>' + data.body.createdUsers.length + " Users and " + data.body.createdVehicles.length + " Vehicles have been uploaded successfully!" + '</span>', 3000);
+          Materialize.toast('<span>' + data.body.createdUsers.length + " Customers and " + data.body.createdVehicles.length + " Vehicles have been uploaded successfully!" + '</span>', 3000);
         } else {
           Materialize.toast('<span>' + 'User adding has been failed' + '</span>', 3000);
         }
